@@ -4,7 +4,7 @@ export default class Decoration_Write_diary extends Component {
   render() {
     return (
       <div>
-        <h1>写日记</h1>
+        <h1>我写日记</h1>
       </div>
     )
   }
