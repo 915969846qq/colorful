@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-.App {
-  text-align: center;
-}
-=======
 
->>>>>>> 7236783ec6e93840a83988944b86f8400b6eea9d
+.App {
+  /* text-align: center; */
+    width: 1200px;
+    margin: 0 auto;
+}
 
 .App-logo {
   height: 40vmin;

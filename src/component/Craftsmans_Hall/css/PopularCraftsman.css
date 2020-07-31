@@ -1,0 +1,25 @@
+.craftsman{
+    margin: 5px 10px;
+    width: 284px;
+    border: 1px solid #666666;
+}
+.craftsman img{
+    cursor: pointer;
+}
+.craftsman_Info{
+    display: flex;
+    justify-content: space-between;
+}
+.craftsman_name{
+    font-size: 16px;
+    font-weight: bolder;
+
+}
+.TranslateNow{
+    color: red;
+}
+.craftsmanStyle{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
