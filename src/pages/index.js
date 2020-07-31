@@ -29,8 +29,7 @@ export default class index extends Component {
                         <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
                         <Route path="/Style_pavilion" component={Style_pavilion}></Route>
                     </div>
-                </Router>
-
+                </Router>       
             </div>
         )
     }
