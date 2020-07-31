@@ -5,13 +5,10 @@ export default class Secondhand_Market extends Component {
         return (
             <div>
                 {/* 二手馆 */}
-              
+                
             </div>
         )
     }
 
-  render() {
-    return <div>{/* 二手馆 */}</div>
-  }
 
 }
