@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 //个人中心 写日记
 export default class Decoration_Write_diary extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <h1>写日记</h1>
+      </div>
+    )
+  }
 }

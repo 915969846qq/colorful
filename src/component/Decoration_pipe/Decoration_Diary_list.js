@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-//装修列表最新日记
+//装修日记列表
 export default class Decoration_Diary_list extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <h1>装修日记列表</h1>
+      </div>
+    )
+  }
 }
