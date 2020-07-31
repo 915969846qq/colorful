@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
 import { Row, Col, Button, Divider } from 'antd'
 //个人中心-我的装修日记
 export default class Decoration_My_diary extends Component {
@@ -100,15 +99,4 @@ export default class Decoration_My_diary extends Component {
       </div>
     )
   }
-=======
-//个人中心-我的装修日记
-export default class Decoration_My_diary extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
->>>>>>> 7236783ec6e93840a83988944b86f8400b6eea9d
 }
