@@ -12,7 +12,6 @@ import Decoration_My_diary from '../component/Person_center/Decoration_My_diary'
 
 //首页
 export default class index extends Component {
-<<<<<<< HEAD
     render() {
         return (
             <div>
@@ -31,7 +30,7 @@ export default class index extends Component {
             </div>
         )
     }
-=======
+
   render() {
     return (
       <div>
@@ -72,5 +71,5 @@ export default class index extends Component {
       </div>
     )
   }
->>>>>>> b0259712ce6c92080f0667babec240aa7b0faf12
+
 }
