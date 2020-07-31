@@ -5,6 +5,9 @@ export default class Secondhand_Market extends Component {
         return (
             <div>
                 {/* 二手馆 */}
+              <div>
+                  <img src="" alt="">
+              </div>
             </div>
         )
     }
