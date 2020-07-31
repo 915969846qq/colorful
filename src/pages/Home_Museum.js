@@ -4,7 +4,7 @@ export default class Home_Museum extends Component {
     render() {
         return (
             <div>
-                
+                {/* 家居馆 */}
             </div>
         )
     }
