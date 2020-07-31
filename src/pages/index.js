@@ -16,7 +16,7 @@ export default class index extends Component {
         return (
             <div>
                 <Router>
-                    <div>
+                    <div> 
                         <Route path="/Building_materials_Museum" component={Building_materials_Museum}></Route>
                         <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
                         <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
