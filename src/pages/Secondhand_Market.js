@@ -9,6 +9,4 @@ export default class Secondhand_Market extends Component {
             </div>
         )
     }
-
-
 }
