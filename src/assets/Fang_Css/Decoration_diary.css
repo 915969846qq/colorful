@@ -11,6 +11,9 @@
 .YColor {
   color: #efbb00;
 }
+.OColor {
+  color: #f68429;
+}
 .RColor {
   color: #e04a37;
 }
@@ -23,11 +26,17 @@
   font-size: 18px;
   font-weight: 500;
 }
+.fontW {
+  font-weight: 300;
+}
 .padding20 {
   padding-left: 20px;
 }
 .paddingt10 {
   padding-top: 10px;
+}
+.paddingt30 {
+  padding-top: 30px;
 }
 .Border {
   border: 1px solid #b1b1b1;
@@ -97,6 +106,9 @@
 .marginL20 {
   margin-left: 20px;
 }
+.ib {
+  display: inline-block;
+}
 .mybtn {
   width: 120px;
   height: 30px;
@@ -125,6 +137,37 @@
 .fontS {
   font-size: 38px;
 }
+.font18 {
+  font-size: 18px;
+}
+.fontX {
+  font-size: 14px;
+}
+.font12 {
+  font-size: 12px;
+}
 .noborder {
   outline: none;
+}
+.height50 {
+  height: 50px;
+  line-height: 50px;
+}
+.myCenter {
+  text-align: center;
+}
+/* b边框线 */
+.Bborder {
+  border-bottom: 1px solid #b1b1b1;
+}
+.BBorder {
+  border-bottom: 1px dashed #b1b1b1;
+}
+.portrait80 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.width200 {
+  width: 200px;
 }

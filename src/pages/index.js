@@ -8,7 +8,7 @@ import Home_Museum from './Home_Museum'
 import Secondhand_Market from './Secondhand_Market'
 import Style_pavilion from './Style_pavilion'
 import Personal_Center_index from './Personal_Center_index'
-import Decoration_My_diary from '../component/Person_center/Decoration_My_diary'
+import Decoration_Write_diary from '../component//Person_center/Decoration_Write_diary'
 
 //首页
 export default class index extends Component {
@@ -44,8 +44,8 @@ export default class index extends Component {
             ></Route>
             <Route path="/Style_pavilion" component={Style_pavilion}></Route>
             <Route
-              path="/Decoration_My_diary"
-              component={Decoration_My_diary}
+              path="/Decoration_Write_diary"
+              component={Decoration_Write_diary}
             ></Route>
           </div>
         </Router>
