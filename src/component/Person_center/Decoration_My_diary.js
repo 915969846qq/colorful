@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Button, Divider } from 'antd'
 // import { WechatOutlined } from '@ant-design/icons'
-import '../../Css/iconfont/iconfont.css'
+import '../../assets/iconfont/Fang_iconfont/iconfont.css'
 //个人中心-我的装修日记
 export default class Decoration_My_diary extends Component {
   constructor(props) {
@@ -15,11 +15,11 @@ export default class Decoration_My_diary extends Component {
         <Row className="Border">
           {/* 用户头像 */}
           <Col span={4} className="center marginT20">
-            {/* <img
-              src={require('./Sellers_1.jpg')}
+            <img
+              src={require('../../assets/images/Decoration_img/Sellers_1.jpg')}
               alt=""
               className="portraitL"
-            /> */}
+            />
           </Col>
           {/* 装修基本信息 */}
           <Col span={5} offset={1}>
@@ -49,8 +49,11 @@ export default class Decoration_My_diary extends Component {
             </Row>
           </Col>
           {/* 微信二维码 */}
-          <Col span={4} offset={1}>
-            {/* <img src={require('./weixin.jpg')} alt="" /> */}
+          <Col span={4} offset={1} className="align">
+            <img
+              src={require('../../assets/images/Decoration_img/weixin.jpg')}
+              alt=""
+            />
           </Col>
         </Row>
         {/* 日记篇数 */}
@@ -78,12 +81,23 @@ export default class Decoration_My_diary extends Component {
             <p>装修公司对客户提醒合同信息</p>
             {/* 发送的图片 */}
             <Row>
-              <Col>{/* <img src={require('./Sellers_1.jpg')} alt="" /> */}</Col>
-              <Col offset={1}>
-                {/* <img src={require('./Sellers_1.jpg')} alt="" /> */}
+              <Col>
+                <img
+                  src={require('../../assets/images/Decoration_img/Sellers_1.jpg')}
+                  alt=""
+                />
               </Col>
               <Col offset={1}>
-                {/* <img src={require('./Sellers_1.jpg')} alt="" /> */}
+                <img
+                  src={require('../../assets/images/Decoration_img/Sellers_1.jpg')}
+                  alt=""
+                />
+              </Col>
+              <Col offset={1}>
+                <img
+                  src={require('../../assets/images/Decoration_img/Sellers_1.jpg')}
+                  alt=""
+                />
               </Col>
             </Row>
             <div className="marginT20 flex">
@@ -106,11 +120,11 @@ export default class Decoration_My_diary extends Component {
             <Row>
               <Col span={1} offset={1} className="WBcolor">
                 <div>
-                  {/* <img
-                    src={require('./Sellers_1.jpg')}
+                  <img
+                    src={require('../../assets/images/Decoration_img/Sellers_1.jpg')}
                     alt=""
                     className="portraitS"
-                  /> */}
+                  />
                 </div>
               </Col>
               <Col span={20}>
