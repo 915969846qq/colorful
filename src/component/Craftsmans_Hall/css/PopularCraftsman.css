@@ -1,19 +1,20 @@
 .craftsman{
-    margin: 5px 10px;
+    margin: 5px 8px;
     width: 284px;
     border: 1px solid #666666;
 }
-.craftsman img{
+.cursor{
     cursor: pointer;
 }
-.craftsman_Info{
+.flex{
     display: flex;
+}
+.craftsman_Info{
     justify-content: space-between;
 }
 .craftsman_name{
     font-size: 16px;
     font-weight: bolder;
-
 }
 .TranslateNow{
     color: red;
@@ -21,5 +22,48 @@
 .craftsmanStyle{
     width: 1200px;
     margin: 0 auto;
+    flex-wrap: wrap;
+}
+.padding{
+    padding: 13px ;
     display: flex;
+}
+
+.titleStyle{
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.joinUs{
+    font-size: 14px;
+}
+.joinUs:hover{
+    color: red;
+}
+.margin{
+    margin-right: 25px;
+}
+.pavilionLImg{
+    width: 283px;
+    height: 300px;
+}
+.craftsman_list_name{
+    font-size: 18px;
+    color: #555;
+}
+.craftsman_company{
+    font-size: 14px;
+    color:#c3c2c2;
+}
+.design{
+    width:60px ;
+    height: 26px;
+    background-color: red;
+    color: white;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 4px;
+}
+.craftsman_list_padding{
+    padding: 13px ;
 }
