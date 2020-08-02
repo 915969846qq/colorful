@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react'
 import '../../assets/iconfont/Fang_iconfont/iconfont.css'
 // 上传
-import { Upload } from 'antd'
+// import { Upload } from 'antd'
 // import ImgCrop from 'antd-img-crop'
 // 结构
 import { Divider, Row, Col } from 'antd'
@@ -20,33 +20,33 @@ function onChange(date, dateString) {
 }
 // 上传图片
 const Demo = () => {
-  const [fileList, setFileList] = useState([
-    {
-      uid: '-1',
-      name: 'image.png',
-      status: 'done',
-      url:
-        'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    },
-  ])
+  // const [fileList, setFileList] = useState([
+  //   {
+  //     uid: '-1',
+  //     name: 'image.png',
+  //     status: 'done',
+  //     url:
+  //       'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+  //   },
+  // ])
 
-  const onChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList)
-  }
+  // const onChange = ({ fileList: newFileList }) => {
+  //   setFileList(newFileList)
+  // }
 
-  const onPreview = async (file) => {
-    let src = file.url
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(file.originFileObj)
-        reader.onload = () => resolve(reader.result)
-      })
-    }
+  // const onPreview = async (file) => {
+  //   let src = file.url
+  //   if (!src) {
+  //     src = await new Promise((resolve) => {
+  //       const reader = new FileReader()
+  //       reader.readAsDataURL(file.originFileObj)
+  //       reader.onload = () => resolve(reader.result)
+  //     })
+  //   }
     const image = new Image()
-    image.src = src
-    const imgWindow = window.open(src)
-    imgWindow.document.write(image.outerHTML)
+    // image.src = src
+    // const imgWindow = window.open(src)
+    // imgWindow.document.write(image.outerHTML)
   }
 
   // return (
@@ -62,7 +62,7 @@ const Demo = () => {
   //   {/* //   </Upload> */}
   //   // </ImgCrop>
   // )
-}
+// }
 export default class Decoration_Write_diary extends Component {
   render() {
     return (

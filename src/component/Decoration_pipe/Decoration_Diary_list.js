@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 import Decorationcheck from './Decoration_check'
 import Decorationshow from './Decoration_show'
 import '../../assets/iconfont/Fang_iconfont/iconfont.css'
+
+// import Decorationcheck from './Decoration_check'
+// import Decorationshow from './Decoration_show'
 //装修日记列表
 export default class Decoration_Diary_list extends Component {
   render() {
