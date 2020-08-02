@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react'
 import '../../assets/iconfont/Fang_iconfont/iconfont.css'
 // 上传
 import { Upload } from 'antd'
-import ImgCrop from 'antd-img-crop'
+// import ImgCrop from 'antd-img-crop'
 // 结构
 import { Divider, Row, Col } from 'antd'
 // 步骤进行
@@ -49,25 +49,21 @@ const Demo = () => {
     imgWindow.document.write(image.outerHTML)
   }
 
-  return (
-    <ImgCrop rotate>
-      <Upload
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-        listType="picture-card"
-        fileList={fileList}
-        onChange={onChange}
-        onPreview={onPreview}
-      >
-        {fileList.length < 5 && '+ Upload'}
-      </Upload>
-    </ImgCrop>
-  )
+  // return (
+  //   <ImgCrop rotate>
+  //   {/* //   <Upload */}
+  //   {/* //     action="https://www.mocky.io/v2/5cc8019d300000980a055e76" */}
+  //   {/* //     listType="picture-card" */}
+  //   {/* //     fileList={fileList} */}
+  //   {/* //     onChange={onChange} */}
+  //   {/* //     onPreview={onPreview} */}
+  //   {/* //   > */}
+  //   {/* //     {fileList.length < 5 && '+ Upload'} */}
+  //   {/* //   </Upload> */}
+  //   // </ImgCrop>
+  // )
 }
 export default class Decoration_Write_diary extends Component {
-<<<<<<< HEAD
-
-=======
->>>>>>> 3f3950c0a0fcac9129e738e33d78906bfddae69b
   render() {
     return (
       <div className="Width1200">

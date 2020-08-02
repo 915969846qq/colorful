@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Divider, Row, Col, Pagination } from 'antd'
-import $ from 'jquery'
+// import $ from 'jquery'
 class Decoration_show extends Component {
   constructor(props) {
     super(props)
@@ -9,17 +9,17 @@ class Decoration_show extends Component {
   componentDidMount() {
     // console.log()
     // 当用户点击跳转页数时
-    $('.ant-pagination-item').on('click', function () {
-      console.log($(this))
-    })
-    // 用户点击，下一页
-    $('.ant-pagination-next').on('click', function () {
-      console.log($(this))
-    })
-    // 用户点击上一页
-    $('.ant-pagination-prev').on('click', function () {
-      console.log($(this))
-    })
+    // $('.ant-pagination-item').on('click', function () {
+    //   console.log($(this))
+    // })
+    // // 用户点击，下一页
+    // $('.ant-pagination-next').on('click', function () {
+    //   console.log($(this))
+    // })
+    // // 用户点击上一页
+    // $('.ant-pagination-prev').on('click', function () {
+    //   console.log($(this))
+    // })
   }
   render() {
     return (

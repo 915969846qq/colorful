@@ -1,0 +1,60 @@
+.mainBox{
+    width: 100%;
+    background-color: #f8f8f8;
+    margin: 0 auto;
+}
+.box{
+    width:1200px;
+    height: 290px;
+    background-color: white;
+    margin: 70px auto;
+    display: flex;
+    /* border: 1px solid darkblue; */
+}
+.box_left{
+    width:290px ;
+    height:290px ;
+    text-align: center;
+}
+.imgStyle{
+    width:140px ;
+    height:140px ;
+    border-radius: 100%;
+    margin: 10px auto;
+}
+.nameStyle{
+    font-size: 30px;
+    color: red;
+}
+.freeDesign{
+    width:140px ;
+    height:40px ;
+    color: wheat;
+    background-color: red;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+/* .box_right{
+    border: 1px solid darkblue;
+    width:910px ;
+    height:290px;
+} */
+table{
+    width:910px;
+    height:290px;
+}
+td{
+    width: 50%;
+}
+h1{
+    width: 1200px;
+    margin: 10px auto;
+    font-weight: bolder;
+    font-size: 24px;
+}
+.page{
+    margin-left: 900px;
+}
