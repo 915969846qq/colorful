@@ -64,10 +64,6 @@ const Demo = () => {
   )
 }
 export default class Decoration_Write_diary extends Component {
-<<<<<<< HEAD
-
-=======
->>>>>>> 3f3950c0a0fcac9129e738e33d78906bfddae69b
   render() {
     return (
       <div className="Width1200">

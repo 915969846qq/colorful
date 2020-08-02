@@ -3,9 +3,23 @@ import { Row, Col } from 'antd'
 class Decoration_check extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      data: {
+        city: ['成都', '重庆', '武汉', '北京', '上海'],
+        style: ['古风', '现代', '洋房', '四合院', '欧式'],
+        Size: ['60以下', '60-80', '80-100', '100-120', '120以上'],
+      },
+    }
   }
   render() {
+    let items = []
+    for (let i = 0; i < this.state.data.city.length; i++) {
+      items.push(
+        <span className="marginL20" key={this.state.data.city[i]}>
+          {this.state.data.city[i]}
+        </span>
+      )
+    }
     return (
       <div>
         <h1>装修日志选择列表</h1>
@@ -21,7 +35,7 @@ class Decoration_check extends Component {
               风格
             </Col>
             <Col span={22} className="padding20 relative">
-              1111
+              {items}
               <span className="iconfont icon-xiala option_write"></span>
             </Col>
           </Row>

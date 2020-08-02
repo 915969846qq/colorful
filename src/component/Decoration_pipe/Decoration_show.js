@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
+// 使用路由
+import { withRouter } from 'react-router-dom'
 import { Divider, Row, Col, Pagination } from 'antd'
 import $ from 'jquery'
 class Decoration_show extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      // data: {
+      //   city: ['成都', '重庆', '武汉', '北京', '上海'],
+      //   style: ['古风', '现代', '洋房', '四合院', '欧式'],
+      //   Size: ['60以下', '60-80', '80-100', '100-120', '120以上'],
+      // },
+    }
   }
   componentDidMount() {
     // console.log()
@@ -20,6 +28,45 @@ class Decoration_show extends Component {
     $('.ant-pagination-prev').on('click', function () {
       console.log($(this))
     })
+    // 用户点击查看详情时
+    $('.details').on('click', function () {
+      console.log($(this))
+    })
+  }
+  details = () => {
+    console.log(this.state)
+    this.setState(
+      {
+        data: {
+          Customer_Img: '../../assets/images/Decoration_img/Sellers_1.jpg',
+          Customer_Name: '那一天',
+          Customer_Date: '2020.8.2',
+          Customer_Comment: '还需要进一步装修',
+          Customer_Reply: '希望快一点',
+          Renovation_Style: '古风',
+          Renovation_Size: '120',
+          Renovation_City: '成都',
+          Renovation_Materials: '油漆',
+          Renovation_people: '那是一阵风',
+          Renovation_Area: '天府之境',
+          Renovation_Img: '../../assets/images/Decoration_img/Sellers_1.jpg',
+          Journal_See: '237',
+          Journal_Collection: '99',
+          Journal_Comment: '66',
+          Journal_Date: '2020.8.31',
+          Journal_Img: '../../assets/images/Decoration_img/Sellers_1.jpg',
+          Company_Comment: '你好，我们将于9.31日装修完毕',
+          Reply_Name: '智能家居',
+        },
+      },
+      // 当数据进行更改之后再进行跳转
+      () => {
+        this.props.history.push({
+          pathname: '/Decoration_My_diary',
+          params: this.state.data,
+        })
+      }
+    )
   }
   render() {
     return (
@@ -41,7 +88,7 @@ class Decoration_show extends Component {
             <Col span={22} className="padding20">
               <Row>
                 <Col span={15}>
-                  <div className="font18">
+                  <div onClick={this.details.bind(this)} className="font18 myh">
                     小区地址———————— 用户 的装修日记
                     <span className="font12">【多少篇】</span>
                   </div>
@@ -96,4 +143,4 @@ class Decoration_show extends Component {
   }
 }
 
-export default Decoration_show
+export default withRouter(Decoration_show)

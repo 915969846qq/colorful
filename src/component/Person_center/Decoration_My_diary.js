@@ -6,6 +6,7 @@ import '../../assets/iconfont/Fang_iconfont/iconfont.css'
 export default class Decoration_My_diary extends Component {
   constructor(props) {
     super(props)
+    // console.log(props.location.params)
     this.state = {}
   }
   render() {
