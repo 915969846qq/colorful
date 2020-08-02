@@ -1,0 +1,16 @@
+/* 大种类选择盒子 */
+.sec_typrchoose ul{
+   display: flex;
+ padding-left: 10px;
+}
+.sec_typrchoose p{
+    font-size: 24px;
+    font-weight: bolder;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.sec_typrchoose ul li{
+list-style: none;
+margin-right: 20px;
+font-size: 20px;
+}

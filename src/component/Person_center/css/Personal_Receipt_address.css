@@ -1,0 +1,20 @@
+/* 收货地址单项盒子 */
+.receive_address>div{
+    margin-bottom: 20px;
+}
+/* 收货地址每行名字 */
+.receive_address>div>span{
+    display: block;
+    float:left;
+    width: 100px;
+    text-align: right;
+    margin-right: 20px;
+    line-height: 32px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+    -moz-appearance: textfield;
+  }
