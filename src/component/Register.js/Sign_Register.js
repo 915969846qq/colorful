@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {BrowserRouter as Router,Route,Link}  from 'react-router-dom'
+import Header from '../commen/header'
 
 
 
@@ -7,7 +9,10 @@ export default class Sign_Register extends Component {
     render() {
         return (
             <div>
-                注册
+               <Router>
+                   <Header></Header>
+                   div
+               </Router>
             </div>
         )
     }
