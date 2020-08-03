@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Select,Input,Upload, Modal,Button} from 'antd'
 import { PlusOutlined } from '@ant-design/icons';
 import './css/secpublish_second.css'
+import './css/city_chenming.css'
+import City from '../../util/chajian/city'
 const { Option } = Select;
 const {TextArea}=Input;
 class Secpublish_second extends Component {
@@ -64,6 +66,11 @@ phonereal=e=>{
 
 // ====================================提交数据==================================
       submitinfo=()=>{
+        let province=document.body.getElementsByClassName("myprovince")[0].value
+        let city=document.body.getElementsByClassName("mycity")[0].value
+        let county=document.body.getElementsByClassName("mycounty")[0].value
+       let address=province+city+county
+       console.log(address)
         console.log(this.state.fileList[0].thumbUrl)
     }
 
@@ -136,7 +143,7 @@ phonereal=e=>{
 {/* ======================================================================= */}
                
                 <div ><span>交易地点:</span>
-                    <Input placeholder="(具体到区/县)" value={this.state.dizhi} onChange={this.onchange.bind(this,"dizhi")} style={{width:200}} />
+                  <City></City>
                 </div>
                 <div ><span>联系人 :</span>
                     <Input placeholder="联系人" value={this.state.lianxiren} onChange={this.onchange.bind(this,"lianxiren")} style={{width:200}} />
