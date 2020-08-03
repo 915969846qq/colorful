@@ -32,7 +32,6 @@ export default class index extends Component {
                         <Route path="/Personal_Center_index" component={Personal_Center_index}></Route> 
                         <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
                         <Route path="/Style_pavilion" component={Style_pavilion}></Route>      */}
-                        
                         <div className="body">
                         
                         <div id="site-nav" data-spm="a2226mz" role="navigation">
@@ -44,7 +43,7 @@ export default class index extends Component {
                                 <div className="sn-container">
                                     <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来科乐福</em><a className="sn-login" href="//login.tmall.com/?redirectURL=https%3A%2F%2Fwww.tmall.com%2F%3Ffrom%3Dzebra%3Aoffline" target="_top">请登录</a>
                                     <Link to="/Sign_Register">免费注册</Link></p>  
-                                    <ul className="sn-quick-menu">
+                                    <ul className="sn-quick-menu">    
                                         <li className="sn-mytaobao menu-item j_MyTaobao"></li>
                                         <li className="sn-cart"><i className="fp-iconfont iconfont icon-qicheqianlian-"></i>
                                             <a className="sn-cart-link" href="//cart.tmall.com/cart/myCart.htm?from=btop" target="_top" rel="nofollow" data-spm-anchor-id="875.7931836/B.a2226mz.7">购物车

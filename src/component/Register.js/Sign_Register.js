@@ -7,7 +7,7 @@ export default class Sign_Register extends Component {
     render() {
         return (
             <div>
-                11111111111
+                注册
             </div>
         )
     }
