@@ -1,13 +1,44 @@
 import React, { Component } from 'react'
 import { Row, Col, Button, Divider } from 'antd'
-// import { WechatOutlined } from '@ant-design/icons'
+// import axios from 'axios'
+import Store from '../../store/Decoration_store'
 import '../../assets/iconfont/Fang_iconfont/iconfont.css'
 //个人中心-我的装修日记
 export default class Decoration_My_diary extends Component {
   constructor(props) {
     super(props)
     // console.log(props.location.params)
-    this.state = {}
+    this.state = {
+      data: 1,
+    }
+    if (props.location.params !== undefined) {
+      sessionStorage.setItem('data', JSON.stringify(props.location.params))
+    }
+    // 页面获取数据
+    // console.log('现在是获取数据111')
+    // console.log(this.state.data)
+    Store.dispatch({
+      type: 'Decoration_data',
+      id: this.state.data,
+    })
+    // 发送请求
+    // axios
+    //   .get('http://localhost:8888/user.do', { username: '2495944984@111' })
+    //   .then((response) => {
+    //     console.log(response)
+    //   })
+  }
+  // componentDidMount() {
+  //   console.log('现在是获取数据')
+  //   console.log(this.state.data)
+  //   Store.dispatch({
+  //     type: 'Decoration_data',
+  //     data: '传递数据',
+  //   })
+  // }
+  componentWillUnmount() {
+    // console.log('1111')
+    sessionStorage.clear()
   }
   render() {
     return (
