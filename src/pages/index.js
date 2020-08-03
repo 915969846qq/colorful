@@ -8,8 +8,9 @@ import Home_Museum from './Home_Museum'
 import Secondhand_Market from './Secondhand_Market'
 import Style_pavilion from './Style_pavilion'
 import Personal_Center_index from './Personal_Center_index'
+import Personal_My_reservation from "../component/Person_center/Personal_My_reservation"
 
-import Decoration_My_diary from '../component/Person_center/Decoration_My_diary'
+import MyCenter_index from '../component/Person_center/MyCenter_index'
 import  Craftsman_Pavilion_list from "../component/Craftsmans_Hall/Craftsman_Pavilion_list"
 import  Craftsman_details from "../component/Craftsmans_Hall/Craftsman_details"
 import  Furniture_Museum_details from "../component/Furniture_house/Furniture_Museum_details"
@@ -46,8 +47,8 @@ export default class index extends Component {
             ></Route>
             <Route path="/Home_Museum" component={Home_Museum}></Route>
             <Route
-              path="/Personal_Center_index"
-              component={Personal_Center_index}
+              path="/MyCenter_index"
+              component={MyCenter_index}
             ></Route>
             <Route
               path="/Secondhand_Market"
@@ -75,6 +76,11 @@ export default class index extends Component {
               path="/Furniture_Museum_details"
               component={Furniture_Museum_details}
             ></Route>
+            <Route
+              path="/Personal_My_reservation"
+              component={Personal_My_reservation}
+            ></Route>
+            
           </div>
         </Router>
       </div>

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 //引入css
 import "./css/mycenter.css"
 //个人中心
-class Personal_My_reservation extends Component {
+class Personal_Center_index extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
@@ -28,4 +28,4 @@ class Personal_My_reservation extends Component {
     }
 }
  
-export default Personal_My_reservation;
+export default Personal_Center_index;

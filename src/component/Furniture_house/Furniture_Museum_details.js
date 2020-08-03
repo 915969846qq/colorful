@@ -134,7 +134,7 @@ class Furniture_Museum_details extends Component {
         let arr1=this.state.recommendedGoods.map((item,index)=>{
             return(
                     <div className="recommendedStyle" key={index}>
-                        <img src={require(`../../${item.recommendedImg}`)} className="recommendedImgStyle cursor"/>
+                        <img src={require(`../../${item.recommendedImg}`)} className="recommendedImgStyle cursor" alt=""/>
                         <div className="recommendedTitleStyle">{item.title}</div>
                         <div className="goodsFlex justify">
                             <div className="recommendedPriceStyle">{item.price}</div>
