@@ -47,8 +47,8 @@ export default class index extends Component {
             ></Route>
             <Route path="/Home_Museum" component={Home_Museum}></Route>
             <Route
-              path="/MyCenter_index"
-              component={MyCenter_index}
+              path="/Personal_Center_index"
+              component={Personal_Center_index}
             ></Route>
             <Route
               path="/Secondhand_Market"
