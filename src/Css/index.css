@@ -402,7 +402,7 @@ button {
 }
 .category-con .category-type .fp-iconfont {
     display: inline-block;
-    font-size: 16px;
+    font-size: 12px;
     margin-left: 14px;
     font-weight: 700;
 }
@@ -414,8 +414,8 @@ em, i {
 }
 .category-con .category-type .text {
     display: inline-block;
-    font-size: 16px;
-    margin-left: 8px;
+    font-size: 14px;
+    margin-left: 22px;
     font-weight: 700;
 }
 .category-con .nav-con {
@@ -442,18 +442,19 @@ em, i {
 }
 .category-con .nav-con .normal-nav .nav-item i {
     display: inline-block;
-    margin-left: 14px;
-    margin-right: 4px;
+    margin-left: 12px;
+    margin-right: 20px;
     line-height: 31px;
     font-size: 16px;
 }
+
 .category-con .nav-con .normal-nav .nav-item a {
     height: 31px;
     color: #fff;
     font-size: 14px;
 }
 .category-con .nav-con *, .category-con .nav-con :after, .category-con .nav-con :before {
-    -webkit-box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }

@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
 import { NavLink, BrowserRouter as Router,Route } from 'react-router-dom'
 import '../Css/index.css'
+import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
-import Building_materials_Museum from './Building_materials_Museum'
-import Craftsman_Pavilion from './Craftsman_Pavilion'
-import Decoration_Museum from './Decoration_Museum'
-import Furniture_Museum from './Furniture_Museum'
-import Home_Museum from './Home_Museum'
-import Secondhand_Market from './Secondhand_Market'
-import Style_pavilion from './Style_pavilion'
-import Personal_Center_index from './Personal_Center_index'
 
 
 
@@ -24,16 +17,9 @@ export default class index extends Component {
         return (
             <div id="body"> 
                     <Router>
-                        <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route>
-                        <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
-                        <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
-                        <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
-                        <Route path="/Home_Museum" component={Home_Museum}></Route>
-                        <Route path="/Personal_Center_index" component={Personal_Center_index}></Route> 
-                        <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
-                        <Route path="/Style_pavilion" component={Style_pavilion}></Route>   
+                        
                         <div className="body">
-                       
+                        
                         <div id="site-nav" data-spm="a2226mz" role="navigation">
                             <div id="sn-bg">
                                 <div className="sn-bg-right">
@@ -215,14 +201,16 @@ export default class index extends Component {
                                         <img className="tmall-logo-img" src={require('../assets/images/logo2.png')} alt=""/>
                                     </div>
                                     <div className="category-type">
-                                        <i className="fp-iconfont"></i>
-                                        <div className="text" data-spm-anchor-id="875.7931836/B.0.i2.2cc94265bHtErm">商品分类</div>
+                                        <i className="fp-iconfont iconfont icon-gengduo"></i>
+                                        <div className="text" data-spm-anchor-id="875.7931836/B.0.i2.2cc94265bHtErm">
+                                            商品分类
+                                        </div>
                                     </div>
                                     <div className="category-tab-content">
                                         <div className="nav-con j_tabPannel category-tab-pannel pannel-normal">
                                         <ul className="normal-nav clearfix">
                                                 <li className="j_MenuNav nav-item nav-item-0 category-loaded" data-spm="category2016010">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-nvzhuang"></i>
                                                     <a href="//nvzhuang.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561681423980_708026">女装</a>
                                                     
                                                         /<a href="//neiyi.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561681423980_708026">内衣</a>
@@ -232,7 +220,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-1 category-loaded" data-spm="category2016011">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-nvzhuang"></i>
                                                     <a href="//nanzhuang.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561677576501_708026">男装</a>
                                                     
                                                         / <a href="//sports.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561677576501_708026">运动户外</a>
