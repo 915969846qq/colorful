@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { NavLink, BrowserRouter as Router,Route } from 'react-router-dom'
+import '../Css/index.css'
+import { Carousel } from 'antd'
 import Building_materials_Museum from './Building_materials_Museum'
 import Craftsman_Pavilion from './Craftsman_Pavilion'
 import Decoration_Museum from './Decoration_Museum'
@@ -8,8 +10,8 @@ import Home_Museum from './Home_Museum'
 import Secondhand_Market from './Secondhand_Market'
 import Style_pavilion from './Style_pavilion'
 import Personal_Center_index from './Personal_Center_index'
-import '../Css/index.css'
-import { Carousel } from 'antd'
+
+
 
 //首页
 export default class index extends Component {
@@ -21,18 +23,17 @@ export default class index extends Component {
           };
         return (
             <div id="body"> 
-                <Router>
-                    
-                        <div className="body">
-                        <Route path="/Building_materials_Museum" component={Building_materials_Museum}></Route>
+                    <Router>
+                        <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route>
                         <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
                         <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
                         <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
                         <Route path="/Home_Museum" component={Home_Museum}></Route>
-                        <Route path="/Personal_Center_index" component={Personal_Center_index}></Route>
+                        <Route path="/Personal_Center_index" component={Personal_Center_index}></Route> 
                         <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
-                        <Route path="/Style_pavilion" component={Style_pavilion}></Route>
-                        
+                        <Route path="/Style_pavilion" component={Style_pavilion}></Route>   
+                        <div className="body">
+                       
                         <div id="site-nav" data-spm="a2226mz" role="navigation">
                             <div id="sn-bg">
                                 <div className="sn-bg-right">
@@ -118,14 +119,10 @@ export default class index extends Component {
                                 <div className="inner-con1">
                                     <div className="inner-con2 clearfix">
                                         
-                                        <a href="//chaoshi.tmall.com?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561837688591_2429983" aria-label="天猫超市" data-spm-anchor-id="875.7931836/B.2016004.1">
-                                            
+                                        <NavLink  to="/Building_materials_Museum">
                                                风格馆
-                                            
-
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </NavLink>
                                         
                                         <a href="//www.tmall.hk/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561833841102_2429983" aria-label="天猫国际" data-spm-anchor-id="875.7931836/B.2016004.2">
                                             
@@ -1232,12 +1229,12 @@ export default class index extends Component {
                         </div>
                        
                     </div>     
-                    
+                    </Router>
                     
                 
                    
                 
-                </Router>      
+             
                
 
 

@@ -342,9 +342,8 @@ button {
     height: 36px;
     line-height: 36px;
     width: 100%;
-    position: absolute;
-    bottom: 0;
 }
+    
 .main-nav .inner-con1 {
     width: 1230px;
     margin: 0 auto;
@@ -388,7 +387,7 @@ button {
     width: 290px;
     position: absolute;
     z-index: 100000;
-    margin-top: -117px;
+    margin-top: -157px;
 }
 .category-con .category-type {
     width: 200px;
@@ -399,6 +398,7 @@ button {
     position: absolute;
     z-index: 100;
     line-height: 36px;
+    top: -36px;
 }
 .category-con .category-type .fp-iconfont {
     display: inline-block;
