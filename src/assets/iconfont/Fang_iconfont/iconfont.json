@@ -1,0 +1,107 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1802316",
+      "name": "QQ空间",
+      "font_class": "qqkongjian1",
+      "unicode": "e508",
+      "unicode_decimal": 58632
+    },
+    {
+      "icon_id": "2346426",
+      "name": "横线",
+      "font_class": "hengxian",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "5121549",
+      "name": "微博",
+      "font_class": "weibo",
+      "unicode": "e503",
+      "unicode_decimal": 58627
+    },
+    {
+      "icon_id": "6413471",
+      "name": "下  拉",
+      "font_class": "xiala",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "7000016",
+      "name": "添加图标",
+      "font_class": "jia",
+      "unicode": "e501",
+      "unicode_decimal": 58625
+    },
+    {
+      "icon_id": "9052086",
+      "name": "收 藏 (1)",
+      "font_class": "shoucang",
+      "unicode": "e502",
+      "unicode_decimal": 58626
+    },
+    {
+      "icon_id": "9531690",
+      "name": "优惠券",
+      "font_class": "youhuiquan",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "10137149",
+      "name": "横线",
+      "font_class": "hengxian1",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "10147551",
+      "name": "信息",
+      "font_class": "xinxi",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "12467829",
+      "name": "分页 - 下一页",
+      "font_class": "fenye-xiayiye",
+      "unicode": "e504",
+      "unicode_decimal": 58628
+    },
+    {
+      "icon_id": "12851119",
+      "name": "电  话",
+      "font_class": "dianhua",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "13105296",
+      "name": "浏览",
+      "font_class": "liulan",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "13278834",
+      "name": "微信",
+      "font_class": "weixin-copy",
+      "unicode": "e505",
+      "unicode_decimal": 58629
+    },
+    {
+      "icon_id": "13564284",
+      "name": "分页 - 下一页",
+      "font_class": "next-page",
+      "unicode": "e518",
+      "unicode_decimal": 58648
+    }
+  ]
+}

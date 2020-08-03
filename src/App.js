@@ -2,7 +2,7 @@ import React from 'react'
 // import './App.css'
 import Index from './pages/index'
 import 'antd/dist/antd.css'
-import './Css/Decoration_diary.css'
+import './assets/Fang_Css/Decoration_diary.css'
 
 
 

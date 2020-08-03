@@ -1,0 +1,54 @@
+/* 二手商品大盒子 */
+.secprod_detailbox{
+    width: 250px;
+    
+}
+/* 二手商品盒子 */
+.secprod_detail{   
+    width: 200px;
+    margin:0 auto;
+    border: 1px solid rgba(128, 128, 128, 0.493);
+    overflow: hidden;
+}
+/* 底部文字信息 */
+.sec-textbox{
+    padding: 0 10px;
+}
+/* //二手价格 */
+.sec_price{
+font-size: 20px;
+color:#ff26009c;
+}
+/* //卖家头像 */
+.sec_sellerimg{
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+    
+}
+/* 商品描述 */
+.sec_title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* 卖家盒子 */
+.sec_seller_wrap{
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid rgba(128, 128, 128, 0.493);
+    padding-top: 3px;
+    
+}
+p{
+    margin: 5px 0;
+    
+}
+/* 详细地址 */
+.sec_detailregion{
+font-size: 12px;
+float:right;
+margin-right: 3px;
+}

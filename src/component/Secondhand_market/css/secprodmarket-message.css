@@ -1,0 +1,97 @@
+/* 主要内容盒子 */
+.sec_detail_wrap{
+    display: flex;
+    width: 1200px;
+}
+/* 详情板块盒子 */
+.sec_detail_box{
+    width: 800px;
+    border: 1px solid #b1b1b1;
+    padding:20px 20px 40px 20px; 
+   
+}
+/* 详情头部文字 */
+.sec_detail_header{
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+/* 详情板块:左边图片，右边文字 */
+.sec_detail{
+    display: flex;
+}
+
+/* 详情大图 */
+.sec_detail>img{
+    margin-right: 20px;
+    width: 400px;
+    height: 400px;
+}
+/* //详情文字板块 */
+.sec_detail>div{
+    width: 200px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+/* 留言 */
+.leavemessage{
+    color: red;
+}
+/* 收藏与分享 */
+.save_and_share{
+    border-top:1px dashed grey;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+
+
+
+/* 卖家信息盒子 */
+.sec_seller_info{
+    width: 350px;
+  border: 1px solid #b1b1b1;
+  margin-left: 30px;
+  height: 350px;
+    padding: 30px;
+}
+/* 卖家图片板块 */
+.sec_sellerimg{
+    width: 150px;
+    border-radius: 100%;
+    height: 150px;
+    overflow: hidden;
+    margin: 0 auto;
+     
+}
+.sec_sellerimg>img{
+    width: 150px;
+}
+/* 卖家名字 */
+.sec_seller{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+/* 卖家名字与日期居中 */
+.sec_seller_info>p{
+text-align: center;
+}
+
+
+/* 商品描述板块 */
+.secprod_history{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.secprod_describe{
+    border-top: 1px solid #b1b1b1;
+}
+/* 商品组图板块 */
+.secprod_describe img{
+    display: block;
+    margin-top: 20px;
+}

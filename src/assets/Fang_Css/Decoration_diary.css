@@ -1,0 +1,177 @@
+.Width1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+.GBcolor {
+  background-color: #f6f6f6;
+}
+.GColor {
+  color: #a9a9a9;
+}
+.YColor {
+  color: #efbb00;
+}
+.OColor {
+  color: #f68429;
+}
+.RColor {
+  color: #e04a37;
+}
+.LColor {
+  color: #5acd7f;
+}
+.title {
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.fontW {
+  font-weight: 300;
+}
+.padding20 {
+  padding-left: 20px;
+}
+.paddingt10 {
+  padding-top: 10px;
+}
+.paddingt30 {
+  padding-top: 30px;
+}
+.Border {
+  border: 1px solid #b1b1b1;
+}
+.height {
+  text-align: center;
+  height: 100%;
+}
+.rline {
+  border-right: 1px solid #b1b1b1;
+}
+.width1100 {
+  width: 1100px;
+  margin: 0 auto;
+}
+.WBcolor {
+  background: #ffffff;
+}
+.Button50 {
+  padding-bottom: 50px;
+}
+.portraitS {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.portraitL {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.center {
+  text-align: right;
+}
+.marginT20 {
+  margin-top: 20px;
+}
+.marginR20 {
+  margin-right: 20px;
+}
+.relative {
+  position: relative;
+}
+.RBcolor {
+  color: #ff0000;
+  cursor: pointer;
+}
+.option_write {
+  position: absolute;
+  right: 50px;
+}
+.option_delet {
+  position: absolute;
+  right: 0px;
+}
+.option_Tips {
+  position: absolute;
+  right: 150px;
+}
+.Middel {
+  line-height: 30px;
+}
+.align {
+  align-items: center;
+  display: -webkit-flex;
+}
+.marginL20 {
+  margin-left: 20px;
+}
+.ib {
+  display: inline-block;
+}
+.mybtn {
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  color: #ffffff;
+  background: #ff0000;
+  border: 0;
+  outline: none;
+}
+.mybtn:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.iconfont:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.height30 {
+  height: 30px;
+  line-height: 30px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.fontS {
+  font-size: 38px;
+}
+.font18 {
+  font-size: 18px;
+}
+.fontX {
+  font-size: 14px;
+}
+.font12 {
+  font-size: 12px;
+}
+.noborder {
+  outline: none;
+}
+.height50 {
+  height: 50px;
+  line-height: 50px;
+}
+.myCenter {
+  text-align: center;
+}
+/* b边框线 */
+.Bborder {
+  border-bottom: 1px solid #b1b1b1;
+}
+.BBorder {
+  border-bottom: 1px dashed #b1b1b1;
+}
+.portrait80 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.width200 {
+  width: 200px;
+}
+.myh:hover {
+  cursor: pointer;
+  color: aqua;
+}

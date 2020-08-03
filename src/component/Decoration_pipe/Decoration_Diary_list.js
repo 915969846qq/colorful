@@ -1,23 +1,22 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
+
+// 引入自己的组件
+import Decorationcheck from './Decoration_check'
+import Decorationshow from './Decoration_show'
+import '../../assets/iconfont/Fang_iconfont/iconfont.css'
+
+// import Decorationcheck from './Decoration_check'
+// import Decorationshow from './Decoration_show'
 //装修日记列表
 export default class Decoration_Diary_list extends Component {
   render() {
     return (
-      <div>
-        <h1>装修日记列表</h1>
+      <div className="Width1200">
+        {/* 日记选择组件 */}
+        <Decorationcheck></Decorationcheck>
+        {/* 日记列表展示组件 */}
+        <Decorationshow></Decorationshow>
       </div>
     )
   }
-=======
-//装修列表最新日记
-export default class Decoration_Diary_list extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
->>>>>>> 7236783ec6e93840a83988944b86f8400b6eea9d
 }
