@@ -1,0 +1,86 @@
+.box{
+    width: 996px;
+    height: 650px;
+    position: relative;
+    left: 12px;
+    border: 1px solid #b1b1b1;
+}
+.title{
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #333;
+    text-indent: 12px;
+    background-color: #f7f7f7;
+}
+.setion{
+    width: 930px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.xinxi img{
+    clear: both;
+    width: 99px;
+    height: 84px;
+}
+span{
+    font-size: 12px;
+}
+.color{
+    color: #ff0000
+}
+.state {
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+}
+.butone span {
+
+    width: 80px;
+    height: 25px;
+    display: block;
+    text-align: center;
+    line-height: 25px;
+    color: #fff;
+    background-color: #ff0000;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 16px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.textw{
+    float: right;
+    margin-left: -40px;
+    font-size: 12px;
+    line-height: 84px;
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.xinxi{
+    width: 372px;
+}
+
+
+
+.ant-table-thead > tr >th{
+    font-size: 13px;
+}
+.join {
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 12px;
+}
+.All-out label {
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
