@@ -66,26 +66,26 @@ export default class Personal_Center_index extends Component {
               <span className="span-red">{this.state.username}!</span>
             </div>
             <div className="header-right header">
-              <a href="" className="hover-red">登录</a>
-              <a href="" className="hover-red">免费注册</a>
-              <a href="" className="hover-red">我要装修</a>
-              <img src={require('../assets/images/hotline.png')} al="资讯图标"></img>
+              <a href="1" className="hover-red">登录</a>
+              <a href="1" className="hover-red">免费注册</a>
+              <a href="1" className="hover-red">我要装修</a>
+              <img src={require('../assets/images/hotline.png')} alt="资讯图标"></img>
               <span className="span-gray">咨询热线：4006-900-288</span>
             </div>
           </div>
           <div className="header-bottom">
             <div className="header-bottom-img"><img src={require('../assets/images/logo2.png')} alt="logo2"></img></div>
             <div className="header-bottom-span"><h1 >个人中心</h1></div>
-            <div className="header-bottom-button"><a >成为经销商</a></div>
+            <div className="header-bottom-button"><a href="1">成为经销商</a></div>
           </div>
         </Header>
         <Content>
           <Layout className="content">
             <div className="content-top">
               <p>
-                <a>首页</a>
+                <a href="1">首页</a>
                 <span>&gt;</span>
-                <a>我的个人中心</a>
+                <a href="1">我的个人中心</a>
               </p>
             </div>
             <Router basename="/Person">

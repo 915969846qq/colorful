@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Carousel,Row, Col, } from 'antd';
 // import "antd/dist/antd.css"
-import "./Decoration_Museum/Decoration_Museum.css"
+import "./css/Decoration_Museum.css"
 //装修馆
 
 
@@ -93,11 +93,7 @@ export default class Decoration_Museum extends Component {
                             <div className="main-left">
 
                                 <div className="main-left-top">
-<<<<<<< HEAD
                                     <div className="left-IMGe"><a href="1"><img
-=======
-                                    <div className="left-IMGe"><a href="#"><img
->>>>>>> 3d2e4dc36d407f88500f0e76018b6f3c253b65f9
                                         src={require("../assets/images/min-banner1_03.jpg")} alt=""/></a></div>
                                     <div className="left_text">
                                         <h6 id="Company"><a href="1">四川居美家装饰工程有限公司</a></h6>
@@ -110,11 +106,7 @@ export default class Decoration_Museum extends Component {
 
                                         <p>口碑值 </p>
                                         <span>90</span>
-<<<<<<< HEAD
                                         <a href="1">立即预约</a>
-=======
-                                        <a href="2">立即预约</a>
->>>>>>> 3d2e4dc36d407f88500f0e76018b6f3c253b65f9
 
                                     </div>
                                 </div>
@@ -123,19 +115,11 @@ export default class Decoration_Museum extends Component {
 
                                 <div className="daa-main-xiyiye">
                                     <div className="daa-main-xia">
-<<<<<<< HEAD
                                         <a href="1" className="shangyiye">&lt; 上一页</a>
                                         <a href="1" className="diyiyye">1</a>
                                         <a href="1" className="diyiyye">2</a>
                                         <a href="1" className="diyiyye btchecker" >3</a>
                                         <a href="1"className="xiayiye">下一页 &gt;</a>
-=======
-                                        <a href="3" className="shangyiye">&lt; 上一页</a>
-                                        <a href="3"  className="diyiyye">1</a>
-                                        <a href="3"  className="diyiyye">2</a>
-                                        <a href="3"  className="diyiyye btchecker" >3</a>
-                                        <a href="3"  className="xiayiye">下一页 &gt;</a>
->>>>>>> 3d2e4dc36d407f88500f0e76018b6f3c253b65f9
                                         <div className="cp-xiangjiye"> 向第 <input type="text"/> 页</div>
                                         <input className="cp-main-tiaochaun" type="submit" value="跳转"/>
                                     </div>
@@ -154,11 +138,7 @@ export default class Decoration_Museum extends Component {
                                     </form>
                                     <form className="city"><input type="text" placeholder="输入您所在的城市"/></form>
                                     <form><input type="checkbox" value=""/>&nbsp; 我已阅读并同意科乐福的用户协议</form>
-<<<<<<< HEAD
                                     <a href="1" className="botton">免费获取</a>
-=======
-                                    <a href="3"  className="botton">免费获取</a>
->>>>>>> 3d2e4dc36d407f88500f0e76018b6f3c253b65f9
                                 </div>
                             </div>
 
