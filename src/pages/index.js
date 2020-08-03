@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router,Route}  from 'react-router-dom'
+import {BrowserRouter as Router,Route,Link}  from 'react-router-dom'
 import '../Css/index11.css'
 import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
-import Building_materials_Museum from './Building_materials_Museum'
+import Building_materials_Museum from './Building_materials_Museum' 
+import Sign_Register from '../component/Register.js/Sign_Register'
 
 // 记录日记
 // import Decoration_Diary_list from '../component/Decoration_pipe/Decoration_Diary_list'
@@ -23,6 +24,7 @@ export default class index extends Component {
             <div id="body">          
                     <Router>
                         <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route>
+                        <Route path="/Sign_Register"  component={Sign_Register}></Route>
                         {/* <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
                         <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
                         <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
@@ -40,7 +42,8 @@ export default class index extends Component {
                             </div>
                             <div id="sn-bd">
                                 <div className="sn-container">
-                                    <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来科乐福</em><a className="sn-login" href="//login.tmall.com/?redirectURL=https%3A%2F%2Fwww.tmall.com%2F%3Ffrom%3Dzebra%3Aoffline" target="_top">请登录</a><a className="sn-register" href="//register.tmall.com/" target="_top">免费注册</a></p>
+                                    <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来科乐福</em><a className="sn-login" href="//login.tmall.com/?redirectURL=https%3A%2F%2Fwww.tmall.com%2F%3Ffrom%3Dzebra%3Aoffline" target="_top">请登录</a>
+                                    <Link to="/Sign_Register">免费注册</Link></p>  
                                     <ul className="sn-quick-menu">
                                         <li className="sn-mytaobao menu-item j_MyTaobao"></li>
                                         <li className="sn-cart"><i className="fp-iconfont iconfont icon-qicheqianlian-"></i>
@@ -60,7 +63,7 @@ export default class index extends Component {
                                         <li className="sn-home">
                                             <a href="//www.taobao.com/" data-spm-anchor-id="875.7931836/B.a2226mz.12">我要装修</a>
                                         </li>
-                                        <li className="sn-seller menu-item">
+                                        <li className="sn-seller menu-item">         
                                             <a href="11" className="menu-hd">个人中心</a>
                                         </li>
                                         <li className="sn-sitemap">
