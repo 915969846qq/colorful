@@ -145,13 +145,11 @@ class Furniture_Museum_details extends Component {
         });
         return ( 
             <div>
-                
                 {arr}
                 <div className="recommendedGoods">推荐商品</div>
                 <div className="recommended_box goodsFlex">
                     {arr1}
                 </div>
-
             </div>
          );
     }

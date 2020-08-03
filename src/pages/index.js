@@ -15,7 +15,6 @@ import  Craftsman_Pavilion_list from "../component/Craftsmans_Hall/Craftsman_Pav
 import  Craftsman_details from "../component/Craftsmans_Hall/Craftsman_details"
 import  Furniture_Museum_details from "../component/Furniture_house/Furniture_Museum_details"
 import Decoration_Write_diary from '../component//Person_center/Decoration_Write_diary'
-
 // 记录日记
 // import Decoration_Diary_list from '../component/Decoration_pipe/Decoration_Diary_list'
 // import Decoration_My_diary from '../component/Person_center/Decoration_My_diary'
