@@ -23,7 +23,7 @@ import Sign_Register from '../component/Register.js/Sign_Register'
 
 
 // 记录日记
-// import Decoration_Diary_list from '../component/Decoration_pipe/Decoration_Diary_list'
+// import Decoration_Diary_list from '../component/Decoration_pipe/Decoration_Diary_list'11
 // import Decoration_My_diary from '../component/Person_center/Decoration_My_diary'
 
 
