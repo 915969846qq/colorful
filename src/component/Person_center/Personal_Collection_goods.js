@@ -42,7 +42,7 @@ export default class Personal_Collection_goods extends Component {
     constructor() {
         super();
         this.state={data:[{ key: 1,
-                img: <div className="xinxi"><img src={require("../../assets/images/min-banner1_03.jpg")} className="img"/>
+                img: <div className="xinxi"><img src={require("../../assets/images/min-banner1_03.jpg")} className="img" alt=""/>
                     <label className="textw">精品家私，纯手工制作，价格不贵，超级实惠,走过路过，机会不要错过</label>
                 </div>,
                 price:<span className="color">￥ 500.00</span>,

@@ -1,0 +1,210 @@
+.box{
+    width: 996px;
+    height: 650px;
+    position: relative;
+    left: 12px;
+    border: 1px solid #b1b1b1;
+}
+.title{
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #333;
+    text-indent: 12px;
+    background-color: #f7f7f7;
+}
+.setion{
+    width: 930px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.xinxi img{
+    clear: both;
+    width: 99px;
+    height: 84px;
+}
+span{
+    font-size: 12px;
+}
+.color{
+    color: #ff0000
+}
+.state {
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+}
+.butone span {
+
+    width: 80px;
+    height: 25px;
+    display: block;
+    text-align: center;
+    line-height: 25px;
+    color: #fff;
+    background-color: #ff0000;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 16px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.textw{
+    float: right;
+    margin-left: -40px;
+    font-size: 12px;
+    line-height: 84px;
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.xinxi{
+    width: 372px;
+}
+
+
+
+.ant-table-thead > tr >th{
+    font-size: 13px;
+}
+.join {
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 12px;
+}
+.All-out label {
+    margin-right: 10px;
+}
+
+/*直营店*/
+.coolra-two {
+    width: 175px;
+    float: left;
+    margin-right: 30px;
+}
+.coolra-two .top {
+
+    height: 60px;
+    line-height: 60px;
+    border: none;
+}
+.coolra-two .top h5 {
+    font-size: 14px;
+    font-weight: bold;
+    float: right;
+}
+.coolra-two .top img {
+    width: 60px;
+    height: 60px;
+    float: left;
+}
+.coolra-two p {
+    clear: both;
+    font-size: 12px;
+    color: #999;
+    line-height: 15px;
+    text-align: left;
+}
+.coolra-two .buton {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.coolra-two .buton .Aleft {
+    width: 80px;
+    height: 30px;
+    display: block;
+    background-color: #ff0000;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+}
+.coolra-two .GoToinmaoim {
+    width: 175px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #ff0000;
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.coolra-two .buton .Aleft {
+    width: 80px;
+    height: 30px;
+    display: block;
+    background-color: #ff0000;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+}
+.coolra-two .buton .Aright {
+    float: right;
+}
+.Shop_introduction {
+    width: 241px;
+    height: 170px;
+    float: left;
+    margin-top: 20px;
+    border-left: 1px solid #b1b1b1;
+    padding-left: 10px;
+}
+.Shop_introduction h4 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #666;
+    margin-bottom: 10px;
+}
+.Shop_introduction p {
+    font-size: 12px;
+    line-height: 18px;
+    color: #999;
+    text-indent: 12px;
+}
+.canPin{
+    width: 160px;
+    float: left;
+    margin: 0px 30px;
+}
+.oimg {
+    width: 160px;
+    height: 110px;
+    margin-bottom: 20px;
+}
+.oimg img{
+    width: 160px;
+    height: 110px;
+}
+.canPin p{
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 16px;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+
+.canPin span {
+    color: #ff0000;
+    font-size: 16px;
+    float: right;
+    margin-right: 20px;
+}
+
+
+
+
+
+
+

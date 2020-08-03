@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Carousel,Row, Col, } from 'antd';
 // import "antd/dist/antd.css"
-import "./css/Decoration_Museum.css"
+import "./Decoration_Museum/Decoration_Museum.css"
 //装修馆
+
+
 
 
 export default class Decoration_Museum extends Component {
@@ -14,13 +16,13 @@ export default class Decoration_Museum extends Component {
                 {/*轮播*/}
                 <Carousel autoplay>
                     <div>
-                        <h3><img src={require("../assets/images/twoimages/Building-banner_02.jpg")}/></h3>
+                        <h3><img src={require("../assets/images/twoimages/Building-banner_02.jpg")} alt=""/></h3>
                     </div>
                     <div>
-                        <h3><img src={require("../assets/images/twoimages/Building-banner_02.jpg")}/></h3>
+                        <h3><img src={require("../assets/images/twoimages/Building-banner_02.jpg")} alt=""/></h3>
                     </div>
                     <div>
-                        <h3><img src={require("../assets/images/twoimages/Building-banner_02.jpg")}/></h3>
+                        <h3><img src={require("../assets/images/twoimages/Building-banner_02.jpg")} alt=""/></h3>
                     </div>
                 </Carousel>
                 <Row>
@@ -91,10 +93,10 @@ export default class Decoration_Museum extends Component {
                             <div className="main-left">
 
                                 <div className="main-left-top">
-                                    <div className="left-IMGe"><a href="#"><img
-                                        src={require("../assets/images/min-banner1_03.jpg")}/></a></div>
+                                    <div className="left-IMGe"><a href="1"><img
+                                        src={require("../assets/images/min-banner1_03.jpg")} alt=""/></a></div>
                                     <div className="left_text">
-                                        <h6 id="Company"><a href="#">四川居美家装饰工程有限公司</a></h6>
+                                        <h6 id="Company"><a href="1">四川居美家装饰工程有限公司</a></h6>
                                         <p>营业执照惠5月大型家装团购活动</p>
                                         <p className="Comparddss">地址 : <span>青羊区铜丝街8号</span></p>
                                         <p className="allvalue">效果图 :<span> 16</span>套 &nbsp;&nbsp;   签约
@@ -104,7 +106,7 @@ export default class Decoration_Museum extends Component {
 
                                         <p>口碑值 </p>
                                         <span>90</span>
-                                        <a>立即预约</a>
+                                        <a href="1">立即预约</a>
 
                                     </div>
                                 </div>
@@ -113,11 +115,11 @@ export default class Decoration_Museum extends Component {
 
                                 <div className="daa-main-xiyiye">
                                     <div className="daa-main-xia">
-                                        <a className="shangyiye">&lt; 上一页</a>
-                                        <a className="diyiyye">1</a>
-                                        <a className="diyiyye">2</a>
-                                        <a className="diyiyye btchecker" >3</a>
-                                        <a className="xiayiye">下一页 &gt;</a>
+                                        <a href="1" className="shangyiye">&lt; 上一页</a>
+                                        <a href="1" className="diyiyye">1</a>
+                                        <a href="1" className="diyiyye">2</a>
+                                        <a href="1" className="diyiyye btchecker" >3</a>
+                                        <a href="1"className="xiayiye">下一页 &gt;</a>
                                         <div className="cp-xiangjiye"> 向第 <input type="text"/> 页</div>
                                         <input className="cp-main-tiaochaun" type="submit" value="跳转"/>
                                     </div>
@@ -136,7 +138,7 @@ export default class Decoration_Museum extends Component {
                                     </form>
                                     <form className="city"><input type="text" placeholder="输入您所在的城市"/></form>
                                     <form><input type="checkbox" value=""/>&nbsp; 我已阅读并同意科乐福的用户协议</form>
-                                    <a className="botton">免费获取</a>
+                                    <a href="1" className="botton">免费获取</a>
                                 </div>
                             </div>
 
@@ -150,51 +152,51 @@ export default class Decoration_Museum extends Component {
                                     <div className="footer-top-left">
                                         <p>购物指南</p>
                                         <ul>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
                                         </ul>
                                     </div>
                                     <div className="footer-top-left">
                                         <p>服务保障</p>
                                         <ul>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
                                         </ul>
                                     </div>
                                     <div className="footer-top-left">
                                         <p>配送方式</p>
                                         <ul>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
                                         </ul>
                                     </div>
                                     <div className="footer-top-left">
                                         <p>售后服务</p>
                                         <ul>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
                                         </ul>
                                     </div>
                                     <div className="footer-top-left">
                                         <p>关于我们</p>
                                         <ul>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
-                                            <li><a href="/">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
+                                            <li><a href="1">指南1</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -203,7 +205,7 @@ export default class Decoration_Museum extends Component {
                                     <p>关于我们 联系我们 友情链接 帮助中心 意见反馈 高薪聘请 法律声明</p>
                                     <p>ICP备案证书号:蜀ICP备00000000号</p>
 
-                                    <div className="footer-icon"><img  className="full1" src={require("../assets/images/footer-icon_03.png")}/></div>
+                                    <div className="footer-icon"><img  className="full1" src={require("../assets/images/footer-icon_03.png")} alt=""/></div>
                                 </div>
                             </div>
                         </div>
