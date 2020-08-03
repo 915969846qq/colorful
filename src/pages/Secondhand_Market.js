@@ -45,7 +45,7 @@ export default class Secondhand_Market extends Component {
               let mydata=$(this)[0].innerHTML
               $(this).parent().children().removeClass("red")
               $(this).addClass("red")
-              if(mydataname=="selectprice"){
+              if(mydataname==="selectprice"){
                 that.state.maxprice="";
                 that.state.minprice=""
               }
@@ -93,7 +93,10 @@ blurprice=(inform,e)=>{
     if(this.state[inform].length!==0||this.state[price2].length!==0){
         $("#selectprice").children("li").removeClass("red")
     }else{
-        this.state.selectprice="不限"
+        this.setState({
+            selectprice:"不限"
+        },()=>{})
+        
         $(".autoprice").eq(0).addClass("red")
     }
 
