@@ -1202,11 +1202,6 @@ export default class index extends Component {
                 </div>
             </div>
         </div>  
-
-
-
-
-
                         </div>
 
                         {/*底部 */}
@@ -1248,12 +1243,12 @@ export default class index extends Component {
 </div>
         
     </div>
-                        </div>
+    </div>
 
-                        </div>
+        </div>
                        
-                    </div>     
-                    </Router>
+            </div>     
+                </Router>
             </div>
                 
         )
