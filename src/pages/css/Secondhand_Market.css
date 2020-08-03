@@ -18,7 +18,8 @@
     margin: 0;
     padding-left:20px;
 }
-.searchbox li:first-child,.sortproduct li:first-child{
+
+.red{
     color:#ff0000;
 }
 .searchbox li,.sortproduct li{

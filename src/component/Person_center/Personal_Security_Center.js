@@ -14,8 +14,9 @@ export default class Personal_Security_center extends Component {
     }
 // =========================双向绑定数据======================
 onchange=(inform,e)=>{
+    let m=e.target.value.replace(/[\u4e00-\u9fa5]/ig,'')
     this.setState({
-        [inform]:e.target.value
+        [inform]:m
     })
 }
     // ================手机号验证==========================
@@ -63,7 +64,7 @@ vertifypassword=(e)=>{
                     </div>
                     <div >
                         <span>新密码 :</span>
-                        <Input placeholder="请输入新密码" value={this.state.code} onChange={this.onchange.bind(this,"code")} style={{width:250}} /> 
+                        <Input placeholder="请输入新密码" value={this.state.code}  onChange={this.onchange.bind(this,"code")} style={{width:250}} /> 
                     </div>
                     <div >
                         <span>确认新密码 :</span>
