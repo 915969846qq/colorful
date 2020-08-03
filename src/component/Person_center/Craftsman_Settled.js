@@ -8,7 +8,7 @@ export default class Craftsman_Settled extends Component {
     state = {
         value: 1,
     };
-
+    
     onChange = e => {
         console.log('radio checked', e.target.value);
         this.setState({

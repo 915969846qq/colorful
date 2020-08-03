@@ -1,23 +1,9 @@
 import React, { Component } from 'react'
-import { NavLink,BrowserRouter as Router,Route } from 'react-router-dom'
-import '../Css/index.css'
+import {BrowserRouter as Router,Route}  from 'react-router-dom'
+import '../Css/index11.css'
 import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
 import Building_materials_Museum from './Building_materials_Museum'
-import Craftsman_Pavilion from './Craftsman_Pavilion'
-import Decoration_Museum from './Decoration_Museum'
-import Furniture_Museum from './Furniture_Museum'
-import Home_Museum from './Home_Museum'
-import Secondhand_Market from './Secondhand_Market'
-import Style_pavilion from './Style_pavilion'
-import Personal_Center_index from './Personal_Center_index'
-import Personal_My_reservation from "../component/Person_center/Personal_My_reservation"
-
-import MyCenter_index from '../component/Person_center/MyCenter_index'
-import  Craftsman_Pavilion_list from "../component/Craftsmans_Hall/Craftsman_Pavilion_list"
-import  Craftsman_details from "../component/Craftsmans_Hall/Craftsman_details"
-import  Furniture_Museum_details from "../component/Furniture_house/Furniture_Museum_details"
-import Decoration_Write_diary from '../component//Person_center/Decoration_Write_diary'
 
 // 记录日记
 // import Decoration_Diary_list from '../component/Decoration_pipe/Decoration_Diary_list'
@@ -34,16 +20,17 @@ export default class index extends Component {
             lineHeight: '400px',
           };
         return (
-            <div id="body"> 
+            <div id="body">          
                     <Router>
                         <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route>
-                        <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
+                        {/* <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
                         <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
                         <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
                         <Route path="/Home_Museum" component={Home_Museum}></Route>
                         <Route path="/Personal_Center_index" component={Personal_Center_index}></Route> 
                         <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
-                        <Route path="/Style_pavilion" component={Style_pavilion}></Route>     
+                        <Route path="/Style_pavilion" component={Style_pavilion}></Route>      */}
+                        
                         <div className="body">
                         
                         <div id="site-nav" data-spm="a2226mz" role="navigation">
@@ -53,10 +40,10 @@ export default class index extends Component {
                             </div>
                             <div id="sn-bd">
                                 <div className="sn-container">
-                                    <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来家乐福</em><a className="sn-login" href="//login.tmall.com/?redirectURL=https%3A%2F%2Fwww.tmall.com%2F%3Ffrom%3Dzebra%3Aoffline" target="_top">请登录</a><a className="sn-register" href="//register.tmall.com/" target="_top">免费注册</a></p>
+                                    <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来科乐福</em><a className="sn-login" href="//login.tmall.com/?redirectURL=https%3A%2F%2Fwww.tmall.com%2F%3Ffrom%3Dzebra%3Aoffline" target="_top">请登录</a><a className="sn-register" href="//register.tmall.com/" target="_top">免费注册</a></p>
                                     <ul className="sn-quick-menu">
                                         <li className="sn-mytaobao menu-item j_MyTaobao"></li>
-                                        <li className="sn-cart"><i className="mui-global-iconfont">󰅈</i>
+                                        <li className="sn-cart"><i className="fp-iconfont iconfont icon-qicheqianlian-"></i>
                                             <a className="sn-cart-link" href="//cart.tmall.com/cart/myCart.htm?from=btop" target="_top" rel="nofollow" data-spm-anchor-id="875.7931836/B.a2226mz.7">购物车
                                             </a>
                                         </li>
@@ -131,10 +118,10 @@ export default class index extends Component {
                                 <div className="inner-con1">
                                     <div className="inner-con2 clearfix">
                                         
-                                        <NavLink  to="/Building_materials_Museum">
-                                               风格馆
+                                        {/* <Link  to="/Building_materials_Museum"> */}
+                                              
                                             <div className="hover-pic"></div>
-                                        </NavLink>
+                                        {/* </Link> */}
                                         
                                         <a href="//www.tmall.hk/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561833841102_2429983" aria-label="天猫国际" data-spm-anchor-id="875.7931836/B.2016004.2">
                                             
@@ -256,7 +243,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-2 category-loaded" data-spm="category2016012">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-nvxie"></i>
                                                     <a href="//nvxie.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561689118972_708026">女鞋</a>
                                                     
                                                         /<a href="//nanxie.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561689118972_708026">男鞋</a>
@@ -268,7 +255,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-3 category-loaded" data-spm="category2016013">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-icon-test1"></i>
                                                     <a href="//list.tmall.com/search_product.htm?q=%B9%D9%B7%BD%D6%B1%CA%DB&amp;spm=875.7931836/B.subpannel2016034.1.GU94AS&amp;vmarket=29890&amp;style=w&amp;theme=275&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561685271493_708026&amp;smAreaId=330100">美妆</a>
                                                     
                                                         /<a href="//list.tmall.com/search_product.htm?q=%B9%D9%B7%BD%D6%B1%CA%DB&amp;spm=875.7931836/B.subpannel2016034.1.GU94AS&amp;vmarket=29890&amp;style=w&amp;theme=275&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561685271493_708026&amp;smAreaId=330100">个人护理</a>
@@ -278,7 +265,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-4 category-loaded" data-spm="category2016014">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-icon-test"></i>
                                                     <a href="//watch.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561666034064_708026">腕表</a>
                                                     
                                                         /<a href="//list.tmall.com/search_product.htm?abbucket=&amp;active=1&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;sort=s&amp;spm=3.7396704.20000007.22.7CvfAH&amp;abtest=&amp;pos=3&amp;cat=50023064&amp;theme=469&amp;from=sn_1_rightnav&amp;style=g&amp;search_condition=7&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561666034064_708026&amp;aldid=75994#J_crumbs">眼镜</a>
@@ -290,7 +277,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-5 category-loaded" data-spm="category2016015">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-shouji"></i>
                                                     <a href="//shouji.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561662186585_708026">手机</a>
                                                     
                                                         /<a href="//3c.tmall.com?go=act&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561662186585_708026">数码</a>
@@ -302,7 +289,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-6 category-loaded" data-spm="category2016016">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-muying"></i>
                                                     <a href="//baby.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561673729066_708026">母婴玩具</a>
                                                     
                                                     
@@ -310,7 +297,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-7 category-loaded" data-spm="category2016017">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-lingshi"></i>
                                                     <a href="//list.tmall.com/search_product.htm?q=%C1%E3%CA%B3&amp;spm=875.7931836%2FB.a2227oh.d100&amp;vmarket=&amp;from=mallfp..pc_1_searchbutton&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;type=p&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561669881597_708026">零食</a>
                                                     
                                                         /<a href="//list.tmall.com/search_product.htm?q=%B2%E8%BE%C6&amp;spm=a220m.1000858.a2227oh.d100&amp;from=.list.pc_1_searchbutton&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;type=p&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561669881597_708026">茶酒</a>
@@ -322,7 +309,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-8 category-loaded" data-spm="category2016018">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-shuiguo"></i>
                                                     <a href="//miao.tmall.com?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14593834779268_708026">生鲜水果</a>
                                                     
                                                     
@@ -330,7 +317,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-9 category-loaded selected" data-spm="category2016019">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-dianqi"></i>
                                                     <a href="//3c.tmall.com?go=appl&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561650644158_708026">大家电</a>
                                                     
                                                         /<a href="//3c.tmall.com?go=kich&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561650644158_708026">生活电器</a>
@@ -340,7 +327,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-10 category-loaded" data-spm="category2016020">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-jiaju"></i>
                                                     <a href="//jia.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_14561646796679_708026">家具建材</a>
                                                     
                                                     
@@ -348,7 +335,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-11 category-loaded" data-spm="category2016021">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-qiche"></i>
                                                     <a href="//car.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_145616583391510_708026">汽车</a>
                                                     
                                                         /<a href="//list.tmall.com/search_product.htm?abbucket=&amp;active=1&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;industryCatId=50660004&amp;uuid=75987&amp;spm=875.7789098.20150017.3.pPRs0I&amp;abtest=&amp;pos=11&amp;cat=56772006&amp;style=g&amp;from=sn_1_rightnav&amp;search_condition=55&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_145616583391510_708026&amp;aldid=431510#J_crumbs">配件</a>
@@ -360,7 +347,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-12 category-loaded" data-spm="category2016022">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-shouye"></i>
                                                     <a href="//myhome.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_145616544916711_708026">家纺</a>
                                                     
                                                         /<a href="//myhome.tmall.com/?spm=3.7396704.20000007.27.7CvfAH&amp;abtest=&amp;act=4,2&amp;abbucket=&amp;pos=2&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_145616544916711_708026&amp;aldid=74660">家饰</a>
@@ -372,7 +359,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-13 category-loaded" data-spm="category2016023">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-yiyao"></i>
                                                     <a href="//yao.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_145616352542412_708026">医药保健</a>
                                                     
                                                     
@@ -380,7 +367,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-14 category-loaded" data-spm="category2016024">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-chuju"></i>
                                                     <a href="//list.tmall.com/search_product.htm?spm=a220m.1000858.0.0.v7yFGa&amp;cat=50036640&amp;active=1&amp;style=g&amp;from=sn_1_rightnav&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;sort=s&amp;search_condition=23&amp;tmhkmain=0&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_145616314067613_708026&amp;industryCatId=50036640&amp;smAreaId=330100#J_crumbs">厨具</a>
                                                     
                                                         /<a href="//list.tmall.com/search_product.htm?abbucket=&amp;active=1&amp;acm=lb-zebra-148799-667863.1003.4.708026&amp;sort=s&amp;industryCatId=50071816&amp;spm=3.7396704.20000007.31.7CvfAH&amp;abtest=&amp;pos=2&amp;cat=50071786&amp;from=sn_1_rightnav&amp;style=g&amp;search_condition=7&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_145616314067613_708026&amp;aldid=75975#J_crumbs">收纳</a>
@@ -392,7 +379,7 @@ export default class index extends Component {
                                                 </li>
                                                 
                                                 <li className="j_MenuNav nav-item nav-item-15 category-loaded" data-spm="category2016025">
-                                                    <i className="fp-iconfont nav-item-icon icon"></i><i className="dot fp-iconfont"></i>
+                                                    <i className="fp-iconfont iconfont icon-tushu"></i>
                                                     <a href="//book.tmall.com/?acm=lb-zebra-148799-667863.1003.4.708026&amp;scm=1003.4.lb-zebra-148799-667863.OTHER_145616429492414_708026">图书音像</a>
                                                     
                                                     
@@ -1243,7 +1230,7 @@ export default class index extends Component {
                         </div>
                        
                     </div>     
-                </Router>
+        
                     
                 
                    
@@ -1253,7 +1240,7 @@ export default class index extends Component {
 
 
 
-
+                    </Router>
             </div>
                 
         )

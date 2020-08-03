@@ -37,7 +37,7 @@ export default class Personal_Center_index extends Component {
   constructor() {
     super()
     this.state = {
-      imgsrc: require('../img/address.png'),
+      imgsrc: require('../assets/images/address.png'),
       local: "成都",
       username: "colorful"
 
@@ -69,12 +69,12 @@ export default class Personal_Center_index extends Component {
               <a href="" className="hover-red">登录</a>
               <a href="" className="hover-red">免费注册</a>
               <a href="" className="hover-red">我要装修</a>
-              <img src={require('../img/hotline.png')} al="资讯图标"></img>
+              <img src={require('../assets/images/hotline.png')} al="资讯图标"></img>
               <span className="span-gray">咨询热线：4006-900-288</span>
             </div>
           </div>
           <div className="header-bottom">
-            <div className="header-bottom-img"><img src={require('../img/logo2.png')} alt="logo2"></img></div>
+            <div className="header-bottom-img"><img src={require('../assets/images/logo2.png')} alt="logo2"></img></div>
             <div className="header-bottom-span"><h1 >个人中心</h1></div>
             <div className="header-bottom-button"><a >成为经销商</a></div>
           </div>
@@ -89,7 +89,7 @@ export default class Personal_Center_index extends Component {
               </p>
             </div>
             <Router basename="/Person">
-              <div className="person-content-flex">
+              <div className="person-content-flex">   
                 <Sider className="left-menu">
                   <ul>
                     <li><h3>个人中心</h3></li>
