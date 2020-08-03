@@ -31,16 +31,12 @@ class header extends Component {
                     </div>
                 </div>
                     </Col>
-<<<<<<< HEAD
-                </Row>
-=======
                     <Col span={1}></Col>
                 </Row>
 
->>>>>>> 0790136366cddc38ac946d627bbcce284d7a19c1
             </div>
 
-            </div>
+            
         )
     }
 }
