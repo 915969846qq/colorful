@@ -2,13 +2,11 @@ import React, { Component } from 'react'
 import './css/Secondhand_Market.css'
 // 二手市场
 export default class Secondhand_Market extends Component {
-<<<<<<< HEAD
     render() {
         return (
             <div>
                 {/* 二手馆 */}
-                
-=======
+
     constructor(){
         super()
         this.state={
@@ -74,7 +72,7 @@ export default class Secondhand_Market extends Component {
                             <ul>{this.state.selectmenu3}
                                 <div>
                                     <span>自定义价格 ：</span>
-                                    <input type="text" placeholder="最低" style={{width:70,height:20,border: "1px solid #b1b1b1",}} />----
+                                    <input type="text" placeholder="最低" style={{width:70,height:20,border: "1px solid #b1b1b1",}} />
                                     <input type="text" placeholder="最高" style={{width:70,height:20,border: "1px solid #b1b1b1",}} />
                                     <button type="button" className="submitprice">确认</button>
                                 </div>
@@ -95,7 +93,7 @@ export default class Secondhand_Market extends Component {
                     </div>
                     {/* 搜索结果 */}
                 </div>
->>>>>>> 683799e7aebe6f0343c915f0a198e48373430d6c
+
             </div>
         )
     }
