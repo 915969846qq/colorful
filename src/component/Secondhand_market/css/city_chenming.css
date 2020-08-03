@@ -1,0 +1,13 @@
+.city select{
+    border:1px solid black;
+    outline:1px solid #b1b1b1;
+    height:32px;
+    width: 70px;
+    margin-right: 5px;
+}
+.city select option{
+    width: 70px;
+}
+.city select option:hover{
+outline:none;
+}
