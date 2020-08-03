@@ -10,8 +10,8 @@ export default class Sign_Register extends Component {
         return (
             <div>
                <Router>
-                   <Header></Header>
-                   div
+                  
+                   
                </Router>
             </div>
         )

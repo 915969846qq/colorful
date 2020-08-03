@@ -15,7 +15,7 @@ class header extends Component {
                     <div className="welcome">您好，欢迎您访问 <a className="welcome_index"
                                                          href="../../index.js"> Colorful</a> !
                     </div>
-            
+                    
                     <div className="headerRight">
                         <div className="LoginorRegister">登录</div>
                         <div className="LoginorRegister">免费注册</div>
