@@ -14,3 +14,9 @@ list-style: none;
 margin-right: 20px;
 font-size: 20px;
 }
+.sec_typrchoose a{
+  color:black;
+}
+.sec_typrchoose a:hover{
+  color: red;
+}

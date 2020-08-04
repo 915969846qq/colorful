@@ -1,10 +1,4 @@
-.visible{
-    display: block;
-}
-.hidden{
-    display: none;
-    color: red;
-}
+
 /* 发布二手流程button */
 .secpublish_menu{
     border-bottom:4px solid #b1b1b1;

@@ -20,13 +20,72 @@ class Secpublish_second extends Component {
             price:"",
             title:"",
             description:"",
-          
+          smallclass:[
+            [{cname:"整机"},{cname:"内存条"},{cname:"其它"}],
+            [{cname:"整机1"},{cname:"内存条"},{cname:"其它"}],
+            [{cname:"整2"},{cname:"内存条"},{cname:"其它"}],
+            [{cname:"整机3"},{cname:"内存条"},{cname:"其它"}],
+            [{cname:"整4"},{cname:"内存条"},{cname:"其它"}],
+            [{cname:"整5机"},{cname:"内存条"},{cname:"其它"}],
+            [{cname:"整6机"},{cname:"内存条"},{cname:"其它"}],
+            [{cname:"整7机"},{cname:"内存条"},{cname:"其它"}],
+            
+          ],
             dizhi:"",
             lianxiren:"",
             phone:"",
-
+          listchoose:[]
     }
 }
+
+
+bindchoose=(e)=>{
+  let listchoose=e.map((item,index)=>{
+    return (
+    <Option value="jack" key={index}>{item.cname}</Option>
+     
+    )
+  })
+  return listchoose
+}
+// ===========================页面接参初始化=======================================
+componentDidMount(){
+  let m=parseInt(this.props.match.params.cid)-1
+let listchoose=this.bindchoose(this.state.smallclass[m])
+  this.setState({
+    listchoose:listchoose
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ==============================图片上传========================
     // getBase64(file) {
     //     return new Promise((resolve, reject) => {
@@ -71,7 +130,8 @@ phonereal=e=>{
         let county=document.body.getElementsByClassName("mycounty")[0].value
        let address=province+city+county
        console.log(address)
-        console.log(this.state.fileList[0].thumbUrl)
+        console.log(this.state.fileList)
+        this.props.history.push('/Secondhand_Market/Secpublish/success')
     }
 
     render() { 
@@ -84,14 +144,19 @@ phonereal=e=>{
         );
         return ( 
         <div>
+          <div className="secpublish_menu">
+                <div className="borderbottom"><i>1</i><span>选择类别</span></div>
+                <div style={{borderBottom:"4px solid red"}}><i>2</i><span>填写信息</span></div>
+                <div><i>3</i><span>发布成功</span></div>
+                
+            </div>
             {/* 商品基础信息填写 */}
             <p className="proto_info_title">基础信息</p>
             <div className="proto_info_box" >
                 
                 <div><span>类别 :</span>
-                <Select defaultValue="lucy" style={{ width: 120 }}  >
-                    <Option value="jack">Jack</Option>
-                    <Option value="lucy">Lucy</Option>
+                <Select placeholder="请选择" style={{ width: 120 }}  >
+                    {this.state.listchoose}
                  </Select>
                 </div>
                 <div><span>新旧 :</span>
