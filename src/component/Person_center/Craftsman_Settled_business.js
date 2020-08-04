@@ -16,11 +16,10 @@ export default class Craftsman_Settled_business extends Component {
 
                             <div id="addresspp" className="addresspp">成都</div>
                             <div className="readssswitch"><a
-<<<<<<< HEAD
+
                                 href="1" tjjj="top.cities.list" title="切换城市"
-=======
+
                                 href="5" tjjj="top.cities.list" title="切换城市"
->>>>>>> 3d2e4dc36d407f88500f0e76018b6f3c253b65f9
                                 rel="nofollow" className="qh">【切换】</a>
                                 <div className="welcome">您好，欢迎您访问 <a href="1"  className="welcome_index"
                                                                      > Colorful</a> !

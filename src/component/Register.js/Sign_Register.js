@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import Header from '../commen/header'
 import '../../Css/Sign_Register.css'
 import $ from 'jquery'
-
-
+import {Link} from 'react-router-dom'
 
 //注册
 export default class Sign_Register extends Component {
     render() {
         return (
-            <div>
+            <div className="Sign_register">
                 <div id="ak">
                     <div className="header-top">
                         <Header></Header>
@@ -40,7 +39,7 @@ export default class Sign_Register extends Component {
                     <div className="clear"> </div>
                     <input id="checkbox" type="checkbox" value=""/>
                     <p className="read">我已阅读并接受<a href="/">《colorful用户协议》</a></p>
-                    <a href="1" className="den_lu">立即注册</a>      
+                    <Link to="/Sign_Register_successful" className="den_lu">立即注册</Link>         
                 </form>
                 
             </div>
@@ -49,7 +48,7 @@ export default class Sign_Register extends Component {
                 </div> 
 
 
-                
+
             </div>
             
         )

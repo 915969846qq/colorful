@@ -1,57 +1,22 @@
 import React, { Component } from 'react'  
-import Building_materials_Museum from './Building_materials_Museum'
-// import Craftsman_Pavilion from './Craftsman_Pavilion'
-// import Decoration_Museum from './Decoration_Museum'
-// import Furniture_Museum from './Furniture_Museum'
-// import Home_Museum from './Home_Museum'
-// import Secondhand_Market from './Secondhand_Market'
-// import Style_pavilion from './Style_pavilion'
-// import Personal_Center_index from './Personal_Center_index'
-// import Personal_My_reservation from "../component/Person_center/Personal_My_reservation"
-
-// import MyCenter_index from '../component/Person_center/MyCenter_index'
-// import  Craftsman_Pavilion_list from "../component/Craftsmans_Hall/Craftsman_Pavilion_list"
-// import  Craftsman_details from "../component/Craftsmans_Hall/Craftsman_details"
-// import  Furniture_Museum_details from "../component/Furniture_house/Furniture_Museum_details"
-// import Decoration_Write_diary from '../component//Person_center/Decoration_Write_diary'
-import {BrowserRouter as Router,Route,Link}  from 'react-router-dom'
-import '../Css/index11.css'
+import {Link}  from 'react-router-dom'
+import '../Css/Index11.css'
 import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
-// import Building_materials_Museum from './Building_materials_Museum' 
-import Sign_Register from '../component/Register.js/Sign_Register'
-
-
-// 记录日记
-// import Decoration_Diary_list from '../component/Decoration_pipe/Decoration_Diary_list'11
-// import Decoration_My_diary from '../component/Person_center/Decoration_My_diary'
-
-
-
 
 //首页
+
 export default class index extends Component {    
     render() {
         const contentStyle = {
-            color: 'red',
+            color: 'red',               
             lineHeight: '400px',
           };
+        
         return (
-            <div id="body">       
-                    <Router>
-                        
-                        <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route>
-                        <Route path="/Sign_Register"  component={Sign_Register}></Route>
-                        {/* <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
-                        <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
-                        <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
-                        <Route path="/Home_Museum" component={Home_Museum}></Route>
-                        <Route path="/Personal_Center_index" component={Personal_Center_index}></Route> 
-                        <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
-                        <Route path="/Style_pavilion" component={Style_pavilion}></Route>      */}
-                        
-                        <div className="body">
-                        
+          <div className="index">
+            <div id="body">                   
+                        <div className="body">  
                         <div id="site-nav" data-spm="a2226mz" role="navigation">
                             <div id="sn-bg">
                                 <div className="sn-bg-right">
@@ -59,8 +24,8 @@ export default class index extends Component {
                             </div>
                             <div id="sn-bd">
                                 <div className="sn-container">
-                                    <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来科乐福</em><a className="sn-login" href="//login.tmall.com/?redirectURL=https%3A%2F%2Fwww.tmall.com%2F%3Ffrom%3Dzebra%3Aoffline" target="_top">请登录</a>
-                                    <Link to="/Sign_Register">免费注册</Link></p>  
+                                    <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来科乐福</em><Link to="/Sign_in" className="sn-login">请登录</Link>
+                                    <Link to="/Sign_Register">欢迎注册</Link></p>  
                                     <ul className="sn-quick-menu">    
                                         <li className="sn-mytaobao menu-item j_MyTaobao"></li>
                                         <li className="sn-cart"><i className="fp-iconfont iconfont icon-qicheqianlian-"></i>
@@ -81,7 +46,7 @@ export default class index extends Component {
                                             <a href="//www.taobao.com/" data-spm-anchor-id="875.7931836/B.a2226mz.12">我要装修</a>
                                         </li>
                                         <li className="sn-seller menu-item">         
-                                            <a href="11" className="menu-hd">个人中心</a>
+                                            <Link to="/Personal_Center_index" className="menu-hd">个人中心</Link>
                                         </li>
                                         <li className="sn-sitemap">
                                             <a href="11" className="menu-hd">网站导航</a>
@@ -90,7 +55,7 @@ export default class index extends Component {
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div id="header" data-spm="a2226n0" data-spm-anchor-id="875.7931836/B.0.a2226n0.2cc94265bHtErm">
                             <div className="headerLayout">
                                 <div className="headerCon">
@@ -144,10 +109,8 @@ export default class index extends Component {
                                         {/* </Link> */}
                                         
                                         <a href="//www.tmall.hk/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561833841102_2429983" aria-label="天猫国际" data-spm-anchor-id="875.7931836/B.2016004.2">
-                                            
-                                              优秀案例
-                                            
-
+                                              
+                                              优秀案例 
                                             
                                             <div className="hover-pic"></div>
                                         </a>
@@ -156,73 +119,54 @@ export default class index extends Component {
                                             
                                                 网上商城
                                             
-
-                                            
                                             <div className="hover-pic"></div>
                                         </a>
                                         
-                                        <a href="//3c.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561822298635_2429983" data-spm-anchor-id="875.7931836/B.2016004.4">
-                                            
-                                               家政服务
-                                            
-
+                                        <Link to="/Style_pavilion">                                              
+                                               风格馆
                                             
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
-                                        <a href="//miao.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561818451146_2429983" data-spm-anchor-id="875.7931836/B.2016004.5">
-                                            
+                                        <Link to="/Decoration_Museum">                                            
                                                 装修馆
                                             
 
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
-                                        <a href="//yao.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561829993617_2429983" data-spm-anchor-id="875.7931836/B.2016004.6">
-                                            
+                                        <Link to="/Craftsman_Pavilion">                                          
                                                 工匠馆
-                                            
-
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
-                                        
-                                        <a href="//wt.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561826146128_2429983" data-spm-anchor-id="875.7931836/B.2016004.7">
+                                        </Link>
+                                        <Link to="/Secondhand_Market">   
                                             
                                                 二手馆
                                             
 
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
-                                        <a href="//www.tmall.com/wow/mlh/act/timei?spm=875.7931836/B.2016004.8.2cc94265bHtErm&amp;acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561806908679_2429983" data-spm-anchor-id="875.7931836/B.2016004.8">
-                                            
+                                        <Link to="/Home_Museum">                                               
                                                 建材馆
                                             
 
                                             
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
-                                        <a href="//www.alitrip.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_145618030611810_2429983" data-spm-anchor-id="875.7931836/B.2016004.9">
-                                            
+                                        <Link to="/Home_Museum">                                            
                                                 家居馆
                                             
-
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
-                                        
-                                        <a href="//suning.tmall.com?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_11_2429983" data-spm-anchor-id="875.7931836/B.2016004.10">
+                                        </Link>
+
+                                        <Link to="/Furniture_Museum">
                                             
                                                 家具馆
                                             
-
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
                                     </div>
                                 </div>
@@ -239,6 +183,7 @@ export default class index extends Component {
                                             商品分类
                                         </div>
                                     </div>
+                                    
                                     <div className="category-tab-content">
                                         <div className="nav-con j_tabPannel category-tab-pannel pannel-normal">
                                         <ul className="normal-nav clearfix">
@@ -416,16 +361,16 @@ export default class index extends Component {
                                         <div className="main1">
                                             <Carousel autoplay>
                                                 <div>
-                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner4.jpg')} alt=""/></h3>
+                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner4.webp')} alt=""/></h3>
                                                 </div>
                                                 <div>
-                                                <h3 style={contentStyle}><img src={require('../assets/images/banner2.jpg')} alt=""/></h3>
+                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner2.jpg')} alt=""/></h3>
                                                 </div>
                                                 <div>
-                                                <h3 style={contentStyle}><img src={require('../assets/images/banner1.webp')} alt=""/></h3>
+                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner1.jpg')} alt=""/></h3>
                                                 </div>
                                                 <div>
-                                                <h3 style={contentStyle}><img src={require('../assets/images/banner3.jpg')} alt=""/></h3>
+                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner3.jpg')} alt=""/></h3>
                                                 </div>
                                             </Carousel>,
                                             </div>
@@ -1199,11 +1144,6 @@ export default class index extends Component {
                 </div>
             </div>
         </div>  
-
-
-
-
-
                         </div>
 
                         {/*底部 */}
@@ -1245,24 +1185,18 @@ export default class index extends Component {
 </div>
         
     </div>
-                        </div>
+    </div>
 
-                        </div>
+        </div>
                        
-                    </div>     
-        
-                    
-                
-                   
-                
-             
-               
-
-
-
-                    </Router>
+            </div>     
+                {/* </Router> */}
             </div>
-                
-        )
-    }
+        </div>
+        )            
+         
+  }
 }
+
+
+

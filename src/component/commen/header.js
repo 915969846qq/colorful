@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
+import { Row, Col,} from 'antd';
 import "./header.css"
 
 class header extends Component {
     render() {
         return (
             <div>
+                <Row>
+                    <Col span={1}></Col>
+                    <Col span={22}>
                 {/*//表头*/}
                 <div className="ress_img"><img className="full" src={require("../../assets/images/address.png")} alt=""/></div>
                 
@@ -26,8 +30,13 @@ class header extends Component {
                         </div>
                     </div>
                 </div>
+                    </Col>
+                    <Col span={1}></Col>
+                </Row>
 
             </div>
+
+            
         )
     }
 }
