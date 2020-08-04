@@ -43,14 +43,14 @@ export default class index extends Component {
           };
         return (
             <div id="body">          
-                    <Router>
-                        <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route>
-                        <Route path="/Sign_Register"  component={Sign_Register}></Route>
+                    {/* <Router> */}
+                        {/* <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route> */}
+                        {/* <Route path="/Sign_Register"  component={Sign_Register}></Route> */}
                         {/* <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
                         <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
                         <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
                         <Route path="/Home_Museum" component={Home_Museum}></Route> */}
-                        <Route path="/Personal_Center_index" component={Personal_Center_index}></Route> 
+                        {/* <Route path="/Personal_Center_index" component={Personal_Center_index}></Route>  */}
                         {/* <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
                         <Route path="/Style_pavilion" component={Style_pavilion}></Route>      */}
                         <div className="body">
@@ -84,7 +84,7 @@ export default class index extends Component {
                                             <a href="//www.taobao.com/" data-spm-anchor-id="875.7931836/B.a2226mz.12">我要装修</a>
                                         </li>
                                         <li className="sn-seller menu-item">         
-                                            <a href="11" className="menu-hd">个人中心</a>
+                                            <Link to="/Personal_Center_index" className="menu-hd">个人中心</Link>
                                         </li>
                                         <li className="sn-sitemap">
                                             <a href="11" className="menu-hd">网站导航</a>
@@ -159,73 +159,58 @@ export default class index extends Component {
                                             
                                                 网上商城
                                             
-
-                                            
                                             <div className="hover-pic"></div>
                                         </a>
                                         
-                                        <a href="//3c.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561822298635_2429983" data-spm-anchor-id="875.7931836/B.2016004.4">
-                                            
-                                               家政服务
-                                            
-
+                                        <Link to="/Style_pavilion">                                              
+                                               风格馆
                                             
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
-                                        <a href="//miao.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561818451146_2429983" data-spm-anchor-id="875.7931836/B.2016004.5">
-                                            
+                                        <Link to="/Decoration_Museum">                                            
                                                 装修馆
                                             
 
                                             
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
-                                        <a href="//yao.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561829993617_2429983" data-spm-anchor-id="875.7931836/B.2016004.6">
-                                            
+                                        <Link to="/Craftsman_Pavilion">                                          
                                                 工匠馆
                                             
 
                                             
                                             <div className="hover-pic"></div>
-                                        </a>
-                                        
-                                        <a href="//wt.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561826146128_2429983" data-spm-anchor-id="875.7931836/B.2016004.7">
+                                        </Link>
+                                        <Link to="/Secondhand_Market">   
                                             
                                                 二手馆
                                             
 
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
-                                        <a href="//www.tmall.com/wow/mlh/act/timei?spm=875.7931836/B.2016004.8.2cc94265bHtErm&amp;acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561806908679_2429983" data-spm-anchor-id="875.7931836/B.2016004.8">
-                                            
+                                        <Link to="/Home_Museum">                                               
                                                 建材馆
                                             
 
                                             
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
-                                        <a href="//www.alitrip.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_145618030611810_2429983" data-spm-anchor-id="875.7931836/B.2016004.9">
-                                            
+                                        <Link to="/Home_Museum">                                            
                                                 家居馆
                                             
-
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
-                                        
-                                        <a href="//suning.tmall.com?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_11_2429983" data-spm-anchor-id="875.7931836/B.2016004.10">
+                                        </Link>
+
+                                        <Link to="/Furniture_Museum">
                                             
                                                 家具馆
                                             
-
-                                            
                                             <div className="hover-pic"></div>
-                                        </a>
+                                        </Link>
                                         
                                     </div>
                                 </div>
@@ -1248,68 +1233,12 @@ export default class index extends Component {
         </div>
                        
             </div>     
-                </Router>
+                {/* </Router> */}
             </div>
                 
         )
 
 
-// export default class index extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <Router>
-//           <div>
-//             <Route
-//               path="/Building_materials_Museum"
-//               component={Building_materials_Museum}
-//             ></Route>
-//             <Route
-//               path="/Craftsman_Pavilion"
-//               component={Craftsman_Pavilion}
-//             ></Route>
-//             <Route
-//               path="/Decoration_Museum"
-//               component={Decoration_Museum}
-//             ></Route>
-//             <Route
-//               path="/Furniture_Museum"
-//               component={Furniture_Museum}
-//             ></Route>
-//             <Route path="/Home_Museum" component={Home_Museum}></Route>
-//             <Route
-//               path="/Personal_Center_index"
-//               component={Personal_Center_index}
-//             ></Route>
-//             <Route
-//               path="/Secondhand_Market"
-//               component={Secondhand_Market}
-//             ></Route>
-//             <Route path="/Style_pavilion" component={Style_pavilion}></Route>
-//             {/* 日记 */}
-//             <Route
-//               path="/Decoration_Diary_list"
-//               component={Decoration_Diary_list}
-//             ></Route>
-//             <Route
-//               path="/Decoration_My_diary"
-//               component={Decoration_My_diary}
-//             ></Route>
-//             <Route
-//               path="/Craftsman_Pavilion_list"
-//               component={Craftsman_Pavilion_list}
-//             ></Route>
-//             <Route
-//               path="/Craftsman_details"
-//               component={Craftsman_details}
-//             ></Route>
-//             <Route
-//               path="/Furniture_Museum_details"
-//               component={Furniture_Museum_details}
-//             ></Route>
-//           </div>
-//         </Router>
-//       </div>
-//     )
+
   }
 }

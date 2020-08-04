@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom"
 
 //引入css
 import "../css/PopularCraftsman.css"
@@ -36,7 +37,7 @@ class PopularCraftsman extends Component {
         let arr=this.state.craftsmanArr.map((item,index)=>{
               return (
                 <div className="craftsman" key={index}>
-                    <img src={require(`../../../${item.img}`)} alt="" className="cursor"/>
+                    <Link to="/Craftsman_details"><img src={require(`../../../${item.img}`)} alt="" className="cursor"/></Link>
                     <div className="flex craftsman_Info">
                         <div>
                             <span className="craftsman_name cursor">{item.name}</span>

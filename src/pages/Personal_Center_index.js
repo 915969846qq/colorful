@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Redirect
+  Redirect,
+  Link
 } from "react-router-dom"
 import { Layout } from 'antd'
 import 'antd/dist/antd.css';
@@ -74,7 +75,9 @@ export default class Personal_Center_index extends Component {
             </div>
           </div>
           <div className="header-bottom">
-            <div className="header-bottom-img"><img src={require('../assets/images/logo2.png')} alt="logo2"></img></div>
+            <div className="header-bottom-img">
+              <Link to="/"><img src={require('../assets/images/logo2.png')} alt="logo2"/></Link>
+            </div>
             <div className="header-bottom-span"><h1 >个人中心</h1></div>
             <div className="header-bottom-button"><a href="1">成为经销商</a></div>
           </div>
