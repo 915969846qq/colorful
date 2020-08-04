@@ -8,7 +8,7 @@ export default class Craftsman_Settled extends Component {
     state = {
         value: 1,
     };
-    
+
     onChange = e => {
         console.log('radio checked', e.target.value);
         this.setState({
@@ -724,7 +724,7 @@ export default class Craftsman_Settled extends Component {
     render() {
         let id = 0
         return (
-            <div>
+            <div className="xt2">
 
                     <div className="header-top">
                         <Row>

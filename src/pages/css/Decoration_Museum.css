@@ -1,20 +1,20 @@
-.ant-carousel .slick-slide {
+.xt .ant-carousel .slick-slide {
     text-align: center;
     overflow: hidden;
 }
 
-.ant-carousel .slick-slide h3 {
+.xt .ant-carousel .slick-slide h3 {
     color: #fff;
 }
-img{
+.xt img{
     width: 100%;
     height: 351px;
 }
-.main{
+.xt .main{
     width: 1200px;
     margin: 0 auto;
 }
-.top_table{
+.xt .top_table{
     width: 1200px;
     height: 123px;
     border:solid 1px #b1b1b1;
@@ -22,7 +22,7 @@ img{
     margin-bottom: 300px;
 
 }
-.top_table h5 {
+.xt .top_table h5 {
     margin: 0;
     width: 97px;
     height: 30px;
@@ -34,14 +34,14 @@ img{
     border-bottom: 1px dashed #b1b1b1;
     line-height: 30px;
 }
-.top_table ul {
+.xt .top_table ul {
     width: 1101px;
     height: 30px;
     float: left;
     margin: 0;
     border-bottom: 1px dashed #b1b1b1;
 }
- .text input{
+.xt .text input{
     width: 210px;
     height: 40px;
     margin: 0 auto;
@@ -51,7 +51,7 @@ img{
     text-indent: 4px;
     margin-bottom: 20px;
 }
-li {
+.xt li {
     height: 18px;
     line-height: 18px;
     font-size: 14px;
@@ -62,17 +62,17 @@ li {
     cursor: pointer;
     list-style: none;
 }
-.btchecker {
+.xt .btchecker {
     border-radius: 3px;
     background-color: #ff0000;
     color: white;
 }
-.color{
+.xt .color{
     color: white;
 }
 
 
-.Today_recommended ul {
+.xt .Today_recommended ul {
 
     width: 1198px;
     height: 30px;
@@ -81,14 +81,14 @@ li {
     margin-left: 18px;
     margin-top: -240px;
 }
-.Today_recommended ul .btchecker {
+.xt .Today_recommended ul .btchecker {
     margin-left: -2px;
     margin-top: -1px;
     color: #fff;
     background-color: #ff0000;
     border-color: #ff0000;
 }
-.Today_recommended ul li {
+.xt .Today_recommended ul li {
     margin-top: -1px;
     height: 30px;
     font-size: 14px;
@@ -100,19 +100,20 @@ li {
     border-right: 1px solid #b1b1b1;
     cursor: pointer;
 }
-.main-left {
+.xt .main-left {
     width: 900px;
     float: left;
     padding-top: 20px;
     margin-left: 18px;
 }
-.main-left-top {
+.xt .main-left-top {
     width: 898px;
     height: 178px;
     border: 1px solid #b1b1b1;
+    margin-left: -15px;
     margin-bottom: 20px;
 }
-.left-IMGe {
+.xt .left-IMGe {
     width: 150px;
     height: 146px;
     border: 1px solid #b1b1b1;
@@ -120,11 +121,11 @@ li {
     margin: 15px;
     cursor: pointer;
 }
-.left_text {
+.xt .left_text {
     height: 178px;
     float: left;
 }
-.left-bottun {
+.xt .left-bottun {
     width: 150px;
     height: 146px;
     margin-top: 15px;
@@ -132,34 +133,34 @@ li {
     text-align: center;
     border-left: 1px dashed #b1b1b1;
 }
-.left-IMGe img {
+.xt .left-IMGe img {
     width: 100%;
     height: 100%;
 }
-.left_text p {
+.xt .left_text p {
     font-size: 12px;
     color: #666;
     line-height: 18px;
 }
-.left_text .allvalue {
+.xt .left_text .allvalue {
     font-size: 16px;
     color: #5f5f5f;
     line-height: 24px;
     font-weight: bold;
     margin-top: 10px;
 }
-.left-bottun p {
+.xt .left-bottun p {
     font-size: 14px;
     color: #5f5f5f;
     line-height: 30px;
     margin-top: 10px;
 }
-.left-bottun span {
+.xt .left-bottun span {
     font-size: 30px;
     color: #ff0000;
     line-height: 50px;
 }
-.left-bottun a {
+.xt .left-bottun a {
     width: 130px;
     height: 40px;
     display: block;
@@ -171,7 +172,7 @@ li {
     cursor: pointer;
 
 }
-.daa-main-xiyiye {
+.xt .daa-main-xiyiye {
     height: 100px;
     width: 900px;
     font-family: "宋体";
@@ -180,38 +181,38 @@ li {
     line-height: 30px;
     text-align: center;
 }
-.main-right {
+.xt .main-right {
     width: 285px;
     float: left;
     margin-left: 13px;
     padding-top: 20px;
 }
-.main-right-one {
+.xt .main-right-one {
     width: 285px;
     height: 415px;
     background-color: #e8e0d2;
     text-align: center;
 }
-.main-right-one h4 {
+.xt .main-right-one h4 {
     font-size: 24px;
     color: #645c54;
     line-height: 50px;
     padding-top: 20px;
 }
-.main-right-one p {
+.xt .main-right-one p {
     font-size: 14px;
     color: #645c54;
    margin-top: -10px;
 }
-.main-right-one p span {
+.xt .main-right-one p span {
     color: #ff0000;
 }
-.main-right-one .text {
+.xt .main-right-one .text {
     margin-top:10px;
    margin-left: 36px;
 }
 
-.main-right-one .city input {
+.xt .main-right-one .city input {
     width: 210px;
     height: 40px;
     margin: 0 auto;
@@ -223,7 +224,7 @@ li {
     border: 0;
 }
 
-.main-right-one .text input, .main-right-one .tel input, .main-right-one .city input {
+.xt .main-right-one .text input, .main-right-one .tel input, .main-right-one .city input {
     width: 210px;
     height: 40px;
     margin: 0 auto;
@@ -234,7 +235,7 @@ li {
     margin-bottom: 20px;
     border: 0;
 }
-.main-right-one .text input {
+.xt .main-right-one .text input {
     width: 210px;
     height: 40px;
     margin: 0 auto;
@@ -245,7 +246,7 @@ li {
     margin-bottom: 20px;
     border: 0;
 }
-.botton {
+.xt .botton {
     width: 210px;
     height: 40px;
     display: block;
@@ -259,45 +260,45 @@ li {
     cursor: pointer;
     -webkit-border-radius: 4px;}
 
-#footer {
+.xt #footer {
     padding-top: 100px;
     padding-bottom: 100px;
     clear: both;
 }
-.footer {
+.xt .footer {
     height: 360px;
     border-top: 1px solid #f76d1d;
 }
-.footer-top {
+.xt .footer-top {
     height: 200px;
 }
-.footer-bottom {
+.xt .footer-bottom {
     margin-top: 30px;
     clear: both;
 }
-.footer-top-left {
+.xt .footer-top-left {
     width: 240px;
     float: left;
     text-align: center;
 }
-.footer-top-left P {
+.xt .footer-top-left P {
     margin-left: 40px;
     font-size: 14px;
     color: #595959;
     margin-top: 35px;
     line-height: 24px;
 }
-.footer-top-left ul {
+.xt .footer-top-left ul {
     width: 240px;
 }
 
-.footer-top-left ul li {
+.xt .footer-top-left ul li {
     width: 120px;
     list-style: inside;
     cursor: pointer;
     margin: 0 auto;
 }
-.footer-top-left ul li a {
+.xt .footer-top-left ul li a {
     height: 24px;
     width: 50%;
     margin: 0 auto;
@@ -306,17 +307,17 @@ li {
     font-size: 12px;
     color: #595959;
 }
-.footer-bottom p {
+.xt .footer-bottom p {
     text-align: center;
     font-size: 12px;
     color: #b2b2b2;
     line-height: 16px;
 }
-.footer-icon {
+.xt .footer-icon {
     margin-top: 10px;
     text-align: center;
 }
-.full1{
+.xt .full1{
     height: 42px;
     width: 163px;
 }
@@ -326,13 +327,13 @@ li {
 /*    text-align: right;*/
 /*    float: left;*/
 /*}*/
-.fill_In select {
+.xt .fill_In select {
     float: left;
     height: 30px;
     margin-left: 20px;
     color: #0f0f0f;
 }
-.left_text h6 a {
+.xt .left_text h6 a {
     font-size: 18px;
     color: #585858;
     line-height: 60px;
@@ -340,15 +341,22 @@ li {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-.left_text p {
+.xt .left_text p {
     font-size: 12px;
     color: #666;
     line-height: 18px;
 }
-.left_text .allvalue {
+.xt .left_text .allvalue {
     font-size: 16px;
     color: #5f5f5f;
     line-height: 24px;
     font-weight: bold;
     margin-top: 10px;
 }
+
+/*.ant-table-thead{*/
+/*    display: none;*/
+/*}*/
+/*.ant-table-row .ant-table-cell{*/
+/*    padding: 0;*/
+/*}*/

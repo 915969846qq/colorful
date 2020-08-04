@@ -719,7 +719,7 @@ export default class Craftsman_Settled_company extends Component {
     render() {
         let id = 0
         return (
-            <div>
+            <div className="xt1">
                 <div className="header-top">
                     <Row>
                         <Col span={1}></Col>
