@@ -135,7 +135,6 @@ class Decoration_show extends Component {
         <Divider />
         <div className="fang_marginT20"></div>
         <div>
-          <span>{this.state.pageNumber}</span>
           <Pagination
             defaultCurrent={this.state.pageNumber}
             defaultPageSize={this.state.Lnumber}

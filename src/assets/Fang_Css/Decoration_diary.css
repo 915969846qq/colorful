@@ -5,6 +5,18 @@
 .fang_GBcolor {
   background-color: #f6f6f6;
 }
+.fang_0BColor {
+  background-color: black;
+}
+.fang_RBColor {
+  background-color: #ff0000;
+}
+.fang_WBColor {
+  background-color: #ffffff;
+}
+.fang_RColor {
+  color: #ff0000;
+}
 .fang_GColor {
   color: #a9a9a9;
 }
@@ -20,6 +32,9 @@
 .fang_LColor {
   color: #5acd7f;
 }
+.fang_wcolor {
+  color: #ffffff;
+}
 .fang_title {
   height: 30px;
   line-height: 30px;
@@ -31,6 +46,12 @@
 }
 .fang_padding20 {
   padding-left: 20px;
+}
+.fang_paddingr20 {
+  padding-right: 20px;
+}
+.fang_padding30 {
+  padding-left: 30px;
 }
 .fang_paddingt10 {
   padding-top: 10px;
@@ -68,11 +89,25 @@
   height: 120px;
   border-radius: 50%;
 }
+.fang_kuang100 {
+  width: 100px;
+  height: 100px;
+}
 .fang_center {
   text-align: right;
 }
 .fang_marginT20 {
   margin-top: 20px;
+}
+.fang_marginB20 {
+  margin-bottom: 20px;
+}
+.fang_varticalTEXT {
+  letter-spacing: 18px;
+}
+.fang_varticalTEXT:hover {
+  color: #ff0000;
+  cursor: pointer;
 }
 .fang_marginR20 {
   margin-right: 20px;
@@ -137,6 +172,9 @@
 .fang_fontS {
   font-size: 38px;
 }
+.fang_font22 {
+  font-size: 21px;
+}
 .fang_font18 {
   font-size: 18px;
 }
@@ -148,6 +186,15 @@
 }
 .fang_noborder {
   outline: none;
+}
+.fang_border {
+  border: 0;
+}
+.fang_Tright {
+  text-align: right;
+}
+.fang_TLeft {
+  text-align: left;
 }
 .fang_height50 {
   height: 50px;
@@ -174,6 +221,9 @@
 .fang_myh:hover {
   cursor: pointer;
   color: #d3522b;
+}
+.fang_paddtop100 {
+  padding-top: 100px;
 }
 .myLable:hover {
   cursor: pointer;
