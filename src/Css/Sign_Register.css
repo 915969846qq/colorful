@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#ak{
+    width: 1200px;
+    margin: 0 auto;
+}
+.header-top {
+    width: 100%;
+    background-color: #fbfbfb;
+    height: 29px;
+    border-bottom: 1px solid #b1b1b1;
+}
+.Decoration_logo {
+    height: 100px;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+.nav-top {
+    width: 1200px;
+    height: 70px;
+    margin: 0 auto;
+}
+.nav-top .logo {
+    width: 220px;
+    height: 70px;
+    margin-top: 30px;
+    float: left;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+.full {
+    height: 100%;
+}
+.nav-top .Personal_Center {
+    line-height: 100px;
+    font-size: 30px;
+    color: #6b6b6b;
+    float: left;
+    margin-left: 65px;
+    padding-left: 65px;
+    border-left: 1px solid #6b6b6b;
+}
+.header, .main, .footer {
+    width: 1200px;
+    margin: 0 auto;
+}
+.Sign_in-main {
+    height: 500px;
+    margin-top: 100px;
+    padding-bottom: 200px;
+}
+.Sign_in-main .left {
+    width: 718px;
+    height: 500px;
+    float: left;
+}
+.Sign_in-main .Register_right {
+    height: 498px;
+    margin-top: 0px;
+}
+.Sign_in-main .right {
+    width: 398px;
+    border: 1px solid #b1b1b1;
+    float: right;
+}
+.Register_right .topman {
+    width: 360px;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+.Register_right .topman p {
+    width: 120px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+.Register_right .topman p {
+    width: 120px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+.topman .applyborder {
+    color: #ff0000;
+    border-bottom: 1px solid #ff0000; 
+}
+form input{
+        height: 40px;
+        display: block;
+        margin-bottom: 30px;
+        margin-left: 18px;
+}
+.Sign_in-main .right form input {
+    width: 360px;
+    height: 38px;
+    border: 1px solid #b1b1b1;
+    text-indent: 4px;
+}
+.Register_right .Verification .Verifi {
+    width: 150px;
+    float: left;
+}
+
+#Verifi {
+    float: left;
+    width: 150px;
+}
+.Yzhema{
+    float: left;
+    width: 130px;
+    height: 40px;
+    float: right;
+    margin-right: 18px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #ff0000;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.Sign_in-main  #checkbox {
+    width: 20px;
+    line-height: 10px;
+    float: left;
+}
+.Sign_in-main label {
+    line-height: 40px;
+}
+
+.Sign_in-main  input {
+    height: 40px;
+    display: block;
+    margin-bottom: 30px;
+    margin-left: 18px;
+    border: 1px solid #b1b1b1;
+    text-indent: 4px;
+}
+.read{
+    margin-top: 5px;
+    font-size: 16px;
+}
+.clear{
+    clear: both;
+}
+.read a{
+    color:red;
+    font-size: 16px;
+}
+    .Sign_in-main  .den_lu {
+        width: 360px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background-color: #ff0000;
+        color: #fff;
+        display: block;
+        cursor: pointer;
+        margin-left: 18px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+    
+}

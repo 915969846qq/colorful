@@ -7,7 +7,7 @@ class header extends Component {
             <div>
                 {/*//表头*/}
                 <div className="ress_img"><img className="full" src={require("../../assets/images/address.png")} alt=""/></div>
-
+                
                 <div id="addresspp" className="addresspp">成都</div>
                 <div className="readssswitch"><a
                     href="1" tjjj="top.cities.list" title="切换城市"

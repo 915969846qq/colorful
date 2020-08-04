@@ -4,7 +4,7 @@ export default class Sign_Register_successful extends Component {
     render() {
         return (
             <div>
-         
+                
             </div>
         )
     }
