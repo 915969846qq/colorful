@@ -66,10 +66,17 @@ export default class Personal_Center_index extends Component {
               <span className="span-red">{this.state.username}!</span>
             </div>
             <div className="header-right header">
+<<<<<<< .mine
               <a href="1" className="hover-red">登录</a>
               <a href="1" className="hover-red">免费注册</a>
               <a href="1" className="hover-red">我要装修</a>
               <img src={require('../assets/images/hotline.png')} alt="资讯图标"></img>
+=======
+              <a href="" className="hover-red">登录</a>
+              <a href="" className="hover-red">免费注册</a>
+              <a href="" className="hover-red">我要装修</a>
+              <img src={require('../assets/images/hotline.png')} al="资讯图标"></img>
+>>>>>>> .theirs
               <span className="span-gray">咨询热线：4006-900-288</span>
             </div>
           </div>
