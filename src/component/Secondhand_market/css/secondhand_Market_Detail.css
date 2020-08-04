@@ -1,17 +1,21 @@
-/* 二手商品大盒子 */
-.secprod_detailbox{
-    width: 250px;
-    
+.secproductselectbox{
+    display: flex;
 }
+/* 二手商品大盒子 */
+
 /* 二手商品盒子 */
-.secprod_detail{   
+.secprod_detailbox{
+   margin-left: 50px;
     width: 200px;
-    margin:0 auto;
+}
+.secprod_detailbox .secprod_detail{   
+    width: 200px;
+   
     border: 1px solid rgba(128, 128, 128, 0.493);
     overflow: hidden;
 }
 /* 底部文字信息 */
-.sec-textbox{
+.secprod_detailbox .sec-textbox{
     padding: 0 10px;
 }
 /* //二手价格 */
@@ -20,7 +24,7 @@ font-size: 20px;
 color:#ff26009c;
 }
 /* //卖家头像 */
-.sec_sellerimg{
+.secprod_detailbox .secbox_sellerimg{
     border-radius: 100%;
     width: 40px;
     height: 40px;
@@ -29,26 +33,40 @@ color:#ff26009c;
     
 }
 /* 商品描述 */
-.sec_title{
+.secprod_detailbox .sec_title{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 /* 卖家盒子 */
-.sec_seller_wrap{
+.secprod_detailbox .sec_seller_wrap{
     height: 40px;
     line-height: 40px;
     border-top: 1px solid rgba(128, 128, 128, 0.493);
     padding-top: 3px;
     
 }
-p{
+.secprod_detailbox p{
     margin: 5px 0;
     
 }
 /* 详细地址 */
-.sec_detailregion{
+.secprod_detailbox .sec_detailregion{
 font-size: 12px;
 float:right;
 margin-right: 3px;
+}
+.secproductselectbox{
+    padding-top: 20px;
+    margin-top: 20px;
+}
+.secproductselectbox a{
+    color:black;
+}
+.chenmingpagebuttonbox{
+    margin: 90px;
+}
+.chenmingpagebutton{
+    width: 300px;
+    margin:0 auto;
 }

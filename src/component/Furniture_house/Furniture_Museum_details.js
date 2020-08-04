@@ -144,7 +144,7 @@ class Furniture_Museum_details extends Component {
             )
         });
         return ( 
-            <div>
+            <div className="FurnitureGoods">
                 {arr}
                 <div className="recommendedGoods">推荐商品</div>
                 <div className="recommended_box goodsFlex">

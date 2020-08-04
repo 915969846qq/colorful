@@ -31,6 +31,7 @@ class Decoration_check extends Component {
     }
   }
   componentDidMount() {
+    console.log($);
     // 用户点击选项
     $('.myh').on('click', function () {
       // 点击更改样式
