@@ -60,9 +60,13 @@ class designCase extends Component {
             )
         })
         return ( 
-            <div className="flex craftsmanStyle">
-                 {arr}
-                 <div className="page"><Pagination current={this.state.current} onChange={this.onChange} total={50} /></div>
+            //外层css取名
+            <div className="craftsmancss">
+
+                <div className="flex craftsmanStyle ">
+                    {arr}
+                    <div className="page"><Pagination current={this.state.current} onChange={this.onChange} total={50} /></div>
+                </div>
             </div>
          );
     }

@@ -15,7 +15,7 @@ class Craftsman_details extends Component {
     }
     render() { 
         return ( 
-            <div className="mainBox">
+            <div className="mainBox person">
                 <PersonnalDetails></PersonnalDetails>
                 <h1 className="">所有设计案例</h1>
                 <DesignCase></DesignCase>

@@ -80,11 +80,16 @@ class Craftsman_Pavilion_list extends Component {
               )      
         })
         return ( 
-            <div className="craftsmanStyle flex">
-                {/* 工匠人员 */}
+            //外层css取名
+            <div className="craftsmancss">
 
-                {arr}
+            
+                <div className="craftsmanStyle flex ">
+                    {/* 工匠人员 */}
 
+                    {arr}
+
+                </div>
             </div>
          );
     }

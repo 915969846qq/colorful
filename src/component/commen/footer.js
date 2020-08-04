@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
 import "./footer.css"
+import {Col, Row} from "antd";
 
 class footer extends Component {
     render() {
         return (
             <div>
+                <Row>
+                    <Col span={1}></Col>
+                    <Col span={22}>
                 {/* 页脚*/}
                 <div id="footer">
                     <div className="footer">
@@ -65,11 +69,15 @@ class footer extends Component {
                             <p>关于我们 联系我们 友情链接 帮助中心 意见反馈 高薪聘请 法律声明</p>
                             <p>ICP备案证书号:蜀ICP备00000000号</p>
 
-                            <div className="footer-icon"><img className="full1" src={require("../../assets/images/footer-icon_03.png")}/></div>
+                            <div className="footer-icon"><img className="full1" src={require("../../assets/images/footer-icon_03.png")} alt=""/></div>
                         </div>
                     </div>
                 </div>
+                    </Col>
+                    <Col span={1}></Col>
+                </Row>
             </div>
+
         )
     }
 }

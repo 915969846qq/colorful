@@ -191,7 +191,7 @@ export default class index extends Component {
                                             <div className="hover-pic"></div>
                                         </Link>
                                         
-                                        <Link to="/Home_Museum">                                               
+                                        <Link to="/Building_materials_Museum">                                               
                                                 建材馆
                                             
 
