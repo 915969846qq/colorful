@@ -1,9 +1,9 @@
-.person .mainBox{
+.mainBox{
     width: 100%;
     background-color: #f8f8f8;
     margin: 0 auto;
 }
-.person .box{
+.box{
     width:1200px;
     height: 290px;
     background-color: white;
@@ -11,22 +11,22 @@
     display: flex;
     /* border: 1px solid darkblue; */
 }
-.person .box_left{
+.box_left{
     width:290px ;
     height:290px ;
     text-align: center;
 }
-.person .imgStyle{
+.imgStyle{
     width:140px ;
     height:140px ;
     border-radius: 100%;
     margin: 10px auto;
 }
-.person .nameStyle{
+.nameStyle{
     font-size: 30px;
     color: red;
 }
-.person .freeDesign{
+.freeDesign{
     width:140px ;
     height:40px ;
     color: wheat;
@@ -37,22 +37,24 @@
     margin: 10px auto;
     border-radius: 5px;
 }
-.person table{
+/* .box_right{
+    border: 1px solid darkblue;
+    width:910px ;
+    height:290px;
+} */
+table{
     width:910px;
     height:290px;
 }
-.person td{
+td{
     width: 50%;
 }
-.person h1{
+h1{
     width: 1200px;
     margin: 10px auto;
     font-weight: bolder;
     font-size: 24px;
 }
-.person .page{
-    margin-left: 800px;
-}
-.person .tdStyle{
-    font-size: 14px;
+.page{
+    margin-left: 900px;
 }

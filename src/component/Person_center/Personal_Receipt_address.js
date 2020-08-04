@@ -62,7 +62,7 @@ export default class Personal_Receipt_address extends Component {
     }
     render() {
         return (
-            <div className="chenming1">
+            <div>
                 <div className="receive_address">
                     <div >
                         <span>真实姓名 :</span>

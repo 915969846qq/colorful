@@ -1,0 +1,25 @@
+#components-layout-demo-side .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+.ant-menu{
+  height: 100%;
+}
+.logo{
+  width: 90px;
+}
+
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+  background: #00b5cc;
+}
+.ant-menu-dark .ant-menu-inline.ant-menu-sub{
+  background-color:#22a7f0;
+}
+.ant-layout-sider-trigger{
+  background: #00b5cc;
+}

@@ -1,34 +1,34 @@
-.FurnitureGoods .cursor{
+.cursor{
     cursor: pointer;
 }
-.FurnitureGoods .goodsInfo_box{
+.goodsInfo_box{
     width:1200px ;
     height:701px ;
     margin: 0 auto;
 }
-.FurnitureGoods .goodsFlex{
+.goodsFlex{
     display: flex;
     flex-wrap: wrap;
 }
-.FurnitureGoods .goodsImgStyle{
+.goodsImgStyle{
     width:730px ;
     height:460px ;
 }
-.FurnitureGoods .goodsInfo_right{
+.goodsInfo_right{
     width: 460px;
     padding: 35px;
 }
-.FurnitureGoods .goodstitle{
+.goodstitle{
     font-size:30px;
     font-weight:bolder;
     color: #333;
 }
-.FurnitureGoods .goodsPrice{
+.goodsPrice{
     font-size:18px;
     color: #999;
     margin: 20px 0;
 }
-.FurnitureGoods .sizeBox{
+.sizeBox{
     width:100px;
     height:24px;
     line-height: 24px;
@@ -37,10 +37,10 @@
     margin: 4px;
     cursor: pointer;
 }
-.FurnitureGoods .align{
+.align{
     justify-content: space-between;
 }
-.FurnitureGoods .buyNow{
+.buyNow{
     width:165px;
     height:40px;
     line-height: 40px;
@@ -50,42 +50,42 @@
     background-color: #ff0000;
     border-radius: 4px;
 }
-.FurnitureGoods .goodsInfoImg{
+.goodsInfoImg{
     width: 100%;
 }
-.FurnitureGoods .goodsInfoImg img{
+.goodsInfoImg img{
     width: 100%;
 }
-.FurnitureGoods .recommended_box{
+.recommended_box{
     width:1220px ;
     height:370px ;
     margin: 0 auto;
     /* border: 1px solid #999; */
 }
-.FurnitureGoods .recommendedStyle{
+.recommendedStyle{
     width:285px ;
     height:370px ;
     margin: 10px;
     background-color: #f8f8f8;
     /* border: 1px solid #999; */
 }
-.FurnitureGoods .recommendedImgStyle{
+.recommendedImgStyle{
     width:200px ;
     height:200px ;
     margin: 40px 50px;
 }
-.FurnitureGoods .justify{
+.justify{
     justify-content: space-around;
 }
-.FurnitureGoods .recommendedTitleStyle{
+.recommendedTitleStyle{
     font-size:18px ;
     text-align: center;
 }
-.FurnitureGoods .recommendedPriceStyle{
+.recommendedPriceStyle{
     font-size:18px ;
     color: #999;
 }
-.FurnitureGoods .recommendedGoods{
+.recommendedGoods{
     width: 1215px;
     margin: 0 auto;
     height: 45px;
@@ -95,34 +95,34 @@
     text-align: center;
     line-height: 45px;
 }
-.FurnitureGoods .shoucang{
+.shoucang{
     width: 20px;
 }
-.FurnitureGoods .border{
+.border{
     border-top: 1px solid #999;
     width: 1200px;
     margin: 0 auto;
 }
-.FurnitureGoods .marginRight{
+.marginRight{
     margin:10px 10px;
     font-size:18px;
     color: #999;
 }
-.FurnitureGoods .marginRight:hover{
+.marginRight:hover{
     color: red;
 }
-.FurnitureGoods .togglestyle{
+.togglestyle{
     width: 730px;
     height: 130px;
     margin: 10px 30px;
 }
-.FurnitureGoods .togglestyle img{
+.togglestyle img{
     width:130px ;
     height: 130px;
     margin: 10px;
     cursor: pointer;
 }
-.FurnitureGoods .buttonleft{
+.buttonleft{
     width:30px ;
     height: 70px;
     line-height: 70px;
@@ -130,4 +130,5 @@
     background-color:#666 ;
     margin-top: 30px;
     cursor: pointer;
+
 }

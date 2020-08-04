@@ -23,7 +23,6 @@ class secprodmarket_detail extends Component {
         }
     }
     render() { 
-        console.log(this.props.location)
         return ( 
             <div>
                 {/* 主要内容盒子 */}

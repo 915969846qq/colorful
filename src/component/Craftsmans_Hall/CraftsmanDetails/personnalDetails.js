@@ -26,45 +26,43 @@ class personnalDetails extends Component {
     render() { 
         let arr=this.state.person.map((item)=>{
            return(
-               <div className="person">
-                    <div className=" box">
-                        {/* 左边 */}
-                        <div className="box_left">
-                            <img src={require(`../../../${item.craftsmanImg}`)} alt="" className="imgStyle"/>
-                            <div className="nameStyle">{item.craftsmanName}</div>
-                            <div className="freeDesign">
-                                免费设计
-                            </div>
-                        </div>
-                        {/* 右边 */}
-                        <div>
-                            <table border="1" >
-                                {/* <thead>个人资料</thead> */}
-                                <tbody>
-                                    <tr>
-                                        <td colSpan="2"  className="nameStyle">个人资料</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="tdStyle">所属公司:{item.company}</td>
-                                        <td className="tdStyle">职位名称:{item.position}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="tdStyle">擅长领域:{item.expertise}</td>
-                                        <td className="tdStyle">擅长风格:{item.style}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="tdStyle">设计经验:{item.experience}</td>
-                                        <td className="tdStyle">设计费用:{item.DesignCost}</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="tdStyle">设计理念:{item.DesignConcept}</td>
-                                        <td className="tdStyle"> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+            <div className="box">
+                {/* 左边 */}
+                <div className="box_left">
+                    <img src={require(`../../../${item.craftsmanImg}`)} alt="" className="imgStyle"/>
+                    <div className="nameStyle">{item.craftsmanName}</div>
+                    <div className="freeDesign">
+                        免费设计
                     </div>
                 </div>
+                {/* 右边 */}
+                <div>
+                    <table border="1">
+                        {/* <thead>个人资料</thead> */}
+                        <tbody>
+                            <tr className="nameStyle">
+                                <td colSpan="2">个人资料</td>
+                            </tr>
+                            <tr>
+                                <td>所属公司:{item.company}</td>
+                                <td>职位名称:{item.position}</td>
+                            </tr>
+                            <tr>
+                                <td>擅长领域:{item.expertise}</td>
+                                <td>擅长风格:{item.style}</td>
+                            </tr>
+                            <tr>
+                                <td>设计经验:{item.experience}</td>
+                                <td>设计费用:{item.DesignCost}</td>
+                            </tr>
+                            <tr>
+                                <td>设计理念:{item.DesignConcept}</td>
+                                <td> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             )
         })
         return ( 

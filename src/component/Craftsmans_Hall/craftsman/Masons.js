@@ -36,7 +36,7 @@ class Masons extends Component {
     render() { 
         let arr=this.state.craftsmanArr.map((item,index)=>{
               return (
-                <div className="craftsman craftsmancss" key={index}>
+                <div className="craftsman" key={index}>
                     <Link to="/Craftsman_details"><img src={require(`../../../${item.img}`)} alt="" /></Link>
                     <div className="flex craftsman_Info">
                         <div>

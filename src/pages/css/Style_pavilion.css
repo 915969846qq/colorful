@@ -1,25 +1,25 @@
 
-.stylePavCss .bg{
+.bg{
     background-color:rgb(248,248,248);
 }
-.stylePavCss .styleBox{
+.styleBox{
     width:1200px;
     /* height:340px; */
     margin:0 auto;
 }
-.stylePavCss .styleFlex{
+.styleFlex{
     display: flex;
     flex-wrap: wrap;
 }
-.stylePavCss .styleLeft{
+.styleLeft{
     width:320px ;
     background-color: white;
 }
-.stylePavCss .styleRight,.stylePavCss .styleRight img {
+.styleRight,.styleRight img {
     width: 880px;
     height:340px;
 }
-.stylePavCss .styleTitle{
+.styleTitle{
     width:80px;
     height:85px;
     font-size: 14px;
@@ -28,7 +28,7 @@
     border-right: 1px dashed #999999;
     border-bottom: 1px solid #999999;
 }
-.stylePavCss .styleSon{
+.styleSon{
     width:80px;
     height:85px;
     font-size: 12px;
@@ -36,37 +36,37 @@
     padding: 20px 0;
     border-bottom: 1px solid #999999;
 }
-.stylePavCss .styleCursor{
+.styleCursor{
     color: #999999;
     cursor: pointer;
 }
-.stylePavCss .styleCursor:hover{
+.styleCursor:hover{
     color:red;
 }
-.stylePavCss .styleMiddle_Title{
+.styleMiddle_Title{
     height: 60px;
     font-size: 26px;
     line-height: 60px;
 }
-.stylePavCss .styleMargin{
+.styleMargin{
     margin-right: 10px;
 }
-.stylePavCss .styleMiddle_Img{
+.styleMiddle_Img{
     width:590px ;
     padding:5px;
     margin:0 auto;
     cursor: pointer;
 }
-.stylePavCss .bedRoomStyle{
+.bedRoomStyle{
     position: relative;
     margin-left: 10px;
     margin-bottom: 10px;
 }
-.stylePavCss .bedRoomStyle Img{
+.bedRoomStyle Img{
     width:285px;
     cursor: pointer;
 }
-.stylePavCss .bedRoomStyle_title{
+.bedRoomStyle_title{
     position: absolute;
     bottom: 0;
     font-size: 18px;
@@ -80,11 +80,11 @@
     visibility: hidden;
     opacity: 0;
 }
-.stylePavCss .bedRoomStyle_title:hover {
+.bedRoomStyle_title:hover {
     visibility: visible;
     opacity: 1;
 }
-.stylePavCss .roomStyle{
+.roomStyle{
     width: 100px;
     height: 170px;
     background-color: tomato;
@@ -94,20 +94,20 @@
     text-align: center;
     line-height: 170px;
 }
-.stylePavCss .roomTitleStyle{
+.roomTitleStyle{
     text-align: center;
     color: tomato;
     font-size: 16px;
 }
-.stylePavCss .changeRoomStyle{
+.changeRoomStyle{
     width:150px;
     height:150px;
     border-radius: 100%;
     margin-right: 30px;
 }
-.stylePavCss .changeTitleStyle{
+.changeTitleStyle{
     margin-right: 30px;
 }
-.stylePavCss .studyRoomImg{
+.studyRoomImg{
     margin-right: 15px;
 }

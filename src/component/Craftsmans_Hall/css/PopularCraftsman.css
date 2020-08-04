@@ -1,61 +1,61 @@
-.craftsmancss .craftsman{
+.craftsman{
     margin: 5px 8px;
     width: 284px;
     border: 1px solid #666666;
 }
-.craftsmancss .cursor{
+.cursor{
     cursor: pointer;
 }
-.craftsmancss .flex{
+.flex{
     display: flex;
 }
-.craftsmancss .craftsman_Info{
+.craftsman_Info{
     justify-content: space-between;
 }
-.craftsmancss .craftsman_name{
+.craftsman_name{
     font-size: 16px;
     font-weight: bolder;
 }
-.craftsmancss .TranslateNow{
+.TranslateNow{
     color: red;
 }
-.craftsmancss .craftsmanStyle{
+.craftsmanStyle{
     width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
 }
-.craftsmancss .padding{
+.padding{
     padding: 13px ;
     display: flex;
 }
 
-.craftsmancss .titleStyle{
+.titleStyle{
     font-size: 22px;
     font-weight: bolder;
 }
 
-.craftsmancss .joinUs{
+.joinUs{
     font-size: 14px;
 }
-.craftsmancss .joinUs:hover{
+.joinUs:hover{
     color: red;
 }
-.craftsmancss .margin{
+.margin{
     margin-right: 25px;
 }
-.craftsmancss .pavilionLImg{
+.pavilionLImg{
     width: 283px;
     height: 300px;
 }
-.craftsmancss .craftsman_list_name{
+.craftsman_list_name{
     font-size: 18px;
     color: #555;
 }
-.craftsmancss .craftsman_company{
+.craftsman_company{
     font-size: 14px;
     color:#c3c2c2;
 }
-.craftsmancss .design{
+.design{
     width:60px ;
     height: 26px;
     background-color: red;
@@ -64,13 +64,10 @@
     text-align: center;
     border-radius: 4px;
 }
-.craftsmancss .craftsman_list_padding{
+.craftsman_list_padding{
     padding: 13px ;
 }
-.craftsmancss .caseImg{
+.caseImg{
     width:282px ;
     height: 283px;
-}
-.craftsmancss .page{
-    margin-left: 840px;
 }

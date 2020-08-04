@@ -14,7 +14,6 @@ export default class Personal_Security_center extends Component {
     }
 // =========================双向绑定数据======================
 onchange=(inform,e)=>{
-    // 不允许输入中文
     let m=e.target.value.replace(/[\u4e00-\u9fa5]/ig,'')
     this.setState({
         [inform]:m
@@ -50,7 +49,7 @@ vertifypassword=(e)=>{
 
     render() {
         return (
-            <div className="chenming2">
+            <div>
                 <div className="security_center">
                    
                     <div >

@@ -131,128 +131,126 @@ class Stylepavilion extends Component {
             )
         });
         return ( 
-            <div className="stylePavCss">
-                <div className=" bg">
-                <div className="styleBox">
-                    {/* 上 */}
-                    <div className="styleFlex">
-                        {/* left */}
-                        <div className="styleLeft">
-                            {/* 右一 */}
-                            <div  className="styleFlex">
-                                <div className="styleTitle">空间</div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">客厅</div>
-                                    <div className="styleCursor">卫生间</div>
-                                </div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">厨房</div>
-                                    <div className="styleCursor">玄关</div>
-                                </div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">卧室</div>
-                                    <div className="styleCursor">餐厅</div>
-                                </div>
+            <div className="bg">
+            <div className="styleBox">
+                {/* 上 */}
+                <div className="styleFlex">
+                    {/* left */}
+                    <div className="styleLeft">
+                        {/* 右一 */}
+                        <div  className="styleFlex">
+                            <div className="styleTitle">空间</div>
+                            <div className="styleSon">
+                                <div className="styleCursor">客厅</div>
+                                <div className="styleCursor">卫生间</div>
                             </div>
-                            {/* 右二*/}
-                            <div  className="styleFlex">
-                                <div className="styleTitle">风格</div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">客厅</div>
-                                    <div className="styleCursor">卫生间</div>
-                                </div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">厨房</div>
-                                    <div className="styleCursor">玄关</div>
-                                </div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">卧室</div>
-                                    <div className="styleCursor">餐厅</div>
-                                </div>
+                            <div className="styleSon">
+                                <div className="styleCursor">厨房</div>
+                                <div className="styleCursor">玄关</div>
                             </div>
-                            {/* 右三*/}
-                            <div  className="styleFlex">
-                                <div className="styleTitle">局部</div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">客厅</div>
-                                    <div className="styleCursor">卫生间</div>
-                                </div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">厨房</div>
-                                    <div className="styleCursor">玄关</div>
-                                </div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">卧室</div>
-                                    <div className="styleCursor">餐厅</div>
-                                </div>
-                            </div>
-                            {/* 右四*/}
-                            <div  className="styleFlex">
-                                <div className="styleTitle">户型</div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">客厅</div>
-                                    <div className="styleCursor">卫生间</div>
-                                </div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">厨房</div>
-                                    <div className="styleCursor">玄关</div>
-                                </div>
-                                <div className="styleSon">
-                                    <div className="styleCursor">卧室</div>
-                                    <div className="styleCursor">餐厅</div>
-                                </div>
+                            <div className="styleSon">
+                                <div className="styleCursor">卧室</div>
+                                <div className="styleCursor">餐厅</div>
                             </div>
                         </div>
-                        {/* right */}
-                        <div className="styleRight">
-                            <Carousel autoplay>
-                                <div>
-                                    <img src={require(`../assets/images/banner1_03.jpg`)} alt=""/>
-                                </div>
-                                <div>
-                                    <img src={require(`../assets/images/min-banner1_03.jpg`)} alt=""/>
-                                </div>
-                                <div>
-                                    <img src={require(`../assets/images/banner1_03.jpg`)} alt=""/>
-                                </div>
-                                <div>
-                                    <img src={require(`../assets/images/min-banner1_03.jpg`)} alt=""/>
-                                </div>
-                            </Carousel>,
-                            
+                         {/* 右二*/}
+                         <div  className="styleFlex">
+                            <div className="styleTitle">风格</div>
+                            <div className="styleSon">
+                                <div className="styleCursor">客厅</div>
+                                <div className="styleCursor">卫生间</div>
+                            </div>
+                            <div className="styleSon">
+                                <div className="styleCursor">厨房</div>
+                                <div className="styleCursor">玄关</div>
+                            </div>
+                            <div className="styleSon">
+                                <div className="styleCursor">卧室</div>
+                                <div className="styleCursor">餐厅</div>
+                            </div>
+                        </div>
+                        {/* 右三*/}
+                        <div  className="styleFlex">
+                            <div className="styleTitle">局部</div>
+                            <div className="styleSon">
+                                <div className="styleCursor">客厅</div>
+                                <div className="styleCursor">卫生间</div>
+                            </div>
+                            <div className="styleSon">
+                                <div className="styleCursor">厨房</div>
+                                <div className="styleCursor">玄关</div>
+                            </div>
+                            <div className="styleSon">
+                                <div className="styleCursor">卧室</div>
+                                <div className="styleCursor">餐厅</div>
+                            </div>
+                        </div>
+                        {/* 右四*/}
+                        <div  className="styleFlex">
+                            <div className="styleTitle">户型</div>
+                            <div className="styleSon">
+                                <div className="styleCursor">客厅</div>
+                                <div className="styleCursor">卫生间</div>
+                            </div>
+                            <div className="styleSon">
+                                <div className="styleCursor">厨房</div>
+                                <div className="styleCursor">玄关</div>
+                            </div>
+                            <div className="styleSon">
+                                <div className="styleCursor">卧室</div>
+                                <div className="styleCursor">餐厅</div>
+                            </div>
                         </div>
                     </div>
-                    {/* 中 */}
-                    <div className="styleMiddle ">
-                        <div className="styleMiddle_Title">精选图库</div>
-                        <div className="styleFlex ">
-                            <img src={require(`../assets/images/banner1_03.jpg`)} alt="" className="styleMiddle_Img"/>
-                            
-                            <img src={require(`../assets/images/banner1_03.jpg`)} alt="" className="styleMiddle_Img"/>
-                        </div>
-                    </div>
-                    <div className="styleFlex">
-                        {bedRoomArr}
-                    </div>
-                    
-                    {/* 局部之美 */}
-                    <div>
-                        <div className="styleMiddle_Title">局部之美</div>
-                        <div className="styleFlex">
-                            <div className="roomStyle">书房</div>
-                            {studyRoomArr}
-                        </div>
-                        <div className="styleFlex">
-                            <div className="roomStyle">卫生间</div>
-                            {toiletRoomArr}
-                        </div>
-                        <div className="styleMiddle_Title">百变空间</div>
-                        <div className="styleFlex">
-                            {changeRoomArr}
-                        </div>
+                    {/* right */}
+                    <div className="styleRight">
+                        <Carousel autoplay>
+                            <div>
+                                 <img src={require(`../assets/images/banner1_03.jpg`)} alt=""/>
+                            </div>
+                            <div>
+                                <img src={require(`../assets/images/min-banner1_03.jpg`)} alt=""/>
+                            </div>
+                            <div>
+                                <img src={require(`../assets/images/banner1_03.jpg`)} alt=""/>
+                            </div>
+                            <div>
+                                <img src={require(`../assets/images/min-banner1_03.jpg`)} alt=""/>
+                            </div>
+                        </Carousel>,
+                        
                     </div>
                 </div>
+                {/* 中 */}
+                <div className="styleMiddle">
+                    <div className="styleMiddle_Title">精选图库</div>
+                    <div className="styleFlex ">
+                        <img src={require(`../assets/images/banner1_03.jpg`)} alt="" className="styleMiddle_Img"/>
+                        
+                        <img src={require(`../assets/images/banner1_03.jpg`)} alt="" className="styleMiddle_Img"/>
+                    </div>
                 </div>
+                <div className="styleFlex">
+                    {bedRoomArr}
+                </div>
+                
+                {/* 局部之美 */}
+                <div>
+                    <div className="styleMiddle_Title">局部之美</div>
+                    <div className="styleFlex">
+                        <div className="roomStyle">书房</div>
+                        {studyRoomArr}
+                    </div>
+                    <div className="styleFlex">
+                        <div className="roomStyle">卫生间</div>
+                        {toiletRoomArr}
+                    </div>
+                    <div className="styleMiddle_Title">百变空间</div>
+                    <div className="styleFlex">
+                        {changeRoomArr}
+                    </div>
+                </div>
+            </div>
             </div>
          );
     }

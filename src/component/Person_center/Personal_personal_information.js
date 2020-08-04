@@ -56,7 +56,7 @@ submit=()=>{
 // ============================================页面=============================================
     render() {
         return (
-            <div className="chenming">
+            <div>
                 <div className="personal_info">
                     <div className="personal_img">
                         <span>头像 :</span>

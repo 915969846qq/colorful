@@ -1,12 +1,12 @@
 import React from 'react'
 // import './App.css'
-
+import Index from './pages/index'
 import 'antd/dist/antd.css'
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
+  // Redirect,
 } from 'react-router-dom'
 
 //引入路由跳转组件

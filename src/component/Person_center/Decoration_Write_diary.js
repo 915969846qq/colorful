@@ -30,7 +30,7 @@ const Demo = () => {
     },
   ])
 
-  const UPonChange = ({ fileList: newFileList }) => {
+  const onChange = ({ fileList: newFileList }) => {
     setFileList(newFileList)
   }
 
@@ -55,7 +55,7 @@ const Demo = () => {
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         listType="picture-card"
         fileList={fileList}
-        onChange={UPonChange}
+        onChange={onChange}
         onPreview={onPreview}
       >
         {fileList.length < 5 && '+ Upload'}
@@ -64,138 +64,114 @@ const Demo = () => {
   )
 }
 export default class Decoration_Write_diary extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-  fangLabel = () => {
-    console.log('myLable')
-  }
   render() {
     return (
-      <div className="fang_Width1200">
-        <form action="/WriteDiary.do" method="post">
-          <h2 className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
-            写日记
-          </h2>
-          <Divider />
-          <Row className="fang_marginT20">
-            <Col span={12}>
-              <textarea
-                name="WriteDiary"
-                id="WriteDiary"
-                cols="90"
-                rows="20"
-                className="fang_paddingt10 fang_padding20 fang_noborder"
-                placeholder="说点什么吧，记录您装修的点点滴滴........"
-              ></textarea>
-            </Col>
-            <Col span={10}>
-              <p className="fang_font12 fang_paddingt10">
-                选择装修阶段
-                制定整体预算。选择装修风格、主材、家具、家电配饰等。寻找合适的施工方，签订合同后开工！
-              </p>
-              <Steps current={1}>
-                <Step title="Finished" />
-                <Step title="In Progress" />
-                <Step title="Waiting" />
-              </Steps>
-              <p className="fang_marginT20">
-                选择日记标签用一个标签来描述你日记的内容吧~
-              </p>
-              <Row>
-                <Col
-                  span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
-                  onClick={this.fangLabel.bind(this)}
-                  offset={1}
-                >
-                  准备中
-                </Col>
-                <Col
-                  span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
-                  offset={1}
-                >
-                  拆改中
-                </Col>
-                <Col
-                  span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
-                  offset={1}
-                >
-                  改水电
-                </Col>
-                <Col
-                  span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
-                  offset={1}
-                >
-                  上泥木
-                </Col>
-                <Col
-                  span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
-                  offset={1}
-                >
-                  涂油漆
-                </Col>
-                <Col
-                  span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
-                  offset={1}
-                >
-                  马上竣工
-                </Col>
-                <Col
-                  span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
-                  offset={1}
-                >
-                  软装
-                </Col>
-                <Col
-                  span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
-                  offset={1}
-                >
-                  马上入住
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-          {/* 选择日期 */}
-          <h2 className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
-            选择日期
-          </h2>
-          <DatePicker onChange={onChange} className="fang_width200" />
-          <Divider />
-          <div>
-            <p>
-              <span className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
-                上传装修照片
-              </span>
-              <span className="fang_font12 fang_marginL20">
-                选择装修过程中的照片，每张低于5M，支持JPG/JPEG/PNG格式，最多9张
-              </span>
+      <div className="Width1200">
+        <h2 className="RBcolor">写日记</h2>
+        <Divider />
+        <Row className="marginT20">
+          <Col span={12}>
+            <textarea
+              name="WriteDiary"
+              id="WriteDiary"
+              cols="90"
+              rows="20"
+              className="paddingt10 padding20 noborder"
+              placeholder="说点什么吧，记录您装修的点点滴滴........"
+            ></textarea>
+          </Col>
+          <Col span={10}>
+            <p className="font12 paddingt10">
+              选择装修阶段
+              制定整体预算。选择装修风格、主材、家具、家电配饰等。寻找合适的施工方，签订合同后开工！
             </p>
-            <Demo />
-          </div>
-          <div className="fang_marginT20 fang_Button50">
-            <Button
-              type="primary"
-              danger
-              className="fang_width200"
-              onClick={this.releaseDiary.bind(this)}
-            >
-              发布日志
-            </Button>
-          </div>
-        </form>
+            <Steps current={1}>
+              <Step title="Finished" />
+              <Step title="In Progress" />
+              <Step title="Waiting" />
+            </Steps>
+            <p className="marginT20">
+              选择日记标签用一个标签来描述你日记的内容吧~
+            </p>
+            <Row>
+              <Col
+                span={3}
+                className="Border myCenter marginT20 height30 font12"
+                offset={1}
+              >
+                准备中
+              </Col>
+              <Col
+                span={3}
+                className="Border myCenter marginT20 height30 font12"
+                offset={1}
+              >
+                拆改中
+              </Col>
+              <Col
+                span={3}
+                className="Border myCenter marginT20 height30 font12"
+                offset={1}
+              >
+                改水电
+              </Col>
+              <Col
+                span={3}
+                className="Border myCenter marginT20 height30 font12"
+                offset={1}
+              >
+                上泥木
+              </Col>
+              <Col
+                span={3}
+                className="Border myCenter marginT20 height30 font12"
+                offset={1}
+              >
+                涂油漆
+              </Col>
+              <Col
+                span={3}
+                className="Border myCenter marginT20 height30 font12"
+                offset={1}
+              >
+                马上竣工
+              </Col>
+              <Col
+                span={3}
+                className="Border myCenter marginT20 height30 font12"
+                offset={1}
+              >
+                软装
+              </Col>
+              <Col
+                span={3}
+                className="Border myCenter marginT20 height30 font12"
+                offset={1}
+              >
+                马上入住
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        {/* 选择日期 */}
+        <h2 className="RBcolor fontW marginT20">选择日期</h2>
+        <DatePicker onChange={onChange} className="width200" />
+        <Divider />
+        <div>
+          <p>
+            <span className="RBcolor fontW marginT20 font18">上传装修照片</span>
+            <span className="font12 marginL20">
+              选择装修过程中的照片，每张低于5M，支持JPG/JPEG/PNG格式，最多9张
+            </span>
+          </p>
+          <Demo />
+        </div>
+        <div className="marginT20 Button50">
+          <Button type="primary" danger className="width200">
+            发布日志
+          </Button>
+        </div>
       </div>
     )
-  }
-  releaseDiary = () => {
-    console.log('发布日志')
   }
 }

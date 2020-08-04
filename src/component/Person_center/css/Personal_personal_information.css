@@ -1,8 +1,4 @@
 /* 每行标题 */
-.chenming .personal_info{
-    width: 500px;
-  margin: 50px auto;
-}
 .personal_info>div>span{
     display: block;
     float:left;
