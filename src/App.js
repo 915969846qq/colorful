@@ -27,6 +27,8 @@ import SignRegister from './component/Register.js/Sign_Register'
 import Sign_Register_successful from './component/Register.js/Sign_Register_successful'
 import Sign_in from './component/Login/Sign_in'
 import Manage from './pages/manage'
+import Craftsman_Settled from './component/Person_center/Craftsman_Settled'
+
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
       <Router>
 
           <Switch>
+          <Route path="/Craftsman_Settled"  component={Craftsman_Settled}></Route>
             <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route>
             <Route path="/Home_Museum"  component={Home_Museum}></Route>
             <Route path="/Furniture_Museum"  component={Furniture_Museum}></Route>

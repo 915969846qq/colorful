@@ -7,6 +7,9 @@ import DesignCase from "./CraftsmanDetails/designCase"
 //引入css
 import "./css/personDetail.css"
 
+//引入底部
+import Footer from '../commen/footer'
+
 //工匠详情
 class Craftsman_details extends Component {
     constructor(props) {
@@ -15,10 +18,13 @@ class Craftsman_details extends Component {
     }
     render() { 
         return ( 
-            <div className="mainBox person">
-                <PersonnalDetails></PersonnalDetails>
-                <h1 className="">所有设计案例</h1>
-                <DesignCase></DesignCase>
+            <div>
+                <div className="mainBox person">
+                    <PersonnalDetails></PersonnalDetails>
+                    <h1 className="">所有设计案例</h1>
+                    <DesignCase></DesignCase>
+                </div>
+                <Footer></Footer>
             </div>
          );
     }
