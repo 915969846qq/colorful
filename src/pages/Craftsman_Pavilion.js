@@ -14,12 +14,17 @@ import Craftsman_Pavilion_list from '../component/Craftsmans_Hall/Craftsman_Pavi
 //引入css
 import "../component/Craftsmans_Hall/css/PopularCraftsman.css"
 
+//引入头部
+import Header from "../component/commen/header.js"
+//引入底部
+import Bottom from "../component/commen/footer.js"
 
 // 工匠馆
 export default class Craftsman_Pavilion extends Component {
     render() {
         return (
-            <div>
+            <div className="craftsmancss">
+                <Header></Header>
                 {/* 热门工匠 */}
                 <div className=" craftsmanStyle  craftsman_Info padding">
                     <div className="titleStyle">热门工匠</div>
@@ -29,23 +34,16 @@ export default class Craftsman_Pavilion extends Component {
 
                 {/* 泥工 */}
                 <div className="craftsman_Info craftsmanStyle padding">
-                    <div className="titleStyle">
-                        <span className="TranslateNow margin">1F</span>
-                        <span >泥工</span>
-                    </div>
+                    <span className="titleStyle"><span className="titleStyle TranslateNow margin">1F</span>泥工</span>
                     <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
-                   
                 </div>
                 <Masons></Masons>
 
 
                 {/* 木工 */}
                 <div className="craftsman_Info craftsmanStyle padding">
-                <div className="titleStyle">
-                        <span className="TranslateNow margin">2F</span>
-                        <span >木工</span>
-                </div>
-                    <div className="joinUs cursor">更多</div>
+                    <span className="titleStyle"><span className="titleStyle TranslateNow margin">2F</span>木工</span>
+                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
                 </div>
                 <Carpentry></Carpentry>
 
@@ -53,11 +51,8 @@ export default class Craftsman_Pavilion extends Component {
 
                 {/* 油漆工 */}
                 <div className="craftsman_Info craftsmanStyle padding">
-                <div className="titleStyle">
-                        <span className="TranslateNow margin">3F</span>
-                        <span >油漆工</span>
-                </div>
-                    <div className="joinUs cursor">更多</div>
+                    <span className="titleStyle"><span className="titleStyle TranslateNow margin">3F</span>油漆工</span>
+                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
                 </div>
                 <Painter></Painter>
 
@@ -65,18 +60,15 @@ export default class Craftsman_Pavilion extends Component {
 
                 {/* 设计师 */}
                 <div className="craftsman_Info craftsmanStyle padding">
-                <div className="titleStyle">
-                        <span className="TranslateNow margin">4F</span>
-                        <span >设计师</span>
-                </div>
-                    <div className="joinUs cursor">更多</div>
+                    <span className="titleStyle"><span className="titleStyle TranslateNow margin">4F</span>设计师</span>
+                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
                 </div>
                 <Designer></Designer>
-
+                <Bottom></Bottom>
                 <Router>
                     <Route path="/Craftsman_Pavilion_list" component={Craftsman_Pavilion_list}></Route>
                 </Router>
-
+                
             </div>
         )
     }           

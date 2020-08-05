@@ -1,17 +1,61 @@
 import React, { Component } from 'react'
-import { Carousel,Row, Col, } from 'antd';
+import { Carousel,Row, Col,Table, } from 'antd';
 // import "antd/dist/antd.css"
 import "./css/Decoration_Museum.css"
+
 //装修馆
 
 
+const columns = [
+    {
+        dataIndex: 'name',
+        render:(record,data) => {
+           return  <div className="main-left-top">
+               <div className="left-IMGe"><a href="1"><img
+                   src={require("../assets/images/min-banner1_03.jpg")} alt=""/></a></div>
+               <div className="left_text">
+                   <h6 id="Company"><a href="1">四川居美家装饰工程有限公司</a></h6>
+                   <p>营业执照惠5月大型家装团购活动</p>
+                   <p className="Comparddss">地址 : <span>青羊区铜丝街8号</span></p>
+                   <p className="allvalue">效果图 :<span> 16</span>套 &nbsp;&nbsp;   签约
+                       : <span>30</span> 个 </p>
+               </div>
+               <div className="left-bottun">
 
+                   <p>口碑值 </p>
+                   <span>90</span>
+                   <a href="1">立即预约</a>
+
+               </div>
+           </div>
+
+        }
+    },
+
+];
+
+const data = [
+    {
+        key: '1',
+
+    },
+    {
+        key: '2',
+
+    },
+    {
+        key: '3',
+
+    },
+];
 
 export default class Decoration_Museum extends Component {
 
     render() {
+
+
         return (
-            <div>
+            <div className="xt">
 
                 {/*轮播*/}
                 <Carousel autoplay>
@@ -92,38 +136,13 @@ export default class Decoration_Museum extends Component {
 
                             <div className="main-left">
 
-                                <div className="main-left-top">
-                                    <div className="left-IMGe"><a href="1"><img
-                                        src={require("../assets/images/min-banner1_03.jpg")} alt=""/></a></div>
-                                    <div className="left_text">
-                                        <h6 id="Company"><a href="1">四川居美家装饰工程有限公司</a></h6>
-                                        <p>营业执照惠5月大型家装团购活动</p>
-                                        <p className="Comparddss">地址 : <span>青羊区铜丝街8号</span></p>
-                                        <p className="allvalue">效果图 :<span> 16</span>套 &nbsp;&nbsp;   签约
-                                            : <span>30</span> 个 </p>
-                                    </div>
-                                    <div className="left-bottun">
-
-                                        <p>口碑值 </p>
-                                        <span>90</span>
-                                        <a href="1">立即预约</a>
-
-                                    </div>
-                                </div>
 
 
+                                <Table columns={columns} dataSource={data}
+                                       pagination={{showQuickJumper: true,hideOnSinglePage:false,pageSize:3}}
+                                       />
 
-                                <div className="daa-main-xiyiye">
-                                    <div className="daa-main-xia">
-                                        <a href="1" className="shangyiye">&lt; 上一页</a>
-                                        <a href="1" className="diyiyye">1</a>
-                                        <a href="1" className="diyiyye">2</a>
-                                        <a href="1" className="diyiyye btchecker" >3</a>
-                                        <a href="1"className="xiayiye">下一页 &gt;</a>
-                                        <div className="cp-xiangjiye"> 向第 <input type="text"/> 页</div>
-                                        <input className="cp-main-tiaochaun" type="submit" value="跳转"/>
-                                    </div>
-                                </div>
+
 
                             </div>
 

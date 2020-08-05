@@ -1,7 +1,11 @@
+.sec_detail_bigwrap{
+    width: 1200px;
+    margin:50px auto;  
+}
 /* 主要内容盒子 */
 .sec_detail_wrap{
     display: flex;
-    width: 1200px;
+   
 }
 /* 详情板块盒子 */
 .sec_detail_box{
@@ -40,10 +44,10 @@
 /* 收藏与分享 */
 .save_and_share{
     border-top:1px dashed grey;
-    padding-top: 30px;
+    padding-top: 40px;
     display: flex;
     justify-content: space-between;
-    padding-right: 20px;
+   
 }
 
 

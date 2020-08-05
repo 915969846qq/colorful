@@ -1,11 +1,11 @@
-.box{
+.xt5 .box{
     width: 996px;
     height: 650px;
     position: relative;
     left: 12px;
     border: 1px solid #b1b1b1;
 }
-.title{
+.xt5 .title{
     height: 32px;
     line-height: 32px;
     font-size: 14px;
@@ -13,28 +13,28 @@
     text-indent: 12px;
     background-color: #f7f7f7;
 }
-.setion{
+.xt5 .setion{
     width: 930px;
     margin: 0 auto;
     margin-top: 20px;
 }
-.xinxi img{
+.xt5 .xinxi img{
     clear: both;
     width: 99px;
     height: 84px;
 }
-span{
+.xt5 span{
     font-size: 12px;
 }
-.color{
+.xt5 .color{
     color: #ff0000
 }
-.state {
+.xt5 .state {
     width: 100px;
     text-align: center;
     margin: 0 auto;
 }
-.butone span {
+.xt5 .butone span {
 
     width: 80px;
     height: 25px;
@@ -49,7 +49,7 @@ span{
     border-radius: 3px;
     -webkit-border-radius: 3px;
 }
-.textw{
+.xt5 .textw{
     float: right;
     margin-left: -40px;
     font-size: 12px;
@@ -59,60 +59,61 @@ span{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.xinxi{
+.xt5 .xinxi{
     width: 372px;
 }
 
 
 
-.ant-table-thead > tr >th{
+.xt5 .ant-table-thead > tr >th{
     font-size: 13px;
 }
-.join {
+.xt5 .join {
     color: #ff0000;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
 }
-.All-out label {
+.xt5 .All-out label {
     margin-right: 10px;
 }
 
 /*直营店*/
-.coolra-two {
+.xt5 .coolra-two {
     width: 175px;
     float: left;
     margin-right: 30px;
 }
-.coolra-two .top {
+.xt5 .coolra-two .top {
 
     height: 60px;
     line-height: 60px;
     border: none;
 }
-.coolra-two .top h5 {
+.xt5 .coolra-two .top h5 {
     font-size: 14px;
     font-weight: bold;
     float: right;
 }
-.coolra-two .top img {
+.xt5 .coolra-two .top img {
     width: 60px;
     height: 60px;
     float: left;
 }
-.coolra-two p {
+.xt5 .coolra-two p {
     clear: both;
     font-size: 12px;
     color: #999;
-    line-height: 15px;
+    line-height: 12px;
     text-align: left;
+    margin-bottom: 10px;
 }
-.coolra-two .buton {
+.xt5 .coolra-two .buton {
     height: 30px;
     line-height: 30px;
     margin-bottom: 10px;
 }
 
-.coolra-two .buton .Aleft {
+.xt5 .coolra-two .buton .Aleft {
     width: 80px;
     height: 30px;
     display: block;
@@ -124,7 +125,7 @@ span{
     cursor: pointer;
     -webkit-border-radius: 3px;
 }
-.coolra-two .GoToinmaoim {
+.xt5 .coolra-two .GoToinmaoim {
     width: 175px;
     height: 30px;
     line-height: 30px;
@@ -136,7 +137,7 @@ span{
     cursor: pointer;
     border-radius: 4px;
 }
-.coolra-two .buton .Aleft {
+.xt5 .coolra-two .buton .Aleft {
     width: 80px;
     height: 30px;
     display: block;
@@ -148,10 +149,10 @@ span{
     cursor: pointer;
     -webkit-border-radius: 3px;
 }
-.coolra-two .buton .Aright {
+.xt5 .coolra-two .buton .Aright {
     float: right;
 }
-.Shop_introduction {
+.xt5 .Shop_introduction {
     width: 241px;
     height: 170px;
     float: left;
@@ -159,34 +160,34 @@ span{
     border-left: 1px solid #b1b1b1;
     padding-left: 10px;
 }
-.Shop_introduction h4 {
+.xt5 .Shop_introduction h4 {
     font-size: 16px;
     font-weight: bold;
     line-height: 24px;
     color: #666;
     margin-bottom: 10px;
 }
-.Shop_introduction p {
+.xt5 .Shop_introduction p {
     font-size: 12px;
     line-height: 18px;
     color: #999;
     text-indent: 12px;
 }
-.canPin{
+.xt5 .canPin{
     width: 160px;
     float: left;
-    margin: 0px 30px;
+    margin: 15px 30px;
 }
-.oimg {
+.xt5 .oimg {
     width: 160px;
     height: 110px;
     margin-bottom: 20px;
 }
-.oimg img{
+.xt5 .oimg img{
     width: 160px;
     height: 110px;
 }
-.canPin p{
+.xt5 .canPin p{
     text-align: center;
     font-size: 14px;
     color: #333;
@@ -195,16 +196,55 @@ span{
     margin-bottom: 0;
 }
 
-.canPin span {
+.xt5 .canPin span {
     color: #ff0000;
     font-size: 16px;
     float: right;
     margin-right: 20px;
 }
+.xt5 .sjbox{
+    width: 898px;
+}
+.xt5 .ant-table table{
+    width: 898px;
+    text-align: left;
+    border-radius: 2px 2px 0 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.xt5 .ant-checkbox-input{
+    display: none;
+}
+.xt5 .anticon svg {
+    display: none;
+}
+.xt5 .ant-checkbox-wrapper{
+    position: relative;
+    top: 200px;
+}
+/*.ant-table-thead{*/
+/*    display: none;*/
+/*}*/
 
+/*.ant-table-cell ant-table-selection-column{*/
+/*    display: block;*/
+/*}*/
+.xt5 .ant-table-thead{
+    display: none;
+}
+.xt5 .ant-table-cell{
+    width: 900px;
+}
+.xt5 th .ant-checkbox-wrapper{
+    display: block;
+   position: relative;
+    top: 530px;
 
-
-
-
-
-
+}
+/*.ant-table-row {*/
+/*    border-bottom: 1px solid #f0f0f0;*/
+/*    border-top: none;*/
+/*    border-left: none;*/
+/*    border-right: none;*/
+/*    transition: background 0.3s;*/
+/*}*/

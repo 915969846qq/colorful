@@ -1,11 +1,11 @@
-.box{
-    width: 996px;
-    height: 650px;
+.xt4 .box{
+    width: 998px;
+    height: 652px;
     position: relative;
     left: 12px;
     border: 1px solid #b1b1b1;
 }
-.title{
+.xt4 .title{
     height: 32px;
     line-height: 32px;
     font-size: 14px;
@@ -13,28 +13,28 @@
     text-indent: 12px;
     background-color: #f7f7f7;
 }
-.setion{
+.xt4 .setion{
     width: 930px;
     margin: 0 auto;
     margin-top: 20px;
 }
-.xinxi img{
+.xt4 .xinxi img{
     clear: both;
     width: 99px;
     height: 84px;
 }
-span{
+.xt4 span{
     font-size: 12px;
 }
-.color{
+.xt4 .color{
     color: #ff0000
 }
-.state {
+.xt4 .state {
     width: 186px;
     text-align: center;
     margin: 0 auto;
 }
-.butone span {
+.xt4 .butone span {
 
     width: 80px;
     height: 25px;
@@ -49,7 +49,7 @@ span{
     border-radius: 3px;
     -webkit-border-radius: 3px;
 }
-.textw{
+.xt4 .textw{
     float: right;
     line-height: 84px;
     width: 250px;
@@ -57,27 +57,33 @@ span{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.xinxi{
+.xt4 .xinxi{
     width: 372px;
 }
 
 
 
-.ant-table-thead > tr >th{
+.xt4 .ant-table-thead > tr >th{
    font-size: 13px;
 }
-.join {
+.xt4 .join {
     color: #ff0000;
     cursor: pointer;
     font-size: 12px;
 }
-.All-out label {
+.xt4 .All-out label {
     margin-right: 10px;
 }
 
 
+/*.ant-table-pagination.ant-pagination {*/
+/*    margin: 50px 0;*/
+/*}*/
 
-
+/* .ant-table-pagination-right {*/
+/*     float: right;*/
+/*     margin-top: 50px;*/
+/* }*/
 
 
 

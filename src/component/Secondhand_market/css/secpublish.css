@@ -1,9 +1,8 @@
-.visible{
-    display: block;
-}
-.hidden{
-    display: none;
-    color: red;
+/* 二手发布 */
+.secpublishchenming{
+    width: 1200px;
+    margin: 0 auto;
+    
 }
 /* 发布二手流程button */
 .secpublish_menu{
@@ -21,7 +20,8 @@
     padding-bottom: 5px;
 }
 /* 数字123 */
-i{
+
+.secpublish_menu i{
     display: inline-block;
     font-style: normal;
     background-color:#ff0000;

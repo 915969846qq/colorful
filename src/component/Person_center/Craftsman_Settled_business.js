@@ -5,7 +5,7 @@ import {Col, Row} from "antd";
 export default class Craftsman_Settled_business extends Component {
     render() {
         return (
-            <div>
+            <div className="xt3">
                 <div className="header-top">
                     <Row>
                         <Col span={1}></Col>
@@ -16,10 +16,7 @@ export default class Craftsman_Settled_business extends Component {
 
                             <div id="addresspp" className="addresspp">成都</div>
                             <div className="readssswitch"><a
-
                                 href="1" tjjj="top.cities.list" title="切换城市"
-
-                                href="5" tjjj="top.cities.list" title="切换城市"
                                 rel="nofollow" className="qh">【切换】</a>
                                 <div className="welcome">您好，欢迎您访问 <a href="1"  className="welcome_index"
                                                                      > Colorful</a> !

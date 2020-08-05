@@ -1,4 +1,10 @@
 /* 每行标题 */
+.chenming .personal_info{
+    width: 500px;
+    height: 600px;
+    padding-top: 100px ;
+  margin: 0 auto;
+}
 .personal_info>div>span{
     display: block;
     float:left;
@@ -23,7 +29,7 @@
     margin-bottom: 20px;
 }
 /* 提交按钮 */
-.submit_info{
-margin-left:150px;
-width: 150px;
+.personal_info .submit_info{
+margin-left:120px;
+width: 250px;
 }

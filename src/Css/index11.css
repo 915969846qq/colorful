@@ -140,7 +140,6 @@
 }
 .index #site-nav .sn-login-info .sn-separator, #site-nav .sn-quick-menu .sn-separator, #site-nav .sn-simple-logo .sn-separator {
     display: inline-block;
-    width: 0;
     height: 14px;
     line-height: 14px;
     vertical-align: top;
@@ -345,9 +344,6 @@
     line-height: 36px;
     width: 100%;
 }
-img{
-    width: 0;
-}
 .index .main-nav .inner-con1 {
     width: 1230px;
     margin: 0 auto;
@@ -410,9 +406,7 @@ img{
     margin-left: 14px;
     font-weight: 700;
 }
-.index .fp-iconfont {
-    font-family: fpIconFont!important;
-}
+
 .index em, i {
     font-style: normal;
 }
@@ -439,6 +433,7 @@ img{
     line-height: 31.2px;
     color: #fff;
     font-size: 14px;
+    text-align: left;
 }
 .index .category-con .nav-con .normal-nav .nav-item .icon {
     display: inline-block;
@@ -692,15 +687,15 @@ img{
     width: 100px;
     overflow: hidden;
     text-align: left;
-    height: 20px;
+    height: 50px;
     line-height: 20px;
     color: #8b8b8b;
 }
-.index #tmall-desc dl a {
+.index #tmall-desc dl a.join1 {
     width: 100px;
     overflow: hidden;
     text-align: left;
-    height: 20px;
+    height: 100px;
     line-height: 20px;
     color: #8b8b8b;
 }

@@ -31,8 +31,6 @@ a {
   height: 30px;
   line-height: 30px;
   border-bottom: 1px solid #b1b1b1;
-  display: flex;
-  justify-content: space-around;
 }
 
 .ant-layout-header .span-red {
@@ -74,9 +72,6 @@ a {
 .header-right a:nth-of-type(3){
   margin-right: 8%;
 } */
-.header-right>a{
-  margin: 0 30px;
-}
 /* header-bottom */
 .header-bottom {
   height: 180px;
@@ -90,7 +85,6 @@ a {
   /* border-right: 1px solid #595959; */
   display: inline-block;
   line-height: 100px;
-  width: 300px;
 }
 
 .header-bottom-span h1 {
@@ -99,7 +93,6 @@ a {
   margin-left: 65px;
   padding-left: 65px;
   border-left: 1px solid #6b6b6b;
-  width: 300px;
 }
 
 .header-bottom-button {
@@ -185,17 +178,5 @@ li {
 }
 
 .active {
-  color: #f5222d;
-}
-/* footer */
-.personal-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-top: 1px solid #f5222d;
-  padding: 30px 50px;
-}
-
-.personal-footer a:hover {
   color: #f5222d;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { withRouter,Route,Redirect} from 'react-router-dom'
-import {secroutes} from '../route/manageRoute'
+import {secroutes} from '../router/manageRoute'
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -9,7 +9,7 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import '../css/manage.css'
+import './css/manage.css'
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -35,7 +35,7 @@ class Manage extends Component {
           <div className="logo"></div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="0">
-              <img className="logo" src={require('../img/logo2.png')}></img>
+              <img className="logo" src={require('../assets/images/logo2.png')}></img>
             </Menu.Item>
             <Menu.Item key="/manage/AdvertManage" onClick={this.go} icon={<PieChartOutlined />}>
             广告管理

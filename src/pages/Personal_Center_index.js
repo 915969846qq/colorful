@@ -28,7 +28,10 @@ import Personal_Receipt_address from '../component/Person_center/Personal_Receip
 import Personal_Security_Center from '../component/Person_center/Personal_Security_Center'
 import Personal_Decoration_diary from '../component/Person_center/Personal_Decoration_diary'
 import Personal_Service_role_entry from '../component/Person_center/Personal_Service_role_entry'
-
+// 记录日记
+import Decoration_Diary_list from '../component/Decoration_pipe/Decoration_Diary_list'
+import Decoration_My_diary from '../component/Person_center/Decoration_My_diary'
+import Decoration_Write_diary from '../component/Person_center/Decoration_Write_diary'
 const { Header, Content, Footer, Sider } = Layout
 // 个人中心
 export default class Personal_Center_index extends Component {
@@ -104,7 +107,22 @@ export default class Personal_Center_index extends Component {
                 <a href="1">我的个人中心</a>
               </p>
             </div>
-            <Router basename="/Person">
+            <Router basename="/Personal_Center_index">
+              {/* 装修日志 */}
+              <div>
+                <Route
+                  path="/Personal_Decoration_diary/Decoration_Diary_list"
+                  component={Decoration_Diary_list}
+                ></Route>
+                <Route
+                  path="/Personal_Decoration_diary/Decoration_Write_diary"
+                  component={Decoration_Write_diary}
+                ></Route>
+                <Route
+                  path="/Personal_Decoration_diary/Decoration_My_diary"
+                  component={Decoration_My_diary}
+                ></Route>
+              </div>
               <div className="person-content-flex">
                 <Sider className="left-menu">
                   <ul>
@@ -267,7 +285,7 @@ export default class Personal_Center_index extends Component {
                       path="/Personal_Service_role_entry"
                       component={Personal_Service_role_entry}
                     ></Route>
-                    <Redirect from="/" to="/MyCenter_index"></Redirect>
+                    {/* <Redirect from="/" to="/MyCenter_index"></Redirect> */}
                   </div>
                 </Content>
               </div>
@@ -280,7 +298,7 @@ export default class Personal_Center_index extends Component {
               <h3>购物指南</h3>
               <ul>
                 <li>
-                  <a href>111</a>
+                  <a href="/">111</a>
                 </li>
               </ul>
             </div>
@@ -288,7 +306,7 @@ export default class Personal_Center_index extends Component {
               <h3>购物指南</h3>
               <ul>
                 <li>
-                  <a href>111</a>
+                  <a href="/">111</a>
                 </li>
               </ul>
             </div>
@@ -296,7 +314,7 @@ export default class Personal_Center_index extends Component {
               <h3>购物指南</h3>
               <ul>
                 <li>
-                  <a href>111</a>
+                  <a href="/">111</a>
                 </li>
               </ul>
             </div>
@@ -304,7 +322,7 @@ export default class Personal_Center_index extends Component {
               <h3>购物指南</h3>
               <ul>
                 <li>
-                  <a href>111</a>
+                  <a href="/">111</a>
                 </li>
               </ul>
             </div>
@@ -312,7 +330,7 @@ export default class Personal_Center_index extends Component {
               <h3>购物指南</h3>
               <ul>
                 <li>
-                  <a href>111</a>
+                  <a href="/">111</a>
                 </li>
               </ul>
             </div>

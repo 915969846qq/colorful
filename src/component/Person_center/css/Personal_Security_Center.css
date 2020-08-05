@@ -1,4 +1,10 @@
 /* 收货地址单项盒子 */
+.chenming2 .security_center{
+  width: 500px;
+  height: 600px;
+    padding-top: 150px ;
+  margin:0 auto;
+}
 .security_center>div{
     margin-bottom: 20px;
 }

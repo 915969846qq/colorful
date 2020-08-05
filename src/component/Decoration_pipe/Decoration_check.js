@@ -6,7 +6,7 @@ function Check(props) {
   const numbers = props.numbers
   const listItems = numbers.map((number) => (
     <Col
-      className="marginL20 myh"
+      className="fang_marginL20 fang_myh"
       key={number}
       onClick={localtion.check.bind(localtion, numbers)}
     >
@@ -15,7 +15,7 @@ function Check(props) {
   ))
   return (
     <Row>
-      {listItems} <Col className="iconfont icon-xiala option_write"></Col>
+      {listItems} <Col className="iconfont icon-xiala fang_option_write"></Col>
     </Row>
   )
 }
@@ -31,6 +31,7 @@ class Decoration_check extends Component {
     }
   }
   componentDidMount() {
+    console.log($);
     // 用户点击选项
     $('.myh').on('click', function () {
       // 点击更改样式
@@ -86,37 +87,37 @@ class Decoration_check extends Component {
     return (
       <div>
         <h1>装修日志选择列表</h1>
-        <div className="Border">
-          <Row className="height50 myCenter Bborder">
+        <div className="fang_Border">
+          <Row className="fang_height50 fang_FangCenter fang_Bborder">
             <Col span={3}>
               全部日记
-              <span className="iconfont icon-next-page fontX marginL20"></span>
+              <span className="iconfont icon-next-page fang_fontX fang_marginL20"></span>
             </Col>
           </Row>
-          <Row className="height50 BBorder">
-            <Col span={2} className="GBcolor myCenter">
+          <Row className="fang_height50 fang_BBorder">
+            <Col span={2} className="fang_GBcolor fang_FangCenter">
               风格
             </Col>
-            <Col span={22} className="padding20 relative">
+            <Col span={22} className="fang_padding20 fang_relative">
               <Check numbers={this.state.data.style} loc={this} />
-              {/* <span className="iconfont icon-xiala option_write"></span> */}
+              {/* <span className="iconfont icon-xiala fang_option_write"></span> */}
             </Col>
           </Row>
-          <Row className="height50 BBorder">
-            <Col span={2} className="GBcolor myCenter">
+          <Row className="fang_height50 fang_BBorder">
+            <Col span={2} className="fang_GBcolor fang_FangCenter">
               面积
             </Col>
-            <Col span={22} className="padding20">
+            <Col span={22} className="fang_padding20">
               <Check numbers={this.state.data.Size} loc={this} />
             </Col>
           </Row>
-          <Row className="height50">
-            <Col span={2} className="GBcolor myCenter">
+          <Row className="fang_height50">
+            <Col span={2} className="fang_GBcolor fang_FangCenter">
               城市
             </Col>
-            <Col span={22} className="padding20 relative">
+            <Col span={22} className="fang_padding20 fang_relative">
               <Check numbers={this.state.data.city} loc={this} />
-              {/* <span className="iconfont icon-xiala option_write"></span> */}
+              {/* <span className="iconfont icon-xiala fang_option_write"></span> */}
             </Col>
           </Row>
         </div>

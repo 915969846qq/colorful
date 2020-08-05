@@ -1,11 +1,11 @@
-.box{
+.xt6 .box{
     width: 996px;
     height: 650px;
     position: relative;
     left: 12px;
     border: 1px solid #b1b1b1;
 }
-.title{
+.xt6 .title{
     height: 32px;
     line-height: 32px;
     font-size: 14px;
@@ -13,28 +13,28 @@
     text-indent: 12px;
     background-color: #f7f7f7;
 }
-.setion{
+.xt6 .setion{
     width: 930px;
     margin: 0 auto;
     margin-top: 20px;
 }
-.xinxi img{
+.xt6 .xinxi img{
     clear: both;
     width: 99px;
     height: 84px;
 }
-span{
+.xt6 span{
     font-size: 12px;
 }
-.color{
+.xt6 .color{
     color: #ff0000
 }
-.state {
+.xt6 .state {
     width: 100px;
     text-align: center;
     margin: 0 auto;
 }
-.butone span {
+.xt6 .butone span {
 
     width: 80px;
     height: 25px;
@@ -49,7 +49,7 @@ span{
     border-radius: 3px;
     -webkit-border-radius: 3px;
 }
-.textw{
+.xt6 .textw{
     float: right;
     margin-left: -40px;
     font-size: 12px;
@@ -59,28 +59,42 @@ span{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.xinxi{
+.xt6 .xinxi{
     width: 372px;
 }
 
 
 
-.ant-table-thead > tr >th{
+.xt6 .ant-table-thead > tr >th{
     font-size: 13px;
 }
-.join {
+.xt6 .join {
     color: #ff0000;
     cursor: pointer;
     font-size: 12px;
 }
-.All-out label {
+.xt6 .All-out label {
     margin-right: 10px;
 }
 
+.xt6 .ant-pagination-item-link {
+    display: block;
+    color: black;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    outline: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
 
 
-
-
-
+/*.ant-table-cell{*/
+/*    width: 900px;*/
+/*}*/
 
 

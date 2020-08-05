@@ -1,4 +1,10 @@
 /* 收货地址单项盒子 */
+.chenming1  .receive_address{
+  width: 500px;
+  height: 600px;
+    padding-top: 100px ;
+  margin: 0 auto;
+}
 .receive_address>div{
     margin-bottom: 20px;
 }
