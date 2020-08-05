@@ -8,9 +8,33 @@ import {Link} from 'react-router-dom'
 export default class Sign_Register extends Component {
     constructor(){
         super(); 
+        this.state={
+            username:"",
+            password:"" 
+        }
     }
     
+    dianji(){
+        let tel = $("#password1").val();
+        if(!(/^1[3456789]\d{9}$/.test(tel))){ 
+            console.log("手机号码有误，请重填");  
+            return false; 
+        }else{
+            console.log("手机号码格式正确");
+            return true;  
+        }   
+    }
 
+    componentDidMount(){
+        $(".topman p").mouseover(function(){
+            $(this).css("border-bottom","1px solid red"); 
+        });
+        $(".topman p").mouseout(function(){   
+            $(this).css("border-bottom","0px solid red");   
+        });  
+    }
+    
+    
 
     render() {
         return (
@@ -18,7 +42,7 @@ export default class Sign_Register extends Component {
                 <div id="ak">
                     <div className="header-top">
                         <Header></Header>
-                    </div>
+                    </div>      
                     <div className="Decoration_logo nav" id="logo">
                     <div className="nav-top">
                         <div className="logo"><a href="index.html"><img className="full" src={require('../../assets/images/logo2.png')} alt="" /></a></div>
@@ -38,7 +62,8 @@ export default class Sign_Register extends Component {
                 </div>
                 <form>
                     <input type="text" placeholder="请输入11位电话号码" />
-                    <input id="password1" type="password" placeholder="请输入您的密码"/>
+                    <input id="password1" type="password" placeholder="请输入您的密码" onBlur={this.dianji.bind(this)}/>
+                    <span id="msg"></span>
                     <input id="password2" type="password" placeholder="请再次输入您的密码"/>
                     <input id="Verifi" type="text" placeholder="请输入验证码"/>
                     <a href="11" className="Yzhema">获取验证码</a>
@@ -60,13 +85,5 @@ export default class Sign_Register extends Component {
         )
     }
     
-    componentDidMount(){
-        console.log($);
-        $(".topman p").mouseover(function(){
-            $(this).css("border-bottom","1px solid red"); 
-        });
-        $(".topman p").mouseout(function(){   
-            $(this).css("border-bottom","0px solid red");   
-        })  
-    }
+   
 }
