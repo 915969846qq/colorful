@@ -74,3 +74,59 @@
 .craftsmancss .page{
     margin-left: 840px;
 }
+.craftsmancss  .table{
+    width: 1180px;
+    height: 187px;
+    margin: 30px auto;
+}
+.craftsmancss  .table-top{
+    height: 125px;
+    margin:30px 0;
+    border: 1px solid #b1b1b1;
+}
+.craftsmancss  .tableBox{
+    height: 31px;
+    border-bottom: 1px dashed #b1b1b1;
+}
+.craftsmancss  .tableBox_left{
+    width:51px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 31px;
+    border-right: 1px solid #b1b1b1;
+    font-weight: bolder;
+}
+.craftsmancss  .tableBox_right span{
+    margin: 0 15px 0 5px;
+    font-size: 14px;
+    color:#b1b1b1 ;
+    line-height: 31px;
+    cursor: pointer;
+}
+.craftsmancss  .liStyle{
+    justify-content: flex-start;
+}
+.craftsmancss .table-bottom{
+    height: 31px;
+    border: 1px solid #b1b1b1;
+}
+.craftsmancss .table-bottom span{
+    display: inline-block;
+    width: 77px;
+    height: 30px;
+    border-right: 1px solid #b1b1b1;
+    text-align: center;
+    line-height: 30px;
+    color:#b1b1b1 ;
+    cursor: pointer;
+}
+.craftsmancss .tableBox_right span:nth-child(1){
+    background-color:tomato;
+    color: white;
+    border-radius: 3px;
+}
+.craftsmancss .table-bottom span:nth-child(1){
+    background-color:tomato;
+    color: white;
+    /* border-radius: 5px; */
+}

@@ -28,7 +28,7 @@ export default class Craftsman_Pavilion extends Component {
                 {/* 热门工匠 */}
                 <div className=" craftsmanStyle  craftsman_Info padding">
                     <div className="titleStyle">热门工匠</div>
-                    <div className="joinUs cursor">加入我们</div>
+                    <div className="joinUs cursor"><Link to="/Craftsman_Settled">加入我们</Link></div>
                 </div>
                 <PopularCraftsman></PopularCraftsman>
 

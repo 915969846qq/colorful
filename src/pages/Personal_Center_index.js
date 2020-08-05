@@ -212,7 +212,7 @@ export default class Personal_Center_index extends Component {
                   </ul>
                 </Sider>
                 <Content className="content-content">
-                  <div>
+                  <div className="fang_height100">
                     <Route
                       path="/Personal_My_order"
                       component={Personal_My_order}

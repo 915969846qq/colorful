@@ -13,18 +13,24 @@ class Furniture_Museum extends Component {
     render() { 
         return ( 
             <div className="Furniture">
-                {/* 优惠券1 */}
-                <div>
-                    <div>
-                        <div>￥20</div>
-                        <div>
-                            <div>优惠券</div>
-                            <div>订单满79元立减</div>
-                            <div>现领现用</div>
+                    {/* 优惠券1 */}
+                    <div className="cuoponBox cuoponFlex">
+                        <div className="cuoponBox_content cuoponFlex">
+                            <div className="cuoponBox_Money">￥20</div>
+                            <div className="cuoponBox_text">优惠券订单满79元立减现领现用</div>
+                        </div>
+                   
+                    {/* 优惠券2 */}
+                        <div className="cuoponBox_content cuoponFlex">
+                            <div className="cuoponBox_Money">￥20</div>
+                            <div className="cuoponBox_text">优惠券订单满79元立减现领现用</div>
+                        </div>
+                    {/* 优惠券3 */}
+                        <div className="cuoponBox_content cuoponFlex">
+                            <div className="cuoponBox_Money">￥20</div>
+                            <div className="cuoponBox_text">优惠券订单满79元立减现领现用</div>
                         </div>
                     </div>
-                </div>
-                {/* 优惠券2 */}
             </div>
          );
     }
