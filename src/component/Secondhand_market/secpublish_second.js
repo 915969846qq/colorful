@@ -142,8 +142,10 @@ phonereal=e=>{
             <div className="ant-upload-text">Upload</div>
           </div>
         );
+
+
         return ( 
-        <div>
+        <div >
           <div className="secpublish_menu">
                 <div className="borderbottom"><i>1</i><span>选择类别</span></div>
                 <div style={{borderBottom:"4px solid red"}}><i>2</i><span>填写信息</span></div>
