@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 export default class Sign_Register extends Component {
     render() {
         return (
-            <div className="Sign_register">
+            <div className="Sign_register">  
                 <div id="ak">
                     <div className="header-top">
                         <Header></Header>

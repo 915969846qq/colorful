@@ -420,6 +420,10 @@ select{
     float: left;
     text-align: center;
 }
+img {
+   width: 0;
+   height: 0;
+}
 .footer-top-left P {
     font-size: 14px;
     color: #595959;

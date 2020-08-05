@@ -1,22 +1,31 @@
-import React, { Component } from 'react'  
-import {Link}  from 'react-router-dom'
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route,Link } from 'react-router-dom'
 import '../Css/Index11.css'
 import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
-
 //首页
 
 export default class index extends Component {    
     render() {
         const contentStyle = {
-            color: 'red',               
-            lineHeight: '400px',
+            color: 'red',
+            lineHeight: '400px',   
           };
-        
         return (
-          <div className="index">
-            <div id="body">                   
-                        <div className="body">  
+            <div className="index">     
+            <div id="body">          
+                    {/* <Router> */}        
+                        {/* <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route> */}
+                        {/* <Route path="/Sign_Register"  component={Sign_Register}></Route> */}
+                        {/* <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
+                        <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
+                        <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
+                        <Route path="/Home_Museum" component={Home_Museum}></Route> */}
+                        {/* <Route path="/Personal_Center_index" component={Personal_Center_index}></Route>  */}
+                        {/* <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
+                        <Route path="/Style_pavilion" component={Style_pavilion}></Route>      */}
+                        <div className="body">
+                        
                         <div id="site-nav" data-spm="a2226mz" role="navigation">
                             <div id="sn-bg">
                                 <div className="sn-bg-right">
@@ -24,8 +33,8 @@ export default class index extends Component {
                             </div>
                             <div id="sn-bd">
                                 <div className="sn-container">
-                                    <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来科乐福</em><Link to="/Sign_in" className="sn-login">请登录</Link>
-                                    <Link to="/Sign_Register">欢迎注册</Link></p>  
+                                    <p id="login-info" className="sn-login-info"><em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">欢迎来科乐福</em><a className="sn-login" href="//login.tmall.com/?redirectURL=https%3A%2F%2Fwww.tmall.com%2F%3Ffrom%3Dzebra%3Aoffline" target="_top">请登录</a>
+                                    <Link to="/Sign_Register">免费注册</Link></p>  
                                     <ul className="sn-quick-menu">    
                                         <li className="sn-mytaobao menu-item j_MyTaobao"></li>
                                         <li className="sn-cart"><i className="fp-iconfont iconfont icon-qicheqianlian-"></i>
@@ -55,7 +64,7 @@ export default class index extends Component {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div id="header" data-spm="a2226n0" data-spm-anchor-id="875.7931836/B.0.a2226n0.2cc94265bHtErm">
                             <div className="headerLayout">
                                 <div className="headerCon">
@@ -109,8 +118,10 @@ export default class index extends Component {
                                         {/* </Link> */}
                                         
                                         <a href="//www.tmall.hk/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561833841102_2429983" aria-label="天猫国际" data-spm-anchor-id="875.7931836/B.2016004.2">
-                                              
-                                              优秀案例 
+                                            
+                                              优秀案例
+                                            
+
                                             
                                             <div className="hover-pic"></div>
                                         </a>
@@ -132,11 +143,15 @@ export default class index extends Component {
                                                 装修馆
                                             
 
+                                            
                                             <div className="hover-pic"></div>
                                         </Link>
                                         
                                         <Link to="/Craftsman_Pavilion">                                          
                                                 工匠馆
+                                            
+
+                                            
                                             <div className="hover-pic"></div>
                                         </Link>
                                         <Link to="/Secondhand_Market">   
@@ -147,7 +162,7 @@ export default class index extends Component {
                                             <div className="hover-pic"></div>
                                         </Link>
                                         
-                                        <Link to="/Home_Museum">                                               
+                                        <Link to="/Building_materials_Museum">                                               
                                                 建材馆
                                             
 
@@ -183,7 +198,6 @@ export default class index extends Component {
                                             商品分类
                                         </div>
                                     </div>
-                                    
                                     <div className="category-tab-content">
                                         <div className="nav-con j_tabPannel category-tab-pannel pannel-normal">
                                         <ul className="normal-nav clearfix">
@@ -361,16 +375,16 @@ export default class index extends Component {
                                         <div className="main1">
                                             <Carousel autoplay>
                                                 <div>
-                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner4.webp')} alt=""/></h3>
+                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner4.jpg')} alt=""/></h3>
                                                 </div>
                                                 <div>
-                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner2.jpg')} alt=""/></h3>
+                                                <h3 style={contentStyle}><img src={require('../assets/images/banner2.jpg')} alt=""/></h3>
                                                 </div>
                                                 <div>
-                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner1.jpg')} alt=""/></h3>
+                                                <h3 style={contentStyle}><img src={require('../assets/images/banner1.webp')} alt=""/></h3>
                                                 </div>
                                                 <div>
-                                                    <h3 style={contentStyle}><img src={require('../assets/images/banner3.jpg')} alt=""/></h3>
+                                                <h3 style={contentStyle}><img src={require('../assets/images/banner3.jpg')} alt=""/></h3>
                                                 </div>
                                             </Carousel>,
                                             </div>
@@ -1192,11 +1206,10 @@ export default class index extends Component {
             </div>     
                 {/* </Router> */}
             </div>
-        </div>
-        )            
-         
+            </div>
+        )
+
+
+
   }
 }
-
-
-

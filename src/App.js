@@ -31,21 +31,21 @@ function App() {
       {/* <Index></Index> */} 
       <Router>
           <Switch>
-          <Route path="/Building_materials_Museum" exact component={Building_materials_Museum}></Route>
-          <Route path="/Home_Museum" exact component={Home_Museum}></Route>
-          <Route path="/Furniture_Museum" exact component={Furniture_Museum}></Route>
-          <Route path="/Decoration_Museum" exact component={Decoration_Museum}></Route>
-          <Route path="/Style_pavilion" exact component={Style_pavilion}></Route>
-          <Route path="/Secondhand_Market" exact component={Secondhand_Market}></Route>
-          <Route path="/Craftsman_details" exact component={Craftsman_details}></Route>
-          <Route path="/Craftsman_Pavilion_list" exact component={Craftsman_Pavilion_list}></Route>
-          <Route path="/Craftsman_Pavilion" exact component={Craftsman_Pavilion}></Route>
-          <Route path="/index" exact component={Index}></Route>
-          <Route path="/Personal_Center_index" exact component={Personal_Center_index}></Route>
-          <Route path="/Sign_Register" exact component={SignRegister}></Route> 
-          <Route path="/Sign_Register_successful" exact component={Sign_Register_successful}></Route> 
-          <Route path="/Sign_in" exact component={Sign_in}></Route> 
-          <Redirect from="/" to="/index"></Redirect>
+            <Route path="/Building_materials_Museum" exact component={Building_materials_Museum}></Route>
+            <Route path="/Home_Museum" exact component={Home_Museum}></Route>
+            <Route path="/Furniture_Museum" exact component={Furniture_Museum}></Route>
+            <Route path="/Decoration_Museum" exact component={Decoration_Museum}></Route>
+            <Route path="/Style_pavilion" exact component={Style_pavilion}></Route>
+            <Route path="/Secondhand_Market" exact component={Secondhand_Market}></Route>
+            <Route path="/Craftsman_details" exact component={Craftsman_details}></Route>
+            <Route path="/Craftsman_Pavilion_list" exact component={Craftsman_Pavilion_list}></Route>     
+            <Route path="/Craftsman_Pavilion" exact component={Craftsman_Pavilion}></Route>
+            <Route path="/index" exact component={Index}></Route>
+            <Route path="/Personal_Center_index" exact component={Personal_Center_index}></Route>
+            <Route path="/Sign_Register" exact component={SignRegister}></Route> 
+            <Route path="/Sign_Register_successful" exact component={Sign_Register_successful}></Route> 
+            <Route path="/Sign_in" exact component={Sign_in}></Route> 
+            <Redirect from="/" to="/index"></Redirect>       
           </Switch>
       </Router>
     </div>

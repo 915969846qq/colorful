@@ -3,14 +3,15 @@
     padding: 0;
     font-size: 12px;
 }
+
 .index #body{
    width: 100%;
 }
-
 .index .body{
     width: 100%;
     margin: 0 auto;
 }
+
 .index #site-nav, #site-nav .menu-hd, #site-nav .sn-container {
     height: 32px;
 }
@@ -231,7 +232,7 @@
     border: 0;
 }
 
-.index .mallSearch-input {
+.index .mallSearch-input {        
     background: #fff;
 }
 .index #header #mallSearch label {
