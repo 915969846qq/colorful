@@ -1,20 +1,14 @@
 import React from 'react'
 // import './App.css'
-<<<<<<< HEAD
+
 
 import Sign_Register from './component/Register.js/Sign_Register'
-import 'antd/dist/antd.css'
-
-
-=======
-import Index from './pages/index'
->>>>>>> 88cdbe331829f24428ea274d190e44b84e1a9ec0
 import 'antd/dist/antd.css'
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  // Redirect,
+  Redirect,
 } from 'react-router-dom'
 
 //引入路由跳转组件
@@ -38,7 +32,7 @@ function App() {
     <div className="App">
       {/* <Index></Index> */} 
       <Router>
-<<<<<<< HEAD
+
           <Switch>
             <Route path="/Building_materials_Museum" exact component={Building_materials_Museum}></Route>
             <Route path="/Home_Museum" exact component={Home_Museum}></Route>
@@ -55,44 +49,7 @@ function App() {
             <Route path="/Sign_Register_successful" exact component={Sign_Register_successful}></Route> 
             <Route path="/Sign_in" exact component={Sign_in}></Route> 
             <Redirect from="/" to="/index"></Redirect>       
-          </Switch>
-=======
-        <Switch>
-          <Route
-            path="/Building_materials_Museum"
-            component={Building_materials_Museum}
-          ></Route>
-          <Route path="/Home_Museum" exact component={Home_Museum}></Route>
-          <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
-          <Route
-            path="/Decoration_Museum"
-            component={Decoration_Museum}
-          ></Route>
-          <Route path="/Style_pavilion" component={Style_pavilion}></Route>
-          <Route
-            path="/Secondhand_Market"
-            component={Secondhand_Market}
-          ></Route>
-          <Route
-            path="/Craftsman_details"
-            component={Craftsman_details}
-          ></Route>
-          <Route
-            path="/Craftsman_Pavilion_list"
-            component={Craftsman_Pavilion_list}
-          ></Route>
-          <Route
-            path="/Craftsman_Pavilion"
-            component={Craftsman_Pavilion}
-          ></Route>
-          <Route path="/index" exact component={Index}></Route>
-          <Route
-            path="/Personal_Center_index"
-            component={Personal_Center_index}
-          ></Route>
-          {/* <Redirect from="/" to="/index"></Redirect> */}
-        </Switch>
->>>>>>> 88cdbe331829f24428ea274d190e44b84e1a9ec0
+          </Switch>   
       </Router>
     </div>
   )

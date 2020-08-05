@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
 import { BrowserRouter as Router, Route,Link } from 'react-router-dom'
 import '../Css/Index11.css'
 import '../Css/iconfont-index/iconfont.css'
@@ -59,7 +58,7 @@ export default class index extends Component {
         {/* <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route> */}
         {/* <Route path="/Sign_Register"  component={Sign_Register}></Route> */}
         {/* <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
->>>>>>> 88cdbe331829f24428ea274d190e44b84e1a9ec0
+
                         <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
                         <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
                         <Route path="/Home_Museum" component={Home_Museum}></Route> */}
@@ -260,14 +259,6 @@ export default class index extends Component {
                       <div className="hover-pic"></div>
                     </a>
 
-<<<<<<< HEAD
-                                            <div className="hover-pic"></div>
-                                        </Link>
-                                        
-                                        <Link to="/Building_materials_Museum">                                               
-                                                建材馆
-                                            
-=======
                     <a
                       href="//3c.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561822298635_2429983"
                       data-spm-anchor-id="875.7931836/B.2016004.4"
@@ -275,7 +266,6 @@ export default class index extends Component {
                       家政服务
                       <div className="hover-pic"></div>
                     </a>
->>>>>>> 88cdbe331829f24428ea274d190e44b84e1a9ec0
 
                     <a
                       href="//miao.tmall.com/?acm=lb-zebra-148799-667861.1003.4.2429983&amp;scm=1003.4.lb-zebra-148799-667861.OTHER_14561818451146_2429983"
@@ -2107,17 +2097,16 @@ export default class index extends Component {
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
+
             </div>
         )
 
 
 
-=======
           </div>
         </div>
       </div>
     )
->>>>>>> 88cdbe331829f24428ea274d190e44b84e1a9ec0
+
   }
 }

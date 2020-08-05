@@ -345,7 +345,9 @@
     line-height: 36px;
     width: 100%;
 }
-    
+img{
+    width: 0;
+}
 .index .main-nav .inner-con1 {
     width: 1230px;
     margin: 0 auto;
