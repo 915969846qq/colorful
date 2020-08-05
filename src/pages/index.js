@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route,Link } from 'react-router-dom'
 
 
-import '../Css/Index11.css'
+import '../Css/index11.css'
 import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
 
