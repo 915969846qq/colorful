@@ -2,6 +2,7 @@
     width: 1200px;
     height: 120px;
     margin: 20px auto ;
+    /* border: 1px solid firebrick; */
 }
 
 .Furniture .cuoponBox_content{
@@ -9,6 +10,7 @@
     height: 120px;
     background-color: tomato;
     border-radius: 5px;
+    margin: 0 30px;
 }
 .Furniture .cuoponFlex{
     display:flex;
@@ -26,5 +28,8 @@
     width: 120px;
     color: white;
     font-size: 20px;
+    margin-top: 10px;
 }
+
+
 

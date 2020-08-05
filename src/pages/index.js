@@ -2,16 +2,13 @@ import React, { Component } from 'react'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route,Link } from 'react-router-dom'
 
 
-import '../Css/index11.css'
-import '../Css/iconfont-index/iconfont.css'
-=======
 import '../Css/index11.css'
 // import '../Css/iconfont-index/iconfont.css'
->>>>>>> b1be12ce7a2c6123d637a4d29198de4d1157cd06
+
+import '../Css/index11.css'
+// import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
 
 //首页
