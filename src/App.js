@@ -28,6 +28,8 @@ import Sign_in from './component/Login/Sign_in'
 import Manage from './pages/manage'
 import OrderStatistics from './component/manage/orderStatistics/orderStatistics'
 
+import Craftsman_Settled from './component/Person_center/Craftsman_Settled'
+
 function App() {
   return (
     <div className="App">

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { Row, Col, } from 'antd';
 
 //引入css
 import "./css/PopularCraftsman.css"
+
+//引入底部
+import Footer from '../commen/footer'
+
 
 //引入icon
 import "./icon/iconfont.css"
@@ -56,8 +61,7 @@ class Craftsman_Pavilion_list extends Component {
                     name:"王师傅",
                     company:"成都欧元装饰公司",
                     fans:2355
-                },
-                                
+                },       
             ]
          }
     }
@@ -82,14 +86,71 @@ class Craftsman_Pavilion_list extends Component {
         return ( 
             //外层css取名
             <div className="craftsmancss">
+                {/* 表格 */}
+                <div className="table">
+                    {/* top */}
+                    <div className="table-top">
+                        {/* 第一行 */}
+                        <div className="tableBox flex liStyle">
+                            {/* 左边 */}
+                            <div className="tableBox_left ">职位</div>
+                            <div className="tableBox_right">
+                                <span>不限</span>
+                                <span>木工</span>
+                                <span>泥工</span>
+                                <span>漆工</span>
+                            </div>
+                        </div>
+                        {/* 第2行 */}
+                        <div className="tableBox flex liStyle">
+                            {/* 左边 */}
+                            <div className="tableBox_left ">经验</div>
+                            <div className="tableBox_right">
+                                <span>不限</span>
+                                <span>1-2年</span>
+                                <span>2-5年</span>
+                                <span>5-8年</span>
+                            </div>
+                        </div>
+                        {/* 第3行 */}
+                        <div className="tableBox flex liStyle">
+                            {/* 左边 */}
+                            <div className="tableBox_left ">经验</div>
+                            <div className="tableBox_right">
+                                <span>不限</span>
+                                <span>1-2年</span>
+                                <span>2-5年</span>
+                                <span>5-8年</span>
+                            </div>
+                        </div>
+                        {/* 第4行 */}
+                        <div className="tableBox flex liStyle">
+                            {/* 左边 */}
+                            <div className="tableBox_left ">经验</div>
+                            <div className="tableBox_right">
+                                <span>不限</span>
+                                <span>1-2年</span>
+                                <span>2-5年</span>
+                                <span>5-8年</span>
+                            </div>
+                        </div>
+                    </div>
+                    {/* bottom */}
+                    <div className="table-bottom">
+                        <span>今日推荐</span>
+                        <span>最受欢迎</span>
+                        <span>人气排行</span>
 
-            
+                    </div>
+                </div>    
+                {/* 工匠人员 */}
                 <div className="craftsmanStyle flex ">
-                    {/* 工匠人员 */}
+                    
 
                     {arr}
 
                 </div>
+                <Footer></Footer>
             </div>
          );
     }
