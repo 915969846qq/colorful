@@ -27,15 +27,12 @@ import SignRegister from './component/Register.js/Sign_Register'
 import Sign_Register_successful from './component/Register.js/Sign_Register_successful'
 import Sign_in from './component/Login/Sign_in'
 import Manage from './pages/manage'
-import IndexHeader from './component/commen/indexHeader1'
-
 
 function App() {
   return (
     <div className="App">
       {/* <Index></Index> */} 
       <Router>
-
           <Switch>
             <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route>
             <Route path="/Home_Museum"  component={Home_Museum}></Route>
@@ -52,9 +49,8 @@ function App() {
             <Route path="/Sign_Register_successful"  component={Sign_Register_successful}></Route> 
             <Route path="/Sign_in"  component={Sign_in}></Route> 
             <Route path="/manage"  component={Manage}></Route> 
-            <Route path="/IndexHeader"  component={IndexHeader}></Route> 
             <Route path="/"  component={Index}></Route> 
-            {/* <Redirect from="/" to="/index"></Redirect>        */}
+            {/* <Redirect from="/" to="/index"></Redirect>        */}  
           </Switch>   
       </Router>
     </div>

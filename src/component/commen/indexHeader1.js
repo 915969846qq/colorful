@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import { Carousel } from 'antd'
 
 export default class indexHeader extends Component {
     render() {
-        const contentStyle = {
-            color: 'red',
-            lineHeight: '400px',
-          };
+        
         return (
             <div className="index">
                  <div id="header" data-spm="a2226n0" data-spm-anchor-id="875.7931836/B.0.a2226n0.2cc94265bHtErm">
@@ -144,27 +140,8 @@ export default class indexHeader extends Component {
                                 </div>
                                 </div>
                                 </div>
-                                 {/* banner1 */}
-                                 <div className="banner-con banner-slider slider-content">
-                                    <div className="main-banner">
-                                        <div className="main1">
-                                            <Carousel autoplay>
-                                                <div>
-                                                 <h3 style={contentStyle}><img src={require('../../assets/images/banner5.jpg')} alt=""/></h3>
-                                                </div>
-                                                <div>
-                                                <h3 style={contentStyle}><img src={require('../../assets/images/banner6.webp')} alt=""/></h3>
-                                                </div>
-                                                <div>
-                                                <h3 style={contentStyle}><img src={require('../../assets/images/banner1.webp')} alt=""/></h3>
-                                                </div>
-                                                <div>
-                                                <h3 style={contentStyle}><img src={require('../../assets/images/banner3.jpg')} alt=""/></h3>
-                                                </div>
-                                            </Carousel>,
-                                            </div>
-                                        </div>
-                                </div>
+                                
+                             
             </div>
         )
     }
