@@ -27,7 +27,11 @@ import SignRegister from './component/Register.js/Sign_Register'
 import Sign_Register_successful from './component/Register.js/Sign_Register_successful'
 import Sign_in from './component/Login/Sign_in'
 import Manage from './pages/manage'
+<<<<<<< HEAD
 import Craftsman_Settled from './component/Person_center/Craftsman_Settled'
+=======
+import IndexHeader from './component/commen/indexHeader1'
+>>>>>>> aa7351deb3294dc46c61006235262c0297258386
 
 
 function App() {
@@ -53,6 +57,7 @@ function App() {
             <Route path="/Sign_Register_successful"  component={Sign_Register_successful}></Route> 
             <Route path="/Sign_in"  component={Sign_in}></Route> 
             <Route path="/manage"  component={Manage}></Route> 
+            <Route path="/IndexHeader"  component={IndexHeader}></Route> 
             <Route path="/"  component={Index}></Route> 
             {/* <Redirect from="/" to="/index"></Redirect>        */}
           </Switch>   

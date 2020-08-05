@@ -6,6 +6,12 @@ import {Link} from 'react-router-dom'
 
 //注册
 export default class Sign_Register extends Component {
+    constructor(){
+        super(); 
+    }
+    
+
+
     render() {
         return (
             <div className="Sign_register">  
@@ -41,7 +47,7 @@ export default class Sign_Register extends Component {
                     <p className="read">我已阅读并接受<a href="/">《colorful用户协议》</a></p>
                     <Link to="/Sign_Register_successful" className="den_lu">立即注册</Link>         
                 </form>
-                
+
             </div>
         </div>
     </div>

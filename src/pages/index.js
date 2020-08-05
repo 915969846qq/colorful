@@ -10,14 +10,14 @@ import { Carousel } from 'antd'
 
 //首页
 
-export default class index extends Component {    
+export default class index extends Component {      
     render() {
         const contentStyle = {
             color: 'red',
             lineHeight: '400px',
           };
         return (
-            <div className="index">
+            <div className="index">   
             <div id="body">          
                     {/* <Router> */}
                         {/* <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route> */}
@@ -29,11 +29,10 @@ export default class index extends Component {
                         {/* <Route path="/Personal_Center_index" component={Personal_Center_index}></Route>  */}
                         {/* <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
                         <Route path="/Style_pavilion" component={Style_pavilion}></Route>      */}
-                        <div className="body">
-                        
+                        <div className="body">  
                         <div id="site-nav" data-spm="a2226mz" role="navigation">
                             <div id="sn-bg">
-                                <div className="sn-bg-right">
+                                <div className="sn-bg-right">  
                                 </div>
                             </div>
                             <div id="sn-bd">
