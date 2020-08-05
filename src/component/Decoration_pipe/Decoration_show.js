@@ -98,7 +98,12 @@ class Decoration_show extends Component {
         <Divider />
         <div className="marginT20"></div>
         <div>
-          <Pagination defaultCurrent={1} total={50} className="myCenter" />
+          <Pagination
+            defaultCurrent={this.state.pageNumber}
+            defaultPageSize={this.state.Lnumber}
+            total={this.state.totle}
+            className="fang_FangCenter"
+          />
         </div>
         <div onClick={this.details.bind(this)}>111</div>
       </div>

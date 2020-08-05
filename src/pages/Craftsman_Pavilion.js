@@ -14,15 +14,12 @@ import Craftsman_Pavilion_list from '../component/Craftsmans_Hall/Craftsman_Pavi
 //引入css
 import "../component/Craftsmans_Hall/css/PopularCraftsman.css"
 
-//引入头部
-import Header from "../component/commen/header.js"
 
 // 工匠馆
 export default class Craftsman_Pavilion extends Component {
     render() {
         return (
             <div>
-                <Header></Header>
                 {/* 热门工匠 */}
                 <div className=" craftsmanStyle  craftsman_Info padding">
                     <div className="titleStyle">热门工匠</div>
@@ -48,7 +45,7 @@ export default class Craftsman_Pavilion extends Component {
                         <span className="TranslateNow margin">2F</span>
                         <span >木工</span>
                 </div>
-                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
+                    <div className="joinUs cursor">更多</div>
                 </div>
                 <Carpentry></Carpentry>
 
@@ -60,7 +57,7 @@ export default class Craftsman_Pavilion extends Component {
                         <span className="TranslateNow margin">3F</span>
                         <span >油漆工</span>
                 </div>
-                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
+                    <div className="joinUs cursor">更多</div>
                 </div>
                 <Painter></Painter>
 
