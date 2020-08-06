@@ -7,7 +7,7 @@ import "./css/Furniture_Museum.css"
 
 
 //引入组件
-import BedArr from '../component/Furniture_house/bedArr'
+import BedroomArr from '../component/Furniture_house/bedArr'
 
 
 //家具馆
@@ -45,7 +45,7 @@ class Furniture_Museum extends Component {
                     </div>
                     {/* 卧室 */}
                     <div className="cuoponBox">
-                        <BedArr></BedArr>
+                        <BedroomArr></BedroomArr>
                     </div>
                     
                 </div>

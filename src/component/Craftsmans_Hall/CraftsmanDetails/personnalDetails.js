@@ -23,14 +23,15 @@ class personnalDetails extends Component {
             ]
          }
     }
+    
     render() { 
-        let arr=this.state.person.map((item)=>{
+        let arr=this.state.person.map((item,index)=>{
            return(
-               <div className="person">
+               <div className="person" key={index}>
                     <div className=" box">
                         {/* 左边 */}
                         <div className="box_left">
-                            <img src={require(`../../../${item.craftsmanImg}`)} alt="" className="imgStyle"/>
+                            <img src={require(`../../../${item.craftsmanImg}`)} alt="" className="imgStyle" />
                             <div className="nameStyle">{item.craftsmanName}</div>
                             <div className="freeDesign">
                                 免费设计

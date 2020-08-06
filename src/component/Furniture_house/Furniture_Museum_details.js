@@ -55,6 +55,11 @@ class Furniture_Museum_details extends Component {
             ]
          }
     }
+    // 当前商品的id值
+    UNSAFE_componentWillMount(){
+        console.log(this.props.location.state.key)
+       let personId=(this.props.location.state.key);
+    }
     render() { 
         let arr=this.state.goodsInfo.map((item,index)=>{
             return (

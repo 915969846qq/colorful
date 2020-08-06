@@ -11,10 +11,36 @@ export default class usersaudit extends Component {
   constructor(props){
     super(props);
     this.state = {
-        isShow:false
+      //审核的flag
+      flag:true,
+      passFlag:false,
+      onPassFlag:false,
+
+      //遮罩层
+      isShow:false,
+
+      //商家的个人资料
+      businessArr:[
+        {
+          name:"pxq"
+        },
+        {
+          name:"pxq"
+        },
+        {
+          name:"pxq"
+        },
+        {
+          name:"pxq"
+        },
+        {
+          name:"pxq"
+        },
+      ] 
+    
     }
 }
-componentWillMount(){
+UNSAFE_componentWillMount(){
   const columns = [
     {
       title: '用户姓名',
@@ -43,35 +69,34 @@ componentWillMount(){
       key: 'operation',
       fixed: 'right',
       width: 100,
-      render: () => <div className="actionStyle" onClick={()=>{
-        
-        this.setState({
-
-          // 两种方法
-          isShow:!(this.state.isShow)
-          // isShow:this.state.isShow?'false':'true'
-        })
-      }}>详情</div>,
+      render: () =>
+      <div>
+        <div className={this.state.flag?'textShow':'textNone'} onClick={()=>{
+          this.setState({
+            // 两种方法
+            isShow:!(this.state.isShow)
+            // isShow:this.state.isShow?'false':'true'
+          })
+        }}>审核</div>
+        <div className={this.state.passFlag?'passShow':'textNone'}>审核通过</div>
+        <div className={this.state.onPassFlag?'passShow':'textNone'}>审核未通过</div>
+      </div> ,
     },
     
-  ];
-  
+    
+  ]
   const data = [
     {
       key: '1',
       name: 'John Brown',
       age: 32,
       address: 'New York Park',
-      // action:'审核',
-      delete:'删除'
     },
     {
       key: '2',
       name: 'Jim Green',
       age: 40,
       address: 'London Park',
-      // action:'审核',
-      delete:'删除'
     },
   ];
   this.setState({
@@ -87,7 +112,30 @@ closeFn(){
     // isShow:this.state.isShow?'false':'true'
   })
 }
+pass(){
+  this.setState({
+    isShow:!(this.state.isShow),
+    flag:false,
+    passFlag:true,
+    onPassFlag:false,
+  }) 
+}
+onPass(){
+  this.setState({
+    isShow:!(this.state.isShow),
+    flag:false,
+    passFlag:false,
+    onPassFlag:true,
+  }) 
+}
   render() {
+    let businessArr=this.state.businessArr.map((item,index)=>{
+      return(
+        <p key={index}>
+        姓名：<input type="text" defaultValue={item.name} />
+        </p>
+      )
+    })
     return (
       //css总样式
       <div className="auditStyle">
@@ -98,8 +146,16 @@ closeFn(){
           <img src={require(`../../../assets/images/close.png`)} alt="" className="closeImg" onClick={this.closeFn.bind(this)}/>
             {/* 详情页面 */}
             <div className="detailsPage">
-
-            </div>
+              <div >
+              {businessArr}
+              </div>
+              <div >
+              {businessArr}
+              </div>
+              </div>
+              <div onClick={this.pass.bind(this)}>审核通过</div>
+              <div onClick={this.onPass.bind(this)}>审核未通过</div>
+            
           </div>
           {/* 表格 */}
           <Table columns={this.state.columns} dataSource={this.state.data} scroll={{ x: 1300 }}></Table>

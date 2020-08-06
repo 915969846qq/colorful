@@ -2,15 +2,12 @@
     position: relative;
 }
 .auditStyle .actionStyle{
-    width: 50px;
+    /* width: 50px;
     height: 30px;
     background-color: turquoise;
     color: white;
     font-size: 16px;
-    cursor: pointer;
-}
-.auditStyle .toggleDiv{
-    
+    cursor: pointer; */
 }
 .auditStyle .closeImg{
     width: 24px;
@@ -25,6 +22,8 @@
     height: 420px;
     margin-left: 250px;
     margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
 }
 .auditStyle .myHide{
     display: none;
@@ -38,4 +37,27 @@
     left: 225px;
     z-index:3;
     display: block;
+}
+.auditStyle .textShow{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: turquoise;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display:block;
+}
+.auditStyle .textNone{
+    display: none;
+}
+.auditStyle .passShow{
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #b7b7b7;
+    cursor: pointer;
+    display:block;
 }

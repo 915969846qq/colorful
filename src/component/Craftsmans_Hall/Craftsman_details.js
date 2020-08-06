@@ -16,6 +16,11 @@ class Craftsman_details extends Component {
         super(props);
         this.state = {  }
     }
+    // 当前用户的id值
+    UNSAFE_componentWillMount(){
+        console.log(this.props.location.state.key)
+       let personId=(this.props.location.state.key);
+    }
     render() { 
         return ( 
             <div>

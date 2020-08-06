@@ -28,16 +28,21 @@ import Sign_in from './component/Login/Sign_in'
 import Manage from './pages/manage'
 import Craftsman_Settled from './component/Person_center/Craftsman_Settled'
 import Craftsman_Settled_company from './component/Person_center/Craftsman_Settled_company'
+import Furniture_Museum_details from './component/Furniture_house/Furniture_Museum_details'
 function App() {
   return (
     <div className="App">
       {/* <Index></Index> */}
       <Router>
         <Switch>
-        <Route
-            path="/Craftsman_Settled_company"
-            component={Craftsman_Settled_company}
+          <Route
+            path="/Furniture_Museum_details"
+            component={Furniture_Museum_details}
           ></Route>
+          <Route
+              path="/Craftsman_Settled_company"
+              component={Craftsman_Settled_company}
+            ></Route>
           <Route
             path="/Building_materials_Museum"
             component={Building_materials_Museum}

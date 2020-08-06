@@ -11,21 +11,25 @@ class PopularCraftsman extends Component {
         this.state = { 
             craftsmanArr:[
                 {
+                    id:4,
                     img:"assets/images/craftsman_07.jpg",
                     name:"老王",
                     info:"首席漆工6年"
                 },
                 {
+                    id:5,
                     img:"assets/images/craftsman_07.jpg",
                     name:"老李",
                     info:"首席漆工6年"
                 },
                 {
+                    id:6,
                     img:"assets/images/craftsman_07.jpg",
                     name:"老子",
                     info:"首席漆工6年"
                 },
                 {
+                    id:7,
                     img:"assets/images/craftsman_07.jpg",
                     name:"老子",
                     info:"首席漆工6年"
@@ -33,11 +37,21 @@ class PopularCraftsman extends Component {
             ]
          }
     }
+    //当前点击事件的id
+    toDetails = (id,event)=>{
+        console.log(id);
+     }
     render() { 
-        let arr=this.state.craftsmanArr.map((item,index)=>{
+        let arr=this.state.craftsmanArr.map((item)=>{
               return (
-                <div className="craftsman craftsmancss" key={index}>
-                    <Link to="/Craftsman_details"><img src={require(`../../../${item.img}`)} alt="" className="cursor"/></Link>
+                <div className="craftsman craftsmancss" key={item.id}>
+                    <Link to={
+                        {
+                            pathname:`/Craftsman_details`,
+                            state:{key:item.id}
+                        }
+                        
+                    }><img src={require(`../../../${item.img}`)} alt="" className="cursor" onClick={this.toDetails.bind(this,item.id)}/></Link>
                     <div className="flex craftsman_Info">
                         <div>
                             <span className="craftsman_name cursor">{item.name}</span>

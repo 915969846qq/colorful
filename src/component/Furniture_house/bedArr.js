@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 //引入css
 import "./css/bedArr.css"
@@ -11,6 +12,7 @@ class bedArr extends Component {
         this.state = { 
              FurnitureArr:[
                 {
+                    id:1,
                     img:"assets/images/min-banner1_03.jpg",
                     title:"多空间纯木质大空间把手晾衣柜",
                     preMoney:"￥669",
@@ -18,6 +20,7 @@ class bedArr extends Component {
                     sale:200,
                 },
                 {
+                    id:2,
                     img:"assets/images/min-banner1_03.jpg",
                     title:"多空间纯木质大空间把手晾衣柜",
                     preMoney:"￥669",
@@ -25,6 +28,7 @@ class bedArr extends Component {
                     sale:200,
                 },
                 {
+                    id:3,
                     img:"assets/images/min-banner1_03.jpg",
                     title:"多空间纯木质大空间把手晾衣柜",
                     preMoney:"￥669",
@@ -32,6 +36,7 @@ class bedArr extends Component {
                     sale:200,
                 },
                 {
+                    id:4,
                     img:"assets/images/min-banner1_03.jpg",
                     title:"多空间纯木质大空间把手晾衣柜",
                     preMoney:"￥669",
@@ -39,6 +44,7 @@ class bedArr extends Component {
                     sale:200,
                 },
                 {
+                    id:5,
                     img:"assets/images/min-banner1_03.jpg",
                     title:"多空间纯木质大空间把手晾衣柜",
                     preMoney:"￥669",
@@ -46,6 +52,7 @@ class bedArr extends Component {
                     sale:200,
                 },
                 {
+                    id:6,
                     img:"assets/images/min-banner1_03.jpg",
                     title:"多空间纯木质大空间把手晾衣柜",
                     preMoney:"￥669",
@@ -53,6 +60,7 @@ class bedArr extends Component {
                     sale:200,
                 },
                 {
+                    id:7,
                     img:"assets/images/min-banner1_03.jpg",
                     title:"多空间纯木质大空间把手晾衣柜",
                     preMoney:"￥669",
@@ -60,6 +68,7 @@ class bedArr extends Component {
                     sale:200,
                 },
                 {
+                    id:8,
                     img:"assets/images/min-banner1_03.jpg",
                     title:"多空间纯木质大空间把手晾衣柜",
                     preMoney:"￥669",
@@ -70,31 +79,37 @@ class bedArr extends Component {
             ],
             parlour:[
                 {
+                    id:1,
                     img:"assets/images/duanwujiancai_03.jpg",
                     title:"乐驰剑姬落地窗帘",
                     money:"￥45.00",
                 },
                 {
+                    id:4,
                     img:"assets/images/duanwujiancai_03.jpg",
                     title:"乐驰剑姬落地窗帘",
                     money:"￥45.00",
                 },
                 {
+                    id:5,
                     img:"assets/images/duanwujiancai_03.jpg",
                     title:"乐驰剑姬落地窗帘",
                     money:"￥45.00",
                 },
                 {
+                    id:6,
                     img:"assets/images/duanwujiancai_03.jpg",
                     title:"乐驰剑姬落地窗帘",
                     money:"￥45.00",
                 },
                 {
+                    id:7,
                     img:"assets/images/duanwujiancai_03.jpg",
                     title:"乐驰剑姬落地窗帘",
                     money:"￥45.00",
                 },
                 {
+                    id:8,
                     img:"assets/images/duanwujiancai_03.jpg",
                     title:"乐驰剑姬落地窗帘",
                     money:"￥45.00",
@@ -103,11 +118,19 @@ class bedArr extends Component {
     
          }
     }
+    change(id,e){
+        console.log(id);
+    }
     render() { 
-        let bedArr=this.state.FurnitureArr.map((item,index)=>{
+        let bedroomArr=this.state.FurnitureArr.map((item)=>{
             return (
-                    <div className="craftsman" key={index}>
-                        <img src={require(`../../${item.img}`)} alt="" className="pavilionLImg"/>
+                    <div className="craftsman" key={item.id}>
+                        <Link to={
+                            {
+                                pathname:`/Furniture_Museum_details`,
+                                state:{key:item.id}
+                            }
+                        }><img src={require(`../../${item.img}`)} alt="" className="pavilionLImg" onClick={this.change.bind(this,item.id)}/></Link>
                         <div className="craftsman_list_padding">
                             <div className="craftsman_list_name">{item.title}</div>
                             <div className="craftsman_Info Flex">
@@ -122,9 +145,9 @@ class bedArr extends Component {
                     </div>
             )      
         });
-        let parlourArrLeft=this.state.parlour.map((item,index)=>{
+        let parlourArrLeft=this.state.parlour.map((item)=>{
             return (
-                   <div className="parlourStyle" key={index}>
+                   <div className="parlourStyle" key={item.id}>
                        <div className="parlourStyleTitle">{item.title}</div>
                        <div className="parlourStyleMoney">{item.money}</div>
                             <img src={require(`../../${item.img}`)} alt="" className="parlourStyleImg"/>
@@ -138,7 +161,7 @@ class bedArr extends Component {
                 {/* 卧室 */}
                 <div className="title">1F 卧室</div>
                 <div className="Flex">
-                    {bedArr}
+                    {bedroomArr}
                 </div>
 
 

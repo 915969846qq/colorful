@@ -10,22 +10,26 @@ class Masons extends Component {
         this.state = { 
             craftsmanArr:[
                 {
+                    id:1,
                     img:"assets/images/craftsman_07.jpg",
                     name:"老王",
                     info:"首席漆工6年"
                 },
                 {
+                    id:2,
                     img:"assets/images/craftsman_07.jpg",
                     name:"老李",
                     info:"首席漆工6年"
                 },
                
                 {
+                    id:3,
                     img:"assets/images/craftsman_07.jpg",
                     name:"老子",
                     info:"首席漆工6年"
                 },
                 {
+                    id:4,
                     img:"assets/images/craftsman_07.jpg",
                     name:"老子",
                     info:"首席漆工6年"
@@ -33,11 +37,31 @@ class Masons extends Component {
             ]
          }
     }
+    //当前点击事件的id
+    toDetails = (id,event)=>{
+        console.log(id);
+        this.setState({
+            id,
+        })
+        // console.log(this.state);
+        // console.log(event.currentTarget.parentElement.parentElement.getAttribute('data-key'));
+        // console.log(event.currentTarget.getAttribute("key"));
+        // console.log(event);
+        }
+        
     render() { 
-        let arr=this.state.craftsmanArr.map((item,index)=>{
+        let arr=this.state.craftsmanArr.map((item)=>{
               return (
-                <div className="craftsman craftsmancss" key={index}>
-                    <Link to="/Craftsman_details"><img src={require(`../../../${item.img}`)} alt="" /></Link>
+                <div className="craftsman craftsmancss" key={item.id}>
+                    <Link to={
+                        {
+                            pathname:`/Craftsman_details`,
+                            state:{key:item.id}
+                        }
+                        
+                    }
+                    // {"/Craftsman_details/"+item.id}
+                    ><img src={require(`../../../${item.img}`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link>
                     <div className="flex craftsman_Info">
                         <div>
                             <span className="craftsman_name">{item.name}</span>

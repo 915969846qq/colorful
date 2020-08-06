@@ -121,12 +121,30 @@
     cursor: pointer;
 }
 .craftsmancss .tableBox_right span:nth-child(1){
+    
+}
+/* .craftsmancss .table-bottom span:nth-child(2){ */
+    /* background-color:tomato;
+    color: white; */
+    /* border-radius: 5px; */
+/* } */
+.craftsmancss .myShow{
+    background-color:tomato;
+    color: white;
+    cursor: pointer;
+}
+.craftsmancss .myHide{
+    /* background-color:tomato; */
+    color: #b1b1b1 ;
+    cursor: pointer;
+}
+.craftsmancss .myChioce{
     background-color:tomato;
     color: white;
     border-radius: 3px;
+    cursor: pointer;
 }
-.craftsmancss .table-bottom span:nth-child(1){
-    background-color:tomato;
-    color: white;
-    /* border-radius: 5px; */
+.craftsmancss .myCancle{
+    color: #b1b1b1 ;
+    cursor: pointer;
 }
