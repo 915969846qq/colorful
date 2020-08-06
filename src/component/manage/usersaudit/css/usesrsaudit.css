@@ -1,0 +1,41 @@
+.auditStyle .bigbig{
+    position: relative;
+}
+.auditStyle .actionStyle{
+    width: 50px;
+    height: 30px;
+    background-color: turquoise;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.auditStyle .toggleDiv{
+    
+}
+.auditStyle .closeImg{
+    width: 24px;
+    height: 24px;
+    margin-left: 1030px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+.auditStyle .detailsPage{
+    background-color: white;
+    width: 600px;
+    height: 420px;
+    margin-left: 250px;
+    margin-top: 50px;
+}
+.auditStyle .myHide{
+    display: none;
+}
+.auditStyle .myShow{
+    width: 1115px;
+    height: 530px;
+    background-color:rgba(240,242,245,.4);
+    position:absolute;
+    top: 55px;
+    left: 225px;
+    z-index:3;
+    display: block;
+}
