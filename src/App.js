@@ -29,13 +29,17 @@ import Manage from './pages/manage'
 import OrderStatistics from './component/manage/orderStatistics/orderStatistics'
 
 import Craftsman_Settled from './component/Person_center/Craftsman_Settled'
-
+import Craftsman_Settled_company from './component/Person_center/Craftsman_Settled_company'
 function App() {
   return (
     <div className="App">
       {/* <Index></Index> */}
       <Router>
         <Switch>
+        <Route
+            path="/Craftsman_Settled_company"
+            component={Craftsman_Settled_company}
+          ></Route>
           <Route
             path="/Building_materials_Museum"
             component={Building_materials_Museum}
