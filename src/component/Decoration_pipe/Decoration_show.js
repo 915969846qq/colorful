@@ -87,6 +87,7 @@ class Decoration_show extends Component {
       // console.log($(this))
     })
   }
+  // 发送数据到子组件
   details = (e) => {
     console.log($(e.target).attr('id'))
     let ID = parseInt($(e.target).attr('id'))
@@ -134,15 +135,16 @@ class Decoration_show extends Component {
         <Show mydata={this.state.data} loc={this} />
         <Divider />
         <div className="fang_marginT20"></div>
-        <div>
-          <span>{this.state.pageNumber}</span>
-          <Pagination
-            defaultCurrent={this.state.pageNumber}
-            defaultPageSize={this.state.Lnumber}
-            total={this.state.totle}
-            className="fang_FangCenter"
-          />
-        </div>
+        <Row>
+          <Col span={8} offset={8}>
+            <Pagination
+              defaultCurrent={this.state.pageNumber}
+              defaultPageSize={this.state.Lnumber}
+              total={this.state.totle}
+              className="fang_FangCenter"
+            />
+          </Col>
+        </Row>
       </div>
     )
   }

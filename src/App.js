@@ -26,8 +26,6 @@ import SignRegister from './component/Register.js/Sign_Register'
 import Sign_Register_successful from './component/Register.js/Sign_Register_successful'
 import Sign_in from './component/Login/Sign_in'
 import Manage from './pages/manage'
-import OrderStatistics from './component/manage/orderStatistics/orderStatistics'
-
 import Craftsman_Settled from './component/Person_center/Craftsman_Settled'
 
 function App() {
@@ -75,10 +73,6 @@ function App() {
           ></Route>
           <Route path="/Sign_in" component={Sign_in}></Route>
           <Route path="/manage" component={Manage}></Route>
-          <Route
-            path="/manage/OrderStatistics"
-            component={OrderStatistics}
-          ></Route>
           <Route path="/" component={Index}></Route>
           {/* <Redirect from="/" to="/index"></Redirect>        */}
         </Switch>
