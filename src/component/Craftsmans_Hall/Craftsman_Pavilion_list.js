@@ -65,6 +65,29 @@ class Craftsman_Pavilion_list extends Component {
             ]
          }
     }
+    // componentWillMount(){
+    //             fetch('http://172.16.10.15:8080/banJu/user/login',{                     
+    //               method:'POST',
+    //               headers:{
+    //                   'Content-Type':'application/json' 
+    //               },
+    //               credentials: 'include',
+    //     // 传参
+    //     //           body:JSON.stringify({
+    //     //             phoneNumber:this.state.num
+    //     //           })
+    //               }).then((res)=>{            
+    //                   return res.json();       
+    //               }).then((data)=>{
+    //                 console.log(data);  
+    //     // 存放数组            
+    //                   this.setState({
+    //                       yanzhengma:data  
+    //                   })
+    //               }).catch((e) => {
+    //                   console.log("数据有误");
+    //               });
+    // }
     render() { 
         let arr=this.state.craftsmanArr.map((item,index)=>{
               return (
