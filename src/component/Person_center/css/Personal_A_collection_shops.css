@@ -72,6 +72,9 @@
     color: #ff0000;
     cursor: pointer;
     font-size: 16px;
+    position: relative;
+    top: -129px;
+    left: 88px;
 }
 .xt5 .All-out label {
     margin-right: 10px;
@@ -203,14 +206,14 @@
     margin-right: 20px;
 }
 .xt5 .sjbox{
-    width: 898px;
+    width: 962px;
 }
 .xt5 .ant-table table{
-    width: 898px;
+    width: 950px;
     text-align: left;
-    border-radius: 2px 2px 0 0;
-    border-collapse: separate;
-    border-spacing: 0;
+   border: 0 !important;
+    border-left: 0 !important;
+    border-top: 0 !important;
 }
 .xt5 .ant-checkbox-input{
     display: none;
@@ -218,33 +221,46 @@
 .xt5 .anticon svg {
     display: none;
 }
-.xt5 .ant-checkbox-wrapper{
-    position: relative;
-    top: 200px;
-}
-/*.ant-table-thead{*/
-/*    display: none;*/
-/*}*/
-
-/*.ant-table-cell ant-table-selection-column{*/
-/*    display: block;*/
-/*}*/
 .xt5 .ant-table-thead{
-    display: none;
+    /*display: none;*/
+    visibility: hidden;
+    border: 0 !important;
+}
+.xt5 .ant-table-thead .ant-table-cell .ant-table-selection{
+    position: relative;
+   visibility: visible;
+    top: 550px;
+
 }
 .xt5 .ant-table-cell{
-    width: 900px;
+   border-right: 0 !important;
+   border-left: 0 !important;
+   border-top: 0 !important;
 }
-.xt5 th .ant-checkbox-wrapper{
-    display: block;
-   position: relative;
-    top: 530px;
-
+.xt5 .ant-table-thead > tr >th{
+    border: 0 !important;
 }
-/*.ant-table-row {*/
-/*    border-bottom: 1px solid #f0f0f0;*/
-/*    border-top: none;*/
-/*    border-left: none;*/
+.xt5 .ant-table-tbody > tr >th{
+    border: 0 !important;
+}
+/*.xt5 .ant-table-tbody > tr > td {*/
+/*    border: 0 !important;*/
+/*}.xt5 .ant-table-thead > tr > th:last-child{*/
+/*     border-right: none;*/
+/* }*/
+/*.xt5 .ant-table-tbody > tr > td:last-child{*/
 /*    border-right: none;*/
-/*    transition: background 0.3s;*/
-/*}*/
+/*}.ant-table-tbody > tr:last-child > td{*/
+/*     border-bottom: none;*/
+/* }*/
+.xt5 .ant-table.ant-table-bordered > .ant-table-container{
+    border: 0 !important;
+    position: relative;
+    top: -50px;
+}
+.xt5 .qx{
+    position: relative;
+    font-size: 16px;
+    top: -88px;
+    left: 45px;
+}

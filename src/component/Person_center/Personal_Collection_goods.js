@@ -232,6 +232,7 @@ export default class Personal_Collection_goods extends Component {
                     <div className="setion">
                         <Table rowSelection={rowSelection} columns={columns} dataSource={data}
                                pagination={{showQuickJumper: true,hideOnSinglePage:false,pageSize:3}}/>
+                               <p className="qx">全选</p>
                         <div className="All-out">
                             <form action="" method="get">
                                     <label className="join">加入购物车 </label>
