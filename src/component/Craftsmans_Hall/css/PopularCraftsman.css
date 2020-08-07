@@ -77,10 +77,10 @@
 .craftsmancss  .table{
     width: 1180px;
     height: 187px;
-    margin: 30px auto;
+    margin: 10px auto;
 }
 .craftsmancss  .table-top{
-    height: 125px;
+    /* height: 125px; */
     margin:30px 0;
     border: 1px solid #b1b1b1;
 }
@@ -120,13 +120,22 @@
     color:#b1b1b1 ;
     cursor: pointer;
 }
-.craftsmancss .tableBox_right span:nth-child(1){
+.craftsmancss .myShow{
+    background-color:tomato;
+    color: white;
+    cursor: pointer;
+}
+.craftsmancss .myHide{
+    color: #b1b1b1 ;
+    cursor: pointer;
+}
+.craftsmancss .myChioce{
     background-color:tomato;
     color: white;
     border-radius: 3px;
+    cursor: pointer;
 }
-.craftsmancss .table-bottom span:nth-child(1){
-    background-color:tomato;
-    color: white;
-    /* border-radius: 5px; */
+.craftsmancss .myCancle{
+    color: #b1b1b1 ;
+    cursor: pointer;
 }

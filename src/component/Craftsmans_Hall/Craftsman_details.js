@@ -16,12 +16,17 @@ class Craftsman_details extends Component {
         super(props);
         this.state = {  }
     }
+    UNSAFE_componentWillMount(){
+        console.log(this.props.location.state.key)
+       let personId=(this.props.location.state.key);
+       
+    }
     render() { 
         return ( 
             <div>
                 <div className="mainBox person">
-                    <PersonnalDetails></PersonnalDetails>
-                    <h1 className="">所有设计案例</h1>
+                    <PersonnalDetails id={this.props.location.state.key}></PersonnalDetails>
+                    <h1 className="">所有案例</h1>
                     <DesignCase></DesignCase>
                 </div>
                 <Footer></Footer>

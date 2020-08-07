@@ -6,6 +6,7 @@
 .bedStyle .pavilionLImg{
     width: 275px;
     height: 300px;
+    cursor: pointer;
 }
 .bedStyle .craftsman_list_padding{
     /* padding: 13px ; */

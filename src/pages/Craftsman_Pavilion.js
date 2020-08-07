@@ -35,7 +35,14 @@ export default class Craftsman_Pavilion extends Component {
                 {/* 泥工 */}
                 <div className="craftsman_Info craftsmanStyle padding">
                     <span className="titleStyle"><span className="titleStyle TranslateNow margin">1F</span>泥工</span>
-                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
+                    <div className="joinUs cursor"><Link to={
+                        {
+                            pathname:`/Craftsman_Pavilion_list`,
+                            state:{key:"泥工"}
+                        }
+                        
+                    }
+                    >更多</Link></div>
                 </div>
                 <Masons></Masons>
 
@@ -43,7 +50,14 @@ export default class Craftsman_Pavilion extends Component {
                 {/* 木工 */}
                 <div className="craftsman_Info craftsmanStyle padding">
                     <span className="titleStyle"><span className="titleStyle TranslateNow margin">2F</span>木工</span>
-                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
+                    <div className="joinUs cursor"><Link to={
+                        {
+                            pathname:`/Craftsman_Pavilion_list`,
+                            state:{key:"木工"}
+                        }
+                        
+                    }
+                    >更多</Link></div>
                 </div>
                 <Carpentry></Carpentry>
 
@@ -52,7 +66,14 @@ export default class Craftsman_Pavilion extends Component {
                 {/* 油漆工 */}
                 <div className="craftsman_Info craftsmanStyle padding">
                     <span className="titleStyle"><span className="titleStyle TranslateNow margin">3F</span>油漆工</span>
-                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
+                    <div className="joinUs cursor"><Link to={
+                        {
+                            pathname:`/Craftsman_Pavilion_list`,
+                            state:{key:"油漆工"}
+                        }
+                        
+                    }
+                    >更多</Link></div>
                 </div>
                 <Painter></Painter>
 
@@ -61,7 +82,14 @@ export default class Craftsman_Pavilion extends Component {
                 {/* 设计师 */}
                 <div className="craftsman_Info craftsmanStyle padding">
                     <span className="titleStyle"><span className="titleStyle TranslateNow margin">4F</span>设计师</span>
-                    <div className="joinUs cursor"><Link to="/Craftsman_Pavilion_list">更多</Link></div>
+                    <div className="joinUs cursor"><Link to={
+                        {
+                            pathname:`/Craftsman_Pavilion_list`,
+                            state:{key:"设计师"}
+                        }
+                        
+                    }
+                    >更多</Link></div>
                 </div>
                 <Designer></Designer>
                 <Bottom></Bottom>

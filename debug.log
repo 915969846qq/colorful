@@ -1,1 +1,2 @@
 [0802/134154.510:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
+[0807/110259.084:ERROR:file_io.cc(134)] WriteFile: 管道正在被关闭。 (0xE8)
