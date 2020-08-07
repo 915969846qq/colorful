@@ -4,7 +4,7 @@ import RootManage from '../component/manage/rootManage/rootManage'
 import SearchManage from '../component/manage/searchManage/searchManage'
 import UsersStatistics from '../component/manage/usersStatistics/usersStatistics'
 import Usersaudit from '../component/manage/usersaudit/usersaudit'
-import Orderdetails from '../component/manage/orderStatistics/orderStatistics'
+import Orderdetails from '../component/manage/orderStatistics/Orderdetails'
 
 export const secroutes = [
   {

@@ -226,7 +226,7 @@ class orderStatistics extends Component {
                   enterButton
                 />
               </Col>
-              <Col span={12} className="fang_FangCenter">
+              <Col span={8} className="fang_FangCenter">
                 <label className="fang_marginR20 fang_fontX">时间 : </label>
                 <RangePicker
                   renderExtraFooter={() => 'extra footer'}
@@ -258,7 +258,7 @@ class orderStatistics extends Component {
                   <Option value="订单取消">订单取消</Option>
                 </Select>
               </Col>
-              <Col span={6} className="fang_padding45">
+              <Col span={3} className="fang_padding45">
                 <Button type="primary" icon={<SearchOutlined />}>
                   查询热门商品
                 </Button>

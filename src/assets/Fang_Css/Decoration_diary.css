@@ -17,6 +17,9 @@
 .fang_RBColor {
   background-color: #ff0000;
 }
+.fang_BbColor {
+  background-color: #1890ff;
+}
 .fang_WBColor {
   background-color: #ffffff;
 }
@@ -76,6 +79,9 @@
 }
 .fang_paddingt30 {
   padding-top: 30px;
+}
+.fang_paddingall {
+  padding: 40px 60px;
 }
 .fang_Border {
   border: 1px solid #b1b1b1;
@@ -262,7 +268,7 @@
 .fang_paddtop100 {
   padding-top: 100px;
 }
-.myLable:hover {
+.fang_myLable:hover {
   cursor: pointer;
   background-color: #ff0000;
   color: #ffffff;
@@ -271,7 +277,9 @@
 .fang_varMiddle {
   vertical-align: middle;
 }
-
+.fang_botton0 {
+  bottom: 0;
+}
 .fang_bhov:hover {
   cursor: pointer;
   color: #40a9ff;
@@ -284,4 +292,8 @@
 }
 .fang_lineB {
   border: 1px solid #e7e9f6;
+}
+.fang_myhover:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
