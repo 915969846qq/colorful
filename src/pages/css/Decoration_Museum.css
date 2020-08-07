@@ -1,28 +1,28 @@
-.xt .ant-carousel .slick-slide {
+.zhuangxiu .ant-carousel .slick-slide {
     text-align: center;
     overflow: hidden;
 }
 
-.xt .ant-carousel .slick-slide h3 {
+.zhuangxiu .ant-carousel .slick-slide h3 {
     color: #fff;
 }
-.xt img{
+.zhuangxiu img{
     width: 100%;
     height: 351px;
 }
-.xt .main{
+.zhuangxiu .main{
     width: 1200px;
     margin: 0 auto;
 }
-.xt .top_table{
+.zhuangxiu .top_table{
     width: 1200px;
     height: 123px;
     border:solid 1px #b1b1b1;
     margin-top: 30px;
-    margin-bottom: 300px;
+    margin-bottom: 50px;
 
 }
-.xt .top_table h5 {
+.zhuangxiu .top_table h5 {
     margin: 0;
     width: 97px;
     height: 30px;
@@ -34,24 +34,32 @@
     border-bottom: 1px dashed #b1b1b1;
     line-height: 30px;
 }
-.xt .top_table ul {
+.zhuangxiu .top_table ul {
     width: 1101px;
     height: 30px;
     float: left;
     margin: 0;
     border-bottom: 1px dashed #b1b1b1;
 }
-.xt .text input{
-    width: 210px;
-    height: 40px;
-    margin: 0 auto;
-    line-height: 40px;
-    background-color: #fff;
+.zhuangxiu .top_table ul li{
+    border-radius: 3px;
+    height: 18px;
+    line-height: 18px;
     font-size: 14px;
-    text-indent: 4px;
-    margin-bottom: 20px;
+    color: #333;
+    float: left;
+    margin: 0 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    list-style: none;
+
 }
-.xt li {
+.zhuangxiu .top_table ul li:hover{
+    background-color: #ff0000;
+
+    color: white;
+}
+.footer-top-left ul li{
     height: 18px;
     line-height: 18px;
     font-size: 14px;
@@ -62,33 +70,48 @@
     cursor: pointer;
     list-style: none;
 }
-.xt .btchecker {
+.zhuangxiu .text input{
+    width: 210px;
+    height: 40px;
+    margin: 0 auto;
+    line-height: 40px;
+    background-color: #fff;
+    font-size: 14px;
+    text-indent: 4px;
+    margin-bottom: 20px;
+}
+/*.zhuangxiu li {*/
+/*    height: 18px;*/
+/*    line-height: 18px;*/
+/*    font-size: 14px;*/
+/*    color: #333;*/
+/*    float: left;*/
+/*    margin: 0 10px;*/
+/*    margin-top: 10px;*/
+/*    cursor: pointer;*/
+/*    list-style: none;*/
+/*}*/
+.zhuangxiu .top_table ul .btchecker {
     border-radius: 3px;
     background-color: #ff0000;
     color: white;
 }
-.xt .color{
+.zhuangxiu .color{
     color: white;
 }
 
-
-.xt .Today_recommended ul {
-
-    width: 1198px;
-    height: 30px;
-    border: 1px solid #b1b1b1;
-    margin-bottom: 20px;
-    margin-left: 18px;
-    margin-top: -240px;
+.zhuangxiu li{
+    list-style: none;
 }
-.xt .Today_recommended ul .btchecker {
+
+.zhuangxiu .Today_recommended ul .btchecker {
     margin-left: -2px;
     margin-top: -1px;
     color: #fff;
     background-color: #ff0000;
     border-color: #ff0000;
 }
-.xt .Today_recommended ul li {
+.Today_recommended .ul li {
     margin-top: -1px;
     height: 30px;
     font-size: 14px;
@@ -100,20 +123,32 @@
     border-right: 1px solid #b1b1b1;
     cursor: pointer;
 }
-.xt .main-left {
+.Today_recommended .ul li:hover{
+    color: #fff;
+    background-color: #ff0000;
+
+}
+.zhuangxiu .main-left {
     width: 900px;
     float: left;
     padding-top: 20px;
     margin-left: 18px;
 }
-.xt .main-left-top {
+.zhuangxiu .main-left-top {
     width: 898px;
     height: 178px;
     border: 1px solid #b1b1b1;
-    margin-left: -15px;
+    /*margin-left: -15px;*/
+    /*margin-bottom: 20px;*/
+}
+.zhuangxiu .Today_recommended .ul {
+    width: 1198px;
+    height: 30px;
+    border: 1px solid #b1b1b1;
+    margin-left: 20px;
     margin-bottom: 20px;
 }
-.xt .left-IMGe {
+.zhuangxiu .left-IMGe {
     width: 150px;
     height: 146px;
     border: 1px solid #b1b1b1;
@@ -121,11 +156,11 @@
     margin: 15px;
     cursor: pointer;
 }
-.xt .left_text {
+.zhuangxiu .left_text {
     height: 178px;
     float: left;
 }
-.xt .left-bottun {
+.zhuangxiu .left-bottun {
     width: 150px;
     height: 146px;
     margin-top: 15px;
@@ -133,34 +168,34 @@
     text-align: center;
     border-left: 1px dashed #b1b1b1;
 }
-.xt .left-IMGe img {
+.zhuangxiu .left-IMGe img {
     width: 100%;
     height: 100%;
 }
-.xt .left_text p {
+.zhuangxiu .left_text p {
     font-size: 12px;
     color: #666;
     line-height: 18px;
 }
-.xt .left_text .allvalue {
+.zhuangxiu .left_text .allvalue {
     font-size: 16px;
     color: #5f5f5f;
     line-height: 24px;
     font-weight: bold;
     margin-top: 10px;
 }
-.xt .left-bottun p {
+.zhuangxiu .left-bottun p {
     font-size: 14px;
     color: #5f5f5f;
     line-height: 30px;
     margin-top: 10px;
 }
-.xt .left-bottun span {
+.zhuangxiu .left-bottun span {
     font-size: 30px;
     color: #ff0000;
     line-height: 50px;
 }
-.xt .left-bottun a {
+.zhuangxiu .left-bottun a {
     width: 130px;
     height: 40px;
     display: block;
@@ -172,7 +207,7 @@
     cursor: pointer;
 
 }
-.xt .daa-main-xiyiye {
+.zhuangxiu .daa-main-xiyiye {
     height: 100px;
     width: 900px;
     font-family: "宋体";
@@ -181,38 +216,38 @@
     line-height: 30px;
     text-align: center;
 }
-.xt .main-right {
+.zhuangxiu .main-right {
     width: 285px;
     float: left;
     margin-left: 13px;
     padding-top: 20px;
 }
-.xt .main-right-one {
+.zhuangxiu .main-right-one {
     width: 285px;
     height: 415px;
     background-color: #e8e0d2;
     text-align: center;
 }
-.xt .main-right-one h4 {
+.zhuangxiu .main-right-one h4 {
     font-size: 24px;
     color: #645c54;
     line-height: 50px;
     padding-top: 20px;
 }
-.xt .main-right-one p {
+.zhuangxiu .main-right-one p {
     font-size: 14px;
     color: #645c54;
    margin-top: -10px;
 }
-.xt .main-right-one p span {
+.zhuangxiu .main-right-one p span {
     color: #ff0000;
 }
-.xt .main-right-one .text {
+.zhuangxiu .main-right-one .text {
     margin-top:10px;
-   margin-left: 36px;
+
 }
 
-.xt .main-right-one .city input {
+.zhuangxiu .main-right-one .city input {
     width: 210px;
     height: 40px;
     margin: 0 auto;
@@ -224,7 +259,7 @@
     border: 0;
 }
 
-.xt .main-right-one .text input, .main-right-one .tel input, .main-right-one .city input {
+.zhuangxiu .main-right-one .text input, .main-right-one .tel input, .main-right-one .city input {
     width: 210px;
     height: 40px;
     margin: 0 auto;
@@ -235,7 +270,7 @@
     margin-bottom: 20px;
     border: 0;
 }
-.xt .main-right-one .text input {
+.zhuangxiu .main-right-one .text input {
     width: 210px;
     height: 40px;
     margin: 0 auto;
@@ -246,7 +281,7 @@
     margin-bottom: 20px;
     border: 0;
 }
-.xt .botton {
+.zhuangxiu .botton {
     width: 210px;
     height: 40px;
     display: block;
@@ -260,64 +295,65 @@
     cursor: pointer;
     -webkit-border-radius: 4px;}
 
-.xt #footer {
+.zhuangxiu #footer {
     padding-top: 100px;
     padding-bottom: 100px;
     clear: both;
 }
-.xt .footer {
+.zhuangxiu .footer {
     height: 360px;
     border-top: 1px solid #f76d1d;
 }
-.xt .footer-top {
+.zhuangxiu .footer-top {
     height: 200px;
 }
-.xt .footer-bottom {
+.zhuangxiu .footer-bottom {
     margin-top: 30px;
     clear: both;
 }
-.xt .footer-top-left {
+.zhuangxiu .footer-top-left {
     width: 240px;
     float: left;
     text-align: center;
 }
-.xt .footer-top-left P {
+.zhuangxiu .footer-top-left P {
     margin-left: 40px;
     font-size: 14px;
     color: #595959;
     margin-top: 35px;
     line-height: 24px;
 }
-.xt .footer-top-left ul {
+.zhuangxiu .footer-top-left ul {
     width: 240px;
+    height: 100px;
 }
 
-.xt .footer-top-left ul li {
+.zhuangxiu .footer-top-left ul li {
     width: 120px;
-    list-style: inside;
+    list-style: none;
     cursor: pointer;
-    margin: 0 auto;
+    margin-top: 5px;
 }
-.xt .footer-top-left ul li a {
+.zhuangxiu .footer-top-left ul li a {
     height: 24px;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     display: block;
     line-height: 24px;
     font-size: 12px;
     color: #595959;
 }
-.xt .footer-bottom p {
+.zhuangxiu .footer-bottom p {
     text-align: center;
     font-size: 12px;
     color: #b2b2b2;
     line-height: 16px;
 }
-.xt .footer-icon {
+.zhuangxiu .footer-icon {
     margin-top: 10px;
     text-align: center;
 }
-.xt .full1{
+.zhuangxiu .full1{
     height: 42px;
     width: 163px;
 }
@@ -327,13 +363,13 @@
 /*    text-align: right;*/
 /*    float: left;*/
 /*}*/
-.xt .fill_In select {
+.zhuangxiu .fill_In select {
     float: left;
     height: 30px;
     margin-left: 20px;
     color: #0f0f0f;
 }
-.xt .left_text h6 a {
+.zhuangxiu .left_text h6 a {
     font-size: 18px;
     color: #585858;
     line-height: 60px;
@@ -341,19 +377,49 @@
     margin-top: 20px;
     margin-bottom: 10px;
 }
-.xt .left_text p {
+.zhuangxiu .left_text p {
     font-size: 12px;
     color: #666;
     line-height: 18px;
 }
-.xt .left_text .allvalue {
+.zhuangxiu .left_text .allvalue {
     font-size: 16px;
     color: #5f5f5f;
     line-height: 24px;
     font-weight: bold;
     margin-top: 10px;
 }
+.zhuangxiu .ant-table-row .ant-table-selection-column{
+    display: none;
+}
+.zhuangxiu .ant-table-thead{
+    display: none;
+    border: 0;
+}
+.zhuangxiu .ant-table-row .ant-table-cell{
+    padding: 0;
+    border: 0;
+}
+.zhuangxiu .ant-table-cell{
+    padding: 0;
+    border: 0;
 
+}
+.zhuangxiu .ant-table-row{
+    padding: 0;
+    border: 0;
+
+}
+.zhuangxiu .top20{
+    height: 20px;
+}
+.zhuangxiu .center{
+   text-align: center;
+}
+.zhuangxiu .center1{
+    margin-top: 150px;
+    text-align: center;
+}
 /*.ant-table-thead{*/
 /*    display: none;*/
 /*}*/
