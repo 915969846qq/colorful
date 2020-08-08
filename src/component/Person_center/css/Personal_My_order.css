@@ -1,0 +1,286 @@
+.personal-order .personal-order-header {
+  height: 65px;
+  border-bottom: 1px solid #b1b1b1;
+}
+
+.personal-order .active {
+  color: #f5222d !important;
+  border: none !important;
+}
+
+.personal-order .personal-order-header ul {
+  display: inline-block;
+}
+
+.personal-order .personal-order-header ul li {
+  float: left;
+}
+
+
+.personal-order .personal-order-header ul li>a {
+  width: 120px;
+  height: 39px;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+  cursor: pointer;
+  line-height: 39px;
+  border: 1px solid #b1b1b1;
+  border-bottom: none;
+  margin-top: 26px;
+  margin-left: 10px;
+}
+
+/* order */
+/* order-header */
+.personal-order .order-header {
+  height: 64px;
+  line-height: 64px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* order-content */
+.personal-order .order-content-top ul {
+  margin: 0;
+  padding: 0;
+}
+
+.personal-order .order-content-top li {
+  float: left;
+  width: 125px;
+}
+
+.personal-order .onea {
+  width: 255px !important;
+}
+
+.order-content-top {
+  display: inline-flex;
+  line-height: 38px;
+  background: #f7f7f7;
+  height: 38px;
+  margin-bottom: 10px;
+  padding: 0 23.6px;
+}
+
+.order-content-top input[type='checkbox'] {
+  margin-top: 13px;
+}
+
+/* order-content-content */
+.personal-order .order-content-content {
+  width: 968px;
+  height: 124px;
+  border: 1px solid #b1b1b1;
+  margin-bottom: 10px;
+}
+
+.personal-order .order-content-content-top {
+  background-color: #f7f7f7;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 600;
+  color: #333;
+}
+
+.personal-order .order-content-content-top label {
+  margin-right: 30px;
+}
+
+.order-content-content-body {}
+
+.personal-order .order-content-content-body .body-left {
+  float: left;
+  width: 344px;
+  height: 94px;
+  border-right: 1px solid #b1b1b1;
+}
+
+.personal-order .order-content-content-body .body-left img {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin: 7px;
+}
+
+.personal-order .order-content-content-body .body-left p {
+  font-size: 12px;
+  color: #666;
+  line-height: 22px;
+}
+
+
+.personal-order .order-content-content-body .body-info {
+  width: 124px;
+  text-align: center;
+  float: left;
+  height: 94px;
+  line-height: 94px;
+  border-right: 1px solid #b1b1b1;
+}
+
+.personal-order .order-content-content-body .body-info:nth-of-type(3) {
+  color: #f5222d;
+}
+
+.personal-order .order-content-content-body .body-info:nth-of-type(4) {
+  line-height: 20px !important;
+}
+
+.personal-order .order-content-content-body .body-info:nth-of-type(4) div {
+  margin-top: 20px;
+}
+
+.personal-order .order-content-content-body .body-info:nth-of-type(6) {
+  border-right: none !important;
+}
+
+.personal-order .gopay {
+  width: 60px;
+  height: 24px;
+  margin: 0 auto;
+  cursor: pointer;
+  line-height: 24px;
+  text-align: center;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.personal-order .p-btn {
+  width: 60px;
+  height: 24px;
+  margin: 0 auto;
+  margin-top: 15px;
+  cursor: pointer;
+  line-height: 24px;
+  text-align: center;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+/* page */
+.personal-order .order-content-footer {
+  height: 40px;
+  font-family: "宋体";
+  font-size: 12px;
+  color: #414141;
+  line-height: 30px;
+  text-align: center;
+  float: right;
+  bottom: 20px;
+  right: 50px;
+}
+
+.personal-order .lastpage,
+.personal-order .nextpage {
+  float: left;
+  width: 74px;
+  height: 30px;
+  border: 1px solid #b1b1b1;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.personal-order .lastpage:hover,
+.personal-order .nextpage:hover {
+  color: #f5222d;
+}
+
+.personal-order .onpage {
+  height: 30px;
+  margin-right: 4px;
+  width: 30px;
+  float: left;
+  cursor: pointer;
+  border: 1px solid #b1b1b1;
+  color: #ff0000;
+}
+
+.personal-order .page {
+  height: 30px;
+  margin-right: 4px;
+  width: 30px;
+  float: left;
+  cursor: pointer;
+  border: 1px solid #b1b1b1;
+}
+
+/* refund */
+.personal-order .refund-header {
+  height: 30px;
+  line-heSight: 30px;
+  background-color: #f7f7f7;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.personal-order .refund-header strong {
+  float: left;
+  padding: 0 20px;
+  color: #333;
+  display: inline-block;
+  height: 30xp;
+  line-height: 30px;
+}
+
+.personal-order .refund-header .change {
+  color: #f5222d;
+}
+
+.personal-order .refund-content-table {
+  width: 100%;
+  text-align: center;
+}
+
+.personal-order .refund-content-table th {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.personal-order .refund-content-footer {
+  height: 40px;
+  font-family: "宋体";
+  font-size: 12px;
+  color: #414141;
+  line-height: 30px;
+  text-align: center;
+  float: right;
+  bottom: 20px;
+  right: 50px;
+}
+
+.personal-order .refund-content-footer span {
+  text-align: center;
+  line-height: 30px;
+}
+
+.personal-order .refund-content-statement {
+  float: left;
+}
+
+.personal-order .refund-content-statement p {
+  margin: 0;
+}
+
+.personal-order .refund-content-content-top img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin: 17px;
+}
+
+.personal-order .refund-content-content-top span {
+  display: inline-block;
+  font-size: 12px;
+  color: #333;
+  line-height: 84px;
+}
