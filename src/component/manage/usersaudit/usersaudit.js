@@ -8,15 +8,19 @@ import { Modal, Button } from 'antd';
 //引入css
 import "./css/usesrsaudit.css"
 
+<<<<<<< HEAD
 //引入css
 import './css/usesrsaudit.css'
 import { Link } from 'react-router-dom';
+=======
+>>>>>>> 9b00275f14b76a1782be84019b962b05b77dab0f
 
 export default class usersaudit extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
+<<<<<<< HEAD
       //表格
       data:[],
 
@@ -26,18 +30,80 @@ export default class usersaudit extends Component {
       //遮罩层
       isShow: false,
 
+=======
+>>>>>>> 9b00275f14b76a1782be84019b962b05b77dab0f
       //通过审核的状态值
       pass:1,
 
 
       //显示模态框
       visible: false,
+<<<<<<< HEAD
+=======
+     
+>>>>>>> 9b00275f14b76a1782be84019b962b05b77dab0f
 
     //审核的状态值
     // pssOn:1,//通过
     // onPasson:0,//未通过
 
     }
+<<<<<<< HEAD
+=======
+}
+UNSAFE_componentWillMount(){
+  const columns = [
+    { title: 'Name', dataIndex: 'name', key: 'name' },
+    { title: 'Age', dataIndex: 'age', key: 'age' },
+    { title: 'Address', dataIndex: 'address', key: 'address' },
+    {
+      title: 'Action',
+      dataIndex: '',
+      key: 'x',
+      render: () => <a href='1'>Delete</a>,
+    },
+  ];
+  
+  
+  const data = [
+    {
+      key: 1,
+      name: 'John Brown',
+      age: 32,
+      address: 'New York No. 1 Lake Park',
+      description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.',
+    },
+    {
+      key: 2,
+      name: 'Jim Green',
+      age: 42,
+      address: 'London No. 1 Lake Park',
+      description: 'My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.',
+    },
+    {
+      key: 3,
+      name: 'Not Expandable',
+      age: 29,
+      address: 'Jiangsu No. 1 Lake Park',
+      description: 'This not expandable',
+    },
+    {
+      key: 4,
+      name: 'Joe Black',
+      age: 32,
+      address: 'Sidney No. 1 Lake Park',
+      description: 'My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.',
+    },
+  ];
+  this.setState({
+    data,
+    columns,
+  })
+}
+
+closeFn(){
+  this.setState({
+>>>>>>> 9b00275f14b76a1782be84019b962b05b77dab0f
 
     
 
@@ -78,6 +144,7 @@ export default class usersaudit extends Component {
                       });
 
 
+<<<<<<< HEAD
   }
 
   //点击图标
@@ -195,6 +262,8 @@ export default class usersaudit extends Component {
   }
 
   
+=======
+>>>>>>> 9b00275f14b76a1782be84019b962b05b77dab0f
   render() {
     // table
     const columns = [
@@ -224,6 +293,7 @@ export default class usersaudit extends Component {
     //   )
     // })
       return (
+<<<<<<< HEAD
               //css总样式
               <div className="auditStyle">
                 {/* 父相子绝 */}
@@ -234,6 +304,25 @@ export default class usersaudit extends Component {
                           {/* 详情页面 */}
                           <div className="detailsPage">
                             <form className="formBox"> 
+=======
+        <p key={index}>
+          姓名：
+          <input type="text" defaultValue={item.name} />
+        </p>
+      )
+    })
+    return (
+      //css总样式
+      <div className="auditStyle">
+        {/* 父相子绝 */}
+        <div className="big">
+          {/* 遮罩层 */}
+          <div className={this.state.isShow?'myShow':'myHide'}>
+           {/* <img src={require(`../../../assets/images/close.png`)} alt="" className="closeImg" onClick={this.closeFn.bind(this)}/> */}
+            {/* 详情页面 */}
+            <div className="detailsPage">
+              <form className="formBox"> 
+>>>>>>> 9b00275f14b76a1782be84019b962b05b77dab0f
                                  {/*基本信息*/}
                                 <div className="information">基本信息</div>
                                 <div className="namebox1">
@@ -284,6 +373,7 @@ export default class usersaudit extends Component {
                                   <div className="btnStyle" onClick={this.pass.bind(this,this.state.rowData.mid)}>审核通过</div>
                                   <div className="btnStyle" onClick={this.onPass.bind(this,this.state.rowData.mid)}>审核未通过</div>
                                 </div>
+<<<<<<< HEAD
                        </div> 
               </div>
 
@@ -297,6 +387,21 @@ export default class usersaudit extends Component {
               dataSource={this.state.data}
             />,
         </div>
+=======
+      </div> 
+              
+            
+          </div>
+          {/* 表格 */}
+          <Table columns={this.state.columns} expandable={{
+            expandedRowRender: record => <p style={{ margin: 0 }}>{record.description}</p>,
+            rowExpandable: record => record.name !== 'Not Expandable',
+          }}
+    dataSource={this.state.data}
+  />,
+  mountNode,
+        </div>    
+>>>>>>> 9b00275f14b76a1782be84019b962b05b77dab0f
       </div>
     )
   }
