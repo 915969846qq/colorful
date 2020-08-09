@@ -9,32 +9,7 @@ class PopularCraftsman extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            craftsmanArr:[
-                // {
-                //     id:4,
-                //     img:"assets/images/craftsman_07.jpg",
-                //     name:"老王",
-                //     info:"首席漆工6年"
-                // },
-                // {
-                //     id:5,
-                //     img:"assets/images/craftsman_07.jpg",
-                //     name:"老李",
-                //     info:"首席漆工6年"
-                // },
-                // {
-                //     id:6,
-                //     img:"assets/images/craftsman_07.jpg",
-                //     name:"老子",
-                //     info:"首席漆工6年"
-                // },
-                // {
-                //     id:7,
-                //     img:"assets/images/craftsman_07.jpg",
-                //     name:"老子",
-                //     info:"首席漆工6年"
-                // },
-            ]
+            craftsmanArr:[]
          }
     }
     
@@ -66,46 +41,56 @@ class PopularCraftsman extends Component {
     toDetails = (id,event)=>{
         console.log(id);
      }
+     //预约
      book(id,e){
         console.log(id);
     }
-    render() { 
+    //函数
+    arr=()=>{
         let arr=this.state.craftsmanArr.map((item)=>{
-              return (
-                <div className="craftsman craftsmancss" key={item.id}>
-                    {/* 点击图片进入详情页面 */}
-                    {/* <Link to={
-                        {
-                            pathname:`/Craftsman_details`,
-                            state:{key:item.id}
-                        }
-                        
-                    }>
-                        <img src={require(`${item.avatar}`)// (`../../../${item.img}`)
-                        
-                    } alt="" className="cursor" onClick={this.toDetails.bind(this,item.id)}/></Link> */}
-                    <div className="flex craftsman_Info">
-                        <div>
-                            <Link to={
-                                {
-                                    pathname:`/Craftsman_details`,
-                                    state:{key:item.id}
-                                }
-                        
-                            }> 
-                            <span className="craftsman_name cursor" onClick={this.toDetails.bind(this,item.id)}>{item.realName}</span>
-                            </Link>
-                            <span className="cursor">{item.occupation}首席师{item.experience}年</span>
-                        </div>
-                        <div className="TranslateNow cursor" onClick={this.book.bind(this,item.id)}>立即预约</div>
-                    </div>
-                </div>
-              )      
-        })
+            return (
+              <div className="craftsman craftsmancss" key={item.id}>
+                  {/* 点击图片进入详情页面 */}
+                  {/* <Link to={
+                      {
+                          pathname:`/Craftsman_details`,
+                          state:{key:item.id}
+                      }
+                      
+                  }>
+                      <img src={require(`${item.avatar}`)// (`../../../${item.img}`)
+                      
+                  } alt="" className="cursor" onClick={this.toDetails.bind(this,item.id)}/></Link> */}
+                  <div className="flex craftsman_Info">
+                      <div>
+                          <Link to={
+                              {
+                                  pathname:`/Craftsman_details`,
+                                  state:{key:item.id}
+                              }
+                      
+                          }> 
+                          {/* onClick={this.toDetails.bind(this,item.id)} */}
+                          <span className="craftsman_name cursor" >{item.realName}</span>
+                          </Link>
+                          <span className="cursor">{item.occupation}首席师{item.experience}年</span>
+                      </div>
+                      <div className="TranslateNow cursor" onClick={this.book.bind(this,item.id)}>立即预约</div>
+                  </div>
+              </div>
+            )      
+      });
+      this.setState({
+          arr,
+      })
+    }
+
+    render() { 
+        
         return ( 
             <div className="craftsmanStyle flex">
                 {/* 热门工匠 */}
-                {arr}
+                {this.state.arr}
 
                 </div>
          );

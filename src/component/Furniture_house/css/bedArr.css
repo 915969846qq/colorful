@@ -14,7 +14,7 @@
 }
 .bedStyle .Flex{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 .bedStyle .craftsman_Info{
     justify-content: space-between;

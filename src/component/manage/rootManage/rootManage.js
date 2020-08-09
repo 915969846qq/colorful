@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Table, Input, Button, Space,Popconfirm,Modal } from 'antd';
-import Highlighter from 'react-highlight-words';
+import Highlighter from "react-highlight-words";
 import { SearchOutlined } from '@ant-design/icons';
 import "./rootManage.css"
 
@@ -283,7 +283,7 @@ export default class rootManage extends Component {
               render:(record) => {
                   return <p className="state butone">
                       <Popconfirm title="确定要删除此管理员信息？" okText="确定" cancelText="取消">
-                          <a className="del">删除</a>
+                          <a href="1" className="del">删除</a>
                       </Popconfirm>
                       <br/>
                           <Button type="primary" onClick={this.showModal}>

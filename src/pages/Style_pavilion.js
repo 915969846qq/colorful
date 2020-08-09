@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 //引入css
 import "./css/Style_pavilion.css"
 
+import {Link} from 'react-router-dom'
+
 //引入底部
 import Footer from '../component/commen/footer'
 
@@ -227,7 +229,10 @@ class Stylepavilion extends Component {
                         </div>
                         {/* 中 */}
                         <div className="styleMiddle ">
+                            <div className="styleFlex">
                             <div className="styleMiddle_Title">精选图库</div>
+                            <div className=" "><Link to={"/Style_pavilion_case"} >更多</Link></div>
+                            </div>
                             <div className="styleFlex ">
                                 <img src={require(`../assets/images/banner1_03.jpg`)} alt="" className="styleMiddle_Img"/>
                                 

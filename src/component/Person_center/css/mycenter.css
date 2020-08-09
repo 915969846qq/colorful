@@ -1,39 +1,39 @@
-.myCenter{
+.myReservation .myCenter{
     width:996px;
     height: 151px;
     border: 1px solid #b1b1b1;
 }
-.myCenter_flex{
+.myReservation .myCenter_flex{
     display: flex;
 }
-.myCenter_left{
+.myReservation .myCenter_left{
     width:300px ;
     border-right:1px dashed #b1b1b1 ;
     margin: 18px 0;
 }
-.myCenter_left_img{
+.myReservation .myCenter_left_img{
     border-radius: 100%;
     width: 100px;
     height: 100px;
 }
-.myCenter_left span{
+.myReservation .myCenter_left span{
     font-size: 18px;
     font-weight: bolder;
 }
-.myCenter_right{
+.myReservation .myCenter_right{
     width: 696px;
     margin:25px auto;
 }
-.myCenter_right_wallet{
+.myReservation .myCenter_right_wallet{
     font-size: 22px;
 
 }
-.myCenter_right_account{
+.myReservation .myCenter_right_account{
     font-size: 14px;
     color: #b1b1b1;
 
 }
-.myCenter_pay{
+.myReservation .myCenter_pay{
     width:80px ;
     height: 30px;
     border-radius: 5px;
@@ -45,11 +45,11 @@
     margin-right: 10px;
     cursor: pointer;
 }
-.myCenter_pay:hover{
+.myReservation .myCenter_pay:hover{
     background-color: orangered;
     color: white;
 }
-.myCenter_right .myCenter_margin{
+.myReservation .myCenter_right .myCenter_margin{
     width: 180px;
     margin: 0 auto;
 }
