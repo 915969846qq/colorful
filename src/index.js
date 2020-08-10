@@ -5,12 +5,30 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import store from './store/personal_cartOrder_store'
 import { Provider } from 'react-redux'
-import {orderListAction,recommendAction,mycartAction,cartListAction} from './action/peresonal_cartOrder_action'
+import {getOrderRequest,getgoodsRequest,getdiaryRequest} from './api/cartOrder_api'
+import {
+  orderListAction,
+  recommendAction,mycartAction,
+  // cartListAction,
+  // diaryListAction,
+  addOrderAction,
+  localAction
+} from './action/peresonal_cartOrder_action'
 
-store.dispatch(orderListAction)
-store.dispatch(cartListAction)
+store.dispatch(async (dispatch) => {
+  const res = await getOrderRequest(3)
+  dispatch({
+    type: 'ORDERLIST',
+    allorder: res.data
+  })
+})
+// store.dispatch(cartListAction)
+store.dispatch(addOrderAction)
 store.dispatch(recommendAction)
 store.dispatch(mycartAction)
+store.dispatch(localAction)
+// store.dispatch(diaryListAction)
+
 // console.log(store)
 
 ReactDOM.render(

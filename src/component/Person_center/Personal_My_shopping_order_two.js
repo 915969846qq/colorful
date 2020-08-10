@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import './css/Personal_My_shopping_oeder_two.css'
-
+import './css/Personal_My_shopping_order_two.css'
+import City from '../../util/chajian/city'
 class Personal_My_shopping_order_two extends Component {
   constructor(props) {
     super(props);
@@ -57,8 +57,8 @@ class Personal_My_shopping_order_two extends Component {
       return (
         <div key={index}>
           <label>
-          <input type="radio" name="bank" />
-          <img src={item.imgsrc}></img>
+            <input type="radio" name="bank" />
+            <img src={item.imgsrc} alt='bank' />
           </label>
         </div>)
     })
@@ -86,7 +86,7 @@ class Personal_My_shopping_order_two extends Component {
       <div className="ordert-content" >
         <div className="ordert-content-top">
           <div className="ordert-content-top-left">
-            <img src={require("../../assets/images/shoop-icon/gwc1.png")}></img>
+            <img src={require("../../assets/images/shoop-icon/gwc1.png")} alt='gwc1.png'></img>
             <span>我的购物车</span>
           </div>
           <div className="ordert-content-top-right"><a>返回购物车</a></div>
@@ -99,7 +99,8 @@ class Personal_My_shopping_order_two extends Component {
           <div className="ordert-content-content-receiving-content">
             <div><input type="radio" /><span onClick={() => this.add()}>使用新收货地址</span></div>
             <div><label>收 货 &nbsp;人：</label><input id="name" defaultValue={this.state.consigneeinfo.name} onChange={this.change.bind(this)} /></div>
-            <div><label>所在地区：</label><input defaultValue={this.state.consigneeinfo.local}></input></div>
+            <div><label>所在地区：</label>
+              <City></City></div>
             <div><label>详细地址：</label><input defaultValue={this.state.consigneeinfo.address}></input></div>
             <div><label>手机号码：</label><input defaultValue={this.state.consigneeinfo.tel}></input>
               <label>固定电话：</label><input defaultValue={this.state.consigneeinfo.Landline}></input></div>
@@ -156,20 +157,20 @@ class Personal_My_shopping_order_two extends Component {
                   <div>
                     <label>
                       <input type="radio" name="bank" />
-                      <img src={require('../../assets/images/dingdan/DINGDAN_59.png')}></img>
-                      <img src={require('../../assets/images/dingdan/DINGDAN_67.png')}></img>
+                      <img src={require('../../assets/images/dingdan/DINGDAN_59.png')} alt='bank'></img>
+                      <img src={require('../../assets/images/dingdan/DINGDAN_67.png')} alt='bank'></img>
                     </label>
                   </div>
                   <div>
                     <label>
                       <input type="radio" name="bank" />
-                      <img src={require('../../assets/images/dingdan/DINGDAN_62.png')}></img>
+                      <img src={require('../../assets/images/dingdan/DINGDAN_62.png')} alt='bank'></img>
                     </label>
                   </div>
                   <div>
                     <label>
                       <input type="radio" name="bank" />
-                      <img src={require('../../assets/images/dingdan/DINGDAN_64.png')}></img>
+                      <img src={require('../../assets/images/dingdan/DINGDAN_64.png')} alt='bank'></img>
                     </label>
                   </div>
                 </div>

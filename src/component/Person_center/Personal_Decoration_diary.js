@@ -1,9 +1,19 @@
 import React, { Component } from 'react'
 import './css/Personal_Decoration_diary.css'
+// import thunk from 'redux-thunk'
+import { connect } from 'react-redux';
+import {
+    // orderListAction,
+    // recommendAction,mycartAction,
+    // cartListAction,
+    diaryListAction
+  } from '../../action/peresonal_cartOrder_action'
+import store from '../../store/personal_cartOrder_store'
+
 
 //装修日记
 
-export default class Personal_Decoration_diary extends Component {
+ class Personal_Decoration_diary extends Component {
     constructor() {
         super();
         this.state = {
@@ -73,11 +83,16 @@ export default class Personal_Decoration_diary extends Component {
         })
         return Diary
     }
-    UNSAFE_componentWillMount() {
+    componentWillMount(){
+
+    }
+    componentDidMount() {
+        console.log(this.props)
+        // this.props.getdiary()
         let Diary = this.diary();
-        console.log(Diary)
+        // console.log(Diary)
         this.setState({
-            diary: Diary,
+            diarys: Diary,
         })
     }
     render() {
@@ -85,12 +100,27 @@ export default class Personal_Decoration_diary extends Component {
             <div className="decoration-diary">
                 <h1>我的装修日记</h1>
                 <div>
-                    {this.state.diary}
+                    {this.state.diarys}
                     <div className="diary-footer">
-                        <a href>+新建装修日记</a>
+                        <a href="1">+新建装修日记</a>
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+const MapStateToProps = (state, OwnProps) => {
+    
+    return {
+      diary:state.cartorder.alldiary
+    }
+  }
+const MapDispatchProps = () => {
+    return {
+        getdiary: (param={param:9})=>{
+           store.dispatch(diaryListAction(param))
+        }
+    }
+}
+export default connect(MapStateToProps,MapDispatchProps)(Personal_Decoration_diary)

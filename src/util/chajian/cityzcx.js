@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
 
 //填写个人信息
 
-export default class Craftsman_Settled extends Component {
- 
+class Craftsman_Settled extends Component {
+
     //省市区三级联动
     constructor(props) {
         super(props)
@@ -12,9 +13,9 @@ export default class Craftsman_Settled extends Component {
             province: "",
             city: "",
             county: "",
-            provinces: ['四川','安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆', '其他'],
+            provinces: ['四川', '安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆', '其他'],
             cities: ['成都'],
-            counties: ['武侯','成华','金牛','青羊','锦江', '崇州', '大邑', '都江堰', '金堂', '彭州', '郫县', '蒲江', '邛崃', '双流', '新津']
+            counties: ['武侯', '成华', '金牛', '青羊', '锦江', '崇州', '大邑', '都江堰', '金堂', '彭州', '郫县', '蒲江', '邛崃', '双流', '新津']
         }
     }
     //省市区三级联动
@@ -412,7 +413,7 @@ export default class Craftsman_Settled extends Component {
         gc2['上海']['杨浦'] = ['杨浦'];
         gc2['上海']['闸北'] = ['闸北'];
         gc2['四川'] = [];
-        gc2['四川']['成都'] = ['武侯','成华','金牛','青羊','锦江', '崇州', '大邑', '都江堰', '金堂', '彭州', '郫县', '蒲江', '邛崃', '双流', '新津'];
+        gc2['四川']['成都'] = ['武侯', '成华', '金牛', '青羊', '锦江', '崇州', '大邑', '都江堰', '金堂', '彭州', '郫县', '蒲江', '邛崃', '双流', '新津'];
         gc2['四川']['阿坝'] = ['阿坝', '黑水', '红原', '金川', '九寨沟', '理县', '马尔康', '茂县', '壤塘', '若尔盖', '松潘', '汶川', '小金'];
         gc2['四川']['巴中'] = ['巴中市', '南江', '平昌', '通江'];
         gc2['四川']['达州'] = ['达县', '达州市', '大竹', '开江', '渠县', '万源', '宣汉'];
@@ -678,14 +679,14 @@ export default class Craftsman_Settled extends Component {
         return gc2[province][city]
     }
     //省市区三级联动
-    componentDidMount(){
-       
+    componentDidMount() {
+        console.log(this.props)
         this.setState({
             province: '四川',
             cities: this.getCity('四川'),
-            city:this.getCity('四川')[0],
-            counties:this.getCounty('四川', this.getCity('四川')[0]),
-            county:this.getCounty('四川',this.getCity('四川')[0])[0]
+            city: this.getCity('四川')[0],
+            counties: this.getCounty('四川', this.getCity('四川')[0]),
+            county: this.getCounty('四川', this.getCity('四川')[0])[0]
         });
     }
     handleChange(name, e) {
@@ -696,31 +697,31 @@ export default class Craftsman_Settled extends Component {
                 this.setState({
                     province: e.target.value,
                     cities: this.getCity(e.target.value),
-                    city:this.getCity(e.target.value)[0],
-                    counties:this.getCounty(e.target.value, this.getCity(e.target.value)[0]),
-                    county:this.getCounty(e.target.value,this.getCity(e.target.value)[0])[0]
+                    city: this.getCity(e.target.value)[0],
+                    counties: this.getCounty(e.target.value, this.getCity(e.target.value)[0]),
+                    county: this.getCounty(e.target.value, this.getCity(e.target.value)[0])[0]
                 });
-           
+
                 break;
             case "city":
                 this.setState({
                     city: e.target.value,
                     counties: this.getCounty(this.state.province, e.target.value),
-                    county:this.getCounty(this.state.province, e.target.value)[0]
+                    county: this.getCounty(this.state.province, e.target.value)[0]
                 });
-            
+
                 break;
             case "county":
                 this.setState({
 
                     county: e.target.value
                 });
-               
+
                 break;
             default:
                 alert("child handleChange error")
         }
-     
+
 
     }
 
@@ -728,27 +729,32 @@ export default class Craftsman_Settled extends Component {
     render() {
         let id = 0
         return (
-           <div style={{display:"inline-block"}}>
-               <div className="city">
-                                      
-                                        <select className="select myprovince" onClick={this.handleChange.bind(this, "province")} value={this.state.province} style={{border:"none"}} >
-                                            {this.state.provinces.map(province => (
-                                                <option value={province} key={id++}>{province}</option>
-                                            ))}
-                                        </select>
-                                        <select className="select mycity" onClick={this.handleChange.bind(this, "city")} value={this.state.city} style={{border:"none"}} >
-                                            {this.state.cities.map(city => (
-                                                <option value={city} key={id++}>{city}</option>
-                                            ))}
-                                        </select>
-                                        <select className="select mycounty" onClick={this.handleChange.bind(this, "county")} value={this.state.county} style={{border:"none"}}>
-                                            {this.state.counties.map(county => (
-                                                <option value={county} key={id++}>{county}</option>
-                                            ))}
-                                        </select>
-                                  
-                                    </div>
-           </div>
+            <div style={{ display: "inline-block" }}>
+                <div className="city">
+                    <select className="select myprovince" onClick={this.handleChange.bind(this, "province")} defaultvalue={this.state.province} style={{ border: "none" }} >
+                        {this.state.provinces.map(province => (
+                            <option value={province} key={id++}>{province}</option>
+                        ))}
+                    </select>
+                    <select className="select mycity" onClick={this.handleChange.bind(this, "city")} defaultvalue={this.state.city} style={{ border: "none" }} >
+                        {this.state.cities.map(city => (
+                            <option value={city} key={id++}>{city}</option>
+                        ))}
+                    </select>
+                    <select className="select mycounty" onClick={this.handleChange.bind(this, "county")} defaultvalue={this.state.county} style={{ border: "none" }}>
+                        {this.state.counties.map(county => (
+                            <option value={county} key={id++}>{county}</option>
+                        ))}
+                    </select>
+
+                </div>
+            </div>
         )
     }
 }
+const MapStateToProps = (state, OwnProps) => {
+    return {
+        local: state.cartorder.local
+    }
+  }
+export default connect(MapStateToProps)(Craftsman_Settled)

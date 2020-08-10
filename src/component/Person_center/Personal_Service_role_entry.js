@@ -59,7 +59,7 @@ export default class Personal_Service_role_entry extends Component {
                             </div>
                             <div className="wechat">
                                 <div>
-                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")}></img>
+                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")} alt='wechat1'></img>
                                 </div>
                                 <div>
                                     <p>微信扫描左边二维码
@@ -80,7 +80,7 @@ export default class Personal_Service_role_entry extends Component {
 
                             <div className="wechat">
                                 <div>
-                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")}></img>
+                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")} alt='wechat2'></img>
                                 </div>
                                 <div>
                                     <p>微信扫描左边二维码

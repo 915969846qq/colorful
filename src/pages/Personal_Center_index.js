@@ -9,6 +9,8 @@ import {
 import { Layout } from 'antd'
 import 'antd/dist/antd.css'
 import './css/Personal_Center_index.css'
+import store from '../store/personal_cartOrder_store'
+import { diaryListAction, cartListAction } from '../action/peresonal_cartOrder_action'
 
 import Personal_My_order from '../component/Person_center/Personal_My_order'
 import MyCenter_index from '../component/Person_center/MyCenter_index'
@@ -18,6 +20,8 @@ import Personal_Collection_goods from '../component/Person_center/Personal_Colle
 import Personal_A_collection_shops from '../component/Person_center/Personal_A_collection_shops'
 import Personal_Collection_activities from '../component/Person_center/Personal_Collection_activities'
 import Personal_My_shopping_cart from '../component/Person_center/Personal_My_shopping_cart'
+import Personal_My_shopping_order_two from '../component/Person_center/Personal_My_shopping_order_two'
+import Personal_My_shopping_order_three from '../component/Person_center/Personal_My_shopping_order_three'
 import Personal_customer_service from '../component/Person_center/Personal_customer_service'
 import Personal_Review_sheet from '../component/Person_center/Personal_Review_sheet'
 import Personal_coupon from '../component/Person_center/Personal_coupon'
@@ -48,6 +52,14 @@ export default class Personal_Center_index extends Component {
   }
   UNSAFE_componentWillMount() {
     console.log(this.state)
+  }
+  diary() {
+    console.log('======================diaryListAction=============================================');
+    store.dispatch(diaryListAction);
+  }
+  cart() {
+    console.log('======================cartListAction=============================================');
+    // store.dispatch(cartListAction);
   }
   render() {
     return (
@@ -138,7 +150,7 @@ export default class Personal_Center_index extends Component {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/MyCenter_index">个人订单</NavLink>
+                      <NavLink to="/MyCenter_index">个人中心</NavLink>
                     </li>
                     <li>
                       <NavLink to="/Personal_My_reservation">我的预约</NavLink>
@@ -159,7 +171,7 @@ export default class Personal_Center_index extends Component {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/Personal_My_shopping_cart">
+                      <NavLink to="/Personal_My_shopping_cart" onClick={this.cart.bind(this)}>
                         我的购物车
                       </NavLink>
                     </li>
@@ -200,7 +212,7 @@ export default class Personal_Center_index extends Component {
                       <h3>我的装修</h3>
                     </li>
                     <li>
-                      <NavLink to="/Personal_Decoration_diary">
+                      <NavLink to="/Personal_Decoration_diary" onClick={this.diary.bind(this)}>
                         装修日记
                       </NavLink>
                     </li>
@@ -246,6 +258,14 @@ export default class Personal_Center_index extends Component {
                       component={Personal_My_shopping_cart}
                     ></Route>
                     <Route
+                      path="/Personal_My_shopping_order_two"
+                      component={Personal_My_shopping_order_two}
+                    ></Route>
+                    <Route
+                      path="/Personal_My_shopping_order_three"
+                      component={Personal_My_shopping_order_three}
+                    ></Route>
+                    <Route
                       path="/Personal_customer_service"
                       component={Personal_customer_service}
                     ></Route>
@@ -280,12 +300,13 @@ export default class Personal_Center_index extends Component {
                     <Route
                       path="/Personal_Decoration_diary"
                       component={Personal_Decoration_diary}
+
                     ></Route>
                     <Route
                       path="/Personal_Service_role_entry"
                       component={Personal_Service_role_entry}
                     ></Route>
-                    {/* <Redirect from="/" to="/MyCenter_index"></Redirect> */}
+                    <Redirect from="/" to="/MyCenter_index"></Redirect>
                   </div>
                 </Content>
               </div>

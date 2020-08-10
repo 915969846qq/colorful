@@ -4,16 +4,8 @@ import RootManage from '../component/manage/rootManage/rootManage'
 import SearchManage from '../component/manage/searchManage/searchManage'
 import UsersStatistics from '../component/manage/usersStatistics/usersStatistics'
 import Usersaudit from '../component/manage/usersaudit/usersaudit'
-<<<<<<< HEAD
 import Usersaudited from '../component/manage/usersaudit/usersaudited'
 import Orderdetails from '../component/manage/orderStatistics/Orderdetails'
-=======
-// <<<<<<< HEAD
-import Usersaudited from '../component/manage/usersaudit/usersaudited'
-// =======
-import Orderdetails from '../component/manage/orderStatistics/Orderdetails'
-// >>>>>>> 15e973b57ebd936665ddebf6322a7bfe8e2eba69
->>>>>>> 9b00275f14b76a1782be84019b962b05b77dab0f
 
 
 export const secroutes = [

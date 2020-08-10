@@ -113,7 +113,7 @@
   text-indent: 5px;
 }
 
-.ordert-content .ordert-content-content-receiving-content div {
+.ordert-content .ordert-content-content-receiving-content>div {
   height: 48px;
   margin-left: 5px;
 }
@@ -410,4 +410,7 @@
   -o-border-radius: 2px;
   -webkit-border-radius: 2px;
   -ms-border-radius: 2px;
+}
+.ordert-content .ordert-content-content-receiving-content>div .local{
+  display: inline-block;
 }

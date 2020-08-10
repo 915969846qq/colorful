@@ -91,56 +91,56 @@ let initState = {
     service: "正在服务",
   }
   ],
-  refundlist:[
+  refundlist: [
     {
-      id:1234567,
-      orderid:'8910jqkA',
+      id: 1234567,
+      orderid: '8910jqkA',
       src: require('../assets/images/min-banner1_03.jpg'),
-      name:'精品家具',
-      refundprice:10,
-      reason:'收取部分手续费用',
-      applytime:'2016-7-7',
-      flag:'已完成',
+      name: '精品家具',
+      refundprice: 10,
+      reason: '收取部分手续费用',
+      applytime: '2016-7-7',
+      flag: '已完成',
     },
     {
-      id:1234567,
-      orderid:'8910jqkA',
+      id: 1234567,
+      orderid: '8910jqkA',
       src: require('../assets/images/min-banner1_03.jpg'),
-      name:'精品家具',
-      refundprice:10,
-      reason:'收取部分手续费用',
-      applytime:'2016-7-7',
-      flag:'已完成',
+      name: '精品家具',
+      refundprice: 10,
+      reason: '收取部分手续费用',
+      applytime: '2016-7-7',
+      flag: '已完成',
     },
     {
-      id:1234567,
-      orderid:'8910jqkA',
+      id: 1234567,
+      orderid: '8910jqkA',
       src: require('../assets/images/min-banner1_03.jpg'),
-      name:'精品家具',
-      refundprice:10,
-      reason:'收取部分手续费用',
-      applytime:'2016-7-7',
-      flag:'已完成',
+      name: '精品家具',
+      refundprice: 10,
+      reason: '收取部分手续费用',
+      applytime: '2016-7-7',
+      flag: '已完成',
     },
     {
-      id:1234567,
-      orderid:'8910jqkA',
+      id: 1234567,
+      orderid: '8910jqkA',
       src: require('../assets/images/min-banner1_03.jpg'),
-      name:'精品家具',
-      refundprice:10,
-      reason:'收取部分手续费用',
-      applytime:'2016-7-7',
-      flag:'已完成',
+      name: '精品家具',
+      refundprice: 10,
+      reason: '收取部分手续费用',
+      applytime: '2016-7-7',
+      flag: '已完成',
     },
     {
-      id:1234567,
-      orderid:'8910jqkA',
+      id: 1234567,
+      orderid: '8910jqkA',
       src: require('../assets/images/min-banner1_03.jpg'),
-      name:'精品家具',
-      refundprice:10,
-      reason:'收取部分手续费用',
-      applytime:'2016-7-7',
-      flag:'已完成',
+      name: '精品家具',
+      refundprice: 10,
+      reason: '收取部分手续费用',
+      applytime: '2016-7-7',
+      flag: '已完成',
     }
   ],
   coupon: [{
@@ -151,78 +151,79 @@ let initState = {
     term: '2015.04.01 -- 2015.12.31'
   },
   ],
-  consigneeinfo:[
+  consigneeinfo: [
     {
-      name:'韩梅梅',
-      local:'北京市-海淀区',
-      address:'巨龟岩台屯1号',
-      tel:'15827388275',
-      Landline:'3818294',
+      name: '韩梅梅',
+      local: '北京市-海淀区',
+      address: '巨龟岩台屯1号',
+      tel: '15827388275',
+      Landline: '3818294',
     }
   ],
-  bank:[{
-    imgsrc:require('../assets/images/dingdan/DINGDAN_03.png')
+  bank: [{
+    imgsrc: require('../assets/images/dingdan/DINGDAN_03.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_05.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_05.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_07.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_07.png')
   },
 
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_11.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_11.png')
   },
 
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_18.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_18.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_19.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_19.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_20.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_20.png')
   },
 
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_22.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_22.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_28.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_28.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_29.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_29.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_30.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_30.png')
   },
 
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_32.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_32.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_38.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_38.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_39.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_39.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_40.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_40.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_41.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_41.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_09.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_09.png')
   },
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_21.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_21.png')
   },
 
   {
-    imgsrc:require('../assets/images/dingdan/DINGDAN_31.png')
+    imgsrc: require('../assets/images/dingdan/DINGDAN_31.png')
   },
-]
+  ],
+  local:"四川省-广安市-邻水"
 }
 
 const cartOrderReducer = function (state = initState, action) {
@@ -232,19 +233,34 @@ const cartOrderReducer = function (state = initState, action) {
       return {
         ...state, mycart: state.mycart
       }
+      case 'LOCAL':
+        return {
+          ...state, local: state.local
+        }
     case 'RECOMMEND':
       return {
         ...state, recommend: state.recommend
       }
-    case 'ORDERLIST': 
+    case 'ORDERLIST':
+      console.log(action.allorder)
       return {
-        ...state, orderlist: action.allorder
+        orderlist: action.allorder
       }
-      case 'ORDERLIST': 
+    case 'CARTLIST':
+      console.log(action.allcart)
       return {
-        ...state, orderlist: action.allcart
+        orderlist: action.allcart
       }
-
+      case 'ADDORDER':
+        console.log(action.addorder)
+        return {
+          addorder: action.addorder
+        }
+    case 'DIARYLIST':
+      console.log(action.alldiary)
+      return {
+        alldiary: action.alldiary
+      }
     default:
       return state
   }
