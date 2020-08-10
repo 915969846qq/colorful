@@ -76,10 +76,32 @@
 }
 
 
-/*.ant-table-pagination.ant-pagination {*/
-/*    margin: 50px 0;*/
-/*}*/
+.xt4 .ant-spin-container .ant-pagination {
+    margin: 16px 50px;
+    position: relative;
+    top: 100px;
+}
+.xt4 .ant-dropdown-trigger{
+    display: none;
+}
 
+.xt4 .ant-table-thead .ant-table-cell .ant-table-selection{
+    position: relative;
+    top: 441px;
+
+}
+.xt4 .All-out{
+    position: relative;
+    top: -43px;
+    left: 86px;
+}
+.xt4 .qx{
+    color: #0f0f0f;
+    font-size: 12px;
+    position: relative;
+    top: -11px;
+    left: 50px;
+}
 /* .ant-table-pagination-right {*/
 /*     float: right;*/
 /*     margin-top: 50px;*/

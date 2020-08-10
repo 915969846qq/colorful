@@ -26,16 +26,28 @@ import SignRegister from './component/Register.js/Sign_Register'
 import Sign_Register_successful from './component/Register.js/Sign_Register_successful'
 import Sign_in from './component/Login/Sign_in'
 import Manage from './pages/manage'
-import OrderStatistics from './component/manage/orderStatistics/orderStatistics'
-
 import Craftsman_Settled from './component/Person_center/Craftsman_Settled'
-
+import Craftsman_Settled_company from './component/Person_center/Craftsman_Settled_company'
+import Furniture_Museum_details from './component/Furniture_house/Furniture_Museum_details'
+import Style_pavilion_case from './component/Style/Style_pavilion_case'
 function App() {
   return (
     <div className="App">
       {/* <Index></Index> */}
       <Router>
         <Switch>
+        <Route
+            path="/Style_pavilion_case"
+            component={Style_pavilion_case}
+          ></Route>
+          <Route
+            path="/Furniture_Museum_details"
+            component={Furniture_Museum_details}
+          ></Route>
+          <Route
+              path="/Craftsman_Settled_company"
+              component={Craftsman_Settled_company}
+            ></Route>
           <Route
             path="/Building_materials_Museum"
             component={Building_materials_Museum}
@@ -75,10 +87,6 @@ function App() {
           ></Route>
           <Route path="/Sign_in" component={Sign_in}></Route>
           <Route path="/manage" component={Manage}></Route>
-          <Route
-            path="/manage/OrderStatistics"
-            component={OrderStatistics}
-          ></Route>
           <Route path="/" component={Index}></Route>
           {/* <Redirect from="/" to="/index"></Redirect>        */}
         </Switch>

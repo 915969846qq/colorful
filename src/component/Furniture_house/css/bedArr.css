@@ -1,0 +1,106 @@
+/* 1F */
+.bedStyle .craftsman{
+    margin: 10px 12px;
+    /* width: 274px; */
+}
+.bedStyle .pavilionLImg{
+    width: 275px;
+    height: 300px;
+    cursor: pointer;
+}
+.bedStyle .craftsman_list_padding{
+    /* padding: 13px ; */
+    background-color: #F6F6f6;
+}
+.bedStyle .Flex{
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+.bedStyle .craftsman_Info{
+    justify-content: space-between;
+}
+.bedStyle .craftsman_list_name{
+    font-size: 14px;
+    text-align: center;
+    color: #555;
+}
+.bedStyle .craftsman_company{
+    font-size: 14px;
+    color:#c3c2c2;
+}
+.bedStyle .money-small{
+    line-height: 60px;
+color: red;
+}
+.bedStyle .money-money{
+font-size: 24px;
+}
+.bedStyle .money-big{
+    color: #c3c2c2;
+    line-height: 60px;
+}
+.bedStyle .money-sale{
+    color: #c3c2c2;
+    font-size: 16px;
+    line-height: 60px;
+}
+.bedStyle  .title{
+    font-size: 22px;
+    /* font-weight: bolder; */
+}
+.bedStyle .size{
+    width: 915px;
+}
+.bedStyle .parlourStyle{
+    width: 285px;
+    height: 285px;
+    padding: 0 0 0 30px;
+    margin: 0 0 0 20px;
+
+}
+.bedStyle .parlourStyleTitle{
+    font-size: 22px;
+}
+.bedStyle .parlourStyleMoney{
+    color: red;
+    font-size: 20px;
+}
+.bedStyle .parlourStyleImg{
+    width: 225px;
+    height: 180px;
+}
+.bedStyle .saleStyle{
+    width: 285px;
+    height: 500px;
+    text-align: center;
+}
+.bedStyle .saleTitle{
+    height: 150px;
+}
+.bedStyle .saleImg{
+    width: 215px;
+    height: 216px;
+
+}
+.bedStyle .saleFont{
+    font-size: 24px;
+    color: orangered;
+}
+.bedStyle .saleGood{
+    font-size: 22px;
+    color: #555555;
+}
+.bedStyle .saleBuy{
+    width: 150px;
+    font-size: 22px;
+}
+.bedStyle .saleBuyNow{
+    width:100px ;
+    height:100px ;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 38px;
+    text-align: center;
+    color: white;
+    background-color: red;
+}

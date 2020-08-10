@@ -42,7 +42,7 @@ const columns = [
         align:'center',
         render:(record,data) => {
             return <p className="state butone">
-                <span>马上抢</span>
+                <span onClick="a()">马上抢</span>
                 <span>取消收藏</span>
             </p>
         }
@@ -237,7 +237,7 @@ export default class Personal_Collection_goods extends Component {
 
                         </Table>
 
-
+                        <p className="qx">全选</p>
                         <div className="All-out">
                             <form action="" method="get">
                                 <label className="join">加入购物车 </label>

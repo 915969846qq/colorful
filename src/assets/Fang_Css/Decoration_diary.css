@@ -5,6 +5,9 @@
 .fang_GBcolor {
   background-color: #f6f6f6;
 }
+.fang_EBColor {
+  background-color: #e2e9f1;
+}
 .fang_0BColor {
   background-color: black;
 }
@@ -13,6 +16,9 @@
 }
 .fang_RBColor {
   background-color: #ff0000;
+}
+.fang_BbColor {
+  background-color: #1890ff;
 }
 .fang_WBColor {
   background-color: #ffffff;
@@ -59,11 +65,23 @@
 .fang_padding30 {
   padding-left: 30px;
 }
+.fang_padding45 {
+  padding-left: 45px;
+}
 .fang_paddingt10 {
   padding-top: 10px;
 }
+.fang_paddingt20 {
+  padding-top: 20px;
+}
+.fang_paddingb20 {
+  padding-bottom: 20px;
+}
 .fang_paddingt30 {
   padding-top: 30px;
+}
+.fang_paddingall {
+  padding: 40px 60px;
 }
 .fang_Border {
   border: 1px solid #b1b1b1;
@@ -74,6 +92,9 @@
 }
 .fang_rline {
   border-right: 1px solid #b1b1b1;
+}
+.fang_Lline {
+  border-left: 3px solid #1890ff;
 }
 .fang_width1100 {
   width: 1100px;
@@ -104,6 +125,9 @@
 }
 .fang_marginT20 {
   margin-top: 20px;
+}
+.fang_margint50 {
+  margin-top: 50px;
 }
 .fang_marginB20 {
   margin-bottom: 20px;
@@ -244,9 +268,32 @@
 .fang_paddtop100 {
   padding-top: 100px;
 }
-.myLable:hover {
+.fang_myLable:hover {
   cursor: pointer;
   background-color: #ff0000;
   color: #ffffff;
   border: 0;
+}
+.fang_varMiddle {
+  vertical-align: middle;
+}
+.fang_botton0 {
+  bottom: 0;
+}
+.fang_bhov:hover {
+  cursor: pointer;
+  color: #40a9ff;
+}
+.fang_lineR {
+  border-right: 1px solid #e7e9f6;
+}
+.fang_lineL {
+  border-left: 1px solid #e7e9f6;
+}
+.fang_lineB {
+  border: 1px solid #e7e9f6;
+}
+.fang_myhover:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }

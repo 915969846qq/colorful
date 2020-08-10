@@ -8,18 +8,21 @@ import { Divider, Row, Col } from 'antd'
 // 步骤进行
 import { Steps } from 'antd'
 // 选择日期
-import { DatePicker } from 'antd'
+// import { DatePicker } from 'antd'
 // 按钮
 import { Button } from 'antd'
-
+// jquery
+import $ from 'jquery'
 const { Step } = Steps
 //个人中心 写日记
-// 选择日期
-function onChange(date, dateString) {
-  console.log(date, dateString)
-}
+// // 选择日期
+// function onChange(date, dateString) {
+//   console.log(date, dateString)
+// }
 // 上传图片
-const Demo = () => {
+const Demo = (props) => {
+  // console.log(props.loc)
+  let that = props.loc
   const [fileList, setFileList] = useState([
     {
       uid: '-1',
@@ -32,6 +35,13 @@ const Demo = () => {
 
   const UPonChange = ({ fileList: newFileList }) => {
     setFileList(newFileList)
+    // console.log(newFileList)
+    let arr = []
+    // 将数据放入state
+    for (let i = 0; i < newFileList.length; i++) {
+      arr.push(newFileList[i].name)
+    }
+    that.setState({ ImgSrc: arr })
   }
 
   const onPreview = async (file) => {
@@ -58,7 +68,7 @@ const Demo = () => {
         onChange={UPonChange}
         onPreview={onPreview}
       >
-        {fileList.length < 5 && '+ Upload'}
+        {fileList.length < 9 && '+ 上传图片'}
       </Upload>
     </ImgCrop>
   )
@@ -66,10 +76,27 @@ const Demo = () => {
 export default class Decoration_Write_diary extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      diaryLable: '',
+      textarea: '',
+    }
   }
-  fangLabel = () => {
-    console.log('myLable')
+  fangLabel = (e) => {
+    $('.fang_myLable').removeClass('fang_myqian')
+    $(e.target).addClass('fang_myqian')
+    // 将选中的标签放入state
+    let text = $(e.target).html()
+    this.setState({
+      diaryLable: text,
+    })
+  }
+  Writediary = (e) => {
+    let text = $(e.target).val()
+    if ($(e.target).val() !== '') {
+      this.setState({
+        textarea: text,
+      })
+    }
   }
   render() {
     return (
@@ -86,6 +113,7 @@ export default class Decoration_Write_diary extends Component {
                 id="WriteDiary"
                 cols="90"
                 rows="20"
+                onBlur={this.Writediary.bind(this)}
                 className="fang_paddingt10 fang_padding20 fang_noborder"
                 placeholder="说点什么吧，记录您装修的点点滴滴........"
               ></textarea>
@@ -95,10 +123,10 @@ export default class Decoration_Write_diary extends Component {
                 选择装修阶段
                 制定整体预算。选择装修风格、主材、家具、家电配饰等。寻找合适的施工方，签订合同后开工！
               </p>
-              <Steps current={1}>
-                <Step title="Finished" />
-                <Step title="In Progress" />
+              <Steps current={3}>
                 <Step title="Waiting" />
+                <Step title="In Progress" />
+                <Step title="Finished" />
               </Steps>
               <p className="fang_marginT20">
                 选择日记标签用一个标签来描述你日记的内容吧~
@@ -106,7 +134,7 @@ export default class Decoration_Write_diary extends Component {
               <Row>
                 <Col
                   span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
+                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 fang_myLable"
                   onClick={this.fangLabel.bind(this)}
                   offset={1}
                 >
@@ -114,49 +142,56 @@ export default class Decoration_Write_diary extends Component {
                 </Col>
                 <Col
                   span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
+                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 fang_myLable"
+                  onClick={this.fangLabel.bind(this)}
                   offset={1}
                 >
                   拆改中
                 </Col>
                 <Col
                   span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
+                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 fang_myLable"
+                  onClick={this.fangLabel.bind(this)}
                   offset={1}
                 >
                   改水电
                 </Col>
                 <Col
                   span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
+                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 fang_myLable"
+                  onClick={this.fangLabel.bind(this)}
                   offset={1}
                 >
                   上泥木
                 </Col>
                 <Col
                   span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
+                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 fang_myLable"
+                  onClick={this.fangLabel.bind(this)}
                   offset={1}
                 >
                   涂油漆
                 </Col>
                 <Col
                   span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
+                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 fang_myLable"
+                  onClick={this.fangLabel.bind(this)}
                   offset={1}
                 >
                   马上竣工
                 </Col>
                 <Col
                   span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
+                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 fang_myLable"
+                  onClick={this.fangLabel.bind(this)}
                   offset={1}
                 >
                   软装
                 </Col>
                 <Col
                   span={3}
-                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 myLable"
+                  className="fang_Border fang_FangCenter fang_marginT20 fang_height30 fang_font12 fang_myLable"
+                  onClick={this.fangLabel.bind(this)}
                   offset={1}
                 >
                   马上入住
@@ -165,10 +200,10 @@ export default class Decoration_Write_diary extends Component {
             </Col>
           </Row>
           {/* 选择日期 */}
-          <h2 className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
+          {/* <h2 className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
             选择日期
           </h2>
-          <DatePicker onChange={onChange} className="fang_width200" />
+          <DatePicker onChange={onChange} className="fang_width200" /> */}
           <Divider />
           <div>
             <p>
@@ -179,7 +214,7 @@ export default class Decoration_Write_diary extends Component {
                 选择装修过程中的照片，每张低于5M，支持JPG/JPEG/PNG格式，最多9张
               </span>
             </p>
-            <Demo />
+            <Demo loc={this} />
           </div>
           <div className="fang_marginT20 fang_Button50">
             <Button
@@ -197,5 +232,7 @@ export default class Decoration_Write_diary extends Component {
   }
   releaseDiary = () => {
     console.log('发布日志')
+    console.log(this.state)
+    // console.log($('.ant-upload-list-item-thumbnail'))
   }
 }

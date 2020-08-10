@@ -55,15 +55,20 @@ class Furniture_Museum_details extends Component {
             ]
          }
     }
+    // 当前商品的id值
+    UNSAFE_componentWillMount(){
+        console.log(this.props.location.state.key)
+       let personId=(this.props.location.state.key);
+    }
     render() { 
         let arr=this.state.goodsInfo.map((item,index)=>{
             return (
                 <div key={index}>
                     {/* 商品详情 */}
                     <div className="goodsInfo_box">
-                        <div className="flex">
+                        <div className="goodsFlex">
                             {/* 左边 */}
-                            <div>
+                            <div className="leftBox">
                                 <img src={require(`../../${item.goodsImg}`)} className="goodsImgStyle cursor" alt=""/>
                                 <div className="goodsFlex togglestyle">
                                     <div className="buttonleft">&lt;</div>

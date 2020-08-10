@@ -69,7 +69,7 @@ function SecondHand(props) {
                     刷新
                   </div>
                   <div className="fang_height30 fang_FangCenter fang_myh">
-                    删除
+                    下架
                   </div>
                 </Col>
               </Row>
@@ -90,6 +90,7 @@ class Personal_second_hand_management extends Component {
     super(props)
     // console.log(props)
     this.state = {
+      visible: false,
       pageNumber: 1,
       page: 1,
       Lnumber: 2,
@@ -195,9 +196,16 @@ class Personal_second_hand_management extends Component {
           </Col>
           <Col span={20}>
             <h3>用户名</h3>
-            <button className="fang_width200 fang_height30 fang_border fang_wcolor fang_RBColor">
+            <button className="fang_width200 fang_height30 fang_border fang_wcolor fang_RBColor fang_myhover">
               <span className="iconfont icon-dianhua fang_marginR20"></span>
               123456789089
+            </button>
+            <button
+              className="fang_marginL20 fang_width200 fang_height30 fang_border fang_wcolor fang_BbColor fang_myhover"
+              type="primary"
+            >
+              <span className="iconfont icon-jia fang_marginR20"></span>
+              发布二手商品
             </button>
           </Col>
         </Row>

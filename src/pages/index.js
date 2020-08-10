@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import '../Css/index11.css'
-import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
 import $ from 'jquery'
+import '../Css/index11.css'
 
 //首页
 
@@ -13,8 +12,7 @@ export default class index extends Component {
     super();
     this.state={
       p:""
-    }
-    
+    }  
   }
   back(){
     sessionStorage.clear("user");

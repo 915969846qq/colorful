@@ -1,0 +1,146 @@
+/* footer */
+.personal-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.decoration-diary>h1 {
+  height: 32px;
+  background-color: #fbfbfb;
+  line-height: 32px;
+  font-size: 14px;
+  color: #000;
+  text-indent: 4px;
+}
+
+.decoration-diary .diary-content {
+  width: 100%;
+  /* height: 300px; */
+  margin-bottom: 20px;
+  outline: 1px solid #b1b1b1;
+}
+
+.decoration-diary .diary-content .diary-content-header {
+  height: 125px;
+  padding-left: 24px;
+  background-color: #f9f9f9;
+}
+
+.decoration-diary .diary-content .diary-content-header .diary-content-header-left {
+  line-height: 55px;
+  float: left;
+}
+
+.decoration-diary .diary-content .diary-content-header .diary-content-header-left>h1 {
+  font-size: 24px;
+  color: #3d3d3d;
+}
+
+.decoration-diary .diary-content .diary-content-header .diary-content-header-left>p {
+  font-size: 12px;
+  color: #626262;
+  margin: 0;
+}
+
+.decoration-diary .diary-content .diary-content-header .diary-content-header-right {
+  width: 335px;
+  float: right;
+  margin-top: 30px;
+}
+
+.decoration-diary .diary-content .diary-content-header .diary-content-header-right>div {
+  float: left;
+  width: 110px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 15px;
+  color: #a5a5a5;
+}
+
+.decoration-diary .diary-content .diary-content-header .diary-content-header-right>div>img {
+  width: 26px;
+  height: 26px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.decoration-diary .diary-content .diary-content-header .diary-content-header-right>.img-border {
+  border-left: 1px solid #b1b1b1;
+  border-right: 1px solid #b1b1b1;
+}
+
+.decoration-diary .diary-content .diary-content-content {
+  height: 114px;
+  padding: 0 30px;
+  border-bottom: 1px solid #b1b1b1;
+}
+
+.decoration-diary .diary-content .diary-content-content>div {
+  float: left;
+}
+
+.decoration-diary .diary-content .diary-content-content>div>p {
+  font-size: 12px;
+  line-height: 24px;
+  color: #474747;
+  margin: 0;
+}
+
+.decoration-diary .diary-content .diary-content-content>div>p:nth-of-type(1) {
+  font-size: 12px;
+  color: #626262;
+  line-height: 50px;
+  margin: 0;
+}
+
+.decoration-diary .diary-content .diary-content-content>a {
+  width: 30px;
+  text-align: right;
+  cursor: pointer;
+  float: right;
+  font-size: 14px;
+  color: #ff0000;
+  line-height: 50px;
+}
+.decoration-diary .diary-content .diary-content-footer{
+  padding: 0 30px;
+  height: 75px;
+  line-height: 75px;
+}
+.decoration-diary .diary-content h2{
+  font-size: 18px;
+  color: #474747;
+  float: left;
+}
+.decoration-diary .diary-content .diary-content-footer>a{
+  font-size: 16px;
+    width: 110px;
+    height: 40px;
+    display: block;
+    margin-top: 18px;
+    float: right;
+    background-color: #ff0000;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -ms-border-radius: 3px;
+}
+.decoration-diary .diary-footer>a{
+  width: 80%;
+  line-height: 50px;
+  margin-top: 50px;
+  display: block;
+  margin: 0 auto;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 30px;
+}

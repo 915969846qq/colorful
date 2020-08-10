@@ -50,6 +50,8 @@
     -webkit-border-radius: 3px;
 }
 .xt6 .textw{
+
+    color: #333;
     float: right;
     margin-left: -40px;
     font-size: 12px;
@@ -63,7 +65,9 @@
     width: 372px;
 }
 
-
+.xt6 span{
+    color: #0f0f0f;
+}
 
 .xt6 .ant-table-thead > tr >th{
     font-size: 13px;
@@ -76,7 +80,11 @@
 .xt6 .All-out label {
     margin-right: 10px;
 }
-
+.xt6 .All-out{
+    position: relative;
+    top: -105px;
+    left: 83px;
+}
 .xt6 .ant-pagination-item-link {
     display: block;
     color: black;
@@ -92,7 +100,24 @@
     transition: all 0.3s;
 }
 
+.xt6 .ant-table-pagination-right{
+    margin-top: 80px;
+}
+.ant-table-selection-extra{
+    display: none;
+}
+.xt6 .ant-table-thead .ant-table-cell .ant-table-selection{
+    position: relative;
+    top: 441px;
 
+}
+.xt6 .qx{
+    color: #0f0f0f;
+    font-size: 12px;
+    position: relative;
+    top: -75px;
+    left: 50px;
+}
 /*.ant-table-cell{*/
 /*    width: 900px;*/
 /*}*/

@@ -1,0 +1,117 @@
+.auditStyle .big{
+    position: relative;
+}
+.auditStyle .actionStyle{
+    width: 50px;
+    height: 30px;
+    background-color: turquoise;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.auditStyle .closeImg{
+    width: 24px;
+    height: 24px;
+    margin-left: 930px;
+    /* margin-top:50px;  */
+    cursor: pointer;
+    background-color: red;
+}
+.auditStyle .detailsPage{
+    background-color: white;
+    width: 600px;
+    height: 530px;
+    margin-left: 180px;
+    margin-top:-28px; 
+}
+.auditStyle .myHide{
+    display: none;
+}
+.auditStyle .myShow{
+    width: 955px;
+    height: 530px;
+    background-color:rgba(240,242,245,.4);
+    position:absolute;
+    top: 55px;
+    left: 0;
+    z-index:3;
+    display: block;
+}
+/* .auditStyle .textShow{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: turquoise;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display:block;
+}
+.auditStyle .textNone{
+    display: none;
+} */
+/* .auditStyle .passShow{
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #b7b7b7;
+    cursor: pointer;
+    display:block;
+} */
+.auditStyle .formBox{
+    width: 255px;
+    margin: 0 auto;
+}
+.auditStyle .namebox{
+    margin-top: 30px;
+}
+.auditStyle .namebox1{
+    margin-top: 20px;
+    clear: both;
+}
+.auditStyle .name1{
+    width: 100px;
+    text-align: right;
+    float: left;
+    font-size: 14px;
+    color: #0f0f0f;
+}
+.auditStyle .Input{
+    float: left;
+    width: 120px;
+    height: 20px;
+    line-height: 32px;
+    text-indent: 6px;
+    border: 1px solid #b1b1b1;
+    margin-left: 20px;
+}
+.auditStyle .information {
+    /* height: 54px; */
+    font-size: 15px;
+    line-height: 40px;
+    padding-left: 10px;
+    border-bottom: 1px solid #b1b1b1;
+    clear: both;
+    color: #0f0f0f;
+}
+.auditStyle .color{
+    color: tomato;
+    /* font-size: 14px; */
+}
+.auditStyle .btnStyle{
+   cursor: pointer;
+    width: 64px;
+    height: 30px;
+    border: 1px solid #b1b1b1;
+    text-align: center;
+    line-height: 30px;
+}
+.auditStyle .btnFlex{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -90px;
+    
+
+}
