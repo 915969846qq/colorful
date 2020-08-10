@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './css/Personal_Decoration_diary.css'
 
 //装修日记
 
@@ -35,39 +36,39 @@ export default class Personal_Decoration_diary extends Component {
         let Diary = diary.map((item) => {
             return (
                 <div className="diary-content">
-                <div className="diary-content-header">
-                    <div className="diary-content-header-left">
-                        <h1>{this.state.diary[0].title}</h1>
-                        <p>创建时间：{this.state.diary[0].createtime}&nbsp;&nbsp;更新时间：{this.state.diary.updatetime}</p>
+                    <div className="diary-content-header">
+                        <div className="diary-content-header-left">
+                            <h1>{this.state.diary[0].title}</h1>
+                            <p>创建时间：{this.state.diary[0].createtime}&nbsp;&nbsp;更新时间：{this.state.diary.updatetime}</p>
+                        </div>
+                        <div className="diary-content-header-right">
+                            <div>
+                                <img src={require('../../assets/images/Collection_icon_03.png')} alt="icon03"></img>
+                                <span>{this.state.number.look}</span>
+                            </div>
+                            <div className="img-border">
+                                <img  src={require('../../assets/images/Collection_icon_05.png')} alt="icon05"></img>
+                                <span>{this.state.number.collection}</span>
+                            </div>
+                            <div>
+                                <img src={require('../../assets/images/Collection_icon_08.png')} alt="icon08"></img>
+                                <span>{this.state.number.comment}</span>
+                            </div>
+                        </div>
                     </div>
-                    <div className="diary-content-header-right">
+                    <div className="diary-content-content">
                         <div>
-                            <img src={require('../../assets/images/Collection_icon_03.png')} alt="icon03"></img>
-                            <span>{this.state.number.look}</span>
+                            <p>房屋信息：{this.state.diary[0].roominfo}</p>
+                            <p>所在小区：{this.state.diary[0].village}</p>
+                            <p>装修公司{this.state.diary[0].decorationcompany}</p>
                         </div>
-                        <div>
-                            <img src={require('../../assets/images/Collection_icon_05.png')} alt="icon05"></img>
-                            <span>{this.state.number.collection}</span>
-                        </div>
-                        <div>
-                            <img src={require('../../assets/images/Collection_icon_08.png')} alt="icon08"></img>
-                            <span>{this.state.number.comment}</span>
-                        </div>
+                        <a href>编辑</a>
+                    </div>
+                    <div className="diary-content-footer">
+                        <h2>全部日记{this.state.diary.length}篇</h2>
+                        <a href>续写日记</a>
                     </div>
                 </div>
-                <div className="diary-content-content">
-                    <div>
-                        <p>房屋信息：{this.state.diary[0].roominfo}</p>
-                        <p>所在小区：{this.state.diary[0].village}</p>
-                        <p>装修公司{this.state.diary[0].decorationcompany}</p>
-                    </div>
-                    <a href>编辑</a>
-                </div>
-                <div className="diary-content-footer">
-                    <h2>全部日记{this.state.diary.length}篇</h2>
-                    <a href>续写日记</a>
-                </div>
-            </div>
             )
         })
         return Diary
@@ -81,8 +82,8 @@ export default class Personal_Decoration_diary extends Component {
     }
     render() {
         return (
-            <div>
-                我的装修日记
+            <div className="decoration-diary">
+                <h1>我的装修日记</h1>
                 <div>
                     {this.state.diary}
                     <div className="diary-footer">

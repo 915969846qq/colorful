@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import './css/Personal_Service_role_entry.css'
 //填写个人信息
 const menu = (
     <Menu>
@@ -49,8 +50,13 @@ export default class Personal_Service_role_entry extends Component {
                             </Dropdown>
                         </div>
                         <div><label>就职公司：</label><input value={this.state.compony} onChange={this.changebind.bind(this, "compony")}></input></div>
-                        <div><label>*本人持身份证照片：</label>
-                            <input type="file"></input>
+                        <div className="fileDiv"><label>*本人持身份证照片：</label>
+                            <div className="IDimg">
+                                <input type="file"></input>
+                                <div className="ID">
+                                    <p>1、上传头像能获得更多关注。<br />2、jpg / png / jif 格式。像素最佳支持182*182</p>
+                                </div>
+                            </div>
                             <div className="wechat">
                                 <div>
                                     <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")}></img>
@@ -61,15 +67,17 @@ export default class Personal_Service_role_entry extends Component {
                                 关注后直接上传手机中的图片</p>
                                 </div>
                             </div>
-                            <div className="ID">
-                                <p>1、上传头像能获得更多关注。<br />2、jpg / png / jif 格式。像素最佳支持182*182</p>
-                            </div>
+
                         </div>
                         <div><label>上传头像：</label>
                             <input type="file"></input>
                         </div>
-                        <div><label>*上传资质证件：</label>
-                            <input type="file"></input>
+                        <div className="fileDiv"><label>*上传资质证件：</label>
+                            <div className="IDimg">
+                                <input type="file"></input>
+                                <div className="ID"><p>如有资质证件请上传，否则审核将无法通过。</p></div>
+                            </div>
+
                             <div className="wechat">
                                 <div>
                                     <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")}></img>
@@ -80,9 +88,7 @@ export default class Personal_Service_role_entry extends Component {
                                 关注后直接上传手机中的图片</p>
                                 </div>
                             </div>
-                            <div className="ID">
-                                <p>如有资质证件请上传，否则审核将无法通过。</p>
-                            </div>
+
                         </div>
 
                     </div>
