@@ -1,21 +1,60 @@
 import React, { Component } from 'react'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-
-
-
-import '../Css/index11.css'
-// import '../Css/iconfont-index/iconfont.css'
-
-import '../Css/index11.css'
-// import '../Css/iconfont-index/iconfont.css'
 import { Carousel } from 'antd'
+import $ from 'jquery'
+import '../Css/index11.css'
 
 //首页
 
 export default class index extends Component {
+  constructor(){
+    super();
+    this.state={
+      p:""
+    }  
+  }
+  back(){
+    sessionStorage.clear("user");
+  }
+  person(){
+    if(sessionStorage.user===undefined){
+      this.props.history.push("/Sign_in");
+    }else{
+      this.props.history.push("/Personal_Center_index");
+    }
+  }
+  componentDidMount(){
+    if(sessionStorage.user===undefined){
+      let p1 = <span id="user11"><Link to="/Sign_in" className="sn-login">请登录</Link><Link to="/Sign_Register">免费注册</Link></span>
+      this.setState({
+        p:p1
+      })
+    }else{
+      let userLogin = sessionStorage.getItem("user");  
+      let userEmtiy = JSON.parse(userLogin); 
+      this.setState({
+        user:userEmtiy.user,
+        kk:"",
+      },()=>{
+        let p1 =<span id="user11">用户名：{this.state.user} <em id="user12"><Link to="/Sign_in" onClick={this.back.bind(this)}>退出</Link></em></span> 
+        this.setState({
+          p:p1
+        })
+      })
+    }
+  }
+
+  // componentDidMount(){
+  //   let kk = $("#user11").text();
+  //   console.log(kk.substring(7,11).replace(",","*"));
+  //   this.setState({
+  //     kk:kk1
+  //   })
+  // }
+
   render() {
-    const contentStyle = {
+    const contentStyle = {                      
       color: 'red',
       lineHeight: '400px',
     }
@@ -43,13 +82,16 @@ export default class index extends Component {
                     <em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">
                       欢迎来科乐福
                     </em>
-                    <Link to="/Sign_in" className="sn-login">
+                    {/* <Link to="/Sign_in" className="sn-login">
                       请登录
-                    </Link>
+                    </Link>   
                     <Link to="/Sign_Register">免费注册</Link>
+                    <span id="user11">{this.state.user}</span> */}
+                    {this.state.p}
                   </p>
+                  
                   <ul className="sn-quick-menu">
-                    <li className="sn-mytaobao menu-item j_MyTaobao"></li>
+                    <li className="sn-mytaobao menu-item j_MyTaobao"></li>    
                     <li className="sn-cart">
                       <i className="fp-iconfont iconfont icon-qicheqianlian-"></i>
                       <a
@@ -99,9 +141,9 @@ export default class index extends Component {
                       </a>
                     </li>
                     <li className="sn-seller menu-item">
-                      <Link to="/Personal_Center_index" className="menu-hd">
+                      <span className="menu-hd" onClick={this.person.bind(this)}>
                         个人中心
-                      </Link>
+                      </span>
                     </li>
                     <li className="sn-sitemap">
                       <a href="11" className="menu-hd">
