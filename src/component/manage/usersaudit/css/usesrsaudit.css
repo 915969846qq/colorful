@@ -1,4 +1,4 @@
-.auditStyle .bigbig{
+.auditStyle .big{
     position: relative;
 }
 .auditStyle .actionStyle{
@@ -12,27 +12,28 @@
 .auditStyle .closeImg{
     width: 24px;
     height: 24px;
-    margin-left: 1030px;
-    margin-top:50px; 
+    margin-left: 930px;
+    /* margin-top:50px;  */
     cursor: pointer;
+    background-color: red;
 }
 .auditStyle .detailsPage{
     background-color: white;
     width: 600px;
-    height: 420px;
-    margin-left: 250px;
-    margin-top:-60px; 
+    height: 530px;
+    margin-left: 180px;
+    margin-top:-28px; 
 }
 .auditStyle .myHide{
     display: none;
 }
 .auditStyle .myShow{
-    width: 1115px;
+    width: 955px;
     height: 530px;
     background-color:rgba(240,242,245,.4);
     position:absolute;
     top: 55px;
-    left: 225px;
+    left: 0;
     z-index:3;
     display: block;
 }
@@ -70,7 +71,7 @@
     margin-top: 20px;
     clear: both;
 }
-.auditStyle .name{
+.auditStyle .name1{
     width: 100px;
     text-align: right;
     float: left;

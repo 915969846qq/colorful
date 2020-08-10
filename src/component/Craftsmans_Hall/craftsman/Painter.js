@@ -8,33 +8,7 @@ class Painter extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            craftsmanArr:[
-                {
-                    id:14,
-                    img:"assets/images/craftsman_07.jpg",
-                    name:"老王",
-                    info:"首席漆工6年"
-                },
-                {
-                    id:24,
-                    img:"assets/images/craftsman_07.jpg",
-                    name:"老李",
-                    info:"首席漆工6年"
-                },
-               
-                {
-                    id:34,
-                    img:"assets/images/craftsman_07.jpg",
-                    name:"老子",
-                    info:"首席漆工6年"
-                },
-                {
-                    id:44,
-                    img:"assets/images/craftsman_07.jpg",
-                    name:"老李",
-                    info:"首席漆工6年"
-                },
-            ]
+            craftsmanArr:[]
          }
     }
     UNSAFE_componentWillMount(){
@@ -44,7 +18,7 @@ class Painter extends Component {
                       'Content-Type':'application/json' 
                   },
                   credentials: 'include',
-        // 传参
+                 // 传参
                   body:JSON.stringify({
                     limit:"3"   
                   })
@@ -52,10 +26,12 @@ class Painter extends Component {
                       return res.json();       
                   }).then((data)=>{
                     console.log(data);  
-        // 存放数组            
+                // 存放数组            
                       this.setState({
                         craftsmanArr:data  
-                      })
+                      },()=>{
+                        this.arr();
+                    })
                   }).catch((e) => {
                       console.log("数据有误");
                   });
@@ -65,31 +41,40 @@ class Painter extends Component {
     toDetails = (id,event)=>{
         console.log(id);
      }
-    render() { 
+
+     //函数
+     arr=()=>{
         let arr=this.state.craftsmanArr.map((item)=>{
-              return (
-                <div className="craftsman craftsmancss" key={item.id}>
-                    {/* <Link to={
-                        {
-                            pathname:`/Craftsman_details`,
-                            state:{key:item.id}
-                        }
-                        
-                    }><img src={require(`../../../${item.avatar}`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link> */}
-                    <div className="flex craftsman_Info">
-                        <div>
-                        <span className="craftsman_name cursor">{item.realName}</span>
-                            <span className="cursor">{item.occupation}首席师{item.experience}年</span>
-                        </div>
-                        <div className="TranslateNow">立即预约</div>
-                    </div>
-                </div>
-              )      
-        })
+            return (
+              <div className="craftsman craftsmancss" key={item.id}>
+                  {/* <Link to={
+                      {
+                          pathname:`/Craftsman_details`,
+                          state:{key:item.id}
+                      }
+                      
+                  }><img src={require(`../../../${item.avatar}`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link> */}
+                  <div className="flex craftsman_Info">
+                      <div>
+                      <span className="craftsman_name cursor">{item.realName}</span>
+                          <span className="cursor">{item.occupation}首席师{item.experience}年</span>
+                      </div>
+                      <div className="TranslateNow">立即预约</div>
+                  </div>
+              </div>
+            )      
+      });
+      this.setState({
+          arr,
+      })
+     }
+
+    render() { 
+        
         return ( 
             <div className="craftsmanStyle flex">
                 {/* 热门工匠 */}
-                {arr}
+                {this.state.arr}
 
                 </div>
          );

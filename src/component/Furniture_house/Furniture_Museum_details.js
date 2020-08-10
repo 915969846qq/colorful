@@ -66,9 +66,9 @@ class Furniture_Museum_details extends Component {
                 <div key={index}>
                     {/* 商品详情 */}
                     <div className="goodsInfo_box">
-                        <div className="flex">
+                        <div className="goodsFlex">
                             {/* 左边 */}
-                            <div>
+                            <div className="leftBox">
                                 <img src={require(`../../${item.goodsImg}`)} className="goodsImgStyle cursor" alt=""/>
                                 <div className="goodsFlex togglestyle">
                                     <div className="buttonleft">&lt;</div>

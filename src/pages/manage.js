@@ -15,9 +15,9 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 @withRouter
 class Manage extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
   go = ({ item, key, keyPath, domEvent }) => {   //onClik那里虽然看不到传值,但是默认会传过来四个参数,详见官网
     this.props.history.push(key)   //编程式导航
   }
@@ -35,7 +35,7 @@ class Manage extends Component {
           <div className="logo"></div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="0">
-              <img className="logo" src={require('../assets/images/logo2.png')}></img>
+              <img className="logo" src={require('../assets/images/logo2.png')} alt=""></img>
             </Menu.Item>
             <Menu.Item key="/manage/AdvertManage" onClick={this.go} icon={<PieChartOutlined />}>
               广告管理
