@@ -1,15 +1,19 @@
+
 /* 基础信息标题 */
 .proto_info_title{
     font-size: 24px ;
     font-weight: bolder;
     margin-top: 30px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom:1px solid #b1b1b1;
 }
 
 /* 二手商品发布表单填写盒子 */
 .proto_info_box{
-    border-top:1px solid #b1b1b1;
-    padding: 30px 10px;
+   
+    padding: 10px 10px;
+    width: 550px;
+    margin: 10px auto;
 }
 .proto_info_box>div{
     margin: 10px 0;

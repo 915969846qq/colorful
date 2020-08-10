@@ -20,9 +20,9 @@ export default class Secondhand_Market extends Component {
         selectmenu1:[],
         selectmenu2:[],
         selectmenu3:[],
-        selectnewstatus:"闲置真心送",
+        selectnewstatus:"不限",
         selectregion:"全成都",
-        selectprice:"20以下",
+        selectprice:"不限",
         minprice:"",
         maxprice:"",
         currentpage:1,
@@ -217,7 +217,10 @@ blurprice=(inform,e)=>{
 
 submitinfo=()=>{
  
-     let selectprice=""
+     let selectprice="";
+     let searchprice={};
+     let sminprice;
+     let smaxprice;
     let mymin=this.state.minprice.length
     let mymax=this.state.maxprice.length
     if(mymin!==0||mymax!==0){
@@ -232,10 +235,25 @@ submitinfo=()=>{
     }else{
        selectprice=this.state.selectprice
     }
+    if(selectprice.includes("上")){
+        sminprice=parseInt(selectprice)
+        searchprice={minprice:sminprice}
+    }else if(selectprice.includes("下")){
+        smaxprice=parseInt(selectprice)
+        searchprice={minprice:0,maxprice:smaxprice}
+    }else if(selectprice.includes("-")){
+       let pricearray=selectprice.split("-")
+       searchprice={minprice:parseInt(pricearray[0]),maxprice:parseInt(pricearray[1])}
+    }else if(selectprice.includes("限")){
+        searchprice={minprice:0}
+    }
+
+
+
      let selectvalue={
          selectnewstatus:this.state.selectnewstatus,
          selectregion:this.state.selectregion,
-         selctprice:selectprice
+         selctprice:searchprice
      }
    
     
@@ -320,7 +338,7 @@ pageto=(e)=>{
                         <div >
                             <div>二手 ：</div>
                                <ul id="selectnewstatus">
-                                    <li className="red">闲置真心送</li>
+                                    <li className="red">不限</li>
                                    {this.state.selectmenu1}
                                 </ul> 
                         </div>
