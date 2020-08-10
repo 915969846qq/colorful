@@ -37,8 +37,16 @@ class Manage extends Component {
             <Menu.Item key="0">
               <img className="logo" src={require('../assets/images/logo2.png')} alt=""></img>
             </Menu.Item>
+            {/* <Menu.Item
+              key="/manage/AdvertManage"
+              onClick={this.go}
+              icon={<PieChartOutlined />}
+            >
+             广告管理 */}
+
             <Menu.Item key="/manage/AdvertManage" onClick={this.go} icon={<PieChartOutlined />}>
               广告管理
+
             </Menu.Item>
             <Menu.Item key="/manage/OrderStatistics" onClick={this.go} icon={<DesktopOutlined />}>
               订单管理
@@ -100,4 +108,4 @@ class Manage extends Component {
   }
 }
 export default Manage
-// ReactDOM.render(<Manage />, mountNode);
+

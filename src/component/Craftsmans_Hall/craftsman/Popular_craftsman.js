@@ -14,7 +14,7 @@ class PopularCraftsman extends Component {
     }
     
     UNSAFE_componentWillMount(){
-                fetch('http://172.16.10.10:8080/banJu/craftsmanDetail/selectByHot',{                     
+                fetch('http://172.16.10.11:8080/banJu/craftsmanDetail/selectByHot',{                     
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json' 
@@ -30,8 +30,10 @@ class PopularCraftsman extends Component {
                     console.log(data);  
                     // 存放数组            
                       this.setState({
-                        craftsmanArr:data  
-                      })
+                        craftsmanArr:data.data
+                      },()=>{
+                          this.arr();
+                      })
                   }).catch((e) => {
                       console.log("数据有误");
                   });

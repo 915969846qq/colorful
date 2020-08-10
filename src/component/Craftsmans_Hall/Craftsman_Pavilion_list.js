@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { Row, Col, } from 'antd';
 import { Pagination } from 'antd';
+import { Modal, Button, Space } from 'antd';
 import "whatwg-fetch"
 
 //引入css
@@ -29,13 +30,17 @@ class Craftsman_Pavilion_list extends Component {
             experienceMax: "",
             // 今日推荐
             orderList: "",
-            // 页数
-            current:1,
             //总数
             total:1,
             //年月日
-            bookDate:0,
-            id:0,
+            bookDate:"",
+            id:"",
+
+            //预约样式的状态值
+            // status:"true",
+
+             //模态框的值
+             content:"",
         }
     }
 
@@ -54,8 +59,8 @@ class Craftsman_Pavilion_list extends Component {
                 experienceMin: this.state.experienceMin,
                 experienceMax: this.state.experienceMax,
                 orderList: this.state.orderList,
-                page: this.state.current,
-                limit: 4,
+                // page: this.state.current,
+                // limit: 4,
             })
         }).then((res) => {
             return res.json();
@@ -64,10 +69,12 @@ class Craftsman_Pavilion_list extends Component {
             // 存放数组            
             this.setState({
                 craftsmanArr:data.data,
-                total:data.total,
-            },()=>{
+                total:parseInt(data.total),
+            }
+            ,()=>{
                 this.arr()
-            })
+            }
+            )
         }).catch((e) => {
             console.log("数据有误");
         });
@@ -75,44 +82,42 @@ class Craftsman_Pavilion_list extends Component {
     }
 
 
-    //职业
+    //职业// 点击事件中调接口
     occupationFn = (e, name) => {
         console.log(e);
         this.setState({
             occupation: e
-        });
-        // 点击事件中调接口
-        // this.state.position=e.target.innerHTML;
-
-        fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            // 传参
-            body: JSON.stringify({
-                occupation: this.state.occupation,
-                experienceMin: this.state.experienceMin,
-                experienceMax: this.state.experienceMax,
-                orderList: this.state.orderList,
-                page: this.state.current,
-                limit: 10,
+        },()=>{
+            fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                // 传参
+                body: JSON.stringify({
+                    occupation: this.state.occupation,
+                    experienceMin: this.state.experienceMin,
+                    experienceMax: this.state.experienceMax,
+                    orderList: this.state.orderList,
+                    // page: this.state.current,
+                    // limit: 10,
+                })
+            }).then((res) => {
+                return res.json();
+            }).then((data) => {
+                console.log(data);
+                // 存放数组            
+                this.setState({
+                    craftsmanArr: data.data
+                },()=>{
+                    this.arr()
+                })
+            }).catch((e) => {
+                console.log("数据有误");
             })
-        }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            console.log(data);
-            // 存放数组            
-            this.setState({
-                craftsmanArr: data
-            },()=>{
-                this.arr()
-            })
-        }).catch((e) => {
-            console.log("数据有误");
-        });
-        this.arr()
+        }
+        );
     }
 
 
@@ -124,38 +129,40 @@ class Craftsman_Pavilion_list extends Component {
             exper: e,
             experienceMin: e.substring(0, 1),
             experienceMax: e.substring(1, 1),
+        },()=>{
+            // 点击事件中调接口
+            fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                // 传参
+                body: JSON.stringify({
+                    occupation: this.state.occupation,
+                    experienceMin: this.state.experienceMin,
+                    experienceMax: this.state.experienceMax,
+                    orderList: this.state.orderList,
+                    // page: this.state.current,
+                    // limit: 8,
+                })
+            }).then((res) => {
+                return res.json();
+            }).then((data) => {
+                console.log(data);
+                // 存放数组            
+                this.setState({
+                    craftsmanArr: data
+                },()=>{
+                    this.arr();
+                })
+            }).catch((e) => {
+                console.log("数据有误");
+            });
         });
-        // 点击事件中调接口
-        // this.state.position=e.target.innerHTML;
+        
 
-        fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            // 传参
-            body: JSON.stringify({
-                occupation: this.state.occupation,
-                experienceMin: this.state.experienceMin,
-                experienceMax: this.state.experienceMax,
-                orderList: this.state.orderList,
-                page: this.state.current,
-                limit: 8,
-            })
-        }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            console.log(data);
-            // 存放数组            
-            this.setState({
-                craftsmanArr: data
-            },()=>{
-                this.arr();
-            })
-        }).catch((e) => {
-            console.log("数据有误");
-        });
+       
     }
 
     // 今日推荐
@@ -163,8 +170,8 @@ class Craftsman_Pavilion_list extends Component {
         console.log(e);
         this.setState({
             orderList: e
-        });
-        // 点击事件中调接口
+        },()=>{
+ // 点击事件中调接口
         // this.state.position=e.target.innerHTML;
 
         fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
@@ -195,6 +202,8 @@ class Craftsman_Pavilion_list extends Component {
         }).catch((e) => {
             console.log("数据有误");
         });
+        });
+       
     }
 
      //分页 
@@ -249,13 +258,13 @@ class Craftsman_Pavilion_list extends Component {
 
         //拼接年月日
         let myDate=year+"-"+mouth+"-"+day;
-        console.log(myDate);
-
+        console.log(typeof (myDate));
         this.setState({
+            // status:"true",
             bookDate:date,
             id:id,
         },()=>{
-            console.log(this.state.id)
+            console.log(typeof(this.state.id))
             fetch('http://172.16.10.15:8080/banJu/user/reservation',{           
                         method:'POST',
                         headers:{
@@ -273,9 +282,12 @@ class Craftsman_Pavilion_list extends Component {
                         }).then((data)=>{
                           console.log(data);  
                      
-                        // 存放数组            
+                            // 存放数组            
                             this.setState({
-                            craftsmanArr:data.data,
+                            content:data.msg,
+                            },()=>{
+                                this.arr();
+                                this.success();
                             })
                         }).catch((e) => {
                             console.log("数据有误");
@@ -285,6 +297,51 @@ class Craftsman_Pavilion_list extends Component {
         
     }
 
+    //带参数查询
+    queryFn=(name,e)=>{
+        console.log(name);
+        this.setState({
+            occupation: name,
+        });
+        // 点击事件中调接口
+        // this.state.position=e.target.innerHTML;
+
+        fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            // 传参
+            body: JSON.stringify({
+                occupation: this.state.occupation,
+                experienceMin: this.state.experienceMin,
+                experienceMax: this.state.experienceMax,
+                orderList: this.state.orderList,
+                page: this.state.current,
+                // limit: 8,
+            })
+        }).then((res) => {
+            return res.json();
+        }).then((data) => {
+            console.log(data);
+            // 存放数组            
+            this.setState({
+                craftsmanArr: data
+            },()=>{
+                this.arr();
+            })
+        }).catch((e) => {
+            console.log("数据有误");
+        });
+    }
+
+     //模态框
+     success() {
+        Modal.success({
+          content:this.state.content,
+        });
+      }
     //函数
     arr=()=>{
         let arr = this.state.craftsmanArr.map((item) => {
@@ -309,8 +366,7 @@ class Craftsman_Pavilion_list extends Component {
             arr,
         })
     }
-
-
+    
     render() {
         
         // console.log(this.state.craftsmanArr)
@@ -326,10 +382,10 @@ class Craftsman_Pavilion_list extends Component {
                             {/* 左边 */}
                             <div className="tableBox_left ">职位</div>
                             <div className="tableBox_right">
-                                <span className={this.state.occupation === "" ? 'myChioce' : 'myCancle'} onClick={this.occupationFn.bind(this, "")}>不限</span>
-                                <span className={this.state.occupation === "木工" ? 'myChioce' : 'myCancle'} onClick={this.occupationFn.bind(this, "木工")}>木工</span>
-                                <span className={this.state.occupation === "泥工" ? 'myChioce' : 'myCancle'} onClick={this.occupationFn.bind(this, "泥工")}>泥工</span>
-                                <span className={this.state.occupation === "漆工" ? 'myChioce' : 'myCancle'} onClick={this.occupationFn.bind(this, "漆工")}>漆工</span>
+                                <span className={this.state.occupation === "" ? 'myChioce' : 'myCancle'} onClick={this.queryFn.bind(this, "")}>不限</span>
+                                <span className={this.state.occupation === "木工" ? 'myChioce' : 'myCancle'} onClick={this.queryFn.bind(this, "木工")}>木工</span>
+                                <span className={this.state.occupation === "泥工" ? 'myChioce' : 'myCancle'} onClick={this.queryFn.bind(this, "泥工")}>泥工</span>
+                                <span className={this.state.occupation === "漆工" ? 'myChioce' : 'myCancle'} onClick={this.queryFn.bind(this, "漆工")}>漆工</span>
                             </div>
                         </div>
                         {/* 第2行 */}
@@ -337,18 +393,18 @@ class Craftsman_Pavilion_list extends Component {
                             {/* 左边 */}
                             <div className="tableBox_left ">经验</div>
                             <div className="tableBox_right">
-                                <span className={this.state.exper === "" ? 'myChioce' : 'myCancle'} onClick={this.experFn.bind(this, "")}>不限</span>
-                                <span className={this.state.exper === "12" ? 'myChioce' : 'myCancle'} onClick={this.experFn.bind(this, "12")}>1-2年</span>
-                                <span className={this.state.exper === "25" ? 'myChioce' : 'myCancle'} onClick={this.experFn.bind(this, "25")}>2-5年</span>
-                                <span className={this.state.exper === "58" ? 'myChioce' : 'myCancle'} onClick={this.experFn.bind(this, "58")}>5-8年</span>
+                                <span className={this.state.exper === "" ? 'myChioce' : 'myCancle'} onClick={this.queryFn.bind(this, "")}>不限</span>
+                                <span className={this.state.exper === "12" ? 'myChioce' : 'myCancle'} onClick={this.queryFn.bind(this, "12")}>1-2年</span>
+                                <span className={this.state.exper === "25" ? 'myChioce' : 'myCancle'} onClick={this.queryFn.bind(this, "25")}>2-5年</span>
+                                <span className={this.state.exper === "58" ? 'myChioce' : 'myCancle'} onClick={this.queryFn.bind(this, "58")}>5-8年</span>
                             </div>
                         </div>
                     </div>
                     {/* bottom */}
                     <div className="table-bottom">
                         <span >今日推荐</span>
-                        <span className={this.state.orderList === "" ? 'myShow' : 'myHide'} onClick={this.oneShowFn.bind(this, "")}>最受欢迎</span>
-                        <span className={this.state.orderList === "人气排行" ? 'myShow' : 'myHide'} onClick={this.oneShowFn.bind(this, "人气排行")}>人气排行</span>
+                        <span className={this.state.orderList === "" ? 'myShow' : 'myHide'} onClick={this.queryFn.bind(this, "")}>最受欢迎</span>
+                        <span className={this.state.orderList === "人气排行" ? 'myShow' : 'myHide'} onClick={this.queryFn.bind(this, "人气排行")}>人气排行</span>
                     </div>
                 </div>
                 {/* 工匠人员 */}
@@ -359,7 +415,7 @@ class Craftsman_Pavilion_list extends Component {
 
                 </div>
                 <div className="craftsmanStyle">
-                     <Pagination defaultCurrent={1}  total={this.state.total} onChange={this.onChange.bind(this)}/>    
+                     <Pagination defaultCurrent={2} pageSize={2} defaultPageSize={2} total={50} onChange={this.onChange.bind(this)}/>
                      {/* {this.state.craftsmanArr.total} 返回数据的总条数*/}
                 </div>
                 <Footer></Footer>

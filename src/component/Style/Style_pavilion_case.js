@@ -19,83 +19,23 @@ class Style_pavilion_case extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
             craftsmanArr: [],
 
-            //职业
-            occupation: "",
-            //经验
-            exper: "",
-            experienceMin: "",
-            experienceMax: "",
-            // 今日推荐
-            orderList: "",
+            //类型
+            type:"",
+            //风格
+            style:"",
             // 页数
             current:1,
+
+            
         }
     }
 
     //初始化
     UNSAFE_componentWillMount() {
-        // fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     credentials: 'include',
-        //     // 传参
-        //     body: JSON.stringify({
-        //         occupation: this.props.location.state.key,
-        //         experienceMin: this.state.experienceMin,
-        //         experienceMax: this.state.experienceMax,
-        //         orderList: this.state.orderList,
-        //         page: this.state.current,
-        //         limit: 8,
-        //     })
-        // }).then((res) => {
-        //     return res.json();
-        // }).then((data) => {
-        //     console.log(data);
-        //     // 存放数组            
-        //     this.setState({
-        //         craftsmanArr:data
-        //     })
-        // }).catch((e) => {
-        //     console.log("数据有误");
-        // });
-        // =============================================================================
-        // let arr = this.state.craftsmanArr.map((item) => {
-        //     return (
-        //         <div className="craftsman" key={item.cid}>
-        //             {/* <img src={require(`../../${item.avatar}`)} alt="" className="pavilionLImg"/> */}
-        //             <div className="craftsman_list_padding">
-        //                 <div className="flex craftsman_Info">
-        //                     <div className="craftsman_list_name">{item.realName}</div>
-        //                     <div className="craftsman_company">{item.company}</div>
-        //                 </div>
-        //                 <div className="flex craftsman_Info">
-        //                     <span><span className="iconfont icon-aixin"></span>{item.hot}</span>
-        //                     <div className="design cursor" onClick={this.book.bind(this, item.cid)}>预约设计</div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     )
-        // });
-        
-        // this.setState({
-        //     arr,
-        // })
-    }
-
-    //职业
-    occupationFn = (e, name) => {
-        console.log(e);
-        this.setState({
-            occupation: e
-        });
-        // 点击事件中调接口
-        // this.state.position=e.target.innerHTML;
-
-        fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
+        fetch('http://172.16.10.4:8080/banJu/style/findPicture', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -103,98 +43,18 @@ class Style_pavilion_case extends Component {
             credentials: 'include',
             // 传参
             body: JSON.stringify({
-                occupation: this.state.occupation,
-                experienceMin: this.state.experienceMin,
-                experienceMax: this.state.experienceMax,
-                orderList: this.state.orderList,
-                page: this.state.current,
-                limit: 8,
+                type:this.state.type,
+                style:this.state.style,
             })
         }).then((res) => {
             return res.json();
         }).then((data) => {
-            console.log(data);
+            console.log(data.data);
             // 存放数组            
             this.setState({
-                craftsmanArr: data
-            })
-        }).catch((e) => {
-            console.log("数据有误");
-        });
-    }
-
-
-    // 经验
-    experFn = (e, name) => {
-        console.log(typeof e);
-        console.log(e.substring(0, 1));
-        this.setState({
-            exper: e,
-            experienceMin: e.substring(0, 1),
-            experienceMax: e.substring(1, 1),
-        });
-        // 点击事件中调接口
-        // this.state.position=e.target.innerHTML;
-
-        fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            // 传参
-            body: JSON.stringify({
-                occupation: this.state.occupation,
-                experienceMin: this.state.experienceMin,
-                experienceMax: this.state.experienceMax,
-                orderList: this.state.orderList,
-                page: this.state.current,
-                limit: 8,
-            })
-        }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            console.log(data);
-            // 存放数组            
-            this.setState({
-                craftsmanArr: data
-            })
-        }).catch((e) => {
-            console.log("数据有误");
-        });
-    }
-
-    // 今日推荐
-    oneShowFn = (e, name) => {
-        console.log(e);
-        this.setState({
-            orderList: e
-        });
-        // 点击事件中调接口
-        // this.state.position=e.target.innerHTML;
-
-        fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            // 传参
-            body: JSON.stringify({
-                occupation: this.state.occupation,
-                experienceMin: this.state.experienceMin,
-                experienceMax: this.state.experienceMax,
-                orderList: this.state.orderList,
-                page: this.state.current,
-                limit: 8,
-            })
-        }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            console.log(data);
-            // 存放数组            
-            this.setState({
-                craftsmanArr: data
+                craftsmanArr: data.data
+            },()=>{
+                this.arr();
             })
         }).catch((e) => {
             console.log("数据有误");
@@ -207,43 +67,80 @@ class Style_pavilion_case extends Component {
         this.setState({
           current: page,
         });
-        //点击分页
-        fetch('http://172.16.10.4:8080/banJu/craftsman/craftsmanFindByLike', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            // 传参
-            body: JSON.stringify({
-                occupation: this.state.occupation,
-                experienceMin: this.state.experienceMin,
-                experienceMax: this.state.experienceMax,
-                orderList: this.state.orderList,
-                page: this.state.current,
-                limit: 8,
-            })
-        }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            console.log(data);
-            // 存放数组            
-            this.setState({
-                craftsmanArr: data
-            })
-        }).catch((e) => {
-            console.log("数据有误");
-        });
     };
 
-    //预约
-    book = (id, e) => {
-        console.log(id);
+    //点击style
+    style=(style,e)=>{
+        console.log(this.state)
+        this.setState({
+            style:style,
+            craftsmanArr:"",
+        },()=>{
+            console.log(this.state.style)
+            fetch('http://172.16.10.4:8080/banJu/style/findPicture', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                // 传参
+                body: JSON.stringify({
+                    type:this.state.type,
+                    style:this.state.style,
+                })
+            }).then((res) => {
+                return res.json();
+            }).then((data) => {
+                console.log(this.state.craftsmanArr);
+                // 存放数组            
+                this.setState({
+                    craftsmanArr: data.data
+                },()=>{
+                    this.arr();
+                    console.log(this.state.craftsmanArr);
+                })
+            }).catch((e) => {
+                console.log("数据有误");
+            });
+        })
     }
 
-    render() {
-        
-        console.log(this.state.craftsmanArr)
+    //点击type
+    type=(type,e)=>{
+        this.setState({
+            type:type,
+            craftsmanArr:"",
+        },()=>{
+            console.log(this.state.type)
+            fetch('http://172.16.10.4:8080/banJu/style/findPicture', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                // 传参
+                body: JSON.stringify({
+                    type:this.state.type,
+                    style:this.state.style,
+                })
+            }).then((res) => {
+                return res.json();
+            }).then((data) => {
+                console.log(data);
+                // 存放数组            
+                this.setState({
+                    craftsmanArr:data.data
+                },()=>{
+                    this.arr();
+                })
+            }).catch((e) => {
+                console.log("数据有误");
+            });
+        })
+    }
+
+    //函数
+    arr=()=>{
         let arr = this.state.craftsmanArr.map((item) => {
             return (
                 <div className="craftsman" key={item.cid}>
@@ -255,12 +152,18 @@ class Style_pavilion_case extends Component {
                         </div>
                         <div className="flex craftsman_Info">
                             <span><span className="iconfont icon-aixin"></span>{item.hot}</span>
-                            <div className="design cursor" onClick={this.book.bind(this, item.cid)}>预约设计</div>
                         </div>
                     </div>
                 </div>
             )
         });
+        this.setState({
+            arr,
+        })
+    }
+
+    render() {
+        
         return (
             //外层css取名
             <div className="craftsmancss">
@@ -273,10 +176,10 @@ class Style_pavilion_case extends Component {
                             {/* 左边 */}
                             <div className="tableBox_left ">风格</div>
                             <div className="tableBox_right">
-                                <span className={this.state.occupation === "" ? 'myChioce' : 'myCancle'} onClick={this.occupationFn.bind(this, "")}>不限</span>
-                                <span className={this.state.occupation === "木工" ? 'myChioce' : 'myCancle'} onClick={this.occupationFn.bind(this, "木工")}>中式</span>
-                                <span className={this.state.occupation === "泥工" ? 'myChioce' : 'myCancle'} onClick={this.occupationFn.bind(this, "泥工")}>轻奢</span>
-                                <span className={this.state.occupation === "漆工" ? 'myChioce' : 'myCancle'} onClick={this.occupationFn.bind(this, "漆工")}>简式</span>
+                                <span className={this.state.style === "" ? 'myChioce' : 'myCancle'} onClick={this.style.bind(this, "")}>不限</span>
+                                <span className={this.state.style === "中式" ? 'myChioce' : 'myCancle'} onClick={this.style.bind(this, "中式")}>中式</span>
+                                <span className={this.state.style === "轻奢" ? 'myChioce' : 'myCancle'} onClick={this.style.bind(this, "轻奢")}>轻奢</span>
+                                <span className={this.state.style === "简式" ? 'myChioce' : 'myCancle'} onClick={this.style.bind(this, "简式")}>简式</span>
                             </div>
                         </div>
                         {/* 第2行 */}
@@ -284,26 +187,19 @@ class Style_pavilion_case extends Component {
                             {/* 左边 */}
                             <div className="tableBox_left ">类型</div>
                             <div className="tableBox_right">
-                                <span className={this.state.exper === "" ? 'myChioce' : 'myCancle'} onClick={this.experFn.bind(this, "")}>不限</span>
-                                <span className={this.state.exper === "12" ? 'myChioce' : 'myCancle'} onClick={this.experFn.bind(this, "12")}>客厅</span>
-                                <span className={this.state.exper === "25" ? 'myChioce' : 'myCancle'} onClick={this.experFn.bind(this, "25")}>卧室</span>
-                                <span className={this.state.exper === "58" ? 'myChioce' : 'myCancle'} onClick={this.experFn.bind(this, "58")}>书房</span>
+                                <span className={this.state.type === "" ? 'myChioce' : 'myCancle'} onClick={this.type.bind(this, "")}>不限</span>
+                                <span className={this.state.type === "客厅" ? 'myChioce' : 'myCancle'} onClick={this.type.bind(this, "客厅")}>客厅</span>
+                                <span className={this.state.type === "卧室" ? 'myChioce' : 'myCancle'} onClick={this.type.bind(this, "卧室")}>卧室</span>
+                                <span className={this.state.type === "书房" ? 'myChioce' : 'myCancle'} onClick={this.type.bind(this, "书房")}>书房</span>
                             </div>
                         </div>
                     </div>
-                    {/* bottom */}
-                    <div className="table-bottom">
-                        <span >地区</span>
-                        <span className={this.state.orderList === "" ? 'myShow' : 'myHide'} onClick={this.oneShowFn.bind(this, "")}>全成都</span>
-                        <span className={this.state.orderList === "人气排行" ? 'myShow' : 'myHide'} onClick={this.oneShowFn.bind(this, "人气排行")}>武侯区</span>
-                        <span className={this.state.orderList === "人气排行" ? 'myShow' : 'myHide'} onClick={this.oneShowFn.bind(this, "人气排行")}>青羊区</span>
-                        <span className={this.state.orderList === "人气排行" ? 'myShow' : 'myHide'} onClick={this.oneShowFn.bind(this, "人气排行")}>成华区</span>
-                    </div>
+                   
                 </div>
                 {/* 工匠人员 */}
                 <div className="craftsmanStyle flex ">
 
-                    {arr}
+                    {this.state.arr}
                     {/* {this.state.arr} */}
 
                 </div>

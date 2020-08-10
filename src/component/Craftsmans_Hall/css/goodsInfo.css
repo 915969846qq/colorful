@@ -37,6 +37,9 @@
     margin: 4px;
     cursor: pointer;
 }
+.FurnitureGoods .sizeBoxNone{
+    display: none;
+}
 .FurnitureGoods .align{
     justify-content: space-between;
 }
