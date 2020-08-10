@@ -13,7 +13,7 @@ class Carpentry extends Component {
          }
     }
     UNSAFE_componentWillMount(){
-                fetch('http://172.16.10.10:8080/banJu/craftsmanDetail/selectMuGongByHot',{                     
+                fetch('http://172.16.10.11:8080/banJu/craftsmanDetail/selectMuGongByHot',{                     
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json' 
@@ -29,10 +29,10 @@ class Carpentry extends Component {
                     console.log(data);  
         // 存放数组            
                       this.setState({
-                        craftsmanArr:data  
+                        craftsmanArr:data.data  
                       },()=>{
-                        this.arr();
-                     })
+            this.arr();
+        })
                   }).catch((e) => {
                       console.log("数据有误");
                   });

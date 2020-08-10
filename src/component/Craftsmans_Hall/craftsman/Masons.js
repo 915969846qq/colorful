@@ -14,7 +14,7 @@ class Masons extends Component {
     }
 
     UNSAFE_componentWillMount(){
-                    fetch('http://172.16.10.10:8080/banJu/craftsmanDetail/selectNiGongByHot',{                     
+                    fetch('http://172.16.10.11:8080/banJu/craftsmanDetail/selectNiGongByHot',{                     
                       method:'POST',
                       headers:{
                           'Content-Type':'application/json' 
@@ -30,7 +30,7 @@ class Masons extends Component {
                         console.log(data);  
             // 存放数组            
                           this.setState({
-                            craftsmanArr:data},()=>{
+                            craftsmanArr:data.data},()=>{
                                 this.arr();
                             }
                             )
@@ -109,7 +109,6 @@ class Masons extends Component {
             <div className="craftsmanStyle flex">
                 {/* 热门工匠 */}
                 {this.state.arr}
-                {/* {arr} */}
 
             </div>
          );

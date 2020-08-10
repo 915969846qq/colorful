@@ -12,7 +12,7 @@ class Painter extends Component {
          }
     }
     UNSAFE_componentWillMount(){
-                fetch('http://172.16.10.10:8080/banJu/craftsmanDetail/selectYouQiGongByHot',{                     
+                fetch('http://172.16.10.11:8080/banJu/craftsmanDetail/selectYouQiGongByHot',{                     
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json' 
@@ -28,7 +28,7 @@ class Painter extends Component {
                     console.log(data);  
                 // 存放数组            
                       this.setState({
-                        craftsmanArr:data  
+                        craftsmanArr:data.data    
                       },()=>{
                         this.arr();
                     })

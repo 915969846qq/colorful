@@ -8,17 +8,17 @@ export default class usersaudited extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isShow:false,
-       //表格
-       data:[],
 
-       //每一行的值
+      isShow:false,
+      //表格
+      data:[],
+
+      //每一行的值
       rowData:1,
 
     }
   }
   UNSAFE_componentWillMount() {
-    //查询未审核的数据
     fetch('http://172.16.10.4:8080/banJu/manager/selectIsLegal',{           
                       method:'POST',
                       headers:{
@@ -77,12 +77,6 @@ this.setState({
         render: () => <div className={this.state.rowData === 1 ? 'myChioce' : 'myCancle'} onClick={this.test.bind(this,1)}>审核已通过</div>,
         render: () => <div className={this.state.rowData === 0 ? 'myChioce' : 'myCancle'} onClick={this.test.bind(this, 0)}>审核未通过</div>,
       },
-      // {
-      //   title: '头像',
-      //   dataIndex: 'image',
-      //   key: 'image',
-      //   render: (record) => (<img src={require(record)} alt=""/>),
-      // },
     ];
 
     return (

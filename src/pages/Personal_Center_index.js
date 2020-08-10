@@ -137,9 +137,9 @@ export default class Personal_Center_index extends Component {
                         装修订单
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink to="/MyCenter_index">个人订单</NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink to="/Personal_My_reservation">我的预约</NavLink>
                     </li>
