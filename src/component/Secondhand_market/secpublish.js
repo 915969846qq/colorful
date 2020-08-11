@@ -6,6 +6,7 @@ import Secpublish2 from './secpublish_second'
 import Secpublish3 from './secpublish_third'
 import Myfooter from '../commen/footer'
 import Myheader from '../commen/header'
+import Mysecheader from './secpublishheader'
 class Secpublish extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +16,7 @@ class Secpublish extends Component {
         return ( 
         <div>
                <Myheader></Myheader> 
+               <Mysecheader></Mysecheader>
             <div className="secpublishchenming">
                 <Router>
                         <Route path="/Secondhand_Market/Secpublish/" exact component={Secpublish1}></Route>

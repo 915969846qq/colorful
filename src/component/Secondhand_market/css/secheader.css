@@ -1,0 +1,25 @@
+.chenmingheader .header_center {
+    height: 70px;
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.chenmingheader .headerlogo {
+    height: 70px;
+    float: left;
+    width: 220px;
+}
+.chenmingheader .headerh4 {
+    height: 70px;
+    line-height: 70px;
+    float: left;
+    margin-left: 30px;
+    padding-left: 30px;
+    border-left: 1px solid #b1b1b1;
+    font-size: 36px;
+    color: #aeaeae;
+}
+
+.chenmingheader .full {
+    height: 100%;
+}

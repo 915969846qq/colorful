@@ -6,6 +6,7 @@ import './css/secondhand_Market_Detail.css'
 import $ from 'jquery'
 import Myfooter from '../commen/footer'
 import Myheader from '../commen/header'
+import Mysecheader from './secheader'
 // 二手市场
 
 export default class Secondhand_Market extends Component {
@@ -363,6 +364,7 @@ pageto=(e)=>{
         return (
             <div>
                <Myheader></Myheader>
+               <Mysecheader></Mysecheader>
                  {/* 二手馆 */}
                 <div className="chenmingsecproductbox">
                     {/* 搜索框盒子 */}

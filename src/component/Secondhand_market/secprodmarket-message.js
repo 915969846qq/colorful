@@ -3,6 +3,7 @@ import './css/secprodmarket-message.css'
 import {Button} from 'antd'
 import Myfooter from '../commen/footer'
 import Myheader from '../commen/header'
+import Mysecheader from './secheader'
 class secprodmarket_detail extends Component {
     constructor(props) {
         super(props);
@@ -68,7 +69,7 @@ getproduct=(e)=>{
             let secimgdiv=this.state.secdetail.img.map((item,index)=>{
                 console.log(item)
                 return (
-                    <img src={require(`../../${item}`)} key={"sec"+index} alt="商品图片"/>
+                    <img src={require(`../../${item}`)} style={{marginRight:10}} key={"sec"+index} alt="商品图片"/>
                 )
             })
             this.setState({
@@ -120,6 +121,7 @@ shoucang=()=>{
         return ( 
             <div>
                 <Myheader></Myheader>
+                <Mysecheader></Mysecheader>
                <div className="sec_detail_bigwrap">
                 {/* 主要内容盒子 */}
                 <div className="sec_detail_wrap">
@@ -164,7 +166,7 @@ shoucang=()=>{
                <div className="secprod_describe">
                     <p>新旧程度：{this.state.secdetail.newOld}</p>
                     <p>详细情况：{this.state.secdetail.description}</p>
-                    <div>
+                    <div style={{display:"flex"}}>
                        {this.state.secimgdiv}
                     </div>
                </div>
