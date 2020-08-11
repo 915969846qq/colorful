@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'antd'
+import {Link} from 'react-router-dom'
 import './css/secpublish_third.css'
 class Secpublish_third extends Component {
     constructor(props) {
@@ -21,7 +22,8 @@ class Secpublish_third extends Component {
                 <div>
                     <Button type="primary" danger>查看信息</Button>
                     <Button  type="primary" danger>管理信息</Button>
-                    <Button  type="primary"  danger>再发一条</Button>
+                    
+                    <Button  type="primary"  danger><Link to="/Secondhand_Market/Secpublish/">再发一条</Link></Button>
                 </div>
             </div>
         </div> );

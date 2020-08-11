@@ -13,7 +13,7 @@ class Secondhand_Market extends Component {
             <Router>
             
             <Route
-              path="/Secondhand_Market/Secdetail/:selectid"
+              path="/Secondhand_Market/Secdetail/:id"
               component={Secdetail}
             ></Route>
            <Route

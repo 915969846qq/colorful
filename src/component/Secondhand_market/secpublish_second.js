@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Select,Input,Upload, Modal,Button} from 'antd'
+import {Select,Input,Upload, Button,Modal,Space} from 'antd'
 import { PlusOutlined } from '@ant-design/icons';
 import './css/secpublish_second.css'
 import './css/city_chenming.css'
@@ -17,21 +17,21 @@ class Secpublish_second extends Component {
             fileList: [
               ],
             newstatus:"",
-            price:"",
+            price:null,
             title:"",
             description:"",
+            detailaddress:"",
           smallclass:[
-            [{cname:"整机"},{cname:"内存条"},{cname:"其它"}],
-            [{cname:"整机1"},{cname:"内存条"},{cname:"其它"}],
-            [{cname:"整2"},{cname:"内存条"},{cname:"其它"}],
-            [{cname:"整机3"},{cname:"内存条"},{cname:"其它"}],
-            [{cname:"整4"},{cname:"内存条"},{cname:"其它"}],
-            [{cname:"整5机"},{cname:"内存条"},{cname:"其它"}],
-            [{cname:"整6机"},{cname:"内存条"},{cname:"其它"}],
-            [{cname:"整7机"},{cname:"内存条"},{cname:"其它"}],
-            
-          ],
-            dizhi:"",
+            {cid:1,cname:"二手手机"},
+            {cid:2,cname:"台式电脑"},
+            {cid:3,cname:"笔记本"},
+            {cid:4,cname:"平板电脑"},
+            {cid:5,cname:"数码产品"},
+            {cid:6,cname:"家用电器"},
+            {cid:7,cname:"二手家具"},
+            {cid:8,cname:"服饰箱包"}
+        ],
+           alert:"",
             lianxiren:"",
             phone:"",
           listchoose:[]
@@ -40,47 +40,63 @@ class Secpublish_second extends Component {
 
 
 bindchoose=(e)=>{
+  let m=parseInt(this.props.match.params.cid)-1
   let listchoose=e.map((item,index)=>{
     return (
-    <Option value="jack" key={index}>{item.cname}</Option>
+    <Option value={item.cname} key={index}>{item.cname}</Option>
      
     )
   })
   return listchoose
 }
+
+
+
+
+
+
+
+
 // ===========================页面接参初始化=======================================
 componentDidMount(){
   let m=parseInt(this.props.match.params.cid)-1
-let listchoose=this.bindchoose(this.state.smallclass[m])
+let listchoose=this.bindchoose(this.state.smallclass)
   this.setState({
     listchoose:listchoose
   })
 }
 
+// ==================================发送到服务器===========================================
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+addproduct=(e)=>{
+ 
+           fetch(`http://172.16.10.11:8080/banJu/SecondHandGoods/insertSecondHandGoods`,{                     
+             method:'POST',
+             headers:{
+                 'Content-Type':'application/json' 
+             },
+             credentials: 'include',
+             body:JSON.stringify(e)
+             }).then((res)=>{   
+     if(res.status===200){
+      this.props.history.push('/Secondhand_Market/Secpublish/success')
+     }else{
+       this.setState({
+        alert:"服务器发生"+res.status+"错误"
+       },()=>{
+         this.info()
+       })
+     }
+                    console.log(res)         
+                 return res.json();       
+             }).then((data)=>{
+    
+  
+      
+             }).catch((e) => {
+                   
+             });
+       }
 
 
 
@@ -123,16 +139,86 @@ phonereal=e=>{
    }
 }
 
+
+
+// ========================================提示信息=================================
+info=()=> {
+  let that=this
+  Modal.info({
+  
+    content: (
+      <div>
+        <p>{that.state.alert}</p>
+      </div>
+    ),
+    onOk() {  },
+  });
+}
+
+
+
+
 // ====================================提交数据==================================
-      submitinfo=()=>{
-        let province=document.body.getElementsByClassName("myprovince")[0].value
-        let city=document.body.getElementsByClassName("mycity")[0].value
+      submitinfo=()=>{ 
+        let that=this
+        let province=document.body.getElementsByClassName("myprovince")[0].value+"-"
+        let city=document.body.getElementsByClassName("mycity")[0].value+"-"
         let county=document.body.getElementsByClassName("mycounty")[0].value
        let address=province+city+county
-       console.log(address)
-        console.log(this.state.fileList)
-        this.props.history.push('/Secondhand_Market/Secpublish/success')
+      let e= {
+        cid:parseInt(that.props.match.params.cid),
+        uid:3,
+        newOld:that.state.newstatus,
+        title:that.state.title,
+          description:that.state.description,
+          img:"min-banner1_03.jpg",
+          address:address,
+          furtherAddress:that.state.detailaddress,
+          callMan:that.state.lianxiren,
+          phoneNumber:that.state.phone
+
+        }
+    
+
+    for(var key in e){
+      if(e[key].length===0||that.state.price===null){
+     that.setState({
+       alert:"发布失败，请确保所有信息填写完毕"
+     },()=>{
+        that.info()
+     })
+          return false;
+      }
     }
+let m=Object.assign(e,{price:parseInt(that.state.price)})
+    this.addproduct(m)       
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     render() { 
         const { previewVisible,fileList, previewTitle } = this.state;
@@ -157,9 +243,7 @@ phonereal=e=>{
             <div className="proto_info_box" >
                 
                 <div><span>类别 :</span>
-                <Select placeholder="请选择" style={{ width: 250 }}  >
-                    {this.state.listchoose}
-                 </Select>
+                <Input  value={this.state.smallclass[this.props.match.params.cid-1].cname} disabled style={{width:250}} />
                 </div>
                 <div><span>新旧 :</span>
                 <Input placeholder="请输入新旧(如:八成新)" value={this.state.newstatus} onChange={this.onchange.bind(this,"newstatus")} style={{width:250}} />
@@ -212,6 +296,9 @@ phonereal=e=>{
                 <div ><span>交易地点:</span>
                   <City></City>
                 </div>
+                <div ><span>详细地址:</span>
+                <Input placeholder="详细地址" value={this.state.detailaddress} onChange={this.onchange.bind(this,"detailaddress")} style={{width:250}} />
+                </div>
                 <div ><span>联系人 :</span>
                     <Input placeholder="联系人" value={this.state.lianxiren} onChange={this.onchange.bind(this,"lianxiren")} style={{width:250}} />
                 </div>
@@ -219,8 +306,9 @@ phonereal=e=>{
                     <Input placeholder="请输入您的电话" value={this.state.phone} onChange={this.onchange.bind(this,"phone")}  onBlur={this.phonereal} type="number" style={{width:250}} />
                 </div>
                 <div>
+                  <Space>
                 <Button type="primary" block style={{width:250,marginLeft:120}} onClick={this.submitinfo}>  提交</Button>
-    
+                  </Space>
                 </div>
             </div>
             
