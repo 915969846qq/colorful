@@ -95,30 +95,31 @@ class Personal_My_order_all extends Component {
       return (<div className="order-content-content" key={index}>
         <div className="order-content-content-top">
           <input type="checkbox" onClick={this.Check.bind(this)}></input>
-          <label>订单编号：{item.order_id}</label>
-          <span>下单时间：{item.order_time}</span>
+          <label>订单编号：{item.id}</label>
+          
+          <span>下单时间：{ new Date(parseInt(item.createdDate)).toLocaleString().replace(/:\d{1,2}$/,' ') }</span>
         </div>
         <div className="order-content-content-body">
           <div className="body-left">
-            {/* <img src={item.src} alt=""></img> */}
+            <img src={item.goods.image} alt=""></img>
             <div className="body-nit">
-              <p>{item.name}</p>
-              <p>订单编号：{item.order_id}</p>
-              <p>下单时间：{item.order_time}</p>
+              <p></p>
+              <p>商品名称：{item.goods.name}</p>
+              <p>下单时间：{ new Date(parseInt(item.createdDate)).toLocaleString().replace(/:\d{1,2}$/,' ') }</p>
             </div>
           </div>
           <div className="body-info">
-            {item.receiving_name}
+            {item.address.consigneeName}
           </div>
           <div className="body-info">
-            ￥{item.order_price}
+            ￥{item.goods.price}
           </div>
           <div className="body-info">
-            {item.orderflag === 0 ? flag0 : item.orderflag === 1 ? flag1 : flag2}
+            {item.status === '已取消' ? flag0 : item.status === '待付款' ? flag1 : flag2}
           </div>
           <div className="body-info">
-            <p className="p-btn" onClick={this.del.bind(this, index)}>删除</p>
-            <p className="p-btn" onClick={this.add.bind(this, index)}>再次购</p>
+            <p className="p-btn" onClick={this.del.bind(this, item.id)}>删除</p>
+            <p className="p-btn" onClick={this.add.bind(this, item.id)}>再次购</p>
           </div>
           <div className="body-info">
             <p>{item.logistics_remarks}</p>
@@ -159,25 +160,39 @@ class Personal_My_order_all extends Component {
   gopay() {
 
   }
+  // 删除商品
   del(index, s) {
     console.log(index);
     console.log(this.state.page)
     this.state.postarr.splice(index + (this.state.page - 1) * 3, 1);
     this.orderList(this.state.page);
   }
+  // 添加商品
   add(index, s) {
-    var d = new Date();
     let thearr = this.state.postarr[index];
-    thearr.time=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+    thearr.createdDate=new Date(parseInt(Math.round(new Date()))).toLocaleString().replace(/:\d{1,2}$/,' ');
     this.state.postarr.push(thearr);
     this.orderList(this.state.page);
   }
   // 比较日期
-  compareDate(number,s){ 
-    // 获取上个月的最后一天
-    let days = new Date(2020, 8, 0).getDate();
-    let month = new Date(2020,8,8).getMonth();
-    console.log(days,month)
+  compareDate(number,s,value){ 
+    this.setState({
+      howtimes:value
+    },()=>{
+      let ms = number*24*3600*1000;
+      console.log(new Date(parseInt(Math.round(new Date()))).toLocaleString().replace(/:\d{1,2}$/,' ')) 
+       let newms=parseInt(Math.round(new Date()));
+       console.log(new Date(parseInt(newms-ms)).toLocaleString().replace(/:\d{1,2}$/,' '));
+      let postarr = this.state.postarr.map((item)=>{
+        return item.createdDate>(newms-ms)
+       })
+       this.setState({
+         postarr:postarr
+       },()=>{
+         this.orderList(this.state.page);
+       })
+    })
+
     // this.state.postarr.map((item)=>{
     //   let time = item.time.split("-");
     //   if(time[1]<month){
@@ -192,13 +207,13 @@ class Personal_My_order_all extends Component {
   render() {
     const menu = (
       <Menu>
-        <Menu.Item key="1" onClick={this.compareDate.bind(this,3)}>最近3天</Menu.Item>
+        <Menu.Item key="1" onClick={this.compareDate.bind(this,3,'最近3天')}>最近3天</Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="2" onClick={this.compareDate.bind(this,7)}>最近1周</Menu.Item>
+        <Menu.Item key="2" onClick={this.compareDate.bind(this,7,'最近1周')}>最近1周</Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="3" onClick={this.compareDate.bind(this,15)}>最近15天</Menu.Item>
+        <Menu.Item key="3" onClick={this.compareDate.bind(this,15,'最近15天')}>最近15天</Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="4" onClick={this.compareDate.bind(this,31)}>最近1月</Menu.Item>
+        <Menu.Item key="4" onClick={this.compareDate.bind(this,31,'最近1月')}>最近1月</Menu.Item>
       </Menu>
     );
     return (

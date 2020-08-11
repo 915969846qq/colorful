@@ -4,6 +4,7 @@ import './css/Personal_My_shopping_cart.css'
 // import Personal_My_shopping_oeder_two from './Personal_My_shopping_oeder_two'
 // import '../Style/map'
 //我的购物车
+import City from '../../util/chajian/city.js'
 class Personal_My_shopping_cart extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +15,7 @@ class Personal_My_shopping_cart extends Component {
     cartList() {
         console.log(this.state.cartarr)
         let cartList = this.state.cartarr.map((item, index) => {
-            return (<tr className="cart-content-content-tr">
+            return (<tr className="cart-content-content-tr" key={index}>
                 <td>
                     <input type="checkbox" ></input>
                 </td>
@@ -42,12 +43,12 @@ class Personal_My_shopping_cart extends Component {
         })
         this.setState({
             cartlist: cartList,
-        },()=>{
+        }, () => {
             // let totalPrice = 0;
-           let sumprice = this.state.cartarr.reduce((totalPrice, item) => totalPrice + item.sumprice, 0);
-           this.setState({
-               sumprice:sumprice
-           })
+            let sumprice = this.state.cartarr.reduce((totalPrice, item) => totalPrice + item.sumprice, 0);
+            this.setState({
+                sumprice: sumprice
+            })
         })
     }
     del(index, s) {
@@ -89,9 +90,9 @@ class Personal_My_shopping_cart extends Component {
     recommendlist() {
         let recommend = this.props.rcommend;
         console.log(this)
-        let Recommend = recommend.map((item) => {
+        let Recommend = recommend.map((item, index) => {
             return (
-                <div >
+                <div key={index}>
                     <div className="cart-content-footer-content-img">
                         <img src={item.imgsrc} alt="商品图片"></img>
                     </div>
@@ -122,9 +123,10 @@ class Personal_My_shopping_cart extends Component {
     }
     gopage = () => {
         console.log(this)
-        this.props.history.push('./Personal_My_shopping_order_two');
+
+        this.props.history.push('/Personal_My_shopping_order_two');
     }
-    
+
     render() {
 
         return (
@@ -139,6 +141,7 @@ class Personal_My_shopping_cart extends Component {
                     <div>
                         <img src={require('../../assets/images/address.png')} alt="adderss"></img>
                         <span>配送地址：</span>
+                        <City></City>
                     </div>
                     <div>
                         <a href="/index">继续购物 ↺</a>
@@ -146,18 +149,20 @@ class Personal_My_shopping_cart extends Component {
                 </div>
                 <div className="cart-content-content">
                     <table >
-                        <tr className="cart-content-content-top">
-                            <td>
-                                <input type="checkbox" onClick={this.CheckAll.bind(this)}></input>
-                                <label>全选</label>
-                            </td>
-                            <td>商品信息</td>
-                            <td>单价</td>
-                            <td>购买数量</td>
-                            <td>合计</td>
-                            <td>规格</td>
-                            <td>操作</td>
-                        </tr>
+                        <thead>
+                            <tr className="cart-content-content-top">
+                                <td>
+                                    <input type="checkbox" onClick={this.CheckAll.bind(this)}></input>
+                                    <label>全选</label>
+                                </td>
+                                <td>商品信息</td>
+                                <td>单价</td>
+                                <td>购买数量</td>
+                                <td>合计</td>
+                                <td>规格</td>
+                                <td>操作</td>
+                            </tr>
+                        </thead>
                         <tbody>
                             {this.state.cartlist}
                         </tbody>
@@ -191,10 +196,15 @@ class Personal_My_shopping_cart extends Component {
 }
 const MapStateToProps = (state, OwnProps) => {
     return {
-        props:state,
+        props: state,
         post: state.cartorder.mycart,
         rcommend: state.cartorder.recommend,
-        cartlist:state.cartorder.allcart.data,
+        cartlist: state.cartorder.allcart,
+        local: state.cartorder.local,
     }
+
 }
+// const MapDispatchToProps = {
+//     ...appActions
+// };
 export default connect(MapStateToProps)(Personal_My_shopping_cart)

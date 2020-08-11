@@ -1,4 +1,15 @@
 import React, { Component } from 'react'
+import './css/Personal_Decoration_diary.css'
+// import thunk from 'redux-thunk'
+import { connect } from 'react-redux';
+import {
+    // orderListAction,
+    // recommendAction,mycartAction,
+    // cartListAction,
+    diaryListAction
+  } from '../../action/peresonal_cartOrder_action'
+import store from '../../store/personal_cartOrder_store'
+
 
 //装修日记
 
@@ -107,3 +118,18 @@ export default class Personal_Decoration_diary extends Component {
     )
   }
 }
+
+const MapStateToProps = (state, OwnProps) => {
+    
+    return {
+      diary:state.cartorder.alldiary
+    }
+  }
+const MapDispatchProps = () => {
+    return {
+        getdiary: (param={param:9})=>{
+           store.dispatch(diaryListAction(param))
+        }
+    }
+}
+export default connect(MapStateToProps,MapDispatchProps)(Personal_Decoration_diary)

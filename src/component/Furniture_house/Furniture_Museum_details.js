@@ -10,6 +10,12 @@ class Furniture_Museum_details extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+
+            //面料
+            material:"",
+            //尺寸
+            size:"",
+
             //商品详情
             goodsInfo:[
                 { 
@@ -52,13 +58,25 @@ class Furniture_Museum_details extends Component {
                     price:"￥456",
                     shoppingCar:"assets/images/shoop-icon/gwc2.png"
                 },
-            ]
+            ],
+            
          }
     }
     // 当前商品的id值
     UNSAFE_componentWillMount(){
         console.log(this.props.location.state.key)
        let personId=(this.props.location.state.key);
+    }
+
+    chose(e){
+        this.setState({
+            size:e,
+        })
+    }
+    choseMaterial(e){
+        this.setState({
+            material:e,
+        })
     }
     render() { 
         let arr=this.state.goodsInfo.map((item,index)=>{
@@ -89,26 +107,26 @@ class Furniture_Museum_details extends Component {
                                 </div>
                                 <span className="goodsPrice">尺寸：</span>
                                 <div className="goodsFlex">
-                                    <div className="sizeBox">780*780*680</div>
-                                    <div className="sizeBox">780*780*680</div>
-                                    <div className="sizeBox">780*780*680</div>
-                                    <div className="sizeBox"> 780*780*680</div>
-                                    <div className="sizeBox">780*780*680</div>
+                                    <div className={this.state.size===''?'sizeBox':'sizeBoxNone'} onClick={this.chose.bind(this,"")}>780*780*680</div>
+                                    <div className={this.state.size==='780'?'sizeBox':'sizeBoxNone'} onClick={this.chose.bind(this,"780")}>780*780*680</div>
+                                    <div className={this.state.size==='790'?'sizeBox':'sizeBoxNone'} onClick={this.chose.bind(this,"790")}>780*780*680</div>
+                                    <div className={this.state.size==='800'?'sizeBox':'sizeBoxNone'} onClick={this.chose.bind(this,"800")}> 780*780*680</div>
+                                    <div className={this.state.size==='810'?'sizeBox':'sizeBoxNone'} onClick={this.chose.bind(this,"810")}>780*780*680</div>
                                 </div>
                                 <span className="goodsPrice">面料：</span>
                                 <div className="goodsFlex">
-                                    <div className="sizeBox">FS</div>
-                                    <div className="sizeBox">FA</div>
-                                    <div className="sizeBox">780*780*680</div>
-                                    <div className="sizeBox">CE</div>
-                                    <div className="sizeBox">ZF</div>
-                                    <div className="sizeBox">亚麻</div>
+                                    <div className={this.state.material===''?'sizeBox':'sizeBoxNone'} onClick={this.choseMaterial.bind(this,"")}>FS</div>
+                                    <div className={this.state.material==='FA'?'sizeBox':'sizeBoxNone'} onClick={this.choseMaterial.bind(this,"FA")}>FA</div>
+                                    <div className={this.state.material==='MA'?'sizeBox':'sizeBoxNone'} onClick={this.choseMaterial.bind(this,"MA")}>MA</div>
+                                    <div className={this.state.material==='MA'?'sizeBox':'sizeBoxNone'} onClick={this.choseMaterial.bind(this,"MA")}>MA</div>
+                                    <div className={this.state.material==='ZF'?'sizeBox':'sizeBoxNone'} onClick={this.choseMaterial.bind(this,"ZF")}>ZF</div>
+                                    <div className={this.state.material==='亚麻'?'sizeBox':'sizeBoxNone'} onClick={this.choseMaterial.bind(this,"亚麻")}>亚麻</div>
                                 </div>
                                 <div>
                                     <span className="goodsPrice">数量：</span>
                                     <span>1</span> 
                                     <img src={require(`../../assets/images/Collection_icon_05.png`)} alt="" className="shoucang cursor"/>
-                                    <span className="goodsPrice cursor">收藏</span>
+                                    {/* <span className={this.state.material==='亚麻'?'sizeBox':'sizeBoxNone'} onClick={this.state.choseMaterial.bind(this,"亚麻")}className="goodsPrice cursor">收藏</span> */}
                                 </div>
                                 <div className="goodsFlex align">
                                     <div className="buyNow cursor">立即购买</div>

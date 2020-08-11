@@ -7,21 +7,10 @@ class personnalDetails extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            person:[
 
-                // {
-                //     craftsmanName:"王艳",
-                //     craftsmanImg:"assets/images/craftsman_07.jpg",
-                //     fans:"2354",
-                //     company:"huibbh装饰公司",
-                //     position:"设计师",
-                //     expertise:'别墅',
-                //     style:"中式",
-                //     experience:"10年",
-                //     DesignCost:1000,
-                //     DesignConcept:"用思想打造属于你的简洁舒适的空间！"
-                // },
-            ]
+            person:[],
+
+           
          }
     }
 
@@ -30,7 +19,7 @@ class personnalDetails extends Component {
         console.log(typeof this.props.id)
         let personId=this.props.id;
 
-       fetch('http://172.16.10.10:8080/banJu/craftsmanDetail/selectCraftsmanDetail',{                     
+       fetch('http://172.16.10.11:8080/banJu/craftsmanDetail/selectCraftsmanDetail',{                     
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json' 
@@ -40,25 +29,24 @@ class personnalDetails extends Component {
                   body:JSON.stringify({
                     cid:personId
                   })
-        //           body:{
-        //             
-        //           }
                   }).then((res)=>{            
                       return res.json();       
                   }).then((data)=>{
                     console.log(data);  
-                    // 存放数组            
-                      this.setState({
-                        person:data 
-                      })
-                  }).catch((e) => {
+                    // 存放数组 
+                        this.setState({
+                            person:data.data
+                          },()=>{
+                            this.arr();
+                          })
+                        
+                 }) .catch((e) => {
                       console.log("数据有误");
                   });
     }
 
-    
-
-    render() {
+    //函数
+    arr=()=>{
         console.log(this.state.person) 
         let arr=this.state.person.map((item,index)=>{
            return(
@@ -67,7 +55,7 @@ class personnalDetails extends Component {
                         {/* 左边 */}
                         <div className="box_left">
                             {/* <img src={require(`../../../${item.avatar}`)} alt="" className="imgStyle" /> */}
-                            <div className="nameStyle">{item.realName}</div>
+                            {/* <div className="nameStyle">{item.realName}</div> */}
                             <div className="freeDesign">
                                 免费设计
                             </div>
@@ -102,10 +90,18 @@ class personnalDetails extends Component {
                     </div>
                 </div>
             )
+        });
+        this.setState({
+            arr,
         })
+    }
+
+   
+    render() {
+        
         return ( 
             <div >
-                {arr}
+                {this.state.arr}
             </div>
          );
     }
