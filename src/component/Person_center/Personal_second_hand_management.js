@@ -1,17 +1,46 @@
 import React, { Component } from 'react'
 import { Row, Col, Divider } from 'antd'
 import { withRouter } from 'react-router-dom'
+// 模态框
+import { Modal, Button, Space } from 'antd'
+import { FormOutlined } from '@ant-design/icons'
+// 下拉框
+import { Select } from 'antd'
+// input输入框
+// 上传图片
+import { Upload } from 'antd'
+import { PlusOutlined } from '@ant-design/icons'
+import { Input, Tooltip } from 'antd'
 import { Pagination } from 'antd'
 import axios from 'axios'
 import $ from 'jquery'
 import '../../assets/iconfont/Fang_iconfont/iconfont.css'
+import '../../util/chajian/citychenming'
+// 上传图片
+function getBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = (error) => reject(error)
+  })
+}
+// 下拉框
+const { Option } = Select
+// 文本域
+const { TextArea } = Input
 //我的二手管理
 function onChange(pageNumber) {
   console.log('Page: ', pageNumber)
 }
+// 下拉框的值
+function choiceChange(value) {
+  console.log(`selected ${value}`)
+}
 // 列表展示内容
 function SecondHand(props) {
   const that = props.loc
+  // console.log(that)
   if (props.mydata !== undefined) {
     // 分页处理 --暂定每页两条
     let da = that.state.page * that.state.Lnumber
@@ -31,7 +60,7 @@ function SecondHand(props) {
         <Col span={22} offset={1} className="fang_Border">
           <Row className="fang_height30">
             <Col span={12} className="fang_padding20">
-              信息号:{item.id}
+              信息号:{item.cid}
             </Col>
             <Col span={12} className="fang_Tright fang_paddingr20">
               是否同步:分享至微信/手机QQ
@@ -48,10 +77,16 @@ function SecondHand(props) {
                   />
                 </Col>
                 <Col span={17}>
-                  <div className="fang_height30">二手办公座椅</div>
-                  <div className="fang_height30">2016-05-12 15:00</div>
                   <div className="fang_height30">
-                    科乐福 - 二手市场 - 二手家具
+                    商品名称:<span className="fang_marginL20">{item.name}</span>
+                  </div>
+                  <div className="fang_height30">
+                    上架时间:
+                    <span className="fang_marginL20">{item.createdDate}</span>
+                  </div>
+                  <div className="fang_height30">
+                    商品类型:
+                    <span className="fang_marginL20">{item.description}</span>
                   </div>
                 </Col>
               </Row>
@@ -59,16 +94,31 @@ function SecondHand(props) {
             <Col span={12} className="fang_padding20">
               <Row>
                 <Col span={20} className="fang_kuang100" offset={1}>
-                  显示中。。。
+                  <div className="fang_height30">
+                    价格:<span className="fang_marginL20">{item.price}</span>
+                  </div>
+                  <div className="fang_height30">
+                    类型:
+                    <span className="fang_marginL20">{item.description}</span>
+                  </div>
+                  <div className="fang_height30">
+                    出售状态:<span className="fang_marginL20">{item.name}</span>
+                  </div>
                 </Col>
                 <Col span={2}>
-                  <div className="fang_height30 fang_FangCenter fang_myh">
-                    修改
+                  <div
+                    className="fang_height30 fang_FangCenter fang_myh"
+                    onClick={that.showModal.bind(that)}
+                  >
+                    <Space>修改</Space>
                   </div>
                   <div className="fang_height30 fang_FangCenter fang_myh">
                     刷新
                   </div>
-                  <div className="fang_height30 fang_FangCenter fang_myh">
+                  <div
+                    className="fang_height30 fang_FangCenter fang_myh"
+                    onClick={Delete.bind(that, item)}
+                  >
                     下架
                   </div>
                 </Col>
@@ -84,37 +134,164 @@ function SecondHand(props) {
     return 3
   }
 }
+// 下架
+function Delete(data, myda) {
+  console.log(this)
+  console.log(data)
+  // 发送请求删除当前上架商品
+}
 class Personal_second_hand_management extends Component {
   // 页面创建时发送请求获取二手管理的内容
   constructor(props) {
     super(props)
     // console.log(props)
     this.state = {
+      data: [],
+      // 图片上传
+      previewVisible: false,
+      previewImage: '',
+      previewTitle: '',
+      fileList: [],
+      // 车门还是
+      province: '',
+      city: '',
+      county: '',
+      provinces: [
+        '四川',
+        '安徽',
+        '澳门',
+        '北京',
+        '福建',
+        '甘肃',
+        '广东',
+        '广西',
+        '贵州',
+        '海南',
+        '河北',
+        '河南',
+        '黑龙江',
+        '湖北',
+        '湖南',
+        '吉林',
+        '江苏',
+        '江西',
+        '辽宁',
+        '内蒙古',
+        '宁夏',
+        '青海',
+        '山东',
+        '山西',
+        '陕西',
+        '上海',
+        '台湾',
+        '天津',
+        '西藏',
+        '香港',
+        '新疆',
+        '云南',
+        '浙江',
+        '重庆',
+        '其他',
+      ],
+      cities: ['成都'],
+      counties: [
+        '武侯',
+        '成华',
+        '金牛',
+        '青羊',
+        '锦江',
+        '崇州',
+        '大邑',
+        '都江堰',
+        '金堂',
+        '彭州',
+        '郫县',
+        '蒲江',
+        '邛崃',
+        '双流',
+        '新津',
+      ],
+      // 模态框
       visible: false,
+      // 分页
       pageNumber: 1,
       page: 1,
       Lnumber: 2,
       totle: 1,
     }
+
     // page——当前页数，pageNumber——总共的页数，totle——总数据条数，Lnumber——每页展示的条数
     // 发送请求
     this.mydata = {}
     axios
-      .post('http://localhost:8888/user.do', { username: '13018282973' })
+      .post('http://172.16.10.4:8080/banJu/secondHand/findByUid', { id: 1 })
       .then((response) => {
-        let mydata = response.data
+        let mydata = response.data.data
+        console.log(response.data.data)
         // 总共的页数
-        let getnumber = Math.ceil(response.data.length / this.state.Lnumber)
+        let getnumber = Math.ceil(
+          response.data.data.secondHandGoodsList.length / this.state.Lnumber
+        )
         // 总数据条数
-        let getlength = response.data.length
+        let getlength = response.data.data.secondHandGoodsList.length
+
         this.setState(
-          { data: mydata, pageNumber: getnumber, totle: getlength },
+          {
+            data: mydata,
+            pageNumber: getnumber,
+            totle: getlength,
+          },
           () => {
             console.log(this.state)
           }
         )
       })
   }
+  // 初始化================
+  componentDidMount() {
+    this.setState({
+      province: '四川',
+      cities: getCity('四川'),
+      city: getCity('四川')[0],
+      counties: getCounty('四川', getCity('四川')[0]),
+      county: getCounty('四川', getCity('四川')[0])[0],
+    })
+  }
+
+  // =======================================================
+  cityChange = (value) => {
+    console.log(value)
+    console.log(getCounty(this.state.province, value))
+    this.setState({
+      counties: getCounty(this.state.province, value),
+      county: getCounty(this.state.province, value)[0],
+    })
+  }
+  handleChange = (value) => {
+    // e.preventDefault()
+    console.log(value)
+    console.log(getCity(value)[0])
+    this.setState({
+      province: value,
+      cities: getCity(value),
+      city: getCity(value)[0],
+    })
+  }
+  // 图片上传
+  UPCancel = () => this.setState({ previewVisible: false })
+  UPPreview = async (file) => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj)
+    }
+
+    this.setState({
+      previewImage: file.url || file.preview,
+      previewVisible: true,
+      previewTitle:
+        file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
+    })
+  }
+  UPChange = ({ fileList }) => this.setState({ fileList })
   // 数据更新后调用
   componentDidUpdate() {
     let that = this
@@ -182,9 +359,180 @@ class Personal_second_hand_management extends Component {
         }
       })
   }
+  // 模态框
+  showModal = () => {
+    this.setState({
+      visible: true,
+    })
+  }
+  handleOk = () => {
+    this.setState({ loading: true })
+    setTimeout(() => {
+      this.setState({ loading: false, visible: false })
+    }, 3000)
+  }
+
+  handleCancel = () => {
+    this.setState({ visible: false })
+  }
   render() {
+    const { visible, loading } = this.state
+    // 图片上传
+    const { previewVisible, previewImage, fileList, previewTitle } = this.state
+    const uploadButton = (
+      <div>
+        <PlusOutlined />
+        <div className="ant-upload-text">Upload</div>
+      </div>
+    )
     return (
       <div className="fang_relative fang_height100">
+        {/* 模态框 */}
+        <Modal
+          title="二手管理"
+          width={800}
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          footer={[
+            <Button key="back" onClick={this.handleCancel}>
+              退出
+            </Button>,
+            <Button
+              key="submit"
+              type="primary"
+              loading={loading}
+              onClick={this.handleOk}
+            >
+              修改
+            </Button>,
+          ]}
+        >
+          <div>
+            <Row>
+              <Col span={11}>
+                <span>商品类型</span>
+                <br />
+                <Select
+                  defaultValue=""
+                  style={{ width: 340 }}
+                  onChange={choiceChange}
+                >
+                  <Option value="床">床</Option>
+                  <Option value="沙发">沙发</Option>
+                  <Option value="桌子">桌子</Option>
+                  <Option value="椅子">椅子</Option>
+                </Select>
+              </Col>
+              <Col span={12} offset={1}>
+                <span>商品价格</span>
+                <Input prefix="￥" suffix="RMB" maxLength={280} />
+              </Col>
+            </Row>
+            <Row className="fang_marginT20">
+              <Col span={11}>
+                <span>新旧程度</span>
+                <br />
+                <Select
+                  defaultValue=""
+                  style={{ width: 340 }}
+                  onChange={choiceChange}
+                >
+                  <Option value="床">全新</Option>
+                  <Option value="沙发">八成新</Option>
+                  <Option value="桌子">五成新</Option>
+                  <Option value="椅子">三成新</Option>
+                </Select>
+              </Col>
+              <Col span={12} offset={1}>
+                <span>标题</span>
+                <Input maxLength={280} />
+              </Col>
+            </Row>
+            <Row className="fang_marginT20">
+              <Col span={11}>
+                <span>交易地点</span>
+                <br />
+                <div className="city">
+                  <Select
+                    style={{ width: 100 }}
+                    onChange={this.handleChange}
+                    defaultValue={this.state.provinces[0]}
+                  >
+                    {this.state.provinces.map((province, index) => (
+                      <Option value={province} key={index}>
+                        {province}
+                      </Option>
+                    ))}
+                  </Select>
+                  <Select
+                    value={this.state.city}
+                    style={{ width: 100 }}
+                    onChange={this.cityChange}
+                    className="fang_marginL20"
+                  >
+                    {this.state.cities.map((city, index) => (
+                      <Option value={city} key={index}>
+                        {city}
+                      </Option>
+                    ))}
+                  </Select>
+                  <Select
+                    value={this.state.county}
+                    style={{ width: 100 }}
+                    onChange={choiceChange}
+                    className="fang_marginL20"
+                  >
+                    {this.state.counties.map((county, index) => (
+                      <option value={county} key={index}>
+                        {county}
+                      </option>
+                    ))}
+                  </Select>
+                </div>
+              </Col>
+              <Col span={12} offset={1}>
+                <span>商品状态</span>
+                <Input maxLength={280} disabled />
+              </Col>
+            </Row>
+            {/* 商品描述 */}
+            <Row className="fang_marginT20">
+              <Col span={24}>
+                <span>商品描述</span>
+                <br />
+                <TextArea rows={5}></TextArea>
+              </Col>
+            </Row>
+            {/* 上传图片 */}
+            <Row className="fang_marginT20">
+              <Col span={24}>
+                <Upload
+                  action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                  listType="picture-card"
+                  fileList={fileList}
+                  onPreview={this.UPPreview}
+                  onChange={this.UPChange}
+                >
+                  {fileList.length >= 8 ? null : uploadButton}
+                </Upload>
+                <Modal
+                  visible={previewVisible}
+                  title={previewTitle}
+                  footer={null}
+                  onCancel={this.UPCancel}
+                >
+                  <img
+                    alt="example"
+                    style={{ width: '100%' }}
+                    src={previewImage}
+                  />
+                </Modal>
+              </Col>
+            </Row>
+          </div>
+        </Modal>
+
         <h3 className="fang_height30">我的二手管理</h3>
         <Row className="fang_marginT20 fang_Button50">
           <Col span={3} offset={1}>
@@ -195,13 +543,18 @@ class Personal_second_hand_management extends Component {
             />
           </Col>
           <Col span={20}>
-            <h3>用户名</h3>
-            <button className="fang_width200 fang_height30 fang_border fang_wcolor fang_RBColor fang_myhover">
+            <h3>
+              用户名
+              <span className="fang_marginL20">{this.state.data.name}</span>
+            </h3>
+            <button className="fang_width200 fang_height30 fang_border fang_wcolor fang_RBColor fang_myhover fang_noborder">
               <span className="iconfont icon-dianhua fang_marginR20"></span>
-              123456789089
+              <span className="fang_marginL20">
+                {this.state.data.phoneNumber}
+              </span>
             </button>
             <button
-              className="fang_marginL20 fang_width200 fang_height30 fang_border fang_wcolor fang_BbColor fang_myhover"
+              className="fang_marginL20 fang_width200 fang_height30 fang_border fang_wcolor fang_BbColor fang_myhover fang_noborder"
               type="primary"
             >
               <span className="iconfont icon-jia fang_marginR20"></span>
@@ -213,7 +566,7 @@ class Personal_second_hand_management extends Component {
         <Divider />
         {/* 展示列表 */}
         <div className="fang_relative">
-          <SecondHand mydata={this.state.data} loc={this} />
+          <SecondHand mydata={this.state.data.secondHandGoodsList} loc={this} />
         </div>
         {/* 底部的分页 */}
         <Row className="fang_absolute fang_location">
@@ -229,4 +582,5 @@ class Personal_second_hand_management extends Component {
     )
   }
 }
+
 export default withRouter(Personal_second_hand_management)

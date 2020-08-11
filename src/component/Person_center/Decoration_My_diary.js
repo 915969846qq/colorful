@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Button, Divider } from 'antd'
+import axios from 'axios'
 // import axios from 'axios'
 import Store from '../../store/Decoration_store'
 import '../../assets/iconfont/Fang_iconfont/iconfont.css'
@@ -218,6 +219,15 @@ export default class Decoration_My_diary extends Component {
   send = (data) => {
     document.getElementsByClassName('fang_noborder')[0].value = ''
     console.log(this.state)
+    axios
+      .post('http://172.16.10.56:8080/banJu/Evaluation/saveToDiary', {
+        did: '1',
+        ruid: '1',
+        desc: this.state.text,
+      })
+      .then((response) => {
+        console.log(response)
+      })
   }
   // 获取输入的文本
   mytext = (data) => {

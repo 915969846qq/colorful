@@ -3,8 +3,11 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Divider, Row, Col, Pagination } from 'antd'
 import axios from 'axios'
-import $ from 'jquery'
-class Decoration_show extends Component {
+import $, { data } from 'jquery'
+class Decoration_show extends React.Component {
+  replay = () => {
+    console.log('ok')
+  }
   constructor(props) {
     super(props)
     // console.log(props)
@@ -18,17 +21,20 @@ class Decoration_show extends Component {
     // 发送请求
     this.mydata = {}
     axios
-      .post('http://localhost:8888/user.do', { username: '13018282973' })
+      .post('http://172.16.10.56:8080/banJu/Diary/findAllByInfo', {})
       .then((response) => {
-        let mydata = response.data
+        console.log(response)
+        let mydata = response.data.data
         // 总共的页数
-        let getnumber = Math.ceil(response.data.length / this.state.Lnumber)
+        let getnumber = Math.ceil(
+          response.data.data.length / this.state.Lnumber
+        )
         // 总数据条数
-        let getlength = response.data.length
+        let getlength = response.data.data.length
         this.setState(
           { data: mydata, pageNumber: getnumber, totle: getlength },
           () => {
-            // console.log(this.state)
+            console.log(this.state)
           }
         )
       })
@@ -128,6 +134,48 @@ class Decoration_show extends Component {
       params: DATA,
     })
   }
+  // 点击选择后发送请求刷新展示数据
+  componentDidMount() {
+    this.props.onRef(this)
+  }
+  childFn = (data) => {
+    console.log('我是子组件中的方法')
+    let mydata = {}
+    if (data.Size !== '') {
+      mydata.size = data.Size
+    }
+    if (data.style !== '') {
+      mydata.style = data.style
+    }
+    if (data.city !== '') {
+      mydata.city = data.city
+    }
+    console.log(mydata)
+    axios
+      .post('http://172.16.10.56:8080/banJu/Diary/findAllByInfo', mydata)
+      .then((response) => {
+        console.log(response)
+        let mydata = response.data.data
+        // 总共的页数
+        let getnumber = Math.ceil(
+          response.data.data.length / this.state.Lnumber
+        )
+        if (getnumber < this.state.page) {
+          this.setState({
+            page: 1,
+          })
+        }
+        // 总数据条数
+        let getlength = response.data.data.length
+        this.setState(
+          { data: mydata, pageNumber: getnumber, totle: getlength },
+          () => {
+            console.log(this.state)
+          }
+        )
+      })
+  }
+
   render() {
     return (
       <div className="fang_marginT20">
@@ -171,11 +219,7 @@ function Show(props) {
       <Row className="fang_paddingt30" key={item.id}>
         <Col span={2}>
           <div className="fang_FangCenter">
-            <img
-              src={require('../../assets/images/Decoration_img/Sellers_1.jpg')}
-              alt=""
-              className="fang_portrait80"
-            />
+            {/* <img src={require(item.img1)} alt="" className="fang_portrait80" /> */}
             <p className="fang_marginT20">用户名</p>
           </div>
         </Col>

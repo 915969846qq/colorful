@@ -5,7 +5,12 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import store from './store/personal_cartOrder_store'
 import { Provider } from 'react-redux'
-import {orderListAction,recommendAction,mycartAction,cartListAction} from './action/peresonal_cartOrder_action'
+import {
+  orderListAction,
+  recommendAction,
+  mycartAction,
+  cartListAction,
+} from './action/peresonal_cartOrder_action'
 
 store.dispatch(orderListAction)
 store.dispatch(cartListAction)
@@ -18,8 +23,7 @@ ReactDOM.render(
     <App />
   </Provider>,
   document.getElementById('root')
-);
-
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

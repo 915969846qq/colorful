@@ -40,19 +40,29 @@ function MySheet(props) {
     }
     // 页面渲染数据
     let data = isdata
+    // console.log(data)
     let myList = data.map((item, index) => (
-      <Row className="fang_height30 fang_marginT20" key={item.id}>
-        <Col span={6} className="fang_FangCenter">
-          12345678976+++++{item.id}
+      <Row className="fang_height30 fang_marginT20" key={item.key}>
+        <Col span={4} className="fang_FangCenter">
+          {item.order_id}
         </Col>
-        <Col span={6} className="fang_FangCenter">
-          高级沙发
+        <Col span={4} className="fang_FangCenter">
+          {item.goods_name}
         </Col>
-        <Col span={6} className="fang_FangCenter">
-          2016-7-8
+        <Col span={4} className="fang_FangCenter">
+          {item.order_time}
         </Col>
-        <Col span={6} className="fang_FangCenter">
-          <span className="fang_marginR20 fang_myh" onClick={that.showDrawer}>
+        <Col span={4} className="fang_FangCenter">
+          {item.order_state}
+        </Col>
+        <Col span={4} className="fang_FangCenter">
+          {item.order_price}
+        </Col>
+        <Col span={4} className="fang_FangCenter">
+          <span
+            className="fang_marginR20 fang_myh"
+            onClick={that.showDrawer.bind(this, item)}
+          >
             评论
           </span>
           <span className="fang_myh">删除</span>
@@ -80,26 +90,30 @@ class Personal_Review_sheet extends Component {
       placement: 'top',
       pageNumber: 1,
       page: 1,
-      Lnumber: 5,
+      Lnumber: 3,
       totle: 1,
+      ModelDate: {},
     }
     // page——当前页数，pageNumber——总共的页数，totle——总数据条数，Lnumber——每页展示的条数
     // 发送请求
     this.mydata = {}
     axios
-      .post('http://localhost:8888/user.do', { username: '13018282973' })
+      .post('http://172.16.10.10:8080/banJu/order2/findAll')
       .then((response) => {
-        let mydata = response.data
-        // 总共的页数
-        let getnumber = Math.ceil(response.data.length / this.state.Lnumber)
-        // 总数据条数
-        let getlength = response.data.length
-        this.setState(
-          { data: mydata, pageNumber: getnumber, totle: getlength },
-          () => {
-            console.log(this.state)
-          }
-        )
+        console.log(response.data.data)
+        let mydata = response.data.data
+        for (let i = 0; i < response.data.data.length; i++) {
+          response.data.data[i].key = response.data.data[i].goods_name
+        }
+        this.setState({ data: mydata }, () => {
+          // 总共的页数
+          let getnumber = Math.ceil(this.state.data.length / this.state.Lnumber)
+          // 总数据条数
+          let getlength = this.state.data.length
+          this.setState({ pageNumber: getnumber, totle: getlength }, () => {
+            // console.log(this.state.data)
+          })
+        })
       })
   }
   // 数据更新后调用
@@ -170,9 +184,12 @@ class Personal_Review_sheet extends Component {
       })
   }
   // 模态框方法
-  showDrawer = () => {
+  showDrawer = (data, my) => {
+    console.log(data)
+    // console.log(my)
     this.setState({
       visible: true,
+      ModelDate: data,
     })
   }
 
@@ -180,6 +197,12 @@ class Personal_Review_sheet extends Component {
     this.setState({
       visible: false,
     })
+  }
+  handleOk = () => {
+    this.setState({ loading: true })
+    setTimeout(() => {
+      this.setState({ loading: false, visible: false })
+    }, 3000)
   }
   // 评分
   handleChange = (value) => {
@@ -207,6 +230,7 @@ class Personal_Review_sheet extends Component {
     const { value } = this.state
     // 上传图片
     const { previewVisible, previewImage, fileList, previewTitle } = this.state
+    console.log(fileList)
     const uploadButton = (
       <div>
         <PlusOutlined />
@@ -241,7 +265,7 @@ class Personal_Review_sheet extends Component {
                 取消
               </Button>
               <Button
-                onClick={this.onClose}
+                onClick={this.handleOk}
                 type="primary"
                 style={{ width: 120 }}
               >
@@ -354,16 +378,22 @@ class Personal_Review_sheet extends Component {
         {/* 展示区域 */}
         <div>
           <Row className="fang_height30">
-            <Col span={6} className="fang_FangCenter">
+            <Col span={4} className="fang_FangCenter">
               订单编号
             </Col>
-            <Col span={6} className="fang_FangCenter">
+            <Col span={4} className="fang_FangCenter">
               订单商品
             </Col>
-            <Col span={6} className="fang_FangCenter">
+            <Col span={4} className="fang_FangCenter">
               购买时间
             </Col>
-            <Col span={6} className="fang_FangCenter">
+            <Col span={4} className="fang_FangCenter">
+              订单状态
+            </Col>
+            <Col span={4} className="fang_FangCenter">
+              价格
+            </Col>
+            <Col span={4} className="fang_FangCenter">
               操作
             </Col>
           </Row>

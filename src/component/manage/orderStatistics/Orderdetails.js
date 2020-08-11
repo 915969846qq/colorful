@@ -7,7 +7,6 @@ const { Step } = Steps
 class Orderdetails extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
     // console.log('1111')
     // console.log(this.props.location.data)
     // 将数据储存到session里面
@@ -15,7 +14,9 @@ class Orderdetails extends Component {
       sessionStorage.setItem('data', JSON.stringify(this.props.location.data))
     }
     let mydata = JSON.parse(sessionStorage.getItem('data'))
-    console.log(mydata)
+    this.state = {
+      data: mydata,
+    }
   }
   // 页面销毁时清除session
   componentWillUnmount() {
@@ -27,46 +28,47 @@ class Orderdetails extends Component {
     console.log(this.props.history.push('/manage/OrderStatistics'))
   }
   render() {
+    console.log(this.state.data)
     return (
       <div>
-        <h1 className="fang_FangCenter fang_paddingb20">订单详情</h1>
+        {/* <h1 className="fang_FangCenter fang_paddingb20">订单详情</h1> */}
         <Row className="fang_EBColor fang_paddingt20">
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             物流编号 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            123
+            {this.state.data.logistics_id}
           </Col>
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             订单编号 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            123
+            {this.state.data.order_id}
           </Col>
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             订单生成时间 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            123
+            {this.state.data.order_time}
           </Col>
 
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             订单商家名称 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            123
+            {this.state.data.deliver_name}
           </Col>
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             货运类型 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            123
+            {this.state.data.goods_type}
           </Col>
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             物流路线 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            123
+            {this.state.data.deliver_city}——{this.state.data.receiving_city}
           </Col>
         </Row>
         <h3 className="fang_marginT20 fang_marginB20 fang_padding30 fang_Lline">
@@ -90,26 +92,26 @@ class Orderdetails extends Component {
               >
                 <Row className="fang_paddingt10">
                   <Col span={3} offset={1} className="fang_Tright">
-                    联系人:
+                    收货人:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    123
+                    {this.state.data.receiving_name}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
                   <Col span={3} offset={1} className="fang_Tright">
-                    联系人:
+                    联系电话:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    123
+                    {this.state.data.receiving_tel}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
                   <Col span={3} offset={1} className="fang_Tright">
-                    联系人:
+                    收货地址:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    123
+                    {this.state.data.receiving_address}
                   </Col>
                 </Row>
               </Col>
@@ -120,26 +122,26 @@ class Orderdetails extends Component {
               >
                 <Row className="fang_paddingt10">
                   <Col span={3} offset={1} className="fang_Tright">
-                    联系人:
+                    发货商:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    123
+                    {this.state.data.deliver_name}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
                   <Col span={3} offset={1} className="fang_Tright">
-                    联系人:
+                    联系方式:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    123
+                    {this.state.data.deliver_tel}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
                   <Col span={3} offset={1} className="fang_Tright">
-                    联系人:
+                    发货地址:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    123
+                    {this.state.data.deliver_address}
                   </Col>
                 </Row>
               </Col>
@@ -151,63 +153,32 @@ class Orderdetails extends Component {
               </Col>
             </Row>
             {/* 物流详情 */}
-            <Row className="fang_lineR fang_lineL">
+            <Row className="fang_lineR fang_lineL fang_lineB">
               <Col span={24} className="fang_paddingt20 fang_paddingb20">
                 <Row className="fang_paddingt10">
                   <Col span={1} offset={1} className="fang_Tright">
-                    联系人:
+                    物流公司:
                   </Col>
                   <Col span={22} className="fang_padding20">
-                    123
+                    {this.state.data.logistics_name}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
                   <Col span={1} offset={1} className="fang_Tright">
-                    联系人:
+                    物流单号:
                   </Col>
                   <Col span={22} className="fang_padding20">
-                    123
+                    {this.state.data.logistics_id}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
                   <Col span={1} offset={1} className="fang_Tright">
-                    联系人:
+                    备注说明:
                   </Col>
                   <Col span={22} className="fang_padding20">
-                    123
+                    {this.state.data.logistics_remarks}
                   </Col>
                 </Row>
-              </Col>
-            </Row>
-            {/* 货物轨迹 */}
-            <Row className="fang_EBColor fang_height30">
-              <Col span={24} className="fang_padding20">
-                货物轨迹
-              </Col>
-            </Row>
-            {/* 货物轨迹详情 */}
-            <Row className="fang_lineR fang_lineL fang_lineB">
-              <Col
-                span={23}
-                offset={1}
-                className="fang_paddingt20 fang_paddingb20"
-              >
-                <Steps progressDot current={1} direction="vertical">
-                  <Step
-                    title="Finished"
-                    description="This is a description. This is a description."
-                  />
-                  <Step
-                    title="Finished"
-                    description="This is a description. This is a description."
-                  />
-                  <Step
-                    title="In Progress"
-                    description="This is a description. This is a description."
-                  />
-                  <Step title="Waiting" description="This is a description." />
-                  <Step title="Waiting" description="This is a description." />
-                </Steps>
               </Col>
             </Row>
           </div>

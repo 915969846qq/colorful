@@ -114,10 +114,7 @@ export default class Personal_Center_index extends Component {
                   path="/Personal_Decoration_diary/Decoration_Diary_list"
                   component={Decoration_Diary_list}
                 ></Route>
-                <Route
-                  path="/Personal_Decoration_diary/Decoration_Write_diary"
-                  component={Decoration_Write_diary}
-                ></Route>
+
                 <Route
                   path="/Personal_Decoration_diary/Decoration_My_diary"
                   component={Decoration_My_diary}
@@ -284,6 +281,10 @@ export default class Personal_Center_index extends Component {
                     <Route
                       path="/Personal_Service_role_entry"
                       component={Personal_Service_role_entry}
+                    ></Route>
+                    <Route
+                      path="/Decoration_Write_diary"
+                      component={Decoration_Write_diary}
                     ></Route>
                     {/* <Redirect from="/" to="/MyCenter_index"></Redirect> */}
                   </div>
