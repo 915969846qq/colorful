@@ -13,7 +13,7 @@ import store from '../../store/personal_cartOrder_store'
 
 //装修日记
 
-export default class Personal_Decoration_diary extends Component {
+class Personal_Decoration_diary extends Component {
   constructor() {
     super()
     this.state = {

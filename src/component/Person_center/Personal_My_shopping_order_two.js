@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import './css/Personal_My_shopping_oeder_two.css'
+import './css/Personal_My_shopping_order_two.css'
 
 class Personal_My_shopping_order_two extends Component {
   constructor(props) {

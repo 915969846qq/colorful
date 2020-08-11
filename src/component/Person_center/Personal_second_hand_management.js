@@ -15,7 +15,7 @@ import { Pagination } from 'antd'
 import axios from 'axios'
 import $ from 'jquery'
 import '../../assets/iconfont/Fang_iconfont/iconfont.css'
-import '../../util/chajian/citychenming'
+// import '../../util/chajian/citychenming'
 // 上传图片
 function getBase64(file) {
   return new Promise((resolve, reject) => {

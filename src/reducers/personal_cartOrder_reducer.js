@@ -240,6 +240,10 @@ const cartOrderReducer = function (state = initState, action) {
         ...state,
         mycart: state.mycart,
       }
+      case 'LOCAL':
+        return {
+          ...state, local: state.local
+        }
     case 'RECOMMEND':
       return {
         ...state,
@@ -255,7 +259,6 @@ const cartOrderReducer = function (state = initState, action) {
         ...state,
         orderlist: action.allcart,
       }
-
     default:
       return state
   }

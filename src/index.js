@@ -12,7 +12,7 @@ import {
   cartListAction,
 } from './action/peresonal_cartOrder_action'
 
-store.dispatch(orderListAction)
+// store.dispatch(orderListAction)
 store.dispatch(cartListAction)
 store.dispatch(recommendAction)
 store.dispatch(mycartAction)
