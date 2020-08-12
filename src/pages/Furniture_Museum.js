@@ -4,7 +4,12 @@ import React, { Component } from 'react'
 //引入css
 import "./css/Furniture_Museum.css"
 
+//引入头部
+import HeaderSearch from "../component/commen/indexHeader1"
+import HeaderBanner from "../component/commen/indexHeader2"
 
+//引入底部
+import Footer from "../component/commen/footer"
 
 //引入组件
 import FurnitureArr from '../component/Furniture_house/FurnitureArr'
@@ -18,7 +23,20 @@ class Furniture_Museum extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            cuponArr:[],
+            cuponArr:[
+                {
+                    money:"￥20",
+                    title:"优惠券订单满79元立减现领现用",
+                },
+                {
+                    money:"￥20",
+                    title:"优惠券订单满79元立减现领现用",
+                },
+                {
+                    money:"￥20",
+                    title:"优惠券订单满79元立减现领现用",
+                },
+            ],
            //优惠券
            money:0,
 
@@ -70,36 +88,30 @@ class Furniture_Museum extends Component {
         });
       }
 
-      //优惠券
-    //   arr=()=>{
-    //       let arr=this.cuponArr.map((item)=>{
-    //           return(
-    //         <div className="cuoponBox cuoponFlex">
-
-    //             {/* 优惠券1 */}
-    //             <div className="cuoponBox_content cuoponFlex" onClick={this.cuopon.bind(this,1)}>
-    //             <div className="cuoponBox_Money">￥20{item.money}</div>
-    //             <div className="cuoponBox_text">优惠券订单满79元立减现领现用{item.title}</div>
-    //             </div>
-
-    //         </div>
-            
-    //           )
-
-    //       });
-    //       this.setState({
-    //           arr,
-    //       })
-    //   }
+      
     render() { 
+        let arr=this.state.cuponArr.map((item,index)=>{
+            return(
+            <div className="cuoponBox cuoponFlex" key={index}>
+                {/* 优惠券1 */}
+                <div className="cuoponBox_content cuoponFlex" onClick={this.cuopon.bind(this,1)}>
+                <div className="cuoponBox_Money">{item.money}</div>
+                <div className="cuoponBox_text">{item.title}</div>
+                </div>
+                </div>
+                )
+            })
         return ( 
                 <div className="Furniture">
+                    <HeaderSearch></HeaderSearch>
+                    <HeaderBanner></HeaderBanner>
                     {/* //优惠券 */}
-                    {/* {this.state.arr} */}
+                    {arr}
                    {/* 卧室 */}
                     <div className="cuoponBox">
                         <FurnitureArr></FurnitureArr>
                     </div>
+                    {/* <Footer></Footer> */}
                 </div>
          );
     }

@@ -48,14 +48,14 @@ class Designer extends Component {
         let arr=this.state.craftsmanArr.map((item)=>{
             return (
               <div className="craftsman craftsmancss" key={item.id}>
-                  {/* <Link to={
+                  <Link to={
                       {
                           pathname:`/Craftsman_details`,
                           state:{key:item.id}
                       }
                       
                   }
-                  ><img src={require(`../../../${item.avatar}`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link> */}
+                  ><img src={require(`../../../assets/images/craftsman_07.jpg`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link>
                   <div className="flex craftsman_Info">
                       <div>
                           <span className="craftsman_name cursor">{item.realName}</span>

@@ -44,11 +44,11 @@ export function delcartRequest(g){
     gid:g
   })//删除购物车
 }
-export function delcartRequest(g){
-  return post('http://47.100.90.56:8080/banJu/order2/reg',{
-    uid:3,
-    gid:1,
-    status:0
-  })//删除购物车
-}
+// export function delcartRequest(g){
+//   return post('http://47.100.90.56:8080/banJu/order2/reg',{
+//     uid:3,
+//     gid:1,
+//     status:0
+//   })//删除购物车
+// }
 

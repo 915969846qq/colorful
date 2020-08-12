@@ -228,7 +228,7 @@ class Personal_My_shopping_order_two extends Component {
               <label>所在地区：</label>
               {/* <input defaultValue={this.state.consigneeinfo.local}></input> */}
               <label disabled={this.state.localflag === 0 ? true : false}>
-                <City></City>
+                {/* <City></City> */}
               </label>
             </div>
             <div>

@@ -16,34 +16,34 @@ export default class indexHeader2 extends Component {
               <Carousel autoplay>
                 <div>
                   <h3 style={contentStyle}>
-                    {/* <img
+                    <img
                       src={require('../../assets/images/banner5.jpg')}
                       alt=""
-                    /> */}
+                    />
                   </h3>
                 </div>
                 <div>
                   <h3 style={contentStyle}>
-                    {/* <img
+                    <img
                       src={require('../../assets/images/banner6.webp')}
                       alt=""
-                    /> */}
+                    />
                   </h3>
                 </div>
                 <div>
                   <h3 style={contentStyle}>
-                    {/* <img
+                    <img
                       src={require('../../assets/images/banner1.webp')}
                       alt=""
-                    /> */}
+                    />
                   </h3>
                 </div>
                 <div>
                   <h3 style={contentStyle}>
-                    {/* <img
+                    <img
                       src={require('../../assets/images/banner3.jpg')}
                       alt=""
-                    /> */}
+                    />
                   </h3>
                 </div>
               </Carousel>

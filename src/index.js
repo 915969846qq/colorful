@@ -22,7 +22,7 @@ import {
 
 // store.dispatch(orderListAction)
 store.dispatch(async (dispatch) => {
-  const res = await getgoodsRequest(JSON.parse(sessionStorage.user).id)
+  // const res = await getgoodsRequest(JSON.parse(sessionStorage.user).id)
   // console.log(res)
   dispatch({
     type: 'CARTLIST',
@@ -31,7 +31,7 @@ store.dispatch(async (dispatch) => {
 })
 store.dispatch(async (dispatch) => {
   // console.log(JSON.parse(sessionStorage.user).id)
-  const res = await getOrderRequest(JSON.parse(sessionStorage.user).id)
+  // const res = await getOrderRequest(JSON.parse(sessionStorage.user).id)
   // console.log(res)
   dispatch({
     type: 'ORDERLIST',
@@ -42,7 +42,7 @@ store.dispatch(recommendAction)
 // store.dispatch(mycartAction)
 store.dispatch(alipayAction)
 store.dispatch(async (dispatch) => {
-  const res = await getdiaryRequest(JSON.parse(sessionStorage.user).id)
+  // const res = await getdiaryRequest(JSON.parse(sessionStorage.user).id)
   // console.log(res.data)
   dispatch({
     type: 'DIARYLIST',
@@ -50,7 +50,7 @@ store.dispatch(async (dispatch) => {
   })
 })
 store.dispatch(async (dispatch) => {
-  const res = await couponRequest(JSON.parse(sessionStorage.user).id)
+  // const res = await couponRequest(JSON.parse(sessionStorage.user).id)
   // console.log(res.data)
   dispatch({
     type: 'COUPONLIST',

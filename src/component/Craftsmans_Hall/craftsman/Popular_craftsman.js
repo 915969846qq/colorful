@@ -53,16 +53,14 @@ class PopularCraftsman extends Component {
             return (
               <div className="craftsman craftsmancss" key={item.id}>
                   {/* 点击图片进入详情页面 */}
-                  {/* <Link to={
+                  <Link to={
                       {
                           pathname:`/Craftsman_details`,
                           state:{key:item.id}
                       }
                       
                   }>
-                      <img src={require(`${item.avatar}`)// (`../../../${item.img}`)
-                      
-                  } alt="" className="cursor" onClick={this.toDetails.bind(this,item.id)}/></Link> */}
+                      <img src={require(`../../../assets/images/craftsman_07.jpg`)} alt="" className="cursor" onClick={this.toDetails.bind(this,item.id)}/></Link>
                   <div className="flex craftsman_Info">
                       <div>
                           <Link to={
