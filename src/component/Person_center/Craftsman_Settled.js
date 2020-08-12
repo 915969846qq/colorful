@@ -1,34 +1,82 @@
-import React, { Component } from 'react'
-import { Row, Col, Input ,Radio} from 'antd';
+import React, { Component,useState  } from 'react'
+import { Row, Col, Input ,Radio,Upload, message } from 'antd';
 import "./css/Craftsman_Settled.css"
+// import Diqu from "../../util/chajian/city"
+// import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import Footer from "../commen/footer";
+import Header from "../commen/header";
+import $ from "jquery";
+import ImgCrop from 'antd-img-crop';
 // import { DownOutlined } from '@ant-design/icons';
 //填写个人信息
 
+
+
+
+//================================省市区============
+// }
+//===================================================================
+
+
+
+
+
 export default class Craftsman_Settled extends Component {
-    state = {
-        value: 1,
-    };
-
-    onChange = e => {
-        console.log('radio checked', e.target.value);
-        this.setState({
-            value: e.target.value,
-        });
-    };
-
-    //省市区三级联动
     constructor(props) {
-        super(props)
-
-        this.state = {
+        super(props);
+        this.state={
             province: "",
             city: "",
             county: "",
             provinces: ['请选择省份','安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '四川', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆', '其他'],
             cities: ['请选择城市'],
-            counties: ['请选择地区']
+            counties: ['请选择地区'],
+            username:"",/*真实姓名:
+            age:"",/*年龄*/
+            zhiye:"",/*职业:*/
+            phone:"",/**手机号:*/
+            gongsi:"",/*就职公司**/
+            yinghang:"",/*银行名称*/
+            huming:"",/**户名:*/
+            zhihang:"",/**开户支行:*/
+            zhanghao:"",/*账号*/
+            time:"",
+            value: 1,//性别
+            loading: false,
+            loading1: false,
+
+
         }
     }
+
+
+
+    /*====================================图片base64====================================*/
+    state = {
+    loading: false,
+  };
+
+  handleChange = info => {
+    if (info.file.status === 'uploading') {
+      this.setState({ loading: true });
+      return;
+    }
+    if (info.file.status === 'done') {
+      // Get this url from response in real world.
+      getBase64(info.file.originFileObj, imageUrl =>
+        this.setState({
+          imageUrl,
+          loading: false,
+        }),
+      );
+    }
+  };
+
+
+    /*===============================省市区=========================*/
+
+
+
     //省市区三级联动
     getCity(province) {
         var gc1 = [];
@@ -713,6 +761,7 @@ export default class Craftsman_Settled extends Component {
                 this.setState({
                     county: e.target.value
                 });
+                console.log(this.state)
                 break;
             default:
                 alert("child handleChange error")
@@ -721,43 +770,204 @@ export default class Craftsman_Settled extends Component {
     }
 
 
+    //=========================input的value======================
+
+    inputChange(e){
+
+        this.setState({
+            username:e.target.value,
+        })
+    }
+    ageChange(e){
+
+        this.setState({
+            age:e.target.value,
+        })
+
+    } zhiyeChange(e){
+
+        this.setState({
+            zhiye:e.target.value,
+        })
+    }phoneChange(e){
+
+        this.setState({
+            phone:e.target.value,
+        })
+    }gongsiChange(e){
+
+        this.setState({
+            gongsi:e.target.value,
+        })
+    }yhChange(e){
+
+        this.setState({
+            yinghang:e.target.value,
+        })
+    }
+    hmChange(e){
+
+        this.setState({
+            huming:e.target.value,
+        })
+    }zhChange(e){
+
+        this.setState({
+            zhihang:e.target.value,
+        })
+    }zhanghaoChange(e){
+
+        this.setState({
+            zhanghao:e.target.value,
+        })
+
+    }
+
+    //================ 下拉框value=============================
+    timeValue(e){
+        //获取被选中的值
+        console.log(event.target.value);
+        this.setState({
+            //默认值改变
+            time:event.target.value
+        })
+
+    }
+
+
+
+
+
+
+
+//=========================================
+    tj(){
+        this.props.history.push('./Craftsman_Settled_business')
+
+    }
+
+    componentDidMount(){
+        $(".angle").click(function () {
+            $(this).css("border","solid 1px red").css("color","red")
+            $(".designer").css("border","solid 1px #b1b1b1").css("color","#555")
+
+        })
+        $(".designer").click(function () {
+            $(this).css("border","solid 1px red").css("color","red")
+            $(".angle").css("border","solid 1px #b1b1b1").css("color","#555")
+        })
+    }
+
+
+
+
+    onChange = e => {
+        console.log(e.target.value);
+        this.setState({
+            value: e.target.value,
+        });
+    };
+    //===============================省市区 ======
+    // handleChange = info => {
+    //     if (info.file.status === 'uploading') {
+    //         this.setState({ loading: true });
+    //         return;
+    //     }
+    //     if (info.file.status === 'done') {
+    //         // Get this url from response in real world.
+    //         getBase64(info.file.originFileObj, imageUrl =>
+    //             this.setState({
+    //                 imageUrl,
+    //                 loading: false,
+    //             }),
+    //         );
+    //     }
+    // };
+
+
+    // =====================================
+
+
+
     render() {
+        //===============================图片上传=================
+        // const uploadButton = (
+        //     <div>
+        //         {this.state.loading ? <LoadingOutlined /> : <PlusOutlined />}
+        //         <div className="ant-upload-text">Upload</div>
+        //     </div>
+        // );
+        // const { imageUrl } = this.state;
+        // const { imageUrl2} = this.state;
+        const Demo = () => {
+            const [fileList, setFileList] = useState([
+                {
+                    uid: '-1',
+                    name: 'image.png',
+                    status: 'done',
+                    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+                },
+            ]);
+
+            const onChange = ({ fileList: newFileList }) => {
+                setFileList(newFileList);
+            };
+
+            const onPreview = async file => {
+                let src = file.url;
+                if (!src) {
+                    src = await new Promise(resolve => {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(file.originFileObj);
+                        reader.onload = () => resolve(reader.result);
+                    });
+                }
+                const image = new Image();
+                image.src = src;
+                const imgWindow = window.open(src);
+                imgWindow.document.write(image.outerHTML);
+            };
+
+            return (
+                <ImgCrop rotate>
+                    <Upload
+                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                        listType="picture-card"
+                        fileList={fileList}
+                        onChange={onChange}
+                        onPreview={onPreview}
+                    >
+                        {fileList.length < 5 && '+ Upload'}
+                    </Upload>
+                </ImgCrop>
+            );
+        };
+
+
+
+        //===================================
+
+
+
         let id = 0
         return (
             <div className="xt2">
 
                     <div className="header-top">
+                        {/*//表头*/}
+                        <Header/>
                         <Row>
                             <Col span={1}></Col>
                             <Col span={22}>
 
-                                    {/*//表头*/}
-                                    <div className="ress_img"><img className="full" src={require("../../assets/images/address.png")} alt=""/></div>
 
-                                    <div id="addresspp" className="addresspp">成都</div>
-                                    <div className="readssswitch"><a
-                                        href="1" tjjj="top.cities.list" title="切换城市"
-                                        rel="nofollow" className="qh">【切换】</a>
-                                        <div className="welcome">您好，欢迎您访问 <a className="welcome_index"
-                                                                             href="../../index.js"> Colorful</a> !
-                                        </div>
 
-                                        <div className="headerRight">
-                                            <div className="LoginorRegister">登录</div>
-                                            <div className="LoginorRegister">免费注册</div>
-                                            <div className="Iwantdecorate">我要装修</div>
-                                            <div className="Advisory_hotline">
-                                                <div className="img"><img className="full" src={require("../../assets/images/hotline.png")} alt=""/></div>
-                                                <div className="hotline">咨询热线：4006-900-288</div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 {/*表头大图模块*/}
                                 <div className="header_center">
                                     <div className="headerlogo"><img className="full" src={require("../../assets/images/logo2.png")} alt=""/>
                                     </div>
-                                    <div className="headerh4"><p>填写个人信息</p></div>
+                                    <div className="headerh4">填写个人信息</div>
                                 </div>
 
 
@@ -773,28 +983,28 @@ export default class Craftsman_Settled extends Component {
                                 <div className="information">基本信息</div>
                                 <form>
                                 <div className="namebox">
-                                    <p className="name">*真实姓名:</p><Input className="Input"/>
+                                    <p className="name">*真实姓名:</p><Input onChange={(e)=>this.inputChange(e)} className="Input"/>
                                 </div>
                                 <div className="namebox1">
                                     <p className="name">性别:</p>
                                     <div className="inputMr"><Radio.Group onChange={this.onChange} value={this.state.value}>
-                                        <Radio value={1}><span className="font">男</span></Radio>
-                                        <Radio value={2}><span className="font">女</span></Radio>
+                                        <Radio value={0}><span className="font">男</span></Radio>
+                                        <Radio value={1}><span className="font">女</span></Radio>
 
                                     </Radio.Group></div>
                                 </div>
                                     <div className="namebox1">
-                                        <p className="name">年龄:</p><Input className="Input"/>
+                                        <p className="name">年龄:</p><Input onChange={(e)=>this.ageChange(e)}  className="Input"/>
                                     </div>
                                     <div className="namebox1">
-                                        <p className="name">职业:</p><Input className="Input"/>
+                                        <p className="name">职业:</p><Input onChange={(e)=>this.zhiyeChange(e)} className="Input"/>
                                     </div>
                                     <div className="namebox1">
-                                        <p className="name">*手机号:</p><Input className="Input" placeholder="您的电话号码"/>
+                                        <p className="name">*手机号:</p><Input className="Input" onChange={(e)=>this.phoneChange(e)} placeholder="您的电话号码"/>
                                     </div>
                                     <div className="namebox1">
                                         <p className="name">从业时间:</p>
-                                            <select>
+                                            <select onChange={(e)=>this.timeValue(e)}>
                                                 <option>1——3年</option>
                                                 <option>3——5年</option>
                                                 <option>5——10年</option>
@@ -802,15 +1012,25 @@ export default class Craftsman_Settled extends Component {
                                             </select>
                                     </div>
                                     <div className="namebox1">
-                                        <p className="name">就职公司:</p><Input className="Input"/>
+                                        <p className="name">就职公司:</p><Input onChange={(e)=>this.gongsiChange(e)} className="Input"/>
                                     </div>
                                     <div className="namebox1">
                                         <p className="name">*本人持身份证照片:</p>
                                         <div className="cad-top">
-                                            <div className="Computer_phpto">
-                                                <div className="imgd"><img src={require("../../assets/images/twoimages/phoutot.png")} alt=""/></div>
-                                                <p>电脑相册传图</p>
-                                            </div>
+                                            {/*<div className="Computer_phpto">*/}
+                                                {/*<Upload*/}
+                                                {/*    name="avatar"*/}
+                                                {/*    listType="picture-card"*/}
+                                                {/*    className="avatar-uploader"*/}
+                                                {/*    showUploadList={false}*/}
+                                                {/*    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"*/}
+                                                {/*    beforeUpload={beforeUpload}*/}
+                                                {/*    onChange={this.handleChange}*/}
+                                                {/*>*/}
+                                                {/*    {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}*/}
+                                                {/*</Upload>*/}
+                                                <Demo/>
+                                            {/*</div>*/}
                                             <p className="perhaps"> 或 </p>
                                             <div className="shao_QR_code">
                                                 <div className="left" id="QR_code">
@@ -830,16 +1050,27 @@ export default class Craftsman_Settled extends Component {
                                         </div>
                                         <div className="fill_In">
                                             <p>上传头像 :</p>
-                                            <div className="upload_btn"> 上传图片</div>
+                                            <div className="upload_btn">
+                                                {/*<Upload*/}
+                                                {/*    name="avatar"*/}
+                                                {/*    listType="picture-card"*/}
+                                                {/*    className="avatar-uploader"*/}
+                                                {/*    showUploadList={false}*/}
+                                                {/*    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"*/}
+                                                {/*    beforeUpload={beforeUploadq}*/}
+                                                {/*    onChange={this.handleChange1}*/}
+                                                {/*>*/}
+                                                {/*    {imageUrl ? <img src={imageUrl2} alt="avatar" style={{ width: '100%' }} /> : uploadButton}*/}
+                                                {/*</Upload>*/}
+                                                <Demo/>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="namebox1">
                                         <p className="name">上传资质证件:</p>
                                         <div className="cad-top">
-                                            <div className="Computer_phpto">
-                                                <div className="imgd"><img src={require("../../assets/images/twoimages/phoutot.png")} alt=""/></div>
-                                                <p>电脑相册传图</p>
-                                            </div>
+
+                                            <Demo/>
                                             <p className="perhaps"> 或 </p>
                                             <div className="shao_QR_code">
                                                 <div className="left" id="QR_code">
@@ -861,6 +1092,7 @@ export default class Craftsman_Settled extends Component {
                                     {/*省市区三级联动*/}
                                     <div className="namebox1">
                                         <p className="name">*开户城市:</p><div className="col-md-9">
+
                                         <select className="select" onChange={this.handleChange.bind(this, "province")}>
                                             {this.state.provinces.map(province => (
                                                 <option value={province} key={id++}>{province}</option>
@@ -876,94 +1108,38 @@ export default class Craftsman_Settled extends Component {
                                                 <option value={county} key={id++}>{county}</option>
                                             ))}
                                         </select>
+
+
+
+
                                     </div>
                                     </div>
 
+
                                     <div className="namebox1">
-                                        <p className="name">*银行名称:</p><Input className="Input" placeholder="中国农业银行"/>
+                                        <p className="name">*银行名称:</p><Input className="Input" onChange={(e)=>this.yhChange(e)} placeholder="中国农业银行"/>
                                     </div>
 
                                     <div className="namebox1">
-                                        <p className="name">*户名:</p><Input className="Input" placeholder="张三"/>
+                                        <p className="name">*户名:</p><Input className="Input" onChange={(e)=>this.hmChange(e)} placeholder="张三"/>
                                     </div>
                                     <div className="namebox1">
-                                        <p className="name">*开户支行:</p><Input className="Input" placeholder="中国农业银行成都天府三街支行"/>
+                                        <p className="name">*开户支行:</p><Input className="Input" onChange={(e)=>this.zhChange(e)}  placeholder="中国农业银行成都天府三街支行"/>
                                         <span className="formatcali">(格式：开户行+城市+支行信息 例如：中国农业银行成都天府三街支行)</span>
                                     </div>
                                     <div className="namebox1">
-                                        <p className="name">*账号:</p><Input className="Input" />
+                                        <p className="name">*账号:</p><Input className="Input" onChange={(e)=>this.zhanghaoChange(e)} />
                                     </div>
-                                    <button className="next_step_butn">下一步</button>
+                                    <button className="next_step_butn" type="button" onClick={this.tj.bind(this)}>下一步</button>
 
                                 </form>
-                                {/* 页脚*/}
-                                <div id="footer">
-                                <div className="footer">
-                                    <div className="footer-top">
-                                        <div className="footer-top-left">
-                                            <p>购物指南</p>
-                                            <ul>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                            </ul>
-                                        </div>
-                                        <div className="footer-top-left">
-                                            <p>服务保障</p>
-                                            <ul>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                            </ul>
-                                        </div>
-                                        <div className="footer-top-left">
-                                            <p>配送方式</p>
-                                            <ul>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                            </ul>
-                                        </div>
-                                        <div className="footer-top-left">
-                                            <p>售后服务</p>
-                                            <ul>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                            </ul>
-                                        </div>
-                                        <div className="footer-top-left">
-                                            <p>关于我们</p>
-                                            <ul>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                                <li><a href="1">指南1</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div className="footer-bottom">
-                                        <p>2005-2016 科乐福版权所有，并保留所有权利。</p>
-                                        <p>关于我们 联系我们 友情链接 帮助中心 意见反馈 高薪聘请 法律声明</p>
-                                        <p>ICP备案证书号:蜀ICP备00000000号</p>
 
-                                        <div className="footer-icon"><img className="full1" src={require("../../assets/images/footer-icon_03.png")} alt=""/></div>
-                                    </div>
-                                </div>
-                                </div>
 
                             </Col>
                             <Col span={1}></Col>
                         </Row>
+                        {/* 页脚*/}
+                        <Footer/>
 
                 </div>
 

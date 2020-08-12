@@ -1,15 +1,89 @@
 import React, { Component } from 'react'
-import { Row, Col, Input ,Radio} from 'antd';
+import { Row, Col, Input ,Radio,Upload, message} from 'antd';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import "./css/Craftsman_Settled_company.css"
 import Footer from "../commen/footer";
+
+/*==============================图片上传============================*/
+function getBase64(img, callback) {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => callback(reader.result));
+    reader.readAsDataURL(img);
+}
+
+function beforeUpload(file) {
+    console.log(file)
+    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+    if (!isJpgOrPng) {
+        message.error('You can only upload JPG/PNG file!');
+    }
+    const isLt2M = file.size / 1024 / 1024 < 2;
+    if (!isLt2M) {
+        message.error('Image must smaller than 2MB!');
+    }
+    return isJpgOrPng && isLt2M;
+}
+/*===========================================================*/
+
 //个人中心 填写公司个人信息
 export default class Craftsman_Settled_company extends Component {
+
+/*==================================图片上传====================*/
     state = {
-        value: 1,
+        loading: false,
     };
 
+    handleChange = info => {
+        if (info.file.status === 'uploading') {
+            this.setState({ loading: true });
+            return;
+        }
+        if (info.file.status === 'done') {
+            // Get this url from response in real world.
+            getBase64(info.file.originFileObj, imageUrl =>
+                this.setState({
+                    imageUrl:imageUrl,
+                    loading: false,
+                },()=>{
+                    console.log(this.state.imageUrl.length)
+                    fetch('http://172.16.10.10:8080/banJu/merchantDetail/saveImg',{
+                        method:'POST',
+                        headers:{
+                            'Content-Type':'application/json'
+                        },
+                        credentials: 'include',
+                        body:JSON.stringify({
+                            license:this.state.imageUrl
+                        })
+                    }).then((res)=>{
+                        return res.json();
+                    }).then((data)=>{
+                        this.setState({
+                            yanzhengma:data.data
+                        },()=> {
+                            console.log(data)
+                        })
+                    }).catch((e) => {
+                        console.log("数据有误");
+                    });
+                }),
+            );
+        }
+    };
+
+    componentDidMount() {
+
+
+
+    }
+
+
+    /*====================================================*/
+
+
+
     onChange = e => {
-        console.log('radio checked', e.target.value);
+        console.log(e.target.value);
         this.setState({
             value: e.target.value,
         });
@@ -22,9 +96,33 @@ export default class Craftsman_Settled_company extends Component {
             province: "",
             city: "",
             county: "",
+            province1: "",
+            city1: "",
+            county1: "",
             provinces: ['请选择省份','安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '四川', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆', '其他'],
             cities: ['请选择城市'],
-            counties: ['请选择地区']
+            counties: ['请选择地区'],
+            provinces1: ['请选择省份','安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '四川', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆', '其他'],
+            cities1: ['请选择城市'],
+            counties1: ['请选择地区'],
+            Company:"",/*公司名*/
+            registration :"",/*税务登记证号*/
+            address :"",/*详细地址*/
+            Postcode :"",/*邮编*/
+            Companyemail :"",/*公司邮箱*/
+            time:"",/*成立时间*/
+            capital:"",/*注册资金*/
+            employees:"",/*员工人数*/
+            name:"",/*姓名*/
+            ID:"",/*身份证号*/
+            phone:"",/*联系电话*/
+            Bankname:"",/*银行名称*/
+            Accountname:"",/*户名*/
+            openingbranch:"",/*开户支行*/
+            accountnumber:"",/*账号*/
+            value: 1,/*性别*/
+            imageUrl:""
+
         }
     }
     //省市区三级联动
@@ -688,7 +786,7 @@ export default class Craftsman_Settled_company extends Component {
         return gc2[province][city]
     }
     //省市区三级联动
-    handleChange(name, e) {
+    handleChangeone(name, e) {
         e.preventDefault()
         switch (name) {
 
@@ -711,13 +809,198 @@ export default class Craftsman_Settled_company extends Component {
                 this.setState({
                     county: e.target.value
                 });
+                console.log(this.state)
+                break;
+            default:
+                alert("child handleChange error")
+        }
+
+    } handleChangetwo(name, e) {
+        e.preventDefault()
+        switch (name) {
+
+            case "province1":
+                this.setState({
+                    province1: e.target.value,
+                    cities1: this.getCity(e.target.value),
+                    city1:this.getCity(e.target.value)[0],
+                    counties1:this.getCounty(e.target.value, this.getCity(e.target.value)[0])
+                });
+                break;
+            case "city1":
+                this.setState({
+                    city1: e.target.value,
+                    counties1: this.getCounty(this.state.province1, e.target.value),
+                    county1:this.getCounty(this.state.province1, e.target.value)[0]
+                });
+                break;
+            case "county1":
+                this.setState({
+                    county1: e.target.value
+                });
+                console.log(this.state)
                 break;
             default:
                 alert("child handleChange error")
         }
 
     }
+
+
+
+
+    //=========================input的value======================
+
+    gsChange(e){
+
+        this.setState({
+            Company:e.target.value,
+        })
+    }shuiwuChange(e){
+
+        this.setState({
+            registration:e.target.value,
+        })
+    }
+    adressChange(e){
+
+        this.setState({
+            address:e.target.value
+        })
+
+    } ybChange(e){
+
+        this.setState({
+            Postcode:e.target.value,
+        })
+    }yxChange(e){
+
+        this.setState({
+            Companyemail:e.target.value,
+        })
+    }timeChange(e){
+
+        this.setState({
+            time:e.target.value,
+        })
+    }zjChange(e){
+
+        this.setState({
+            capital:e.target.value,
+        })
+    }
+    rsChange(e){
+
+        this.setState({
+            employees:e.target.value,
+        })
+    }nameChange(e){
+
+        this.setState({
+            name:e.target.value,
+        })
+    }sfzChange(e){
+
+        this.setState({
+            ID:e.target.value,
+        })
+
+    }phoneChange(e){
+
+        this.setState({
+            phone:e.target.value,
+        })
+
+    }yhmcChange(e){
+
+        this.setState({
+            Bankname:e.target.value,
+        })
+
+    }hmChange(e){
+
+        this.setState({
+            Accountname:e.target.value,
+        })
+
+    }zhihangChange(e){
+
+        this.setState({
+            openingbranch:e.target.value,
+        })
+
+    }zhanghaoChange(e){
+
+        this.setState({
+            accountnumber:e.target.value,
+        })
+
+    }
+    //========================================
+    qd(){
+        // console.log(this.state)
+        // console.log(this.state.imageUrl)
+        fetch('http://172.16.10.10:8080/banJu/merchantDetail/reg',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            credentials: 'include',
+            body:JSON.stringify({
+                companyName:this.state.Company,/*公司名*/
+                isLegal:this.state.value,/*是否合一*/
+                number:this.state.registration,/*税务登记证号*/
+                province:this.state.province,/*省*/
+                city:this.state.city,/*市*/
+                area:this.state.county,/*区*/
+                address:this.state.address,/*详细地址*/
+                postcode:this.state.Postcode,/*邮编*/
+                email:this.state.Companyemail,/*公司邮箱*/
+                createDate:this.state.time,/*成立时间*/
+                registereCapital:this.state.time,/*注册资金*/
+                name:this.state.name,/*注册资金*/
+                idCard:this.state.ID,/*身份证号*/
+                phoneNumber:this.state.phone,/*联系电话*/
+                bankCardProvince:this.state.province1,/*省*/
+                bankCardCity:this.state.city1,/*市*/
+                bankCardArea:this.state.county1,/*区*/
+                bankName:this.state.Bankname,/*银行名称*/
+                acountName:this.state.Accountname,/*户名*/
+                bank:this.state.openingbranch,/*开户支行*/
+                bankCard:this.state.accountnumber,/*开户支行*/
+
+            })
+        }).then((res)=>{
+            return res.json();
+        }).then((data)=>{
+            this.setState({
+                yanzhengma:data.data
+            },()=> {
+                console.log(data)
+            })
+        }).catch((e) => {
+            console.log("数据有误");
+        });
+    }
+
     render() {
+        /*===========================图片上传============================*/
+
+        const uploadButton = (
+            <div>
+                {this.state.loading ? <LoadingOutlined /> : <PlusOutlined />}
+                <div className="ant-upload-text">Upload</div>
+            </div>
+        );
+        const { imageUrl } = this.state;
+
+
+
+
+        /*============================================================*/
+
+
+
         let id = 0
         return (
             <div className="xt1">
@@ -752,7 +1035,7 @@ export default class Craftsman_Settled_company extends Component {
                             <div className="header_center">
                                 <div className="headerlogo"><img className="full" src={require("../../assets/images/logo2.png")} alt=""/>
                                 </div>
-                                <div className="headerh4"><p>填写公司信息</p></div>
+                                <div className="headerh4">填写公司信息</div>
                             </div>
                             <div className="top_maina"><span className="text">填写公司信息 </span><span className="text2">*为必填项</span></div>
 
@@ -760,14 +1043,14 @@ export default class Craftsman_Settled_company extends Component {
                             <div className="information">基本信息</div>
                             <form>
                                 <div className="namebox">
-                                    <p className="name">*公司名:</p><Input className="Input"/>
+                                    <p className="name">*公司名:</p><Input onChange={(e)=>this.gsChange(e)} className="Input"/>
                                 </div>
 
                                 <div className="namebox1">
                                     <p className="name">*是否三证合一:</p>
                                     <div className="inputMr"><Radio.Group onChange={this.onChange} value={this.state.value}>
-                                        <Radio value={1}><span className="font">是</span></Radio>
-                                        <Radio value={2}><span className="font">否</span></Radio>
+                                        <Radio value={0}><span className="font">是</span></Radio>
+                                        <Radio value={1}><span className="font">否</span></Radio>
 
                                     </Radio.Group></div>
                                 </div>
@@ -776,8 +1059,17 @@ export default class Craftsman_Settled_company extends Component {
                                     <p className="name">*营业执照图片:</p>
                                     <div className="cad-top">
                                         <div className="Computer_phpto">
-                                            <div className="imgd"><img src={require("../../assets/images/twoimages/phoutot.png")} alt=""/></div>
-                                            <p>电脑相册传图</p>
+                                            <Upload
+                                                name="avatar"
+                                                listType="picture-card"
+                                                className="avatar-uploader"
+                                                showUploadList={false}
+                                                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                                beforeUpload={beforeUpload}
+                                                onChange={this.handleChange}
+                                            >
+                                                {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                                            </Upload>
                                         </div>
                                         <p className="perhaps"> 或 </p>
                                         <div className="shao_QR_code">
@@ -791,46 +1083,46 @@ export default class Craftsman_Settled_company extends Component {
                                     </div>
                                 <br/>
                                 <div className="namebox1 ">
-                                    <p className="name ">*税务登记证号:</p><Input className="Input" />
+                                    <p className="name ">*税务登记证号:</p><Input onChange={(e)=>this.shuiwuChange(e)} className="Input" />
                                 </div>
 
                                 {/*公司地址*/}
                                 <div className="namebox1">
                                     <p className="name">*公司地址:</p><div className="col-md-9">
-                                    <select className="select" onChange={this.handleChange.bind(this, "province")}>
-                                        {this.state.provinces.map(province => (
-                                            <option value={province} key={id++}>{province}</option>
+                                    <select className="select" onChange={this.handleChangetwo.bind(this, "province1")}>
+                                        {this.state.provinces1.map(province1 => (
+                                            <option value={province1} key={id++}>{province1}</option>
                                         ))}
                                     </select>
-                                    <select className="select" onChange={this.handleChange.bind(this, "city")}>
-                                        {this.state.cities.map(city => (
-                                            <option value={city} key={id++}>{city}</option>
+                                    <select className="select" onChange={this.handleChangetwo.bind(this, "city1")}>
+                                        {this.state.cities1.map(city1 => (
+                                            <option value={city1} key={id++}>{city1}</option>
                                         ))}
                                     </select>
-                                    <select className="select" onChange={this.handleChange.bind(this, "county")}>
-                                        {this.state.counties.map(county => (
-                                            <option value={county} key={id++}>{county}</option>
+                                    <select className="select" onChange={this.handleChangetwo.bind(this, "county1")}>
+                                        {this.state.counties1.map(county1 => (
+                                            <option value={county1} key={id++}>{county1}</option>
                                         ))}
                                     </select>
-                                    <Input className="Input" placeholder="请输入详细地址"/>
+                                    <Input className="Input" onChange={(e)=>this.adressChange(e)} placeholder="请输入详细地址"/>
                                 </div>
 
 
                                 </div>
 
                                 <div className="namebox1 ">
-                                    <p className="name ">*邮编:</p><Input className="Input" />
+                                    <p className="name ">*邮编:</p><Input onChange={(e)=>this.ybChange(e)} className="Input" />
                                 </div>
 
                                 <div className="namebox1 ">
-                                    <p className="name ">公司邮箱:</p><Input className="Input" />
+                                    <p className="name ">公司邮箱:</p><Input onChange={(e)=>this.yxChange(e)} className="Input" />
                                 </div>
                                 <div className="fill_In ">
                                     <p className="name ">成立时间:</p>
                                     <span className="clrear"/>
-                                    <Input className="Input" />
+                                    <Input className="Input" onChange={(e)=>this.timeChange(e)} />
                                     <p>注册资金 : </p>
-                                    <select>
+                                    <select onChange={(e)=>this.zjChange(e)}>
                                         <option>30万以下</option>
                                         <option>30~100万</option>
                                         <option>100~500万</option>
@@ -839,7 +1131,7 @@ export default class Craftsman_Settled_company extends Component {
                                         <option>5000万以上</option>
                                     </select>
                                     <p>员工人数 :</p>
-                                    <select>
+                                    <select onChange={(e)=>this.rsChange(e)}>
                                         <option>50人以下</option>
                                         <option>50~100人</option>
                                         <option>100~500人</option>
@@ -851,13 +1143,13 @@ export default class Craftsman_Settled_company extends Component {
                                 {/*法人代表/经营者信息*/}
                                 <div className="information">法人代表/经营者信息</div>
                                 <div className="namebox1 ">
-                                    <p className="name ">*姓名 :</p><Input className="Input" placeholder="张三" />
+                                    <p className="name ">*姓名 :</p><Input onChange={(e)=>this.nameChange(e)} className="Input" placeholder="张三" />
                                 </div>
                                 <div className="namebox1 ">
-                                    <p className="name ">*身份证号 :</p><Input className="Input" />
+                                    <p className="name ">*身份证号 :</p><Input onChange={(e)=>this.sfzChange(e)} className="Input" />
                                 </div>
                                 <div className="namebox1 ">
-                                    <p className="name ">*联系电话 :</p><Input className="Input" placeholder="您的电话号码"/>
+                                    <p className="name ">*联系电话 :</p><Input className="Input" onChange={(e)=>this.phoneChange(e)} placeholder="您的电话号码"/>
                                 </div>
 
                                 {/*银行账号信息*/}
@@ -865,17 +1157,17 @@ export default class Craftsman_Settled_company extends Component {
 
                                 <div className="namebox1">
                                     <p className="name">*开户城市:</p><div className="col-md-9">
-                                    <select className="select" onChange={this.handleChange.bind(this, "province")}>
+                                    <select className="select" onChange={this.handleChangeone.bind(this, "province")}>
                                         {this.state.provinces.map(province => (
                                             <option value={province} key={id++}>{province}</option>
                                         ))}
                                     </select>
-                                    <select className="select" onChange={this.handleChange.bind(this, "city")}>
+                                    <select className="select" onChange={this.handleChangeone.bind(this, "city")}>
                                         {this.state.cities.map(city => (
                                             <option value={city} key={id++}>{city}</option>
                                         ))}
                                     </select>
-                                    <select className="select" onChange={this.handleChange.bind(this, "county")}>
+                                    <select className="select" onChange={this.handleChangeone.bind(this, "county")}>
                                         {this.state.counties.map(county => (
                                             <option value={county} key={id++}>{county}</option>
                                         ))}
@@ -886,30 +1178,31 @@ export default class Craftsman_Settled_company extends Component {
 
 
                                 <div className="namebox1">
-                                    <p className="name">*银行名称:</p><Input className="Input" placeholder="中国农业银行"/>
+                                    <p className="name">*银行名称:</p><Input className="Input" onChange={(e)=>this.yhmcChange(e)} placeholder="中国农业银行"/>
                                 </div>
 
                                 <div className="namebox1">
-                                    <p className="name">*户名:</p><Input className="Input" placeholder="张三"/>
+                                    <p className="name">*户名:</p><Input className="Input" onChange={(e)=>this.hmChange(e)} placeholder="张三"/>
                                 </div>
                                 <div className="namebox1">
-                                    <p className="name">*开户支行:</p><Input className="Input" placeholder="中国农业银行成都天府三街支行"/>
+                                    <p className="name">*开户支行:</p><Input className="Input" onChange={(e)=>this.zhihangChange(e)} placeholder="中国农业银行成都天府三街支行"/>
                                     <span className="formatcali">(格式：开户行+城市+支行信息 例如：中国农业银行成都天府三街支行)</span>
                                 </div>
                                 <div className="namebox1">
-                                    <p className="name">*账号:</p><Input className="Input" />
+                                    <p className="name">*账号:</p><Input onChange={(e)=>this.zhanghaoChange(e)} className="Input" />
                                 </div>
-                                <div><button className="next_step_butn">下一步</button></div>
+                                <div><button className="next_step_butn" type="button" onClick={this.qd.bind(this)}>确定</button></div>
 
                             </form>
 
 
-                            {/*页脚*/}
-                           <Footer/>
+
 
                         </Col>
                         <Col span={1}></Col>
                     </Row>
+                    {/*页脚*/}
+                    <Footer/>
                 </div>
                 
             </div>
