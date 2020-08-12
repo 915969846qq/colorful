@@ -3,7 +3,11 @@ import React, { Component } from 'react'
 import { Table } from 'antd'
 import { Input } from 'antd'
 // 模态框
+<<<<<<< HEAD
+import { Modal, Button, Space } from 'antd';
+=======
 import { Modal, Button } from 'antd'
+>>>>>>> 0673f9bda466f53abfc0fc482057aee11d0bab28
 
 //引入css
 import './css/usesrsaudit.css'
@@ -35,10 +39,50 @@ export default class usersaudit extends Component {
       // pssOn:1,//通过
       // onPasson:0,//未通过
     }
+<<<<<<< HEAD
+
+    
+
+    
+
+=======
+>>>>>>> 0673f9bda466f53abfc0fc482057aee11d0bab28
   }
 
   UNSAFE_componentWillMount() {
     //查询未审核的数据
+<<<<<<< HEAD
+    fetch('http://47.100.90.56:8080/banJu/manager/selectIsLegal',{           
+                      method:'POST',
+                      headers:{
+                          'Content-Type':'application/json' 
+                      },
+                      credentials: 'include',
+                      // 传参
+                      body:JSON.stringify({
+                          audit:0
+                      })
+                      }).then((res)=>{
+                          return res.json();       
+                      }).then((data)=>{
+                        console.log(data.data);  
+                    let newData=[];
+                    data.data.map((item,index)=>{
+                      item.key=index;
+                      // item.imgage="footer-icon_03.png"
+                      newData.push(item);
+                    })
+                    console.log(newData)
+                      // 存放数组            
+                          this.setState({
+                            data:data.data,
+                          })
+                      }).catch((e) => {
+                          console.log("数据有误");
+                      });
+
+
+=======
     fetch('http://172.16.10.4:8080/banJu/manager/selectIsLegal', {
       method: 'POST',
       headers: {
@@ -70,6 +114,7 @@ export default class usersaudit extends Component {
       .catch((e) => {
         console.log('数据有误')
       })
+>>>>>>> 0673f9bda466f53abfc0fc482057aee11d0bab28
   }
 
   //点击图标
@@ -88,6 +133,40 @@ export default class usersaudit extends Component {
     //节点
     console.log(e)
 
+<<<<<<< HEAD
+    this.setState({
+      id:status,
+      isShow:!(this.state.isShow),
+    },()=>{
+      console.log(this.state.id)
+      fetch('http://47.100.90.56:8080/banJu/manager/auditMerchant',{           
+                  method:'POST',
+                  headers:{
+                      'Content-Type':'application/json' 
+                  },
+                  credentials: 'include',
+                  // 传参
+                  body:JSON.stringify({
+                    id:this.state.id, 
+                    isLegal:1,
+                  })
+                  }).then((res)=>{
+                      return res.json();       
+                  }).then((data)=>{
+                    console.log(data);  
+               
+                  // 存放数组            
+                      this.setState({
+                        content:data.msg,
+                      },()=>{
+                        this.success();
+                      })
+                  }).catch((e) => {
+                      console.log("数据有误");
+                  })
+    }
+    );
+=======
     this.setState(
       {
         id: status,
@@ -122,6 +201,7 @@ export default class usersaudit extends Component {
           })
       }
     )
+>>>>>>> 0673f9bda466f53abfc0fc482057aee11d0bab28
   }
 
   // 点击审核未通过
@@ -129,6 +209,38 @@ export default class usersaudit extends Component {
     //id参数值
     console.log(status)
     //节点
+<<<<<<< HEAD
+    console.log(e);
+    this.setState({
+      id:status,
+      isShow:!(this.state.isShow),
+    },()=>{
+      console.log(this.state.id)
+      fetch('http://47.100.90.56:8080/banJu/manager/auditMerchant',{           
+                  method:'POST',
+                  headers:{
+                      'Content-Type':'application/json' 
+                  },
+                  credentials: 'include',
+                  // 传参
+                  body:JSON.stringify({
+                    id:this.state.id, 
+                    isLegal:0,
+                  })
+                  }).then((res)=>{
+                      return res.json();       
+                  }).then((data)=>{
+                    console.log(data.data);  
+               
+                  // 存放数组            
+                      this.setState({
+                        data:data.data,
+                      })
+                  }).catch((e) => {
+                      console.log("数据有误");
+                  })
+    });
+=======
     console.log(e)
     this.setState(
       {
@@ -164,6 +276,7 @@ export default class usersaudit extends Component {
           })
       }
     )
+>>>>>>> 0673f9bda466f53abfc0fc482057aee11d0bab28
   }
 
   // 模态框

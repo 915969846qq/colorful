@@ -3,7 +3,8 @@ import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 import { connect } from 'react-redux'
-import { orderListAction } from '../../action/peresonal_cartOrder_action'
+import store from '../../store/personal_cartOrder_store'
+import { getOrderRequest, getgoodsRequest, getdiaryRequest, addOrderRequest,alipayRequest} from '../../api/cartOrder_api'
 // import store from '../../store/personal_cartOrder_store'
 // 所有订单
 
@@ -18,7 +19,7 @@ class Personal_My_order_all extends Component {
 
   }
   CheckAll() {
-    console.log("2222222")
+    // console.log("2222222")
   }
   Check() {
   }
@@ -53,6 +54,7 @@ class Personal_My_order_all extends Component {
         page: pages + 1
       }, () => {
         this.orderList(this.state.page);
+        
       })
     }
   }
@@ -89,30 +91,35 @@ class Personal_My_order_all extends Component {
         })
       }
     })
-    console.log(this.state.postarr);
+    // console.log(this.state.postarr);
     let theorder = this.state.postarr.slice((page - 1) * 3, page * 3);
     let TheOrder = theorder.map((item, index) => {
       return (<div className="order-content-content" key={index}>
         <div className="order-content-content-top">
           <input type="checkbox" onClick={this.Check.bind(this)}></input>
           <label>订单编号：{item.id}</label>
-          
-          <span>下单时间：{ new Date(parseInt(item.createdDate)).toLocaleString().replace(/:\d{1,2}$/,' ') }</span>
+
+          {/* <span>下单时间：{new Date(parseInt(item.createdDate)).toLocaleString().replace(/:\d{1,2}$/, ' ')}</span> */}
+          <span>下单时间：{item.time}</span>
         </div>
         <div className="order-content-content-body">
           <div className="body-left">
-            <img src={item.goods.image} alt=""></img>
+            {/* <img src={item.goods.image} alt=""></img> */}
+            <img src={item.src} alt=""></img>
             <div className="body-nit">
               <p></p>
-              <p>商品名称：{item.goods.name}</p>
-              <p>下单时间：{ new Date(parseInt(item.createdDate)).toLocaleString().replace(/:\d{1,2}$/,' ') }</p>
+              {/* <p>商品名称：{item.goods.name}</p> */}
+              <p>商品名称：{item.name}</p>
+              {/* <p>下单时间：{new Date(parseInt(item.createdDate)).toLocaleString().replace(/:\d{1,2}$/, ' ')}</p> */}
+              <p>下单时间：{item.time}</p>
             </div>
           </div>
           <div className="body-info">
-            {item.address.consigneeName}
+            {/* {item.address.consigneeName} */}
           </div>
           <div className="body-info">
-            ￥{item.goods.price}
+            {/* ￥{item.goods.price} */}
+            ￥{item.price}
           </div>
           <div className="body-info">
             {item.status === '已取消' ? flag0 : item.status === '待付款' ? flag1 : flag2}
@@ -143,8 +150,20 @@ class Personal_My_order_all extends Component {
       pages: pages,
     })
   }
+  componentWillMount() {
+    store.dispatch(async (dispatch) => {
+      const res = await getOrderRequest(3)
+      dispatch({
+        type: 'ORDERLIST',
+        allorder: res.data
+      }, () => {
+        console.log(res.data.data);
+      })
+
+    });
+  }
   componentDidMount() {
-    console.log(this)
+    console.log(this.props)
     this.setState({
       postarr: this.props.allorder,
     }, () => {
@@ -158,39 +177,40 @@ class Personal_My_order_all extends Component {
   }
   // 去支付
   gopay() {
-
+    
   }
   // 删除商品
   del(index, s) {
-    console.log(index);
-    console.log(this.state.page)
+    // console.log(index);
+    // console.log(this.state.page)
     this.state.postarr.splice(index + (this.state.page - 1) * 3, 1);
     this.orderList(this.state.page);
   }
   // 添加商品
   add(index, s) {
     let thearr = this.state.postarr[index];
-    thearr.createdDate=new Date(parseInt(Math.round(new Date()))).toLocaleString().replace(/:\d{1,2}$/,' ');
+    thearr.createdDate = new Date(parseInt(Math.round(new Date()))).toLocaleString().replace(/:\d{1,2}$/, ' ');
     this.state.postarr.push(thearr);
     this.orderList(this.state.page);
   }
   // 比较日期
-  compareDate(number,s,value){ 
+  compareDate(number, value,s) {
+    // console.log(number,value)
     this.setState({
-      howtimes:value
-    },()=>{
-      let ms = number*24*3600*1000;
-      console.log(new Date(parseInt(Math.round(new Date()))).toLocaleString().replace(/:\d{1,2}$/,' ')) 
-       let newms=parseInt(Math.round(new Date()));
-       console.log(new Date(parseInt(newms-ms)).toLocaleString().replace(/:\d{1,2}$/,' '));
-      let postarr = this.state.postarr.map((item)=>{
-        return item.createdDate>(newms-ms)
-       })
-       this.setState({
-         postarr:postarr
-       },()=>{
-         this.orderList(this.state.page);
-       })
+      howtimes: value
+    }, () => {
+      let ms = number * 24 * 3600 * 1000;
+      console.log(new Date(parseInt(Math.round(new Date()))).toLocaleString().replace(/:\d{1,2}$/, ' '))
+      let newms = parseInt(Math.round(new Date()));
+      console.log(new Date(parseInt(newms - ms)).toLocaleString().replace(/:\d{1,2}$/, ' '));
+      let postarr = this.state.postarr.map((item) => {
+        return item.createdDate > (newms - ms)
+      })
+      this.setState({
+        postarr: postarr
+      }, () => {
+        this.orderList(this.state.page);
+      })
     })
 
     // this.state.postarr.map((item)=>{
@@ -207,13 +227,13 @@ class Personal_My_order_all extends Component {
   render() {
     const menu = (
       <Menu>
-        <Menu.Item key="1" onClick={this.compareDate.bind(this,3,'最近3天')}>最近3天</Menu.Item>
+        <Menu.Item key="1" onClick={this.compareDate.bind(this, 3, '最近3天')}>最近3天</Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="2" onClick={this.compareDate.bind(this,7,'最近1周')}>最近1周</Menu.Item>
+        <Menu.Item key="2" onClick={this.compareDate.bind(this, 7, '最近1周')}>最近1周</Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="3" onClick={this.compareDate.bind(this,15,'最近15天')}>最近15天</Menu.Item>
+        <Menu.Item key="3" onClick={this.compareDate.bind(this, 15, '最近15天')}>最近15天</Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="4" onClick={this.compareDate.bind(this,31,'最近1月')}>最近1月</Menu.Item>
+        <Menu.Item key="4" onClick={this.compareDate.bind(this, 31, '最近1月')}>最近1月</Menu.Item>
       </Menu>
     );
     return (
@@ -255,7 +275,8 @@ class Personal_My_order_all extends Component {
 }
 const MapStateToProps = (state, OwnProps) => {
   return {
-    allorder: state.cartorder.orderlist.data
+    allorder: state.cartorder.orderlist.data,
+    all: state.cartorder
   }
 }
 

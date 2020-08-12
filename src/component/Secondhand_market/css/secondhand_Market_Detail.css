@@ -39,6 +39,7 @@ color:#ff26009c;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: center;
 }
 /* 卖家盒子 */
 .secprod_detailbox .sec_seller_wrap{
@@ -56,6 +57,7 @@ color:#ff26009c;
 .secprod_detailbox .sec_detailregion{
 font-size: 12px;
 float:right;
+margin-top: 7px;
 margin-right: 3px;
 }
 .secproductselectbox{

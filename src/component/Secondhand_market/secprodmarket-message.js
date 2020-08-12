@@ -1,41 +1,97 @@
 import React, { Component } from 'react';
 import './css/secprodmarket-message.css'
 import {Button} from 'antd'
-
+import Myfooter from '../commen/footer'
+import Myheader from '../commen/header'
+import Mysecheader from './secheader'
 class secprodmarket_detail extends Component {
     constructor(props) {
         super(props);
         this.state = { 
            
-        sec_detail:{ 
-            secprod_title:"处理办公桌椅",
-            secprod_price:"228",
-            secprod_img:["assets/images/min-banner1_03.jpg","assets/images/min-banner1_03.jpg"],
-            secprod_sellerimg:"assets/images/craftsman_07.jpg",
-            secprod_region:"武侯区",
-            secprod_region_detail:"玉林路",
-            secprod_phone:12345678909,
-            secprod_seller:"张倩倩",
-            secprod_status:"全新",
-            secprod_sellerdate:"2020-08-01",
-            secprod_describe:"好得很，有意者请跟我联系"
-        } ,
+            secdetail:{
+                title:"",
+                 price:"",
+                 img:["assets/images/min-banner1_03.jpg","assets/images/min-banner1_03.jpg"],
+                 address:"",
+                furtherAddress:"",
+                 phoneNumber:"",
+                  user:{
+                      name:"",
+                      avatar:"assets/images/craftsman_07.jpg",
+                      createdDate:""
+                  },
+                  newOld:"",
+                  description:""
+              
+                 },
         secimgdiv:[],
         shoucang:"收藏"
         }
     }
 
+
+// ========================================获取数据=====================================
+
+getproduct=(e)=>{
+   console.log(this.props.match.params.id)
+            fetch(`http://172.16.10.4:8080/banJu/secondHand/findById`,{                     
+              method:'POST',
+              headers:{
+                  'Content-Type':'application/json' 
+              },
+              credentials: 'include',
+              body:JSON.stringify(e)
+              }).then((res)=>{   
+                      
+                  return res.json();       
+              }).then((data)=>{
+      console.log(data.data)
+  
+        this.setState({
+            secdetail:{
+              title:data.data.title,
+               price:data.data.price,
+               img:["assets/images/min-banner1_03.jpg","assets/images/min-banner1_03.jpg"],
+               address:data.data.address,
+              furtherAddress:data.data.furtherAddress,
+               phoneNumber:data.data.phoneNumber,
+                user:{
+                    name:data.data.user.name,
+                    avatar:"assets/images/craftsman_07.jpg",
+                    createdDate:data.data.createdDate
+                },
+                newOld:data.data.newOld,
+                description:data.data.description
+            
+               }
+        },()=>{
+            let secimgdiv=this.state.secdetail.img.map((item,index)=>{
+                console.log(item)
+                return (
+                    <img src={require(`../../${item}`)} style={{marginRight:10}} key={"sec"+index} alt="商品图片"/>
+                )
+            })
+            this.setState({
+                secimgdiv:secimgdiv
+            })
+        })
+               
+              }).catch((e) => {
+                    
+              });
+        }
+
+
+
+
 // =======================================页面初始化=================================
 componentDidMount(){
-    let secimgdiv=this.state.sec_detail.secprod_img.map((item,index)=>{
-        console.log(item)
-        return (
-            <img src={require(`../../${item}`)} key={"sec"+index} alt="商品图片"/>
-        )
-    })
-    this.setState({
-        secimgdiv:secimgdiv
-    })
+
+this.getproduct({id:parseInt(this.props.match.params.id)})
+
+
+   
 }
  
 // =============================收藏=======================================
@@ -61,23 +117,29 @@ shoucang=()=>{
 
 
     render() { 
-        console.log(this.props.location)
+     
         return ( 
             <div>
+                <Myheader></Myheader>
+                <Mysecheader></Mysecheader>
                <div className="sec_detail_bigwrap">
                 {/* 主要内容盒子 */}
                 <div className="sec_detail_wrap">
                 {/* 详细信息盒子 */}
                <div className="sec_detail_box">
-                <p className="sec_detail_header">{this.state.sec_detail.secprod_title}  {this.state.sec_detail.secprod_price}元</p>
+                <p className="sec_detail_header">{this.state.secdetail.title}  {this.state.secdetail.price}元</p>
                 <div className="sec_detail">
-                    <img src={require(`../../${this.state.sec_detail.secprod_img[0]}`)} alt="商品图"/>
+                    <img src={require(`../../${this.state.secdetail.img[0]}`)} alt="商品图"/>
                     <div>
-                        <p>价格：</p>
-                        <p>成色：</p>
-                        <p>区域：</p>
-                        <p>卖家：</p>
-                        <p>电话：</p>
+        <p>价格：{this.state.secdetail.price}</p>
+
+    
+
+
+            <p>成色：{this.state.secdetail.newOld}</p>
+            <p>区域：{this.state.secdetail.address}</p>
+            <p>卖家：{this.state.secdetail.user.name}</p>
+            <p>电话：{this.state.secdetail.phoneNumber}</p>
                         <p>咨询：<span className="leavemessage">给我留言</span></p>
                         <div className="save_and_share">
                         <Button onClick={this.shoucang}>{this.state.shoucang}</Button>
@@ -91,22 +153,25 @@ shoucang=()=>{
                  {/* 卖家头像 与名字信息*/}
                <div className="sec_seller_info">
                    <div className="sec_sellerimg">
-                        <img src={require(`../../${this.state.sec_detail.secprod_sellerimg}`)} alt="卖家图片"/>
+                        <img src={require(`../../${this.state.secdetail.user.avatar}`)} alt="卖家图片"/>
                    </div>
-                   <p className="sec_seller">{this.state.sec_detail.secprod_seller}</p>
-                   <p>注册时间：{this.state.sec_detail.secprod_sellerdate}</p>
+                   <p className="sec_seller">{this.state.secdetail.user.name}</p>
+            <p>注册时间：
+                {this.state.secdetail.user.createdDate.substring(0,10)}
+                </p>
                </div>
                </div>
               <p className="secprod_history">TA的故事</p>
                {/* 商品描述与图片 */}
                <div className="secprod_describe">
-                    <p>新旧程度：{this.state.sec_detail.secprod_status}</p>
-                    <p>详细情况：{this.state.sec_detail.secprod_describe}</p>
-                    <div>
+                    <p>新旧程度：{this.state.secdetail.newOld}</p>
+                    <p>详细情况：{this.state.secdetail.description}</p>
+                    <div style={{display:"flex"}}>
                        {this.state.secimgdiv}
                     </div>
                </div>
                </div>
+               <Myfooter></Myfooter>
             </div>
          );
     }

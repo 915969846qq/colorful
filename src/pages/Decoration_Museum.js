@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Carousel,Row, Col,Table, } from 'antd';
+import Footer from "../component/commen/footer";
 // import "antd/dist/antd.css"
 import "./css/Decoration_Museum.css"
 import zhCN from "antd/es/locale/zh_CN";
@@ -8,57 +9,125 @@ import $ from "jquery"
 //装修馆
 
 
-const columns = [
-    {
-        dataIndex: 'name',
-        render:(record,data) => {
-           return <div> <div className="main-left-top">
-               <div className="left-IMGe"><a href="1"><img
-                   src={require("../assets/images/min-banner1_03.jpg")} alt=""/></a></div>
-               <div className="left_text">
-                   <h6 id="Company"><a href="1">四川居美家装饰工程有限公司</a></h6>
-                   <p>营业执照惠5月大型家装团购活动</p>
-                   <p className="Comparddss">地址 : <span>青羊区铜丝街8号</span></p>
-                   <p className="allvalue">效果图 :<span> 16</span>套 &nbsp;&nbsp;   签约
-                       : <span>30</span> 个 </p>
-               </div>
-               <div className="left-bottun">
 
-                   <p>口碑值 </p>
-                   <span>90</span>
-                   <a href="1">立即预约</a>
 
-               </div>
-           </div>
-               <div className="top20"></div>
-           </div>
-        }
-    },
 
-];
-
-const data = [
-    {
-        key: '1',
-
-    },
-    {
-        key: '2',
-
-    },
-    {
-        key: '3',
-
-    },
-];
 
 export default class Decoration_Museum extends Component {
+    constructor() {
+        super();
+        this.state={
+            selectmenu1:"",/*类型*/
+            selectmenu2:"",/*服务区域*/
+            selectmenu3:"",/*价格*/
+            selectmenu4:"",/*所在区域*/
+            ul:"综合推荐",
+            mix:"",
+            max:"",
+            zhuangxiu:"",
+            data:""
+
+        }
+    }
+
+    /*=====================数据渲染请求接口==============================*/
+
+  xuanran=()=>{
+            fetch('http://172.16.10.32:8080/banJu/service/selectByLike',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            credentials: 'include',
+            body:JSON.stringify({
+            page:2,
+            type:this.state.selectmenu1,
+            serviceAddress:this.state.selectmenu2,
+            undertakePriceMin:this.state.mix,
+            undertakePriceMax:this.state.max,
+            companyAddress:this.state.selectmenu4,
+            orderList:this.state.ul,
+        })
+        }).then((res)=>{
+            return res.json();
+        }).then((data)=>{
+            this.setState({
+                zhuangxiu:data.data
+            },()=>{
+                let data1=this.state.zhuangxiu;
+                let  changeData = JSON.parse(JSON.stringify(data1).replace(/id/g, 'key'));/*将数组里的id属性名改为key*/
+                // console.log(changeData)
+                console.log(data1)
+                this.setState({
+                    data:changeData
+                })
+                })
+
+
+        }).catch((e) => {
+            console.log("数据有误");
+        });
+
+  }
+
+
+
     componentDidMount(){
+        this.xuanran()
+        let that=this;
+        let mix;
+        let max;
         $(".zhuangxiu .top_table ul li").click(function () {
            $(this).css("background","#ff0000").css("color","white")
            $(this).siblings().css("background","none").css("color","#333")
+            that.setState({
+                [$(this).parent().attr("id")]:$(this).text()
+            },()=>{
+                let pirce=that.state.selectmenu3
+                var reg = RegExp(/上/);
+                var reg2 = RegExp(/下/);
+               if(pirce.match(reg)||pirce.match(reg2)){
+                   if (pirce.substring(0, pirce.length - 3)==3){
+                      mix=pirce.substring(0, pirce.length - 3)
+                   }else {
+                       max=pirce.substring(0, pirce.length - 3)
+                   }
+               }else {
+                   let idx = pirce.indexOf("—");
+                    mix=pirce.substring(0,idx)
+                    max=pirce.substring(idx+2,pirce.length-1)
+                   that.setState({
+                       mix:mix,
+                       max:max,
+                   })
+
+               }
+
+               // that.xuanran()
+
+
+            });
+            that.xuanran()
         })
+        $(".ul li").click(function () {
+            $(this).css("background","#ff0000").css("color","white")
+            $(this).siblings().css("background","none").css("color","#333")
+            that.setState({
+                [$(this).parent().attr("class")]:$(this).text()
+            })
+
+        })
+
+        let xuanxiang=that.state.ul
+
+        console.log( xuanxiang.replace(" v",""))
+
+        that.xuanran()
+
+
     }
+
+
     state = {
         selectedRowKeys: [], // Check here to configure the default column
     };
@@ -69,6 +138,35 @@ export default class Decoration_Museum extends Component {
 
     render() {
 
+        const columns = [
+            {
+                dataIndex: 'name',
+                render:(record,data) => {
+                    console.log(data)
+                    return <div> <div className="main-left-top">
+                        <div className="left-IMGe"><a href="1"><img
+                            src={require("../assets/images/min-banner1_03.jpg")} alt=""/></a></div>
+                        <div className="left_text">
+                            <h6 className="Company"><a href="1">{data.service.companyName}</a></h6>
+                            <p>营业执照惠5月大型家装团购活动</p>
+                            <p className="Comparddss">地址 : <span>青羊区铜丝街8号</span></p>
+                            <p className="allvalue">效果图 :<span> {data.signUpNum}</span>套 &nbsp;&nbsp;   签约
+                                : <span>{data.companyAddress}</span> 个 </p>
+                        </div>
+                        <div className="left-bottun">
+
+                            <p>口碑值 </p>
+                            <span>{data.service.praise}</span>
+                            <a href="1">立即预约</a>
+
+                        </div>
+                    </div>
+                        <div className="top20"></div>
+                    </div>
+                }
+            },
+
+        ];
 
         const { selectedRowKeys } = this.state;
 
@@ -110,6 +208,7 @@ export default class Decoration_Museum extends Component {
         };
 
         return (
+
             <div className="zhuangxiu">
 
                 {/*轮播*/}
@@ -130,7 +229,7 @@ export default class Decoration_Museum extends Component {
                 <div className="main">
                     <div className="top_table">
                         <h5>类型</h5>
-                        <ul>
+                        <ul id="selectmenu1">
                             <li className="btchecker" >普通住宅</li>
                             <li className="">小户型</li>
                             <li className="">别墅</li>
@@ -143,7 +242,7 @@ export default class Decoration_Museum extends Component {
                             <li className="">更多</li>
                         </ul>
                         <h5>服务区域</h5>
-                        <ul>
+                        <ul id="selectmenu2">
                             <li className="btchecker">都江堰</li>
                             <li className="">彭州</li>
                             <li className="">邛崃</li>
@@ -156,7 +255,7 @@ export default class Decoration_Museum extends Component {
                             <li className="">更多</li>
                         </ul>
                         <h5>承接价位</h5>
-                        <ul>
+                        <ul id="selectmenu3">
                             <li className="btchecker">3万以下</li>
                             <li className="">3——5万</li>
                             <li className="">5——8万</li>
@@ -166,7 +265,7 @@ export default class Decoration_Museum extends Component {
                             <li className="">100万以上</li>
                         </ul>
                         <h5>所在区域</h5>
-                        <ul>
+                        <ul id="selectmenu4">
                             <li className="btchecker" >都江堰</li>
                             <li className="">彭州</li>
                             <li className="">邛崃</li>
@@ -195,7 +294,7 @@ export default class Decoration_Museum extends Component {
 
                                 <Table rowSelection={rowSelection}
                                        columns={columns}
-                                       dataSource={data}
+                                       dataSource={this.state.data}
                                        bordered="true"
                                        border="1px solid black"
                                        tableLayout="fixed"
@@ -226,122 +325,14 @@ export default class Decoration_Museum extends Component {
                         </div>
 
 
-                        {/*页脚*/}
-                        <div id="footer">
-                            <div className="footer">
-                                <div className="footer-top">
-                                    <div className="footer-top-left">
-                                        <p>购物指南</p>
-                                        <ul>
-                                            <li>
-                                                <a href="1">会员注册</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">如何订购</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">如何支付</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">订单处理</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">配送方式</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="footer-top-left">
-                                        <p>装修服务</p>
-                                        <ul>
-                                            <li>
-                                                <a href="1">装修齐家保</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">免费第三方监理</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">环保装修</a>
-                                            </li>
 
-                                        </ul>
-                                    </div>
-                                    <div className="footer-top-left">
-                                        <p>购物保障</p>
-                                        <ul>
-                                            <li>
-                                                <a href="1">正品保障</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">先行赔付</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">延迟赔偿</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">7天无理由退换货</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">投诉维权</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="footer-top-left">
-                                        <p>团购知识</p>
-                                        <ul>
-                                            <li>
-                                                <a href="1">团购知识</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">团购活动</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">团购价格</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="footer-top-left">
-                                        <p>定制服务</p>
-                                        <ul>
-                                            <li>
-                                                <a href="1">价格特搜</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">装修顾问</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">齐家装修学堂</a>
-                                            </li>
-                                            <li>
-                                                <a href="1">装修齐家保</a>
-                                            </li>
 
-                                        </ul>
-                                    </div>
-                                </div>
-                            <p className="center1">About PCGROUP | 网站介绍 | 隐私政策 | 广告服务 | 合作媒体 | 投稿指南 | 使用条款 | 联系我们 | 招聘精英 | 网站地图 | 用户体验提升计划</p>
-                            <p className="center">太平洋网络: 太平洋电脑网 | 太平洋汽车网 | 太平洋时尚网 | 太平洋亲子网 | 太平洋家居网</p>
-                            <p className="center">未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任</p>
-                                <div className="footer-bottom">
-                                    <p>2005-2016 科乐福版权所有，并保留所有权利。</p>
-                                    <p>
-                                        关于我们 联系我们 友情链接 帮助中心 意见反馈 高薪聘请 法律声明
-                                    </p>
-                                    <p>ICP备案证书号:蜀ICP备00000000号</p>
-
-                                    <div className="footer-icon">
-                                        <img
-                                            className="full1"
-                                            src={require('../assets/images/footer-icon_03.png')}
-                                            alt=""
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </Col>
                     <Col span={1}></Col>
                 </Row>
+                {/*页脚*/}
+                <Footer/>
             </div>
 
         )

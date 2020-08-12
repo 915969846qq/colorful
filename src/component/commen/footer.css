@@ -1,65 +1,132 @@
-#footer {
+.gonggong #footer {
     padding-top: 100px;
     padding-bottom: 100px;
-    border:0;
     clear: both;
 }
-.footer {
+.gonggong .footer {
     height: 360px;
     border-top: 1px solid #f76d1d;
 }
-.footer-top {
+.gonggong .footer-top {
     height: 200px;
 }
-.footer-top-left {
+.gonggong .footer-bottom {
+    margin-top: 30px;
+    clear: both;
+}
+.gonggong .footer-top-left {
     width: 240px;
     float: left;
     text-align: center;
 }
-.footer-top-left P {
+.gonggong .footer-top-left P {
+    margin-left: 10px;
     font-size: 14px;
     color: #595959;
     margin-top: 35px;
     line-height: 24px;
 }
-.footer-top-left ul {
+.gonggong .footer-top-left ul {
     width: 240px;
-    height: 225px;
+    height: 100px;
 }
-.footer-top-left ul li {
-    clear: both;
-    width: 40px;
-    height: 45px;
-    list-style: inside;
-    cursor: pointer;
-    /*margin: 0 auto;*/
-   position: relative;
-    left: 80px;
 
+.gonggong .footer-top-left ul li {
+    width: 120px;
+    height: 34px;
+    list-style: none;
+    cursor: pointer;
+    margin-left: -15px;
 }
-.footer-top-left ul li a {
+.gonggong .footer-top-left ul li a {
     height: 24px;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     display: block;
     line-height: 24px;
     font-size: 12px;
     color: #595959;
 }
-.footer-bottom {
-    margin-top: 30px;
-}
-.footer-bottom p {
+.gonggong .footer-bottom p {
     text-align: center;
     font-size: 12px;
     color: #b2b2b2;
     line-height: 16px;
 }
-.footer-icon {
+.gonggong .footer-icon {
     margin-top: 10px;
     text-align: center;
 }
-.full1{
+.gonggong .full1{
     height: 42px;
     width: 163px;
 }
+/*.fill_In {*/
+
+/*    width: 120px;*/
+/*    text-align: right;*/
+/*    float: left;*/
+/*}*/
+.gonggong .fill_In select {
+    float: left;
+    height: 30px;
+    margin-left: 20px;
+    color: #0f0f0f;
+}
+.gonggong .left_text h6 a {
+    font-size: 18px;
+    color: #585858;
+    line-height: 60px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.gonggong .left_text p {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+}
+.gonggong .left_text .allvalue {
+    font-size: 16px;
+    color: #5f5f5f;
+    line-height: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.gonggong .ant-table-row .ant-table-selection-column{
+    /*display: none;*/
+}
+.gonggong .ant-table-thead{
+    /*display: none;*/
+    border: 0;
+}
+.gonggong .ant-table-row .ant-table-cell{
+    padding: 0;
+    border: 0;
+}
+.gonggong .ant-table-cell{
+    padding: 0;
+    border: 0;
+
+}
+.gonggong .ant-table-row{
+    padding: 0;
+    border: 0;
+
+}
+.gonggong .top20{
+    height: 20px;
+}
+.gonggong .center{
+    text-align: center;
+}
+.gonggong .center1{
+    margin-top: 80px;
+    text-align: center;
+}
+/*.ant-table-thead{*/
+/*    display: none;*/
+/*}*/
+/*.ant-table-row .ant-table-cell{*/
+/*    padding: 0;*/
+/*}*/

@@ -80,26 +80,15 @@ class Manage extends Component {
             >
               订单管理
             </Menu.Item>
-            <SubMenu
-              key="/manage/UsersStatistics"
-              title="用户统计"
-              icon={<DesktopOutlined />}
-            >
+
               <Menu.Item
                 key="/manage/UsersStatistics"
                 onClick={this.go}
                 icon={<DesktopOutlined />}
               >
-                消费者统计
+                用户统计
               </Menu.Item>
-              <Menu.Item
-                key="/manage/MerchantStatistics"
-                onClick={this.go}
-                icon={<DesktopOutlined />}
-              >
-                商户统计
-              </Menu.Item>
-            </SubMenu>
+
             <SubMenu
               key="/manage/Usersaudit"
               title="用户审核"

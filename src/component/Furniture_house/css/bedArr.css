@@ -14,7 +14,7 @@
 }
 .bedStyle .Flex{
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
 }
 .bedStyle .craftsman_Info{
     justify-content: space-between;
@@ -36,6 +36,7 @@ color: red;
 font-size: 24px;
 }
 .bedStyle .money-big{
+    font-size: 16px;
     color: #c3c2c2;
     line-height: 60px;
 }
@@ -104,3 +105,11 @@ font-size: 24px;
     color: white;
     background-color: red;
 }
+.bedStyle .example {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 350px 50px;
+    margin: 20px 0;
+  }

@@ -4,8 +4,9 @@ import { Button, Input } from 'antd'
 import './css/Secondhand_Market.css'
 import './css/secondhand_Market_Detail.css'
 import $ from 'jquery'
-
+import Myfooter from '../commen/footer'
 import Myheader from '../commen/header'
+import Mysecheader from './secheader'
 // 二手市场
 
 export default class Secondhand_Market extends Component {

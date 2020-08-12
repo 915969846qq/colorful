@@ -19,7 +19,7 @@ export default class usersaudited extends Component {
     }
   }
   UNSAFE_componentWillMount() {
-    fetch('http://172.16.10.4:8080/banJu/manager/selectIsLegal',{           
+    fetch('http://47.100.90.56:8080/banJu/manager/selectIsLegal',{           
                       method:'POST',
                       headers:{
                           'Content-Type':'application/json' 

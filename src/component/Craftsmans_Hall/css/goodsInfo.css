@@ -34,11 +34,19 @@
     line-height: 24px;
     text-align: center;
     border: 1px solid #333;
+    background-color: red;
+    color:white;
     margin: 4px;
     cursor: pointer;
 }
 .FurnitureGoods .sizeBoxNone{
-    display: none;
+    width:100px;
+    height:24px;
+    line-height: 24px;
+    text-align: center;
+    border: 1px solid #333;
+    margin: 4px;
+    cursor: pointer;
 }
 .FurnitureGoods .align{
     justify-content: space-between;
@@ -100,6 +108,7 @@
 }
 .FurnitureGoods .shoucang{
     width: 20px;
+    margin-top: -5px;
 }
 .FurnitureGoods .border{
     border-top: 1px solid #999;
@@ -136,4 +145,22 @@
 }
 .FurnitureGoods .leftBox{
     width: 680px;
+}
+.FurnitureGoods .addNum{
+    width: 50px;
+    height: 20px;
+    color: white;
+    background-color: red;
+    font-size: 20px;
+    text-align: center;
+    line-height: 15px;
+    user-select: none;
+}
+.FurnitureGoods .buyNum{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 16px;
+
 }

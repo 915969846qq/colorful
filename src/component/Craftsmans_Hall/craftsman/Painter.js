@@ -12,7 +12,7 @@ class Painter extends Component {
          }
     }
     UNSAFE_componentWillMount(){
-                fetch('http://172.16.10.11:8080/banJu/craftsmanDetail/selectYouQiGongByHot',{                     
+                fetch('http://47.100.90.56:8080/banJu/craftsmanDetail/selectYouQiGongByHot',{                     
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json' 
