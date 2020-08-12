@@ -936,7 +936,8 @@ export default class Craftsman_Settled_company extends Component {
         })
 
     }
-    //========================================
+    //==================确认添加所有信息======================
+
     qd(){
         // console.log(this.state)
         // console.log(this.state.imageUrl)
