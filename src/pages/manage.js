@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import { withRouter, Route, Redirect } from 'react-router-dom'
 import { secroutes } from '../router/manageRoute'
+import axios from 'axios'
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -28,6 +29,10 @@ class Manage extends Component {
   onCollapse = (collapsed) => {
     console.log(collapsed)
     this.setState({ collapsed })
+  }
+  orderClick = () => {
+    console.log('刷新页面')
+    location.reload()
   }
   render() {
     return (
@@ -57,6 +62,7 @@ class Manage extends Component {
               key="/manage/OrderStatistics"
               onClick={this.go}
               icon={<DesktopOutlined />}
+              onClick={this.orderClick}
             >
               订单管理
             </Menu.Item>

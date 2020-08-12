@@ -104,7 +104,7 @@ export default class Decoration_Write_diary extends Component {
       <div className="fang_Width1200">
         <form action="/WriteDiary.do" method="post">
           <h2 className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
-            写日记
+            写日记+++++++++++++++++++++++
           </h2>
           <Divider />
           <Row className="fang_marginT20">
@@ -200,11 +200,6 @@ export default class Decoration_Write_diary extends Component {
               </Row>
             </Col>
           </Row>
-          {/* 选择日期 */}
-          {/* <h2 className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
-            选择日期
-          </h2>
-          <DatePicker onChange={onChange} className="fang_width200" /> */}
           <Divider />
           <div>
             <p>

@@ -55,10 +55,10 @@ export default class Personal_personal_information extends Component {
         <div className="personal_info">
           <div className="personal_img">
             <span>头像 :</span>
-            <img
+            {/* <img
               src={require(`../../assets/images/${this.state.sec_sellerimg}`)}
               alt="头像"
-            />
+            /> */}
           </div>
           <div>
             <span>真实姓名 :</span>

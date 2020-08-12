@@ -9,42 +9,52 @@ export default class Decoration_My_diary extends Component {
   constructor(props) {
     super(props)
     // console.log(props.location.params)
-    this.state = {
-      data: 1,
-    }
+    this.state = {}
     if (props.location.params !== undefined) {
       sessionStorage.setItem('data', JSON.stringify(props.location.params))
     }
+    let mydata = JSON.parse(sessionStorage.getItem('data'))
+    console.log(mydata.id)
+    // 发送请求
+    let data = {}
+    data.id = mydata.id
+    axios
+      .post('http://172.16.10.56:8080/banJu/Diary/findAllById', data)
+      .then((response) => {
+        console.log(response)
+        let alldata = response.data.data[0]
+        this.setState(
+          {
+            data: mydata,
+            commitdata: alldata,
+          },
+          () => {
+            console.log(this.state)
+          }
+        )
+      })
     // 页面获取数据
     // console.log('现在是获取数据111')
-    // console.log(this.state.data)
     Store.dispatch({
       type: 'Decoration_data',
       id: this.state.data,
     })
-    // 发送请求
-    // axios
-    //   .get('http://localhost:8888/user.do', { username: '2495944984@111' })
-    //   .then((response) => {
-    //     console.log(response)
-    //   })
   }
-  // componentDidMount() {
-  //   console.log('现在是获取数据')
-  //   console.log(this.state.data)
-  //   Store.dispatch({
-  //     type: 'Decoration_data',
-  //     data: '传递数据',
-  //   })
-  // }
+
   componentWillUnmount() {
     // console.log('1111')
     sessionStorage.clear()
   }
   render() {
-    return (
+    console.log(this.state.commitdata === undefined)
+    // if(this.state.id===undefined){}
+    return this.state.commitdata === undefined ? (
+      <div>1</div>
+    ) : (
       <div className="fang_Width1200">
-        <div className="fang_GBcolor fang_title">我的装修日记</div>
+        <div className="fang_GBcolor fang_title">
+          {this.state.data.name}的装修日记
+        </div>
         <Row className="fang_Border">
           {/* 用户头像 */}
           <Col span={4} className="fang_center fang_marginT20">
@@ -55,29 +65,45 @@ export default class Decoration_My_diary extends Component {
             />
           </Col>
           {/* 装修基本信息 */}
-          <Col span={5} offset={1}>
-            <h2>用户名</h2>
-            <p>评论时间</p>
-            <p>房屋信息</p>
-            <p>房屋地址</p>
+          <Col span={6} offset={1}>
+            <h2 className="fang_marginT20">{this.state.data.name}</h2>
+            <p>{this.state.commitdata.createdDate}</p>
             <p>
-              装修公司 <span>修改资料</span>
+              <span>房屋信息 : </span>
+              <span className="fang_marginL20">
+                {this.state.commitdata.houseInfo.builtArea}平米
+              </span>
+              <span className="fang_marginL20">
+                {this.state.commitdata.houseInfo.city}
+              </span>
+              <span className="fang_marginL20">
+                {this.state.commitdata.houseInfo.style}
+              </span>
+            </p>
+            <p>
+              <span>所在小区 : </span>
+              <span className="fang_marginL20">
+                {this.state.commitdata.houseInfo.community}
+              </span>
+            </p>
+            <p>
+              <span>装修公司 : </span>
+              <span className="fang_marginL20">
+                {this.state.commitdata.houseInfo.decorationCompany}
+              </span>{' '}
+              <span className="fang_marginL20">修改资料</span>
             </p>
           </Col>
           {/* 他人浏览 */}
-          <Col span={9}>
+          <Col span={8}>
             <Row align="middle" className="fang_height">
-              <Col span={6} className="fang_rline" offset={6}>
-                <p>多少人</p>
+              <Col span={9} className="fang_rline" offset={6}>
+                <p>{this.state.commitdata.viewsNum}</p>
                 <span>浏览</span>
               </Col>
-              <Col span={6} className="fang_rline">
-                <p>多少人</p>
-                <span>收藏</span>
-              </Col>
-              <Col span={6}>
-                <p>多少人</p>
-                <span>回复</span>
+              <Col span={9}>
+                <p>{this.state.commitdata.diaryEvaluationList.length}</p>
+                <span>评论</span>
               </Col>
             </Row>
           </Col>
@@ -92,7 +118,7 @@ export default class Decoration_My_diary extends Component {
         {/* 日记篇数 */}
         <div className="fang_marginT20">
           <Button type="primary" danger>
-            全部日记共**篇
+            全部日记共{this.state.commitdata.evaluationNum}篇
           </Button>
         </div>
         {/* 拆改装修信息 */}
@@ -106,12 +132,8 @@ export default class Decoration_My_diary extends Component {
           {/* 评论内容 */}
           <div className="fang_width1100">
             <Divider />
-            <p className="fang_relative">
-              评论时间
-              <span className="fang_option_write fang_RBcolor">编辑</span>
-              <span className="fang_option_delet fang_RBcolor">删除</span>
-            </p>
-            <p>装修公司对客户提醒合同信息</p>
+            <p className="fang_relative">{this.state.commitdata.name}</p>
+            <p>{this.state.commitdata.content}</p>
             {/* 发送的图片 */}
             <Row>
               <Col>
@@ -136,7 +158,9 @@ export default class Decoration_My_diary extends Component {
             <div className="fang_marginT20 fang_flex">
               <div className="fang_align">
                 <span className="iconfont icon-xinxi fang_RBcolor"></span>
-                <span className="fang_marginL20">多少条回复</span>
+                <span className="fang_marginL20">
+                  {this.state.commitdata.diaryEvaluationList.length}回复
+                </span>
               </div>
               <div className="fang_align">
                 <span className="fang_align">分享到：</span>
@@ -147,7 +171,9 @@ export default class Decoration_My_diary extends Component {
             </div>
             <Divider />
             <Row className="fang_Button50">
-              <Col span={5}>所有评论 | 多少条</Col>
+              <Col span={5}>
+                所有评论 | {this.state.commitdata.diaryEvaluationList.length}条
+              </Col>
               <Col span={19}></Col>
             </Row>
             <Row>
@@ -162,9 +188,10 @@ export default class Decoration_My_diary extends Component {
               </Col>
               <Col span={20}>
                 <div className="fang_WBcolor fang_Middel fang_relative">
-                  <span>评论用户名</span>
-                  <span className="fang_marginL20">评论发布时间</span>
-                  <span className="fang_option_delet fang_RBcolor">回复</span>
+                  <span>{this.state.commitdata.name} :</span>
+                  <span className="fang_marginL20">
+                    {this.state.data.content}
+                  </span>
                 </div>
               </Col>
             </Row>
@@ -174,13 +201,11 @@ export default class Decoration_My_diary extends Component {
                 offset={2}
                 className="fang_padding20 fang_marginT20"
               >
-                <div>
-                  <span>用户 </span>
-                  <span>回复</span>
-                  <span> 装修人员</span>
-                </div>
+                {/* <div>
+                  <span>{this.state.data.name} </span>
+                </div> */}
                 <div className="fang_padding20">
-                  <span>快装修好了！你家呢？</span>
+                  <Comment mydata={this.state.commitdata} loc={this}></Comment>
                 </div>
               </Col>
             </Row>
@@ -215,19 +240,32 @@ export default class Decoration_My_diary extends Component {
       </div>
     )
   }
+
   // 调用方法
   send = (data) => {
     document.getElementsByClassName('fang_noborder')[0].value = ''
-    console.log(this.state)
-    axios
-      .post('http://172.16.10.56:8080/banJu/Evaluation/saveToDiary', {
-        did: '1',
-        ruid: '1',
-        desc: this.state.text,
-      })
-      .then((response) => {
-        console.log(response)
-      })
+    console.log(this.state.data)
+    console.log(sessionStorage.getItem('user'))
+    let ruie = JSON.parse(sessionStorage.getItem('user'))
+    let usercommit = {}
+    usercommit.did = this.state.commitdata.id
+    usercommit.ruid = ruie.id
+    usercommit.desc = this.state.text
+    console.log(usercommit)
+    if (sessionStorage.getItem('user') !== null) {
+      axios
+        .post('http://172.16.10.56:8080/banJu/Evaluation/saveToDiary', {
+          did: '1',
+          ruid: '1',
+          desc: this.state.text,
+        })
+        .then((response) => {
+          console.log(response)
+        })
+    } else {
+      console.log('请登录用户')
+      window.location.href = '/Sign_in'
+    }
   }
   // 获取输入的文本
   mytext = (data) => {
@@ -235,5 +273,21 @@ export default class Decoration_My_diary extends Component {
     this.setState({
       text: data.target.value,
     })
+  }
+}
+// 评论内容
+function Comment(props) {
+  console.log(props)
+  if (props.mydata !== undefined) {
+    let data = props.mydata.diaryEvaluationList
+    let List = data.map((item, index) => (
+      <div key={item.desc} className="fang_height30">
+        <span>{item.user.name} :</span>
+        <span className="fang_marginL20">{item.desc}</span>
+      </div>
+    ))
+    return List
+  } else {
+    return 1
   }
 }

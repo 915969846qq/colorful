@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import './css/Personal_Decoration_diary.css'
 // import thunk from 'redux-thunk'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import {
-    // orderListAction,
-    // recommendAction,mycartAction,
-    // cartListAction,
-    diaryListAction
-  } from '../../action/peresonal_cartOrder_action'
+  // orderListAction,
+  // recommendAction,mycartAction,
+  // cartListAction,
+  diaryListAction,
+} from '../../action/peresonal_cartOrder_action'
 import store from '../../store/personal_cartOrder_store'
-
 
 //装修日记
 
@@ -58,24 +57,24 @@ export default class Personal_Decoration_diary extends Component {
             </div>
             <div className="diary-content-header-right">
               <div>
-                <img
+                {/* <img
                   src={require('../../assets/images/Collection_icon_03.png')}
                   alt="icon03"
-                ></img>
+                ></img> */}
                 <span>{this.state.number.look}</span>
               </div>
               <div>
-                <img
+                {/* <img
                   src={require('../../assets/images/Collection_icon_05.png')}
                   alt="icon05"
-                ></img>
+                ></img> */}
                 <span>{this.state.number.collection}</span>
               </div>
               <div>
-                <img
+                {/* <img
                   src={require('../../assets/images/Collection_icon_08.png')}
                   alt="icon08"
-                ></img>
+                ></img> */}
                 <span>{this.state.number.comment}</span>
               </div>
             </div>
@@ -111,7 +110,9 @@ export default class Personal_Decoration_diary extends Component {
         <div>
           {this.state.diary}
           <div className="diary-footer">
-            <a href>+新建装修日记</a>
+            <a href="/Personal_Center_index/Decoration_Write_diary">
+              +新建装修日记
+            </a>
           </div>
         </div>
       </div>
@@ -119,17 +120,17 @@ export default class Personal_Decoration_diary extends Component {
   }
 }
 
-const MapStateToProps = (state, OwnProps) => {
-    
-    return {
-      diary:state.cartorder.alldiary
-    }
-  }
-const MapDispatchProps = () => {
-    return {
-        getdiary: (param={param:9})=>{
-           store.dispatch(diaryListAction(param))
-        }
-    }
-}
-export default connect(MapStateToProps,MapDispatchProps)(Personal_Decoration_diary)
+// const MapStateToProps = (state, OwnProps) => {
+
+//     return {
+//       diary:state.cartorder.alldiary
+//     }
+//   }
+// const MapDispatchProps = () => {
+//     return {
+//         getdiary: (param={param:9})=>{
+//            store.dispatch(diaryListAction(param))
+//         }
+//     }
+// }
+// export default connect(MapStateToProps,MapDispatchProps)(Personal_Decoration_diary)

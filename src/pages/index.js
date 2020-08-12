@@ -8,69 +8,70 @@ import '../Css/index11.css'
 //首页
 
 export default class index extends Component {
-  constructor(){
-    super();
-    this.state={
-      p:""
-    }  
-  }
-  back(){
-    sessionStorage.clear("user");
-  }
-  person(){
-    if(sessionStorage.user===undefined){
-      this.props.history.push("/Sign_in");
-    }else{
-      this.props.history.push("/Personal_Center_index");
+  constructor() {
+    super()
+    this.state = {
+      p: '',
     }
   }
-  componentDidMount(){
-    if(sessionStorage.user===undefined){
-      let p1 = <span id="user11"><Link to="/Sign_in" className="sn-login">请登录</Link><Link to="/Sign_Register">免费注册</Link></span>
-      this.setState({
-        p:p1
-      })
-    }else{
-      let userLogin = sessionStorage.getItem("user");  
-      let userEmtiy = JSON.parse(userLogin); 
-      this.setState({
-        user:userEmtiy.user,
-        kk:"",
-      },()=>{
-        let p1 =<span id="user11">用户名：{this.state.user} <em id="user12"><Link to="/Sign_in" onClick={this.back.bind(this)}>退出</Link></em></span> 
-        this.setState({
-          p:p1
-        })
-      })
+  back() {
+    sessionStorage.clear('user')
+  }
+  person() {
+    if (sessionStorage.user === undefined) {
+      this.props.history.push('/Sign_in')
+    } else {
+      this.props.history.push('/Personal_Center_index')
     }
   }
-
-  // componentDidMount(){
-  //   let kk = $("#user11").text();
-  //   console.log(kk.substring(7,11).replace(",","*"));
-  //   this.setState({
-  //     kk:kk1
-  //   })
-  // }
+  componentDidMount() {
+    if (sessionStorage.user === undefined) {
+      let p1 = (
+        <span id="user11">
+          <Link to="/Sign_in" className="sn-login">
+            请登录
+          </Link>
+          <Link to="/Sign_Register">免费注册</Link>
+        </span>
+      )
+      this.setState({
+        p: p1,
+      })
+    } else {
+      let userLogin = sessionStorage.getItem('user')
+      let userEmtiy = JSON.parse(userLogin)
+      this.setState(
+        {
+          user: userEmtiy.user,
+          kk: '',
+        },
+        () => {
+          let p1 = (
+            <span id="user11">
+              用户名：{this.state.user}{' '}
+              <em id="user12">
+                <Link to="/Sign_in" onClick={this.back.bind(this)}>
+                  退出
+                </Link>
+              </em>
+            </span>
+          )
+          this.setState({
+            p: p1,
+          })
+        }
+      )
+    }
+  }
 
   render() {
-    const contentStyle = {                      
+    const contentStyle = {
       color: 'red',
       lineHeight: '400px',
     }
     return (
       <div className="index">
         <div id="body">
-          {/* <Router> */}
-          {/* <Route path="/Building_materials_Museum"  component={Building_materials_Museum}></Route> */}
-          {/* <Route path="/Sign_Register"  component={Sign_Register}></Route> */}
-          {/* <Route path="/Craftsman_Pavilion" component={Craftsman_Pavilion}></Route>
-                        <Route path="/Decoration_Museum" component={Decoration_Museum}></Route>
-                        <Route path="/Furniture_Museum" component={Furniture_Museum}></Route>
-                        <Route path="/Home_Museum" component={Home_Museum}></Route> */}
-          {/* <Route path="/Personal_Center_index" component={Personal_Center_index}></Route>  */}
-          {/* <Route path="/Secondhand_Market" component={Secondhand_Market}></Route>
-                        <Route path="/Style_pavilion" component={Style_pavilion}></Route>      */}
           <div className="body">
             <div id="site-nav" data-spm="a2226mz" role="navigation">
               <div id="sn-bg">
@@ -82,16 +83,11 @@ export default class index extends Component {
                     <em data-spm-anchor-id="875.7931836/B.a2226mz.i0.2cc94265bHtErm">
                       欢迎来科乐福
                     </em>
-                    {/* <Link to="/Sign_in" className="sn-login">
-                      请登录
-                    </Link>   
-                    <Link to="/Sign_Register">免费注册</Link>
-                    <span id="user11">{this.state.user}</span> */}
                     {this.state.p}
                   </p>
-                  
+
                   <ul className="sn-quick-menu">
-                    <li className="sn-mytaobao menu-item j_MyTaobao"></li>    
+                    <li className="sn-mytaobao menu-item j_MyTaobao"></li>
                     <li className="sn-cart">
                       <i className="fp-iconfont iconfont icon-qicheqianlian-"></i>
                       <a
@@ -141,7 +137,10 @@ export default class index extends Component {
                       </a>
                     </li>
                     <li className="sn-seller menu-item">
-                      <span className="menu-hd" onClick={this.person.bind(this)}>
+                      <span
+                        className="menu-hd"
+                        onClick={this.person.bind(this)}
+                      >
                         个人中心
                       </span>
                     </li>
@@ -295,6 +294,10 @@ export default class index extends Component {
 
                       <Link to="/Furniture_Museum">
                         家具馆
+                        <div className="hover-pic"></div>
+                      </Link>
+                      <Link to="/Decoration_Diary_list">
+                        日志馆
                         <div className="hover-pic"></div>
                       </Link>
                     </div>

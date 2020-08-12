@@ -190,7 +190,7 @@
 .fang_mybtn {
   width: 120px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 15px !important;
   color: #ffffff;
   background: #ff0000;
   border: 0;
@@ -296,4 +296,12 @@
 .fang_myhover:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+.fang_outdate {
+  background: #999999;
+}
+.fang_Bcolor9 {
+  color: #999999;
+  letter-spacing: 18px;
+  cursor: pointer;
 }

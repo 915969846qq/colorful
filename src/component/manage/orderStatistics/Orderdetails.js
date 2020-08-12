@@ -14,8 +14,13 @@ class Orderdetails extends Component {
       sessionStorage.setItem('data', JSON.stringify(this.props.location.data))
     }
     let mydata = JSON.parse(sessionStorage.getItem('data'))
+    mydata.goods.goodsNum = mydata.goodsNum
+    mydata.goods.allprice = mydata.goods.goodsNum * mydata.goods.price
+    let arr = []
+    arr.push(mydata.goods)
     this.state = {
       data: mydata,
+      tabledata: arr,
     }
   }
   // 页面销毁时清除session
@@ -33,48 +38,48 @@ class Orderdetails extends Component {
       <div>
         {/* <h1 className="fang_FangCenter fang_paddingb20">订单详情</h1> */}
         <Row className="fang_EBColor fang_paddingt20">
-          <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
+          {/* <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             物流编号 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            {this.state.data.logistics_id}
-          </Col>
+            {this.state.data.logisticsid}
+          </Col> */}
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             订单编号 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            {this.state.data.order_id}
+            {this.state.data.id}
           </Col>
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             订单生成时间 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            {this.state.data.order_time}
+            {this.state.data.createdDate}
           </Col>
 
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             订单商家名称 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            {this.state.data.deliver_name}
+            {this.state.data.merchantDetail.companyName}
           </Col>
-          <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
+          {/* <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             货运类型 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            {this.state.data.goods_type}
+            {this.state.data.goodstype}
           </Col>
           <Col span={3} className=" fang_font18 fang_marginB20 fang_Tright">
             物流路线 :
           </Col>
           <Col span={5} className="fang_font18 fang_marginB20 fang_padding30">
-            {this.state.data.deliver_city}——{this.state.data.receiving_city}
-          </Col>
+            {this.state.data.delivercity}——{this.state.data.receivingcity}
+          </Col> */}
         </Row>
         <h3 className="fang_marginT20 fang_marginB20 fang_padding30 fang_Lline">
           订单详情信息
         </h3>
-        <div>
+        <div className="fang_lineB">
           <div>
             <Row className="fang_EBColor fang_height30">
               <Col span={12} className="fang_padding20">
@@ -95,7 +100,7 @@ class Orderdetails extends Component {
                     收货人:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    {this.state.data.receiving_name}
+                    {this.state.data.consigneeName}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
@@ -103,7 +108,7 @@ class Orderdetails extends Component {
                     联系电话:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    {this.state.data.receiving_tel}
+                    {this.state.data.phoneNumber}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
@@ -111,7 +116,7 @@ class Orderdetails extends Component {
                     收货地址:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    {this.state.data.receiving_address}
+                    {this.state.data.newaddress}
                   </Col>
                 </Row>
               </Col>
@@ -125,7 +130,7 @@ class Orderdetails extends Component {
                     发货商:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    {this.state.data.deliver_name}
+                    {this.state.data.merchantDetail.companyName}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
@@ -133,7 +138,7 @@ class Orderdetails extends Component {
                     联系方式:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    {this.state.data.deliver_tel}
+                    {this.state.data.merchantDetail.phoneNumber}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
@@ -141,18 +146,18 @@ class Orderdetails extends Component {
                     发货地址:
                   </Col>
                   <Col span={18} className="fang_padding20">
-                    {this.state.data.deliver_address}
+                    {this.state.data.merchantDetail.address}
                   </Col>
                 </Row>
               </Col>
             </Row>
-            {/* 物流信息 */}
+            {/* 物流信息
             <Row className="fang_EBColor fang_height30">
               <Col span={24} className="fang_padding20">
                 物流信息
               </Col>
             </Row>
-            {/* 物流详情 */}
+            物流详情
             <Row className="fang_lineR fang_lineL fang_lineB">
               <Col span={24} className="fang_paddingt20 fang_paddingb20">
                 <Row className="fang_paddingt10">
@@ -160,7 +165,7 @@ class Orderdetails extends Component {
                     物流公司:
                   </Col>
                   <Col span={22} className="fang_padding20">
-                    {this.state.data.logistics_name}
+                    {this.state.data.logisticsname}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
@@ -168,7 +173,7 @@ class Orderdetails extends Component {
                     物流单号:
                   </Col>
                   <Col span={22} className="fang_padding20">
-                    {this.state.data.logistics_id}
+                    {this.state.data.logisticsid}
                   </Col>
                 </Row>
                 <Row className="fang_paddingt10">
@@ -176,11 +181,11 @@ class Orderdetails extends Component {
                     备注说明:
                   </Col>
                   <Col span={22} className="fang_padding20">
-                    {this.state.data.logistics_remarks}
+                    {this.state.data.logisticsremarks}
                   </Col>
                 </Row>
               </Col>
-            </Row>
+            </Row> */}
           </div>
           <Row></Row>
           <Row></Row>
@@ -190,7 +195,11 @@ class Orderdetails extends Component {
         </h3>
         <Row className="fang_lineR fang_lineL">
           <Col span={24}>
-            <Table columns={columns} dataSource={data} pagination={false} />
+            <Table
+              columns={columns}
+              dataSource={this.state.tabledata}
+              pagination={false}
+            />
           </Col>
         </Row>
         <Row className="fang_margint50">
@@ -212,37 +221,21 @@ class Orderdetails extends Component {
 // 表格表头数据
 const columns = [
   {
-    title: 'Name',
+    title: '商品名称',
     dataIndex: 'name',
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
+    title: '商品单价',
+    dataIndex: 'price',
   },
   {
-    title: 'Address',
-    dataIndex: 'address',
+    title: '商品数量',
+    dataIndex: 'goodsNum',
+  },
+  {
+    title: '商品总价',
+    dataIndex: 'allprice',
   },
 ]
-// 表格填充数据
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-  },
-]
+
 export default Orderdetails

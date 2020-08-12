@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Divider } from 'antd'
+import { Row, Col, Divider, Table } from 'antd'
 import { Drawer, Button, Radio, Space, Rate } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
 // 上传图片
@@ -19,62 +19,6 @@ function getBase64(file) {
     reader.onerror = (error) => reject(error)
   })
 }
-//评价晒单
-function onChange(pageNumber) {
-  console.log('Page: ', pageNumber)
-}
-// 评论的内容
-function MySheet(props) {
-  const that = props.loc
-  if (props.mydata !== undefined) {
-    // 分页处理 --暂定每页两条
-    let da = that.state.page * that.state.Lnumber
-    let xiao = (that.state.page - 1) * that.state.Lnumber
-    let isdata = []
-    for (let i = xiao; i < da; i++) {
-      if (props.mydata[i] === undefined) {
-        break
-      } else {
-        isdata.push(props.mydata[i])
-      }
-    }
-    // 页面渲染数据
-    let data = isdata
-    // console.log(data)
-    let myList = data.map((item, index) => (
-      <Row className="fang_height30 fang_marginT20" key={item.key}>
-        <Col span={4} className="fang_FangCenter">
-          {item.order_id}
-        </Col>
-        <Col span={4} className="fang_FangCenter">
-          {item.goods_name}
-        </Col>
-        <Col span={4} className="fang_FangCenter">
-          {item.order_time}
-        </Col>
-        <Col span={4} className="fang_FangCenter">
-          {item.order_state}
-        </Col>
-        <Col span={4} className="fang_FangCenter">
-          {item.order_price}
-        </Col>
-        <Col span={4} className="fang_FangCenter">
-          <span
-            className="fang_marginR20 fang_myh"
-            onClick={that.showDrawer.bind(this, item)}
-          >
-            评论
-          </span>
-          <span className="fang_myh">删除</span>
-        </Col>
-      </Row>
-    ))
-    return myList
-  }
-  if (props.mydata === undefined) {
-    return 3
-  }
-}
 class Personal_Review_sheet extends Component {
   // 页面创建时发送请求获取评论的数据
   constructor(props) {
@@ -86,6 +30,7 @@ class Personal_Review_sheet extends Component {
       previewTitle: '',
       fileList: [],
       value: 3,
+      textar: '',
       visible: false,
       placement: 'top',
       pageNumber: 1,
@@ -93,29 +38,114 @@ class Personal_Review_sheet extends Component {
       Lnumber: 3,
       totle: 1,
       ModelDate: {},
+      // 发布评论
+      loading: false,
+      visible: false,
+      // 表格样式
+      columns: [
+        {
+          title: '订单编号',
+          dataIndex: 'id',
+        },
+        {
+          title: '订单商品',
+          dataIndex: 'shopname',
+        },
+        {
+          title: '购买时间',
+          dataIndex: 'createdDate',
+        },
+        {
+          title: '订单状态',
+          dataIndex: 'status',
+        },
+        {
+          title: '价格',
+          dataIndex: 'price',
+        },
+        {
+          title: '操作',
+          dataIndex: 'option',
+          render: (text, record) =>
+            record.status === '待评论' ? (
+              <div>
+                <span
+                  className="fang_marginR20 fang_myh"
+                  onClick={this.showDrawer.bind(this, record)}
+                >
+                  评论
+                </span>
+                <span className="fang_myh">删除</span>
+              </div>
+            ) : null,
+        },
+      ],
     }
     // page——当前页数，pageNumber——总共的页数，totle——总数据条数，Lnumber——每页展示的条数
     // 发送请求
     this.mydata = {}
-    axios
-      .post('http://172.16.10.10:8080/banJu/order2/findAll')
-      .then((response) => {
-        console.log(response.data.data)
-        let mydata = response.data.data
-        for (let i = 0; i < response.data.data.length; i++) {
-          response.data.data[i].key = response.data.data[i].goods_name
-        }
-        this.setState({ data: mydata }, () => {
-          // 总共的页数
-          let getnumber = Math.ceil(this.state.data.length / this.state.Lnumber)
-          // 总数据条数
-          let getlength = this.state.data.length
-          this.setState({ pageNumber: getnumber, totle: getlength }, () => {
-            // console.log(this.state.data)
-          })
+    // 验证用户是否登录
+    let isdata = {}
+    let ruie = JSON.parse(sessionStorage.getItem('user'))
+    if (ruie === null) {
+      window.location.href = '/Sign_in'
+    } else {
+      isdata.uid = ruie.id
+      axios
+        .post('http://172.16.10.56:8080/banJu/user/lookEvaStatus', isdata)
+        .then((response) => {
+          console.log(response.data)
+          let mydata = response.data.data
+          // 分页处理
+          // 分页处理 --暂定每页两条
+          let da = this.state.page * this.state.Lnumber
+          let xiao = (this.state.page - 1) * this.state.Lnumber
+          let isdata = []
+
+          for (let i = xiao; i < da; i++) {
+            if (mydata[i] === undefined) {
+              break
+            } else {
+              isdata.push(mydata[i])
+            }
+          }
+          console.log(isdata)
+          let m = 0,
+            n = 0
+          for (let i = 0; i < response.data.data.length; i++) {
+            response.data.data[i].key = response.data.data[i].id
+            mydata[i].shopname = mydata[i].goods.name
+            mydata[i].price = mydata[i].goods.price
+            if (mydata[i].status === '已完成') {
+              m++
+            }
+            if (mydata[i].status === '待评价') {
+              n++
+            }
+          }
+          this.setState(
+            { data: mydata, tabledata: isdata, uid: ruie.id, wite: n, end: m },
+            () => {
+              // 总共的页数
+              let getnumber = Math.ceil(
+                this.state.data.length / this.state.Lnumber
+              )
+              // 总数据条数
+              let getlength = this.state.data.length
+              this.setState({ pageNumber: getnumber, totle: getlength }, () => {
+                console.log(this.state)
+              })
+            }
+          )
         })
-      })
+    }
   }
+
+  // 评论商品
+  writecommit = () => {
+    console.log('现在进行评论')
+  }
+
   // 数据更新后调用
   componentDidUpdate() {
     let that = this
@@ -181,16 +211,63 @@ class Personal_Review_sheet extends Component {
             console.log(that.state)
           })
         }
+        let da = that.state.page * that.state.Lnumber
+        let xiao = (that.state.page - 1) * that.state.Lnumber
+        let isdata = []
+        for (let i = xiao; i < da; i++) {
+          if (that.state.data[i] === undefined) {
+            break
+          } else {
+            isdata.push(that.state.data[i])
+          }
+        }
+        console.log(isdata)
+        that.setState({
+          tabledata: isdata,
+        })
       })
+    // 用户点击评论分类
+    $('.fang_mycomment').on('click', function () {
+      $('.fang_mycomment').css({
+        color: '#595959',
+      })
+      $(this).css({
+        color: '#ff0000',
+      })
+    })
+  }
+  // table表格
+  //评价晒单
+  onChange = (pageNumber) => {
+    console.log('Page: ', pageNumber)
+    let da = this.state.page * this.state.Lnumber
+    let xiao = (this.state.page - 1) * this.state.Lnumber
+    let isdata = []
+    for (let i = xiao; i < da; i++) {
+      if (this.state.data[i] === undefined) {
+        break
+      } else {
+        isdata.push(this.state.data[i])
+      }
+    }
+    console.log(isdata)
+    this.setState({
+      tabledata: isdata,
+    })
   }
   // 模态框方法
-  showDrawer = (data, my) => {
+  showDrawer = (data, as) => {
+    console.log(as)
     console.log(data)
-    // console.log(my)
-    this.setState({
-      visible: true,
-      ModelDate: data,
-    })
+    this.setState(
+      {
+        visible: true,
+        ModelDate: data,
+      },
+      () => {
+        console.log(this.state)
+      }
+    )
   }
 
   onClose = () => {
@@ -199,14 +276,53 @@ class Personal_Review_sheet extends Component {
     })
   }
   handleOk = () => {
+    console.log(this.state)
+    let data = {}
+    let img
     this.setState({ loading: true })
     setTimeout(() => {
       this.setState({ loading: false, visible: false })
     }, 3000)
+    if (this.state.value !== undefined) {
+      data.level = this.state.value
+      data.desc = this.state.textar
+      data.oid = this.state.ModelDate.id
+      data.uid = this.state.uid
+      data.gid = this.state.ModelDate.gid
+    }
+    if (this.state.fileList.length === 0) {
+      data.img1 = ''
+    }
+    if (this.state.fileList.length !== 0) {
+      for (let j = 0; j < this.state.fileList.length; j++) {
+        if (j === 0) {
+          img = this.state.fileList[j].name
+        } else {
+          img += +'/' + this.state.fileList[j].name
+        }
+      }
+      data.img1 = img
+    }
+    console.log(data)
+    axios
+      .post('http://172.16.10.56:8080/banJu/Evaluation/saveToGoods', data)
+      .then((response) => {
+        console.log(response)
+        this.setState({ ModelDate: {}, textar: '', fileList: [] }, () => {
+          console.log(this.state)
+        })
+      })
   }
   // 评分
   handleChange = (value) => {
-    this.setState({ value })
+    this.setState({ value: value })
+  }
+  // 评论
+  textdesc = () => {
+    let text = $('#commitorder').val()
+    this.setState({
+      textar: text,
+    })
   }
   // 上传图片
   handleCancel = () => this.setState({ previewVisible: false })
@@ -223,14 +339,19 @@ class Personal_Review_sheet extends Component {
         file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
     })
   }
-
-  UPChange = ({ fileList }) => this.setState({ fileList })
+  UPChange = ({ fileList }) => {
+    console.log(fileList)
+    let arr = []
+    for (let i = 0; i < fileList.length; i++) {
+      arr.push(fileList[i].name)
+    }
+    this.setState({ fileList, img1: arr })
+  }
   render() {
-    const { placement, visible } = this.state
+    const { placement, visible, loading } = this.state
     const { value } = this.state
     // 上传图片
     const { previewVisible, previewImage, fileList, previewTitle } = this.state
-    console.log(fileList)
     const uploadButton = (
       <div>
         <PlusOutlined />
@@ -265,6 +386,7 @@ class Personal_Review_sheet extends Component {
                 取消
               </Button>
               <Button
+                loading={loading}
                 onClick={this.handleOk}
                 type="primary"
                 style={{ width: 120 }}
@@ -276,7 +398,7 @@ class Personal_Review_sheet extends Component {
         >
           <div className="fang_WBColor fang_Width1200">
             <p className="fang_paddingt20">
-              订单号 : ******
+              订单号 : {this.state.ModelDate.id}
               <span className="fang_padding45">下单时间</span>
             </p>
             <Row>
@@ -307,7 +429,8 @@ class Personal_Review_sheet extends Component {
                     <Rate
                       tooltips={desc}
                       onChange={this.handleChange}
-                      value={value}
+                      key={value}
+                      defaultValue={value}
                     />
                     {value ? (
                       <span className="ant-rate-text">{desc[value - 1]}</span>
@@ -326,6 +449,8 @@ class Personal_Review_sheet extends Component {
                       rows="10"
                       className="fang_padding30 fang_paddingt20 fang_noborder"
                       placeholder="请输入评论内容"
+                      defaultValue={this.state.textar}
+                      onBlur={this.textdesc}
                     ></textarea>
                   </Col>
                 </Row>
@@ -365,39 +490,28 @@ class Personal_Review_sheet extends Component {
 
         <h3 className="fang_height30">我的评论</h3>
         <Row className="fang_height30">
-          <Col span={2} className="fang_FangCenter">
+          <Col span={2} className="fang_FangCenter fang_mycomment fang_myh">
             商品评论
           </Col>
-          <Col span={2} className="fang_FangCenter">
-            待评论（*）
+          <Col span={2} className="fang_FangCenter fang_mycomment fang_myh">
+            已评论（{this.state.end}）
           </Col>
-          <Col span={2} className="fang_FangCenter">
-            未评论（*）
+          <Col
+            span={2}
+            className="fang_FangCenter fang_mycomment fang_myh"
+            onClick={this.writecommit}
+          >
+            待评论（{this.state.wite}）
           </Col>
         </Row>
         {/* 展示区域 */}
         <div>
-          <Row className="fang_height30">
-            <Col span={4} className="fang_FangCenter">
-              订单编号
-            </Col>
-            <Col span={4} className="fang_FangCenter">
-              订单商品
-            </Col>
-            <Col span={4} className="fang_FangCenter">
-              购买时间
-            </Col>
-            <Col span={4} className="fang_FangCenter">
-              订单状态
-            </Col>
-            <Col span={4} className="fang_FangCenter">
-              价格
-            </Col>
-            <Col span={4} className="fang_FangCenter">
-              操作
-            </Col>
-          </Row>
-          <MySheet mydata={this.state.data} loc={this} />
+          <Table
+            columns={this.state.columns}
+            dataSource={this.state.tabledata}
+            bordered
+            pagination={false}
+          />
           <Divider />
         </div>
         {/* 底部的分页 */}
@@ -407,7 +521,7 @@ class Personal_Review_sheet extends Component {
             defaultCurrent={this.state.pageNumber}
             defaultPageSize={this.state.Lnumber}
             total={this.state.totle}
-            onChange={onChange}
+            onChange={this.onChange}
           />
         </Row>
       </div>

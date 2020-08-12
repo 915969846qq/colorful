@@ -233,7 +233,6 @@ let initState = {
 }
 
 const cartOrderReducer = function (state = initState, action) {
-  console.log(state)
   switch (action.type) {
     case 'MYCART':
       return {

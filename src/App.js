@@ -30,13 +30,14 @@ import Craftsman_Settled from './component/Person_center/Craftsman_Settled'
 import Craftsman_Settled_company from './component/Person_center/Craftsman_Settled_company'
 import Furniture_Museum_details from './component/Furniture_house/Furniture_Museum_details'
 import Style_pavilion_case from './component/Style/Style_pavilion_case'
+import Decoration_Diary_list from './component/Decoration_pipe/Decoration_Diary_list'
 function App() {
   return (
     <div className="App">
       {/* <Index></Index> */}
       <Router>
         <Switch>
-        <Route
+          <Route
             path="/Style_pavilion_case"
             component={Style_pavilion_case}
           ></Route>
@@ -45,9 +46,9 @@ function App() {
             component={Furniture_Museum_details}
           ></Route>
           <Route
-              path="/Craftsman_Settled_company"
-              component={Craftsman_Settled_company}
-            ></Route>
+            path="/Craftsman_Settled_company"
+            component={Craftsman_Settled_company}
+          ></Route>
           <Route
             path="/Building_materials_Museum"
             component={Building_materials_Museum}
@@ -85,9 +86,13 @@ function App() {
             path="/Sign_Register_successful"
             component={Sign_Register_successful}
           ></Route>
+          <Route
+            path="/Decoration_Diary_list"
+            component={Decoration_Diary_list}
+          ></Route>
           <Route path="/Sign_in" component={Sign_in}></Route>
           <Route path="/manage" component={Manage}></Route>
-          <Route path="/" component={Index}></Route>
+          <Route path="/" component={Index} exact></Route>
           {/* <Redirect from="/" to="/index"></Redirect>        */}
         </Switch>
       </Router>

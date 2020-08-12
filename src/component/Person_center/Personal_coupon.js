@@ -25,33 +25,51 @@ function MyCoupon(props) {
     // 页面渲染数据
     let data = isdata
     let myList = data.map((item, index) => (
-      <Col span={8}>
+      <Col span={8} key={item.desc}>
         <Row
           className="fang_wcolor fang_FangCenter fang_paddingt30"
           key={item.id}
         >
-          <Col span={13} className="fang_RBColor fang_FangCenter" offset={2}>
+          <Col
+            span={13}
+            className={[
+              item.state === '立即使用' ? 'fang_RBColor' : 'fang_outdate',
+              'fang_FangCenter',
+            ]}
+            offset={2}
+          >
             <Row>
               <Col span={12} offset={6}>
                 <p className="fang_marginT20 fang_TLeft">
-                  <span className="fang_fontS fang_marginR20">{item.id}</span>
+                  <span className="fang_fontS fang_marginR20">
+                    {item.money}
+                  </span>
                   <span className="fang_font18">元</span>
                 </p>
                 <div className="fang_font22 fang_fontW fang_WBColor fang_RColor">
-                  商城优惠券
+                  {item.desc}
                 </div>
                 <h3 className="fang_wcolor fang_marginT20 fang_TLeft fang_marginB20">
-                  满50使用
+                  满{item.satisfy}使用
                 </h3>
               </Col>
             </Row>
           </Col>
-          <Col
-            span={5}
-            className="fang_0BColor fang_FangCenter fang_font22 fang_padding30 fang_varticalTEXT fang_paddingt30"
-          >
-            立即使用
-          </Col>
+          {item.state === '立即使用' ? (
+            <Col
+              span={5}
+              className="fang_0BColor fang_FangCenter fang_font22 fang_padding30 fang_varticalTEXT fang_paddingt30"
+            >
+              立即使用
+            </Col>
+          ) : (
+            <Col
+              span={5}
+              className="fang_0BColor fang_Bcolor9 fang_FangCenter fang_font22 fang_padding30 fang_paddingt30"
+            >
+              已使用
+            </Col>
+          )}
         </Row>
       </Col>
     ))
@@ -75,21 +93,42 @@ class Personal_coupon extends Component {
     // page——当前页数，pageNumber——总共的页数，totle——总数据条数，Lnumber——每页展示的条数
     // 发送请求
     this.mydata = {}
-    axios
-      .post('http://localhost:8888/user.do', { username: '13018282973' })
-      .then((response) => {
-        let mydata = response.data
-        // 总共的页数
-        let getnumber = Math.ceil(response.data.length / this.state.Lnumber)
-        // 总数据条数
-        let getlength = response.data.length
-        this.setState(
-          { data: mydata, pageNumber: getnumber, totle: getlength },
-          () => {
-            console.log(this.state)
+    // 发送请求
+    // 获取用户id
+    let isdata = {}
+    let ruie = JSON.parse(sessionStorage.getItem('user'))
+    if (ruie === null) {
+      window.location.href = '/Sign_in'
+    } else {
+      isdata.id = ruie.id
+      axios
+        .post('http://172.16.10.56:8080/banJu/user/usercoupon', isdata)
+        .then((response) => {
+          // 生成当前时间，判断是否过期
+          var d = new Date()
+          let d1 = d.getTime(d)
+          // 继续操作
+          let mydata = response.data.data
+          // console.log(mydata)
+          for (let i = 0; i < mydata.length; i++) {
+            if (mydata[i].faildate < d1) {
+              mydata[i].state = '已过期'
+            } else {
+              mydata[i].state = '立即使用'
+            }
           }
-        )
-      })
+          // 总共的页数
+          let getnumber = Math.ceil(mydata.length / this.state.Lnumber)
+          // 总数据条数
+          let getlength = mydata.length
+          this.setState(
+            { data: mydata, pageNumber: getnumber, totle: getlength },
+            () => {
+              console.log(this.state)
+            }
+          )
+        })
+    }
   }
   // 数据更新后调用
   componentDidUpdate() {

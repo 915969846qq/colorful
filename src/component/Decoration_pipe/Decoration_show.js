@@ -106,31 +106,8 @@ class Decoration_show extends React.Component {
       return item
     })
     console.log(DATA)
-
-    // const mydata = {
-    //   Customer_Img: '../../assets/images/Decoration_img/Sellers_1.jpg',
-    //   Customer_Name: '那一天',
-    //   Customer_Date: '2020.8.2',
-    //   Customer_Comment: '还需要进一步装修',
-    //   Customer_Reply: '希望快一点',
-    //   Renovation_Style: '古风',
-    //   Renovation_Size: '120',
-    //   Renovation_City: '成都',
-    //   Renovation_Materials: '油漆',
-    //   Renovation_people: '那是一阵风',
-    //   Renovation_Area: '天府之境',
-    //   Renovation_Img: '../../assets/images/Decoration_img/Sellers_1.jpg',
-    //   Journal_See: '237',
-    //   Journal_Collection: '99',
-    //   Journal_Comment: '66',
-    //   Journal_Date: '2020.8.31',
-    //   Journal_Img: '../../assets/images/Decoration_img/Sellers_1.jpg',
-    //   Company_Comment: '你好，我们将于9.31日装修完毕',
-    //   Reply_Name: '智能家居',
-    // }
-
     this.props.history.push({
-      pathname: '/Personal_Decoration_diary/Decoration_My_diary',
+      pathname: '/Decoration_Diary_list/Decoration_My_diary',
       params: DATA,
     })
   }
@@ -142,7 +119,18 @@ class Decoration_show extends React.Component {
     console.log('我是子组件中的方法')
     let mydata = {}
     if (data.Size !== '') {
-      mydata.size = data.Size
+      // mydata.size = data.Size
+      // let str,
+      if (data.Size.indexOf('-') !== -1) {
+        mydata.builtAreaMin = data.Size.split('-')[0]
+        mydata.builtAreaMax = data.Size.split('-')[1]
+      }
+      if (data.Size.indexOf('以上') !== -1) {
+        mydata.builtAreaMin = data.Size.split('以下')[0]
+      }
+      if (data.Size.indexOf('以下') !== -1) {
+        mydata.builtAreaMax = data.Size.split('以上')[0]
+      }
     }
     if (data.style !== '') {
       mydata.style = data.style
@@ -213,45 +201,50 @@ function Show(props) {
         isdata.push(props.mydata[i])
       }
     }
+    // 图片地址
+
     // 页面渲染数据
     let data = isdata
+    console.log(data)
     let myList = data.map((item, index) => (
       <Row className="fang_paddingt30" key={item.id}>
         <Col span={2}>
           <div className="fang_FangCenter">
             {/* <img src={require(item.img1)} alt="" className="fang_portrait80" /> */}
-            <p className="fang_marginT20">用户名</p>
+            <p className="fang_marginT20">
+              {item.diaryEvaluationList[0].user.name}
+            </p>
           </div>
         </Col>
         <Col span={22} className="fang_padding20">
           <Row>
-            <Col span={15}>
+            <Col span={18}>
               <div
                 onClick={that.details.bind(that)}
                 className="fang_font18 fang_myh"
                 id={item.id}
               >
                 {/* <div className="fang_font18 fang_myh"> */}
-                小区地址———————— 用户 的装修日记
-                <span className="fang_font12">【多少篇】</span>
+                {item.houseInfo.community} ————{' '}
+                {item.diaryEvaluationList[0].user.name} 的装修日记
+                <span className="fang_font12">【{item.evaluationNum}篇】</span>
               </div>
               <div className="fang_marginT20">
-                <span className="fang_marginR20">城市地址</span>
-                <span className="fang_marginR20">面积</span>
-                <span className="fang_marginR20">风格</span>
-                <span>使用材料</span>
+                <span className="fang_marginR20">{item.houseInfo.city}</span>
+                <span className="fang_marginR20">
+                  {item.houseInfo.builtArea}
+                </span>
+                <span className="fang_marginR20">{item.houseInfo.style}</span>
+                <span>{item.houseInfo.decorationCompany}</span>
               </div>
-              <div className="fang_marginT20">用户的询问房屋的状态</div>
+              <div className="fang_marginT20">{item.content}</div>
             </Col>
-            <Col span={9}>
+            <Col span={6}>
               <span className="iconfont icon-liulan fang_marginR20 fang_OColor"></span>
-              <span className=" fang_marginR20">浏览人数</span>
-              <span className="iconfont icon-hengxian1 fang_marginR20 fang_fontW"></span>
-              <span className="iconfont icon-shoucang fang_marginR20 fang_OColor"></span>
-              <span className=" fang_marginR20">收藏人数</span>
+              <span className=" fang_marginR20">{item.viewsNum}</span>
               <span className="iconfont icon-hengxian1 fang_marginR20 fang_fontW"></span>
               <span className="iconfont icon-xinxi fang_marginR20 fang_OColor"></span>
-              <span>回复人数</span>
+              <span>{item.evaluationNum}</span>
             </Col>
           </Row>
           <Row className="fang_marginT20">
