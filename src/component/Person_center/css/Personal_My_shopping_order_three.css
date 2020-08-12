@@ -153,6 +153,7 @@
    margin-top: 10px;
    text-align: center;
    z-index: 10;
+   overflow: hidden;
    border-radius: 40px;
    -moz-border-radius: 40px;
    -o-border-radius: 40px;
@@ -206,6 +207,7 @@
  }
  .success-order-content .bank>div{
    margin-top: 10px;
+   width: 212.8px;
  }
 
  .success-order-content>span:hover {

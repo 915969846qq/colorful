@@ -680,13 +680,13 @@ class Craftsman_Settled extends Component {
     }
     //省市区三级联动
     componentDidMount() {
-        console.log(this.props)
+        console.log(this.props.local.split('-'))
         this.setState({
-            province: '四川',
-            cities: this.getCity('四川'),
-            city: this.getCity('四川')[0],
-            counties: this.getCounty('四川', this.getCity('四川')[0]),
-            county: this.getCounty('四川', this.getCity('四川')[0])[0]
+            province: this.props.local.split('-')[0],
+            cities: this.getCity(this.props.local.split('-')[0]),
+            city: this.props.local.split('-')[1],
+            counties: this.getCounty(this.props.local.split('-')[0], this.props.local.split('-')[1]),
+            county: this.props.local.split('-')[2]
         });
     }
     handleChange(name, e) {
@@ -731,17 +731,17 @@ class Craftsman_Settled extends Component {
         return (
             <div style={{ display: "inline-block" }}>
                 <div className="city">
-                    <select className="select myprovince" onClick={this.handleChange.bind(this, "province")} defaultvalue={this.state.province} style={{ border: "none" }} >
+                    <select className="select myprovince" onChange={this.handleChange.bind(this, "province")} value={this.state.province} style={{ border: "none" }} >
                         {this.state.provinces.map(province => (
                             <option value={province} key={id++}>{province}</option>
                         ))}
                     </select>
-                    <select className="select mycity" onClick={this.handleChange.bind(this, "city")} defaultvalue={this.state.city} style={{ border: "none" }} >
+                    <select className="select mycity" onChange={this.handleChange.bind(this, "city")} value={this.state.city} style={{ border: "none" }} >
                         {this.state.cities.map(city => (
                             <option value={city} key={id++}>{city}</option>
                         ))}
                     </select>
-                    <select className="select mycounty" onClick={this.handleChange.bind(this, "county")} defaultvalue={this.state.county} style={{ border: "none" }}>
+                    <select className="select mycounty" onChange={this.handleChange.bind(this, "county")} value={this.state.county} style={{ border: "none" }}>
                         {this.state.counties.map(county => (
                             <option value={county} key={id++}>{county}</option>
                         ))}

@@ -17,7 +17,7 @@ import Craftsman_Pavilion from './pages/Craftsman_Pavilion'
 import Craftsman_Pavilion_list from './component/Craftsmans_Hall/Craftsman_Pavilion_list'
 import Craftsman_details from './component/Craftsmans_Hall/Craftsman_details'
 import Secondhand_Market from './pages/Secondhand_Market'
-import Style_pavilion from './pages/Style_pavilion'
+// import Style_pavilion from './pages/Style_pavilion'
 import Decoration_Museum from './pages/Decoration_Museum'
 import Furniture_Museum from './pages/Furniture_Museum'
 import Home_Museum from './pages/Home_Museum'
@@ -58,7 +58,7 @@ function App() {
             path="/Decoration_Museum"
             component={Decoration_Museum}
           ></Route>
-          <Route path="/Style_pavilion" component={Style_pavilion}></Route>
+          {/* <Route path="/Style_pavilion" component={Style_pavilion}></Route> */}
           <Route
             path="/Secondhand_Market"
             component={Secondhand_Market}
@@ -87,7 +87,7 @@ function App() {
           ></Route>
           <Route path="/Sign_in" component={Sign_in}></Route>
           <Route path="/manage" component={Manage}></Route>
-          <Route path="/" component={Index}></Route>
+          <Route path="/" exact component={Index}></Route>
           {/* <Redirect from="/" to="/index"></Redirect>        */}
         </Switch>
       </Router>
