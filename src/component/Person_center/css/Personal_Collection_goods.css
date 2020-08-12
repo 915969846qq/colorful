@@ -79,7 +79,7 @@
 .xt4 .ant-spin-container .ant-pagination {
     margin: 16px 50px;
     position: relative;
-    top: 100px;
+    top: 250px;
 }
 .xt4 .ant-dropdown-trigger{
     display: none;
@@ -87,20 +87,20 @@
 
 .xt4 .ant-table-thead .ant-table-cell .ant-table-selection{
     position: relative;
-    top: 441px;
+    top: 424px;
 
 }
 .xt4 .All-out{
+    margin: 0;
     position: relative;
-    top: -43px;
-    left: 86px;
+    top: -186px;
+    left: 150px;
 }
 .xt4 .qx{
     color: #0f0f0f;
-    font-size: 12px;
     position: relative;
-    top: -11px;
-    left: 50px;
+    top:-156px;
+    left: 100px;
 }
 /* .ant-table-pagination-right {*/
 /*     float: right;*/

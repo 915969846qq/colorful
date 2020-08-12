@@ -35,8 +35,8 @@ export default class Personal_Service_role_entry extends Component {
                     <div className="role-content-basic-content">
                         <div><label>*真实姓名：</label><input value={this.state.realname} onChange={this.changebind.bind(this, "realname")}></input></div>
                         <div className="sex">
-                            <label>性别：</label><input type="radio" id="nan" name="sex" value="nan" /><font for="nan">男</font>
-                            <input type="radio" id="nv" name="sex" value="nv" /><font for="nv">女</font>
+                            <label>性别：</label><label><input type="radio" id="nan" name="sex" value="nan" /><font for="nan">男</font></label>
+                            <label><input type="radio" id="nv" name="sex" value="nv" /><font for="nv">女</font></label>
                         </div>
                         <div><label>年龄：</label><input value={this.state.age} onChange={this.changebind.bind(this, "age")}></input></div>
                         <div><label>职业：</label><input value={this.state.occupation} onChange={this.changebind.bind(this, "occupation")}></input></div>
@@ -59,7 +59,7 @@ export default class Personal_Service_role_entry extends Component {
                             </div>
                             <div className="wechat">
                                 <div>
-                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")}></img>
+                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")} alt='wechat1'></img>
                                 </div>
                                 <div>
                                     <p>微信扫描左边二维码
@@ -80,7 +80,7 @@ export default class Personal_Service_role_entry extends Component {
 
                             <div className="wechat">
                                 <div>
-                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")}></img>
+                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")} alt='wechat2'></img>
                                 </div>
                                 <div>
                                     <p>微信扫描左边二维码

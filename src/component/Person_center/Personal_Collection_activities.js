@@ -4,50 +4,7 @@ import "./css/Personal_Collection_activities.css"
 import "antd/dist/antd.css"
 import { Table, } from 'antd';
 /*收藏活动*/
-const columns = [
-    {
-        title: '商品信息',
-        dataIndex: 'img',
-        align:'center',
-        render:(record,data) => {
-            // let m=data.slice(0,3)
 
-            return <div className="xinxi"><img src={require(`../../assets/images/${data.img}`)} className="img" alt=""/>
-                <label className="textw">精品家私，纯手工制作，价格不贵，超级实惠,走过路过，机会不要错过</label>
-            </div>
-        }
-    },
-
-    {
-        title: '状态',
-        dataIndex: 'state',
-        align:'center',
-        render:(record,data) => {
-            return <span>{data.state}</span>
-        }
-
-
-    },
-    {
-        title: '活动价',
-        dataIndex: 'price',
-        align:'center',
-        render:(record,data) => {
-            return <span className="color">{data.price}</span>
-        }
-    },
-    {
-        title: '操作',
-        dataIndex: 'address',
-        align:'center',
-        render:(record,data) => {
-            return <p className="state butone">
-                <span onClick="a()">马上抢</span>
-                <span>取消收藏</span>
-            </p>
-        }
-    }
-];
 
 // const data = [];
 // for (let i = 0; i < 1; i++) {
@@ -171,18 +128,67 @@ export default class Personal_Collection_goods extends Component {
         super();
         this.state={
             orderList:[],
+            selectedRowKeys:[]
             // mykey:1
         }
     }
 
-
+    quxiao(){
+        console.log(this.state)
+    }
 
 
     onSelectChange = selectedRowKeys => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
-        this.setState({ selectedRowKeys });
+        // console.log('selectedRowKeys changed: ', selectedRowKeys);
+        this.setState({ selectedRowKeys:selectedRowKeys });
     };
     render() {
+
+
+        const columns = [
+            {
+                title: '商品信息',
+                dataIndex: 'img',
+                align:'center',
+                render:(record,data) => {
+                    // let m=data.slice(0,3)
+
+                    return <div className="xinxi"><img src={require(`../../assets/images/${data.img}`)} className="img" alt=""/>
+                        <label className="textw">精品家私，纯手工制作，价格不贵，超级实惠,走过路过，机会不要错过</label>
+                    </div>
+                }
+            },
+
+            {
+                title: '状态',
+                dataIndex: 'state',
+                align:'center',
+                render:(record,data) => {
+                    return <span>{data.state}</span>
+                }
+
+
+            },
+            {
+                title: '活动价',
+                dataIndex: 'price',
+                align:'center',
+                render:(record,data) => {
+                    return <span className="color">{data.price}</span>
+                }
+            },
+            {
+                title: '操作',
+                dataIndex: 'address',
+                align:'center',
+                render:(record,data) => {
+                    return <p className="state butone">
+                        <span>马上抢</span>
+                        <span onClick={this.quxiao.bind(this)}>取消收藏</span>
+                    </p>
+                }
+            }
+        ];
 
         const { selectedRowKeys } = this.state;
         const rowSelection = {

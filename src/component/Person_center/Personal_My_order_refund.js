@@ -8,44 +8,44 @@ class Personal_My_order_refund extends Component {
     super();
     this.state = {
       page: 1,
-      click:3,
+      click: 3,
     }
 
   }
-// 点击页数
-gopage(page, s) {
+  // 点击页数
+  gopage(page, s) {
 
-  this.setState({
-    page: page
-  }, () => {
-    // let gopage=this.state.page
-    this.refundList(this.state.page);
-  })
-}
-// 上一页
-lastpage() {
-  let pages = this.state.page
-  if (pages > 1) {
     this.setState({
-      page: pages - 1
+      page: page
     }, () => {
-      this.refundList(this.state.page);
-
-    })
-
-  }
-}
-// 下一页
-nextpage() {
-  let pages = this.state.page;
-  if (pages < Math.ceil(this.props.post.length / 3)) {
-    this.setState({
-      page: pages + 1
-    }, () => {
+      // let gopage=this.state.page
       this.refundList(this.state.page);
     })
   }
-}
+  // 上一页
+  lastpage() {
+    let pages = this.state.page
+    if (pages > 1) {
+      this.setState({
+        page: pages - 1
+      }, () => {
+        this.refundList(this.state.page);
+
+      })
+
+    }
+  }
+  // 下一页
+  nextpage() {
+    let pages = this.state.page;
+    if (pages < Math.ceil(this.props.post.length / 3)) {
+      this.setState({
+        page: pages + 1
+      }, () => {
+        this.refundList(this.state.page);
+      })
+    }
+  }
   refundList(page) {
     this.setState({
       endpage: Math.ceil(this.state.postarr.length / 3)
@@ -60,7 +60,6 @@ nextpage() {
       }
     })
     let theorder = this.state.postarr.slice((page - 1) * 3, page * 3);
-    console.log(theorder);
     let TheOrder = theorder.map((item) => {
       return (<tr className="refund-content-content" >
         <td className="refund-content-content-top">
@@ -91,7 +90,7 @@ nextpage() {
       </tr>)
     })
     this.setState({
-      refundlist:TheOrder
+      refundlist: TheOrder
     })
   }
   pagesList() {
@@ -106,7 +105,7 @@ nextpage() {
     })
   }
   componentDidMount() {
-    console.log(this.props.post)
+    // console.log(this.props.post)
     this.setState({
       postarr: this.props.post,
     }, () => {
@@ -137,18 +136,20 @@ nextpage() {
         </div>
         <div className="refund-content">
           <table className="refund-content-table">
-            <tr>
-              <th>服务单号</th>
-              <th>订单编号</th>
-              <th>商品名称</th>
-              <th>退款金额</th>
-              <th>差额原因</th>
-              <th>申请时间</th>
-              <th>退款状态</th>
-              <th>操作</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>服务单号</th>
+                <th>订单编号</th>
+                <th>商品名称</th>
+                <th>退款金额</th>
+                <th>差额原因</th>
+                <th>申请时间</th>
+                <th>退款状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
             <tbody>
-            {this.state.refundlist}
+              {this.state.refundlist}
             </tbody>
           </table>
           <div className="refund-content-statement">
@@ -157,7 +158,7 @@ nextpage() {
             <p>2. 查看 <strong>售后政策</strong>;</p>
           </div>
           <div >
-          <div className="refund-content-footer">
+            <div className="refund-content-footer">
               <span className="lastpage" onClick={this.lastpage.bind(this)}>上一页</span>
               {this.state.pages}
               <span className="nextpage" onClick={this.nextpage.bind(this)}>下一页</span>

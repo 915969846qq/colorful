@@ -158,6 +158,7 @@
     font-size: 36px;
     color: #aeaeae;
 }
+
 .xt2 .full {
     height: 100%;
 }
@@ -201,8 +202,8 @@
 }
 .xt2 .Input{
     width: 280px;
-    height: 28px;
-    line-height: 28px;
+    height: 30px;
+    line-height: 30px;
     text-indent: 6px;
     border: 1px solid #b1b1b1;
     margin-left: 20px;
@@ -243,16 +244,16 @@
 }
 .xt2 .cad-top {
 
-    height: 85px;
+    height: 104px;
     margin-bottom: 5px;
 }
 .xt2 .Computer_phpto {
     width: 85px;
-    height: 85px;
-    background-color: #f8f8f8;
+    height: 205px;
     float: left;
     cursor: pointer;
     margin-left: 20px;
+    margin-bottom: 30px;
 }
 .xt2 .imgd {
     width: 40px;
@@ -274,6 +275,7 @@
     font-size: 14px;
     width: 30px;
     text-align: center;
+    margin-left: -15px;
     line-height: 85px;
     color: #333;
     float: left;
@@ -345,6 +347,7 @@
     width: 1200px;
     height: 30px;
     line-height: 30px;
+    margin-top: 20px;
     margin-bottom: 20px;
     clear: both;
 }
@@ -355,19 +358,7 @@
     text-align: right;
     float: left;
 }
-.xt2 .upload_btn {
-    width: 120px;
-    height: 120px;
-    text-align: center;
-    line-height: 120px;
-    font-size: 24px;
-    color: #fff;
-    background-color: #ff0000;
-    cursor: pointer;
-    float: left;
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
+
 .xt2 .essential_information {
     color: #0f0f0f;
     height: 54px;
@@ -469,3 +460,24 @@
     width: 163px;
 }
 
+.xt2 .cad-top .ant-upload-picture-card-wrapper{
+    margin-left: 20px!important;
+    width: 230px!important;
+    float: left!important;
+
+}
+.xt2 .upload_btn .ant-upload-picture-card-wrapper{
+    margin-left: 20px!important;
+    width: 230px!important;
+    float: left !important;
+    margin-bottom: 20px!important;
+
+}
+.xt2 .Computer_phpto .ant-upload-picture-card-wrapper{
+    margin-left: 0px!important;
+    width: 230px!important;
+    float: left!important;
+}
+.xt .claear{
+    clear: both;
+}

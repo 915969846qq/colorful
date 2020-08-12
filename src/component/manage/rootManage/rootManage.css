@@ -1,12 +1,12 @@
-.xutao .state {
+.wodext .state {
     width: 100px;
     text-align: center;
     margin: 0 auto;
 }
-.xutao .ant-table-filter-column-title{
+.wodext .ant-table-filter-column-title{
     width: 20px;
 }
-.xutao .del{
+.wodext .del{
     display: block;
     cursor:pointer;
     width: 60px;
@@ -17,9 +17,67 @@
     background: #1890ff;
     border-color: #1890ff;
 }
- /* .ant-table-wrapper{
+.wodext .ant-table-wrapper{
     width: 1000px;
 }
-.site-layout-background{
-    width: 1000px;
-} */
+.wodext .site-layout-background{
+    width: 1000px ;
+}
+.wodext .ant-input{
+    width: 50px !important;
+    height: 10px !important;
+}
+.bj{
+    float: left;
+    margin-left: 10px ;
+
+}
+.bj1{
+    float: left ;
+    margin-left: 10px;
+     margin-top: 20px;
+}
+.wodext .ant-modal-content{
+     width: 600px !important;
+ }
+.wodext .both{
+     clear: both !important;
+ }
+.xutaoip{
+     width: 160px;
+     height: 30px;
+ }
+.sp{
+     color: #333;
+     float: left;
+     width: 70px;
+     height: 30px;
+     line-height: 30px;
+     text-align: right;
+     margin-left: -5px;
+     font-size: 14px;
+ }
+.ant-modal-body{
+    height: 350px;
+}
+.ant-upload-picture-card-wrapper{
+    float: left;
+    width: 102px !important;
+    margin-left: 0px;
+}
+.bj2{
+    float: left;
+    width: 100%;
+    height: 102px;
+    margin-top: 20px;
+}
+.sp2{
+    color: #333;
+    float: left;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 5px;
+    text-align: right;
+    font-size: 14px;
+}

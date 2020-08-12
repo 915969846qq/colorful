@@ -265,3 +265,7 @@
   margin: 0;
   font-weight: normal;
 }
+
+.cart-content-top .local{
+  display: inline-block;
+}

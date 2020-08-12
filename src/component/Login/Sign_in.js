@@ -72,7 +72,9 @@ export default class Sign_in extends Component {
                     this.props.history.push("/");
                 }else{
                     message.error('登录失败');
-                    this.props.history.push("/Sign_in");    
+                    // this.props.history.push("/Sign_in");
+                    this.props.history.push("/");
+    
                 }   
             }).catch((e) => {
                 console.log("数据有误");     

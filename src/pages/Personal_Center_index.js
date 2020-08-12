@@ -9,6 +9,10 @@ import {
 import { Layout } from 'antd'
 import 'antd/dist/antd.css'
 import './css/Personal_Center_index.css'
+import store from '../store/personal_cartOrder_store'
+import { diaryListAction, cartListAction } from '../action/peresonal_cartOrder_action'
+import { getOrderRequest, getgoodsRequest, getdiaryRequest, addOrderRequest, alipayRequest } from '../api/cartOrder_api'
+
 
 import Personal_My_order from '../component/Person_center/Personal_My_order'
 import MyCenter_index from '../component/Person_center/MyCenter_index'
@@ -18,6 +22,8 @@ import Personal_Collection_goods from '../component/Person_center/Personal_Colle
 import Personal_A_collection_shops from '../component/Person_center/Personal_A_collection_shops'
 import Personal_Collection_activities from '../component/Person_center/Personal_Collection_activities'
 import Personal_My_shopping_cart from '../component/Person_center/Personal_My_shopping_cart'
+import Personal_My_shopping_order_two from '../component/Person_center/Personal_My_shopping_order_two'
+import Personal_My_shopping_order_three from '../component/Person_center/Personal_My_shopping_order_three'
 import Personal_customer_service from '../component/Person_center/Personal_customer_service'
 import Personal_Review_sheet from '../component/Person_center/Personal_Review_sheet'
 import Personal_coupon from '../component/Person_center/Personal_coupon'
@@ -46,12 +52,60 @@ export default class Personal_Center_index extends Component {
   chooseLocal() {
     console.log(this)
   }
-  UNSAFE_componentWillMount() {
-    console.log(this.state)
+  componentDidMount() {
+    console.log(this.props)
+  }
+  diary() {
+    console.log('======================diaryListAction=============================================');
+    store.dispatch(async (dispatch) => {
+      const res = await getdiaryRequest(1)
+      console.log(res.data)
+      dispatch({
+        type: 'DIARYLIST',
+        alldiary: res.data
+      })
+    });
+  }
+  cart() {
+    console.log('======================cartListAction=============================================');
+    // store.dispatch( async ( dispatch) => {
+    //   const res = await getgoodsRequest(1)
+    //   console.log(res.data)
+    //   dispatch({
+    //     type: 'CARTLIST',
+    //     allcart: res.data
+    //   })
+    // });
+  }
+  order() {
+    console.log('======================orderListAction=============================================');
+    store.dispatch(async (dispatch) => {
+      const res = await getOrderRequest(3)
+      dispatch({
+        type: 'ORDERLIST',
+        allorder: res.data
+      }, () => {
+        console.log(res.data.data);
+      })
+
+    });
+  }
+  payfor() {
+    store.dispatch(async (dispatch) => {
+      const res = await alipayRequest()
+      console.log(res.data)
+      dispatch({
+        type: 'ALIPAY',
+        alipay: res.data
+      })
+    })
+  }
+  back(){
+    sessionStorage.clear("user");
   }
   render() {
     return (
-      <Layout>
+      <Layout className="center-index">
         {/* 个人中心 */}
         <Header>
           <div className="header-top">
@@ -67,20 +121,19 @@ export default class Personal_Center_index extends Component {
               <span className="span-red">{this.state.username}!</span>
             </div>
             <div className="header-right header">
-              <a href="1" className="hover-red">
-                登录
-              </a>
-              <a href="1" className="hover-red">
-                免费注册
-              </a>
+              {sessionStorage.user === undefined ? <span> <a href="1" className="hover-red">登录</a><a href="1" className="hover-red">免费注册</a></span>
+                : <span id="user11">用户名：{JSON.parse(sessionStorage.user).user} <em id="user12"><Link to="/Sign_in" onClick={this.back.bind(this)}>退出</Link></em></span>}
+
               <a href="1" className="hover-red">
                 我要装修
               </a>
-              <img
-                src={require('../assets/images/hotline.png')}
-                alt="资讯图标"
-              ></img>
-              <span className="span-gray">咨询热线：4006-900-288</span>
+              <div>
+                <img
+                  src={require('../assets/images/hotline.png')}
+                  alt="资讯图标"
+                ></img>
+                <span className="span-gray">咨询热线：4006-900-288</span>
+              </div>
             </div>
           </div>
           <div className="header-bottom">
@@ -107,6 +160,7 @@ export default class Personal_Center_index extends Component {
                 <a href="1">我的个人中心</a>
               </p>
             </div>
+            {/* <span onClick={this.payfor.bind(this)}>提交订单</span> */}
             <Router basename="/Personal_Center_index">
               {/* 装修日志 */}
               <div>
@@ -114,10 +168,7 @@ export default class Personal_Center_index extends Component {
                   path="/Personal_Decoration_diary/Decoration_Diary_list"
                   component={Decoration_Diary_list}
                 ></Route>
-                <Route
-                  path="/Personal_Decoration_diary/Decoration_Write_diary"
-                  component={Decoration_Write_diary}
-                ></Route>
+
                 <Route
                   path="/Personal_Decoration_diary/Decoration_My_diary"
                   component={Decoration_My_diary}
@@ -130,16 +181,16 @@ export default class Personal_Center_index extends Component {
                       <h3>个人中心</h3>
                     </li>
                     <li>
-                      <NavLink to="/Personal_My_order">我的订单</NavLink>
+                      <NavLink to="/Personal_My_order" >我的订单</NavLink>
                     </li>
                     <li>
                       <NavLink to="/Personal_Decoration_order">
                         装修订单
                       </NavLink>
                     </li>
-                    {/* <li>
+                    <li>
                       <NavLink to="/MyCenter_index">个人订单</NavLink>
-                    </li> */}
+                    </li>
                     <li>
                       <NavLink to="/Personal_My_reservation">我的预约</NavLink>
                     </li>
@@ -159,7 +210,7 @@ export default class Personal_Center_index extends Component {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/Personal_My_shopping_cart">
+                      <NavLink to="/Personal_My_shopping_cart" onClick={this.cart.bind(this)}>
                         我的购物车
                       </NavLink>
                     </li>
@@ -200,7 +251,7 @@ export default class Personal_Center_index extends Component {
                       <h3>我的装修</h3>
                     </li>
                     <li>
-                      <NavLink to="/Personal_Decoration_diary">
+                      <NavLink to="/Personal_Decoration_diary" onClick={this.diary.bind(this)}>
                         装修日记
                       </NavLink>
                     </li>
@@ -246,6 +297,15 @@ export default class Personal_Center_index extends Component {
                       component={Personal_My_shopping_cart}
                     ></Route>
                     <Route
+                      path="/Personal_My_shopping_order_two"
+                      component={Personal_My_shopping_order_two}
+                    ></Route>
+                    <Route
+                      path="/Personal_My_shopping_order_three"
+                      component={Personal_My_shopping_order_three}
+                    ></Route>
+
+                    <Route
                       path="/Personal_customer_service"
                       component={Personal_customer_service}
                     ></Route>
@@ -284,6 +344,10 @@ export default class Personal_Center_index extends Component {
                     <Route
                       path="/Personal_Service_role_entry"
                       component={Personal_Service_role_entry}
+                    ></Route>
+                    <Route
+                      path="/Decoration_Write_diary"
+                      component={Decoration_Write_diary}
                     ></Route>
                     {/* <Redirect from="/" to="/MyCenter_index"></Redirect> */}
                   </div>

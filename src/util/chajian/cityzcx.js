@@ -1,82 +1,23 @@
-import React, { Component,useState  } from 'react'
-import { Row, Col, Input ,Radio,Upload, message } from 'antd';
-import "./css/Craftsman_Settled.css"
-// import Diqu from "../../util/chajian/city"
-// import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import Footer from "../commen/footer";
-import Header from "../commen/header";
-import $ from "jquery";
-import ImgCrop from 'antd-img-crop';
-// import { DownOutlined } from '@ant-design/icons';
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+
+
 //填写个人信息
 
+class Craftsman_Settled extends Component {
 
-
-
-//================================省市区============
-// }
-//===================================================================
-
-
-
-
-
-export default class Craftsman_Settled extends Component {
+    //省市区三级联动
     constructor(props) {
-        super(props);
-        this.state={
+        super(props)
+        this.state = {
             province: "",
             city: "",
             county: "",
-            provinces: ['请选择省份','安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '四川', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆', '其他'],
-            cities: ['请选择城市'],
-            counties: ['请选择地区'],
-            username:"",/*真实姓名:
-            age:"",/*年龄*/
-            zhiye:"",/*职业:*/
-            phone:"",/**手机号:*/
-            gongsi:"",/*就职公司**/
-            yinghang:"",/*银行名称*/
-            huming:"",/**户名:*/
-            zhihang:"",/**开户支行:*/
-            zhanghao:"",/*账号*/
-            time:"",
-            value: 1,//性别
-            loading: false,
-            loading1: false,
-
-
+            provinces: ['四川', '安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆', '其他'],
+            cities: ['成都'],
+            counties: ['武侯', '成华', '金牛', '青羊', '锦江', '崇州', '大邑', '都江堰', '金堂', '彭州', '郫县', '蒲江', '邛崃', '双流', '新津']
         }
     }
-
-
-
-    /*====================================图片base64====================================*/
-    state = {
-    loading: false,
-  };
-
-  handleChange = info => {
-    if (info.file.status === 'uploading') {
-      this.setState({ loading: true });
-      return;
-    }
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      getBase64(info.file.originFileObj, imageUrl =>
-        this.setState({
-          imageUrl,
-          loading: false,
-        }),
-      );
-    }
-  };
-
-
-    /*===============================省市区=========================*/
-
-
-
     //省市区三级联动
     getCity(province) {
         var gc1 = [];
@@ -472,7 +413,7 @@ export default class Craftsman_Settled extends Component {
         gc2['上海']['杨浦'] = ['杨浦'];
         gc2['上海']['闸北'] = ['闸北'];
         gc2['四川'] = [];
-        gc2['四川']['成都'] = ['成都市', '崇州', '大邑', '都江堰', '金堂', '彭州', '郫县', '蒲江', '邛崃', '双流', '新津'];
+        gc2['四川']['成都'] = ['武侯', '成华', '金牛', '青羊', '锦江', '崇州', '大邑', '都江堰', '金堂', '彭州', '郫县', '蒲江', '邛崃', '双流', '新津'];
         gc2['四川']['阿坝'] = ['阿坝', '黑水', '红原', '金川', '九寨沟', '理县', '马尔康', '茂县', '壤塘', '若尔盖', '松潘', '汶川', '小金'];
         gc2['四川']['巴中'] = ['巴中市', '南江', '平昌', '通江'];
         gc2['四川']['达州'] = ['达县', '达州市', '大竹', '开江', '渠县', '万源', '宣汉'];
@@ -738,6 +679,16 @@ export default class Craftsman_Settled extends Component {
         return gc2[province][city]
     }
     //省市区三级联动
+    componentDidMount() {
+        console.log(this.props.local.split('-'))
+        this.setState({
+            province: this.props.local.split('-')[0],
+            cities: this.getCity(this.props.local.split('-')[0]),
+            city: this.props.local.split('-')[1],
+            counties: this.getCounty(this.props.local.split('-')[0], this.props.local.split('-')[1]),
+            county: this.props.local.split('-')[2]
+        });
+    }
     handleChange(name, e) {
         e.preventDefault()
         switch (name) {
@@ -746,405 +697,64 @@ export default class Craftsman_Settled extends Component {
                 this.setState({
                     province: e.target.value,
                     cities: this.getCity(e.target.value),
-                    city:this.getCity(e.target.value)[0],
-                    counties:this.getCounty(e.target.value, this.getCity(e.target.value)[0])
+                    city: this.getCity(e.target.value)[0],
+                    counties: this.getCounty(e.target.value, this.getCity(e.target.value)[0]),
+                    county: this.getCounty(e.target.value, this.getCity(e.target.value)[0])[0]
                 });
+
                 break;
             case "city":
                 this.setState({
                     city: e.target.value,
                     counties: this.getCounty(this.state.province, e.target.value),
-                    county:this.getCounty(this.state.province, e.target.value)[0]
+                    county: this.getCounty(this.state.province, e.target.value)[0]
                 });
+
                 break;
             case "county":
                 this.setState({
+
                     county: e.target.value
                 });
-                console.log(this.state)
+
                 break;
             default:
                 alert("child handleChange error")
         }
 
-    }
-
-
-    //=========================input的value======================
-
-    inputChange(e){
-
-        this.setState({
-            username:e.target.value,
-        })
-    }
-    ageChange(e){
-
-        this.setState({
-            age:e.target.value,
-        })
-
-    } zhiyeChange(e){
-
-        this.setState({
-            zhiye:e.target.value,
-        })
-    }phoneChange(e){
-
-        this.setState({
-            phone:e.target.value,
-        })
-    }gongsiChange(e){
-
-        this.setState({
-            gongsi:e.target.value,
-        })
-    }yhChange(e){
-
-        this.setState({
-            yinghang:e.target.value,
-        })
-    }
-    hmChange(e){
-
-        this.setState({
-            huming:e.target.value,
-        })
-    }zhChange(e){
-
-        this.setState({
-            zhihang:e.target.value,
-        })
-    }zhanghaoChange(e){
-
-        this.setState({
-            zhanghao:e.target.value,
-        })
 
     }
-
-    //================ 下拉框value=============================
-    timeValue(e){
-        //获取被选中的值
-        console.log(event.target.value);
-        this.setState({
-            //默认值改变
-            time:event.target.value
-        })
-
-    }
-
-
-
-
-
-
-
-//=========================================
-    tj(){
-        this.props.history.push('./Craftsman_Settled_business')
-
-    }
-
-    componentDidMount(){
-        $(".angle").click(function () {
-            $(this).css("border","solid 1px red").css("color","red")
-            $(".designer").css("border","solid 1px #b1b1b1").css("color","#555")
-
-        })
-        $(".designer").click(function () {
-            $(this).css("border","solid 1px red").css("color","red")
-            $(".angle").css("border","solid 1px #b1b1b1").css("color","#555")
-        })
-    }
-
-
-
-
-    onChange = e => {
-        console.log(e.target.value);
-        this.setState({
-            value: e.target.value,
-        });
-    };
-    //===============================省市区 ======
-    // handleChange = info => {
-    //     if (info.file.status === 'uploading') {
-    //         this.setState({ loading: true });
-    //         return;
-    //     }
-    //     if (info.file.status === 'done') {
-    //         // Get this url from response in real world.
-    //         getBase64(info.file.originFileObj, imageUrl =>
-    //             this.setState({
-    //                 imageUrl,
-    //                 loading: false,
-    //             }),
-    //         );
-    //     }
-    // };
-
-
-    // =====================================
-
 
 
     render() {
-        //===============================图片上传=================
-        // const uploadButton = (
-        //     <div>
-        //         {this.state.loading ? <LoadingOutlined /> : <PlusOutlined />}
-        //         <div className="ant-upload-text">Upload</div>
-        //     </div>
-        // );
-        // const { imageUrl } = this.state;
-        // const { imageUrl2} = this.state;
-        const Demo = () => {
-            const [fileList, setFileList] = useState([
-                {
-                    uid: '-1',
-                    name: 'image.png',
-                    status: 'done',
-                    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-                },
-            ]);
-
-            const onChange = ({ fileList: newFileList }) => {
-                setFileList(newFileList);
-            };
-
-            const onPreview = async file => {
-                let src = file.url;
-                if (!src) {
-                    src = await new Promise(resolve => {
-                        const reader = new FileReader();
-                        reader.readAsDataURL(file.originFileObj);
-                        reader.onload = () => resolve(reader.result);
-                    });
-                }
-                const image = new Image();
-                image.src = src;
-                const imgWindow = window.open(src);
-                imgWindow.document.write(image.outerHTML);
-            };
-
-            return (
-                <ImgCrop rotate>
-                    <Upload
-                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                        listType="picture-card"
-                        fileList={fileList}
-                        onChange={onChange}
-                        onPreview={onPreview}
-                    >
-                        {fileList.length < 5 && '+ Upload'}
-                    </Upload>
-                </ImgCrop>
-            );
-        };
-
-
-
-        //===================================
-
-
-
         let id = 0
         return (
-            <div className="xt2">
-
-                    <div className="header-top">
-                        {/*//表头*/}
-                        <Header/>
-                        <Row>
-                            <Col span={1}></Col>
-                            <Col span={22}>
-
-
-
-
-                                {/*表头大图模块*/}
-                                <div className="header_center">
-                                    <div className="headerlogo"><img className="full" src={require("../../assets/images/logo2.png")} alt=""/>
-                                    </div>
-                                    <div className="headerh4">填写个人信息</div>
-                                </div>
-
-
-
-                                <div className="Select_role">
-                                    <p>角色类型 : </p>
-                                    <p className="angle" >设计师</p>
-                                    <p className="designer">施工队</p>
-
-
-                                </div>
-                                <div className="top_maina"><span className="text">填写个人信息 </span><span className="text2">*为必填项</span></div>
-                                <div className="information">基本信息</div>
-                                <form>
-                                <div className="namebox">
-                                    <p className="name">*真实姓名:</p><Input onChange={(e)=>this.inputChange(e)} className="Input"/>
-                                </div>
-                                <div className="namebox1">
-                                    <p className="name">性别:</p>
-                                    <div className="inputMr"><Radio.Group onChange={this.onChange} value={this.state.value}>
-                                        <Radio value={0}><span className="font">男</span></Radio>
-                                        <Radio value={1}><span className="font">女</span></Radio>
-
-                                    </Radio.Group></div>
-                                </div>
-                                    <div className="namebox1">
-                                        <p className="name">年龄:</p><Input onChange={(e)=>this.ageChange(e)}  className="Input"/>
-                                    </div>
-                                    <div className="namebox1">
-                                        <p className="name">职业:</p><Input onChange={(e)=>this.zhiyeChange(e)} className="Input"/>
-                                    </div>
-                                    <div className="namebox1">
-                                        <p className="name">*手机号:</p><Input className="Input" onChange={(e)=>this.phoneChange(e)} placeholder="您的电话号码"/>
-                                    </div>
-                                    <div className="namebox1">
-                                        <p className="name">从业时间:</p>
-                                            <select onChange={(e)=>this.timeValue(e)}>
-                                                <option>1——3年</option>
-                                                <option>3——5年</option>
-                                                <option>5——10年</option>
-                                                <option>10年以上</option>
-                                            </select>
-                                    </div>
-                                    <div className="namebox1">
-                                        <p className="name">就职公司:</p><Input onChange={(e)=>this.gongsiChange(e)} className="Input"/>
-                                    </div>
-                                    <div className="namebox1">
-                                        <p className="name">*本人持身份证照片:</p>
-                                        <div className="cad-top">
-                                            {/*<div className="Computer_phpto">*/}
-                                                {/*<Upload*/}
-                                                {/*    name="avatar"*/}
-                                                {/*    listType="picture-card"*/}
-                                                {/*    className="avatar-uploader"*/}
-                                                {/*    showUploadList={false}*/}
-                                                {/*    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"*/}
-                                                {/*    beforeUpload={beforeUpload}*/}
-                                                {/*    onChange={this.handleChange}*/}
-                                                {/*>*/}
-                                                {/*    {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}*/}
-                                                {/*</Upload>*/}
-                                                <Demo/>
-                                            {/*</div>*/}
-                                            <p className="perhaps"> 或 </p>
-                                            <div className="shao_QR_code">
-                                                <div className="left" id="QR_code">
-                                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")} alt="" /></div>
-                                                <div className="rightqr_code">
-                                                    <p>微信扫描左边二维码 <br/> 关注后直接上传手机中的图片</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="namebox1">
-                                            <p className="ms"></p>
-                                            <div className="name2">
-                                                <p>1、上传头像能获得更多关注。</p>
-                                                <p>2、照片大小不超过10MB，支持jpg / png / jif 格式。像素最佳支持182*182</p>
-                                            </div>
-
-                                        </div>
-                                        <div className="fill_In">
-                                            <p>上传头像 :</p>
-                                            <div className="upload_btn">
-                                                {/*<Upload*/}
-                                                {/*    name="avatar"*/}
-                                                {/*    listType="picture-card"*/}
-                                                {/*    className="avatar-uploader"*/}
-                                                {/*    showUploadList={false}*/}
-                                                {/*    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"*/}
-                                                {/*    beforeUpload={beforeUploadq}*/}
-                                                {/*    onChange={this.handleChange1}*/}
-                                                {/*>*/}
-                                                {/*    {imageUrl ? <img src={imageUrl2} alt="avatar" style={{ width: '100%' }} /> : uploadButton}*/}
-                                                {/*</Upload>*/}
-                                                <Demo/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="namebox1">
-                                        <p className="name">上传资质证件:</p>
-                                        <div className="cad-top">
-
-                                            <Demo/>
-                                            <p className="perhaps"> 或 </p>
-                                            <div className="shao_QR_code">
-                                                <div className="left" id="QR_code">
-                                                    <img src={require("../../assets/images/twoimages/QRcodeimg_03.jpg")} alt=""/></div>
-                                                <div className="rightqr_code">
-                                                    <p>微信扫描左边二维码 <br/> 关注后直接上传手机中的图片</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="namebox1">
-                                            <p className="ms"></p>
-                                            <div className="name2">
-                                                <p>如有资质证件请上传，否则审核将无法通过。</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="essential_information">银行账号信息</div>
-
-                                    {/*省市区三级联动*/}
-                                    <div className="namebox1">
-                                        <p className="name">*开户城市:</p><div className="col-md-9">
-
-                                        <select className="select" onChange={this.handleChange.bind(this, "province")}>
-                                            {this.state.provinces.map(province => (
-                                                <option value={province} key={id++}>{province}</option>
-                                            ))}
-                                        </select>
-                                        <select className="select" onChange={this.handleChange.bind(this, "city")}>
-                                            {this.state.cities.map(city => (
-                                                <option value={city} key={id++}>{city}</option>
-                                            ))}
-                                        </select>
-                                        <select className="select" onChange={this.handleChange.bind(this, "county")}>
-                                            {this.state.counties.map(county => (
-                                                <option value={county} key={id++}>{county}</option>
-                                            ))}
-                                        </select>
-
-
-
-
-                                    </div>
-                                    </div>
-
-
-                                    <div className="namebox1">
-                                        <p className="name">*银行名称:</p><Input className="Input" onChange={(e)=>this.yhChange(e)} placeholder="中国农业银行"/>
-                                    </div>
-
-                                    <div className="namebox1">
-                                        <p className="name">*户名:</p><Input className="Input" onChange={(e)=>this.hmChange(e)} placeholder="张三"/>
-                                    </div>
-                                    <div className="namebox1">
-                                        <p className="name">*开户支行:</p><Input className="Input" onChange={(e)=>this.zhChange(e)}  placeholder="中国农业银行成都天府三街支行"/>
-                                        <span className="formatcali">(格式：开户行+城市+支行信息 例如：中国农业银行成都天府三街支行)</span>
-                                    </div>
-                                    <div className="namebox1">
-                                        <p className="name">*账号:</p><Input className="Input" onChange={(e)=>this.zhanghaoChange(e)} />
-                                    </div>
-                                    <button className="next_step_butn" type="button" onClick={this.tj.bind(this)}>下一步</button>
-
-                                </form>
-
-
-                            </Col>
-                            <Col span={1}></Col>
-                        </Row>
-                        {/* 页脚*/}
-                        <Footer/>
+            <div style={{ display: "inline-block" }}>
+                <div className="city">
+                    <select className="select myprovince" onChange={this.handleChange.bind(this, "province")} value={this.state.province} style={{ border: "none" }} >
+                        {this.state.provinces.map(province => (
+                            <option value={province} key={id++}>{province}</option>
+                        ))}
+                    </select>
+                    <select className="select mycity" onChange={this.handleChange.bind(this, "city")} value={this.state.city} style={{ border: "none" }} >
+                        {this.state.cities.map(city => (
+                            <option value={city} key={id++}>{city}</option>
+                        ))}
+                    </select>
+                    <select className="select mycounty" onChange={this.handleChange.bind(this, "county")} value={this.state.county} style={{ border: "none" }}>
+                        {this.state.counties.map(county => (
+                            <option value={county} key={id++}>{county}</option>
+                        ))}
+                    </select>
 
                 </div>
-
-
             </div>
         )
     }
 }
+const MapStateToProps = (state, OwnProps) => {
+    return {
+        local: state.cartorder.local
+    }
+  }
+export default connect(MapStateToProps)(Craftsman_Settled)

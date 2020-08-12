@@ -6,13 +6,14 @@ class Secpublish_first extends Component {
         super(props);
         this.state = { 
             menulistarray:[
-                {cid:1,cname:"台式机/配件"},
-                {cid:2,cname:"笔记本电脑"},
-                {cid:3,cname:"平板电脑"},
-                {cid:4,cname:"二手手机"},
+                {cid:1,cname:"二手手机"},
+                {cid:2,cname:"台式电脑"},
+                {cid:3,cname:"笔记本"},
+                {cid:4,cname:"平板电脑"},
                 {cid:5,cname:"数码产品"},
-                {cid:6,cname:"二手家电"},
-                {cid:7,cname:"二手家具/家居"},
+                {cid:6,cname:"家用电器"},
+                {cid:7,cname:"二手家具"},
+                {cid:8,cname:"服饰箱包"}
             ],
             menulist:[]
          }

@@ -113,7 +113,7 @@
   text-indent: 5px;
 }
 
-.ordert-content .ordert-content-content-receiving-content div {
+.ordert-content .ordert-content-content-receiving-content>div {
   height: 48px;
   margin-left: 5px;
 }
@@ -165,7 +165,7 @@
   position: relative;
   top: 0px;
   display: block;
-  left: 40px;
+  display: inline-block;
   text-align: center;
   font-size: 12px;
   font-family: 宋体;
@@ -238,6 +238,7 @@
 }
 .ordert-content .ordert-content-content-payment-content-footer .bank>div{
   margin-top: 10px;
+  width: 217.8px;
 }
 
 .ordert-content .ordert-content-content-payment-content-footer .bank,
@@ -342,7 +343,7 @@
 
 .ordert-content .ordert-content-content-goods-footer-left>div:nth-of-type(2)>span {
   font-family: 宋体;
-  font-size: 12px;
+  font-size: 10px;
   color: rgb(177, 177, 177);
   line-height: 35px;
   margin-left: 20px;
@@ -410,4 +411,7 @@
   -o-border-radius: 2px;
   -webkit-border-radius: 2px;
   -ms-border-radius: 2px;
+}
+.ordert-content .ordert-content-content-receiving-content>div .local{
+  display: inline-block;
 }

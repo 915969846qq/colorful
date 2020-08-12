@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import './css/Personal_My_shopping_oeder_three.css'
+import './css/Personal_My_shopping_order_three.css'
+import store from '../../store/personal_cartOrder_store'
 
 class Personal_My_shopping_order_three extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
+    console.log(this.props)
     this.state = {
+      banksrc:this.props.banksrc,
     }
   }
   bank() {
@@ -14,76 +17,95 @@ class Personal_My_shopping_order_three extends Component {
         <div key={index}>
           <label>
             <input type="radio" name="bank" />
-            <img src={item.imgsrc}></img>
+            <img src={item.imgsrc} alt="" />
           </label>
-        </div>)
+        </div>
+      )
     })
     this.setState({
-      bank: bank
+      bank: bank,
     })
   }
   componentDidMount() {
-    this.bank();
+    console.log(this.props)
+    this.bank()
   }
-  gopage = () => {
-    // this.props.history.push('./Personal_My_shopping_oeder_three');
+  gopage() {
+    document.getElementsByClassName("success-order-content-model")[0].style.dispaly = "block";
+    store.dispatch(async (dispatch) => {
+      const res = await alipayRequest()
+      console.log(res.data)
+      dispatch({
+        type: 'ALIPAY',
+        alipay: res.data
+      })
+    });
   }
 
-  render() {
-    return (
-      <div className="success-order-content">
-        <div className="success-order-content-model">
-          <div>
-            <h1>支付确认</h1>
-            <p>请在新开的网上银行页面进行支付，支付完成前请不要关闭该窗口。</p>
-            <a>
-              <img src={require('../../assets/images/cg_03.png')}></img>
-              <div>
-                <p>已完成支付</p>
-                <p>查看订单详情</p>
-              </div>
-            </a>
-            <a>
-              <img src={require('../../assets/images/cg_05.png')}></img>
-              <div>
-                <p>支付遇到问题</p>
-                <p>重选支付方式</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <h1>订单提交成功！</h1>
-        <p>请您及时付款，以便订单能尽快处理！</p>
+render() {
+  return (
+    <div className="success-order-content">
+      <div className="success-order-content-model">
         <div>
-          <span>订单编号：{} | 发货日期：{}</span>
-        </div>
-        <p>请于下单后24小时内完成付款，逾期未付款订单将被取消，配送当天支付成功的订单将顺延1天配送！</p>
-        <p>(提示：为保护环境，本商城不提供一次性购物袋，还请您提前自备环保袋!)</p>
-        <p>您还需支付：<font>￥{}</font></p>
-        <div>
-          <span>您已选择：</span>
-          <div>
+          <h1>支付确认</h1>
+          <p>请在新开的网上银行页面进行支付，支付完成前请不要关闭该窗口。</p>
+          <a href="/#">
+            <img src={require('../../assets/images/cg_03.png')} alt="" />
             <div>
-              <img src={require('../../assets/images/zhihubao_03.png')}></img>
+              <p>已完成支付</p>
+              <p>查看订单详情</p>
             </div>
-            <strong onClick={this.gopage.bind(this)}>立即支付</strong>
-          </div>
-
+          </a>
+          <a href="/#">
+            <img src={require('../../assets/images/cg_05.png')} alt="" />
+            <div>
+              <p>支付遇到问题</p>
+              <p>重选支付方式</p>
+            </div>
+          </a>
         </div>
-        <span>选择其它银行 / 支付平台</span>
-        <div className="bank">
-          {this.state.bank}
-        </div>
-
       </div>
-    )
-  }
+      <h1>订单提交成功！</h1>
+      <p>请您及时付款，以便订单能尽快处理！</p>
+      <div>
+        <span>
+          订单编号：{} | 发货日期：{}
+        </span>
+      </div>
+      <p>
+        请于下单后24小时内完成付款，逾期未付款订单将被取消，配送当天支付成功的订单将顺延1天配送！
+        </p>
+      <p>
+        (提示：为保护环境，本商城不提供一次性购物袋，还请您提前自备环保袋!)
+        </p>
+      <p>
+        您还需支付：<font>￥{this.props.payable}元</font>
+      </p>
+      <div>
+        <span>您已选择：</span>
+        <div>
+          <div>
+            <img
+              src={this.state.banksrc}
+              alt=""
+            />
+          </div>
+          <strong onClick={this.gopage.bind(this)}>立即支付</strong>
+        </div>
+      </div>
+      <span>选择其它银行 / 支付平台</span>
+      <div className="bank">{this.state.bank}</div>
+    </div>
+  )
+}
 }
 const MapStateToProps = (state, OwnProps) => {
   return {
-    post: state.cartorder.mycart,
+    post:state.cartorder,
+    payable: state.cartorder.payable,
     rcommend: state.cartorder.recommend,
-    bank:state.cartorder.bank,
+    bank: state.cartorder.bank,
+    banksrc:state.cartorder.banksrc,
   }
 }
 export default connect(MapStateToProps)(Personal_My_shopping_order_three)

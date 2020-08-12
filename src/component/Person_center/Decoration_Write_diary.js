@@ -13,6 +13,7 @@ import { Steps } from 'antd'
 import { Button } from 'antd'
 // jquery
 import $ from 'jquery'
+import Axios from 'axios'
 const { Step } = Steps
 //个人中心 写日记
 // // 选择日期
@@ -233,6 +234,17 @@ export default class Decoration_Write_diary extends Component {
   releaseDiary = () => {
     console.log('发布日志')
     console.log(this.state)
+    let mydata = {
+      uid: 1,
+      name: '明天会更好',
+      content: this.state.textarea,
+      tag: this.state.diaryLable,
+    }
     // console.log($('.ant-upload-list-item-thumbnail'))
+    Axios.post('http://172.16.10.56:8080/banJu/Diary/saveDiary', mydata).then(
+      (response) => {
+        console.log(response)
+      }
+    )
   }
 }
