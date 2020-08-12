@@ -13,7 +13,7 @@ class Carpentry extends Component {
          }
     }
     UNSAFE_componentWillMount(){
-                fetch('http://172.16.10.11:8080/banJu/craftsmanDetail/selectMuGongByHot',{                     
+                fetch('http://47.100.90.56:8080/banJu/craftsmanDetail/selectMuGongByHot',{                     
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json' 

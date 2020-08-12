@@ -5,6 +5,8 @@ import "./css/mycenter.css"
 
 //引入antd表格
 import { Table } from 'antd';
+import { Popconfirm } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
 
 //个人中心
@@ -22,7 +24,7 @@ class Personal_My_reservation extends Component {
          }
     }
     UNSAFE_componentWillMount() {
-    fetch('http://172.16.10.15:8080/banJu/user/findUserReservation',{           
+    fetch('http://47.100.90.56:8080/banJu/user/findUserReservation',{           
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json' 
@@ -50,7 +52,12 @@ class Personal_My_reservation extends Component {
                     console.log("数据有误");
                 });
     }
+     
+    onConfirm=(e)=>{
+      console.log("aaaaaaaaaaa")
+    }
     render() { 
+      
 
     const columns = [
               {
@@ -68,7 +75,9 @@ class Personal_My_reservation extends Component {
                 title: 'Action',
                 dataIndex: '',
                 key: 'x',
-                render: () => <a href='1'>取消预约</a>,
+                render: () => <a href='1'><Popconfirm title="Are you sure？" icon={<QuestionCircleOutlined style={{ color: 'red' }} />}>
+                <a href="#">取消预约</a>
+              </Popconfirm></a>,
               },
               
     ];
@@ -100,6 +109,7 @@ class Personal_My_reservation extends Component {
           }}
           dataSource={this.state.data}
         />
+        
         </div>
          );
     }

@@ -16,6 +16,8 @@ import "../component/Craftsmans_Hall/css/PopularCraftsman.css"
 
 //引入头部
 import Header from "../component/commen/header.js"
+import HeaderSeach from "../component/commen/indexHeader1.js"
+import HeaderBanner from "../component/commen/indexHeader2.js"
 //引入底部
 import Bottom from "../component/commen/footer.js"
 
@@ -25,6 +27,8 @@ export default class Craftsman_Pavilion extends Component {
         return (
             <div className="craftsmancss">
                 <Header></Header>
+                <HeaderSeach></HeaderSeach>
+                <HeaderBanner></HeaderBanner>
                 {/* 热门工匠 */}
                 <div className=" craftsmanStyle  craftsman_Info padding">
                     <div className="titleStyle">热门工匠</div>

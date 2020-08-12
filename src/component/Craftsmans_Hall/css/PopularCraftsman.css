@@ -147,3 +147,36 @@
     color: #b1b1b1 ;
     cursor: pointer;
 }
+.craftsmancss .Pages{
+    width: 55px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    background-color: skyblue;
+    user-select: none;
+}
+.craftsmancss .number{
+
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+    color: black;
+}
+.craftsmancss .currentNumber{
+    color: #b1b1b1;
+    font-size: 18px;
+}
+.craftsmancss .center{
+    text-align: center;
+    width: 1200px;
+}
+.craftsmancss .centerFlex{
+    margin-left: 520px;
+    margin-top: 20px;
+    text-align: center;
+}

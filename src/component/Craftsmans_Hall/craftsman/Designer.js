@@ -13,7 +13,7 @@ class Designer extends Component {
     }
     
     UNSAFE_componentWillMount(){
-                fetch('http://172.16.10.11:8080/banJu/craftsmanDetail/selectDesignerByHot',{                     
+                fetch('http://47.100.90.56:8080/banJu/craftsmanDetail/selectDesignerByHot',{                     
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json' 

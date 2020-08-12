@@ -7,7 +7,7 @@ import "./css/Furniture_Museum.css"
 
 
 //引入组件
-import BedroomArr from '../component/Furniture_house/bedArr'
+import FurnitureArr from '../component/Furniture_house/FurnitureArr'
 
 //优惠券领取成功模态框
 import { Modal, Button, Space } from 'antd';
@@ -18,6 +18,7 @@ class Furniture_Museum extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            cuponArr:[],
            //优惠券
            money:0,
 
@@ -33,7 +34,7 @@ class Furniture_Museum extends Component {
         this.setState({
             money:money,
         },()=>{
-    fetch('http://172.16.10.15:8080/banJu/user/getconpon',{           
+    fetch('http://47.100.90.56/banJu/user/getconpon',{           
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json' 
@@ -61,40 +62,44 @@ class Furniture_Museum extends Component {
         })
 
     }
+
     //模态框
      success() {
         Modal.success({
           content:this.state.content,
         });
       }
+
+      //优惠券
+    //   arr=()=>{
+    //       let arr=this.cuponArr.map((item)=>{
+    //           return(
+    //         <div className="cuoponBox cuoponFlex">
+
+    //             {/* 优惠券1 */}
+    //             <div className="cuoponBox_content cuoponFlex" onClick={this.cuopon.bind(this,1)}>
+    //             <div className="cuoponBox_Money">￥20{item.money}</div>
+    //             <div className="cuoponBox_text">优惠券订单满79元立减现领现用{item.title}</div>
+    //             </div>
+
+    //         </div>
+            
+    //           )
+
+    //       });
+    //       this.setState({
+    //           arr,
+    //       })
+    //   }
     render() { 
         return ( 
                 <div className="Furniture">
-                    <div className="cuoponBox cuoponFlex">
-
-                        {/* 优惠券1 */}
-                        <div className="cuoponBox_content cuoponFlex" onClick={this.cuopon.bind(this,1)}>
-                            <div className="cuoponBox_Money">￥20</div>
-                            <div className="cuoponBox_text">优惠券订单满79元立减现领现用</div>
-                        </div>
-                    
-                        {/* 优惠券2 */}
-                            <div className="cuoponBox_content cuoponFlex" onClick={this.cuopon.bind(this,2)}>
-                                <div className="cuoponBox_Money" >￥20</div>
-                                <div className="cuoponBox_text">优惠券订单满79元立减现领现用</div>
-                            </div>
-                        {/* 优惠券3 */}
-                        <div className="cuoponBox_content cuoponFlex" onClick={this.cuopon.bind(this,3)}>
-                            <div className="cuoponBox_Money">￥20</div>
-                            <div className="cuoponBox_text">优惠券订单满79元立减现领现用</div>
-                        </div>
-
-                    </div>
-                    {/* 卧室 */}
+                    {/* //优惠券 */}
+                    {/* {this.state.arr} */}
+                   {/* 卧室 */}
                     <div className="cuoponBox">
-                        <BedroomArr></BedroomArr>
+                        <FurnitureArr></FurnitureArr>
                     </div>
-                    
                 </div>
          );
     }
