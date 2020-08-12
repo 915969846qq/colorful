@@ -153,7 +153,7 @@ export default class rootManage extends Component {
     /*管理员数据渲染*/
     // 172.16.10.4:8080/banJu/manager/updateManager
     xuanran=(e)=>{
-        fetch('http://172.16.10.32:8080/banJu/manager/findAllManager',{
+        fetch('http://47.100.90.56:8080/banJu/manager/findAllManager',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -229,7 +229,7 @@ componentDidMount() {
         const img=a/*图片路径*/
         console.log(gh)
         console.log(phone)
-        fetch('http://172.16.10.32:8080/banJu/manager/register',{
+        fetch('http://47.100.90.56:8080/banJu/manager/register',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -279,7 +279,7 @@ componentDidMount() {
         const img=a;/*图片路径*/
 
 
-        fetch('http://172.16.10.32:8080/banJu/manager/updateManager',{
+        fetch('http://47.100.90.56:8080/banJu/manager/updateManager',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -302,7 +302,7 @@ componentDidMount() {
             this.xuanran()
             this.setState({
 
-            },()=>{})
+            },()=>{this.xuanran()})
 
         }).catch((e) => {
             console.log("数据有误");
@@ -458,7 +458,7 @@ componentDidMount() {
 
           if (key.length==0){
               console.log(key)
-              fetch('http://172.16.10.32:8080/banJu/manager/deleteById',{
+              fetch('http://47.100.90.56:8080/banJu/manager/deleteById',{
                   method:'POST',
                   headers:{
                       'Content-Type':'application/json'
@@ -482,7 +482,7 @@ componentDidMount() {
 
           /*===================================================================*/
           // 172.16.10.4:8080/banJu/manager/deleteMore
-          fetch('http://172.16.10.32:8080/banJu/manager/deleteMore',{
+          fetch('http://47.100.90.56:8080/banJu/manager/deleteMore',{
               method:'POST',
               headers:{
                   'Content-Type':'application/json'
@@ -608,6 +608,7 @@ componentDidMount() {
               key: 'edit',
               align:"center",
               render:(e,record) => {
+                  // console.log(record)
                   return <p className="state butone">
                       <Popconfirm
                           title="确定要删除该管理员?"

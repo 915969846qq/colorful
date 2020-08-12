@@ -25,7 +25,8 @@ export default class Decoration_Museum extends Component {
             mix:"",
             max:"",
             zhuangxiu:"",
-            data:""
+            data:"",
+            paixu:"综合推荐"
 
         }
     }
@@ -33,7 +34,14 @@ export default class Decoration_Museum extends Component {
     /*=====================数据渲染请求接口==============================*/
 
   xuanran=()=>{
-            fetch('http://172.16.10.32:8080/banJu/service/selectByLike',{
+      // console.log(this.state.selectmenu1)
+      // console.log(this.state.selectmenu2)
+      // console.log(this.state.mix)
+      // console.log(this.state.max)
+      // console.log(this.state.selectmenu4)
+      console.log(this.state.paixu)
+
+            fetch('http://47.100.90.56:8080/banJu/service/selectByLike',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -46,7 +54,7 @@ export default class Decoration_Museum extends Component {
             undertakePriceMin:this.state.mix,
             undertakePriceMax:this.state.max,
             companyAddress:this.state.selectmenu4,
-            orderList:this.state.ul,
+            orderList:this.state.paixu,
         })
         }).then((res)=>{
             return res.json();
@@ -96,10 +104,15 @@ export default class Decoration_Museum extends Component {
                    let idx = pirce.indexOf("—");
                     mix=pirce.substring(0,idx)
                     max=pirce.substring(idx+2,pirce.length-1)
-                   that.setState({
-                       mix:mix,
-                       max:max,
-                   })
+                   console.log(mix)
+                   console.log(max)
+                   if (mix!=""||max!=""){
+                       that.setState({
+                           mix:mix+"0000",
+                           max:max+"0000",
+                       })
+                   }
+
 
                }
 
@@ -113,14 +126,18 @@ export default class Decoration_Museum extends Component {
             $(this).css("background","#ff0000").css("color","white")
             $(this).siblings().css("background","none").css("color","#333")
             that.setState({
-                [$(this).parent().attr("class")]:$(this).text()
+                ul:$(this).text()
             })
+            let xuanxiang=that.state.ul
 
+            let px=xuanxiang.replace(" v","")
+            that.setState({
+                paixu:px
+            })
+            console.log(that.state.paixu)
         })
 
-        let xuanxiang=that.state.ul
 
-        console.log( xuanxiang.replace(" v",""))
 
         that.xuanran()
 
@@ -142,16 +159,15 @@ export default class Decoration_Museum extends Component {
             {
                 dataIndex: 'name',
                 render:(record,data) => {
-                    console.log(data)
                     return <div> <div className="main-left-top">
                         <div className="left-IMGe"><a href="1"><img
-                            src={require("../assets/images/min-banner1_03.jpg")} alt=""/></a></div>
+                            src={require("../assets/images/26201619.jpg")} alt=""/></a></div>
                         <div className="left_text">
                             <h6 className="Company"><a href="1">{data.service.companyName}</a></h6>
                             <p>营业执照惠5月大型家装团购活动</p>
-                            <p className="Comparddss">地址 : <span>青羊区铜丝街8号</span></p>
-                            <p className="allvalue">效果图 :<span> {data.signUpNum}</span>套 &nbsp;&nbsp;   签约
-                                : <span>{data.companyAddress}</span> 个 </p>
+                            <p className="Comparddss">地址 : <span>{data.companyAddress}</span></p>
+                            <p className="allvalue">效果图 :<span> {data.effectPictureNum}</span>套 &nbsp;&nbsp;   签约
+                                    : <span>{data.signUpNum}</span> 个 </p>
                         </div>
                         <div className="left-bottun">
 
@@ -243,15 +259,11 @@ export default class Decoration_Museum extends Component {
                         </ul>
                         <h5>服务区域</h5>
                         <ul id="selectmenu2">
-                            <li className="btchecker">都江堰</li>
-                            <li className="">彭州</li>
-                            <li className="">邛崃</li>
-                            <li className="">崇州</li>
-                            <li className="">金堂县</li>
-                            <li className="">郫县</li>
-                            <li className="">新津县</li>
-                            <li className="">双流县</li>
-                            <li className="">龙泉驿区</li>
+                            <li className="btchecker">金牛区</li>
+                            <li className="">锦江区</li>
+                            <li className="">成华区</li>
+                            <li className="">武侯区</li>
+                            <li className="">青羊区</li>
                             <li className="">更多</li>
                         </ul>
                         <h5>承接价位</h5>
@@ -266,15 +278,15 @@ export default class Decoration_Museum extends Component {
                         </ul>
                         <h5>所在区域</h5>
                         <ul id="selectmenu4">
-                            <li className="btchecker" >都江堰</li>
-                            <li className="">彭州</li>
-                            <li className="">邛崃</li>
-                            <li className="">崇州</li>
-                            <li className="">金堂县</li>
-                            <li className="">郫县</li>
-                            <li className="">新津县</li>
-                            <li className="">双流县</li>
-                            <li className="">龙泉驿区</li>
+                            <li className="btchecker" >金牛区</li>
+                            <li className="">锦江区</li>
+                            <li className="">成华区</li>
+                            <li className="">武侯区</li>
+                            <li className="">青羊区</li>
+                            {/*<li className="">郫县</li>*/}
+                            {/*<li className="">新津县</li>*/}
+                            {/*<li className="">双流县</li>*/}
+                            {/*<li className="">龙泉驿区</li>*/}
                             <li className="">更多</li>
                         </ul>
                     </div>
