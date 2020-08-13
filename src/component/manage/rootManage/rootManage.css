@@ -9,7 +9,7 @@
 .wodext .del{
     display: block;
     cursor:pointer;
-    width: 60px;
+    width: 67px;
     height: 32px;
     line-height: 32px;
     color: #fff;
@@ -18,10 +18,10 @@
     border-color: #1890ff;
 }
 .wodext .ant-table-wrapper{
-    width: 1000px;
+    width: 100%;
 }
 .wodext .site-layout-background{
-    width: 1000px ;
+    width: 100% ;
 }
 .wodext .ant-input{
     width: 50px !important;
@@ -44,26 +44,26 @@
      clear: both !important;
  }
 .xutaoip{
-     width: 160px;
-     height: 30px;
+     width: 260px;
+     height: 35px;
  }
 .sp{
      color: #333;
      float: left;
-     width: 70px;
-     height: 30px;
-     line-height: 30px;
+     width: 90px;
+     height: 35px;
+     line-height: 35px;
      text-align: right;
      margin-left: -5px;
-     font-size: 14px;
+     font-size: 16px;
  }
-.ant-modal-body{
-    height: 350px;
-}
-.ant-upload-picture-card-wrapper{
-    float: left;
+/*.ant-modal-body{*/
+/*    height: 350px;*/
+/*}*/
+.bj2 .avatar-uploader{
+    float: left !important;
     width: 102px !important;
-    margin-left: 0px;
+    margin-left: 0px !important;
 }
 .bj2{
     float: left;
@@ -74,7 +74,7 @@
 .sp2{
     color: #333;
     float: left;
-    width: 70px;
+    width: 90px;
     height: 30px;
     line-height: 30px;
     margin-left: 5px;

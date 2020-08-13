@@ -55,7 +55,9 @@ export default class Sign_in extends Component {
 
                 this.setState({
                 },()=>{
+                    sessionStorage.setItem("user2",JSON.stringify({power:data.power}));
                     if (data.msg=="登录成功"){
+
                         message.success('登录成功');
                         this.props.history.push({ pathname: "/manage", state: { power } })
                     }else {

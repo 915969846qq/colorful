@@ -168,7 +168,7 @@ $(".ant-table-thead .ant-table-cell .ant-table-selection").show()
 
         return (
             <div className="xt5">
-                <div className="box">
+
                     <div className="title">收藏的店铺</div>
                     <div className="setion">
                         <Table rowSelection={rowSelection}
@@ -189,7 +189,7 @@ $(".ant-table-thead .ant-table-cell .ant-table-selection").show()
                         </div>
                     </div>
 
-                </div>
+
 
             </div>
         )

@@ -33,13 +33,15 @@ class Manage extends Component {
   // }
   xuaran=(menuList)=>{
     let a;
-    if (this.props.location.state.power==0){
+    if (JSON.parse(sessionStorage.user2).power==0){
       a=0;
    }
 
-    else if(this.props.location.state.power==1) {
+    else if(JSON.parse(sessionStorage.user2).power==1) {
       a = 1;
 
+    }else {
+      a=2
     }
     let menulist=menuList[a]
     let MenuList= this.bindMenu(menulist)
@@ -113,7 +115,7 @@ class Manage extends Component {
         "menuChilds": []
       }, {
         "menuId": 5,
-        "menuName": "订单管理",
+        "menuName": "搜索排名管理",
         "menuUrl": "/manage/SearchManage",
         "pathname": "SearchManage",
         "componentPath": "/manage/SearchManage",
@@ -202,6 +204,12 @@ class Manage extends Component {
     }
 
       ],
+
+
+
+
+        /*==================================管理员======================*/
+
       [{
         "menuId": 2,
         "menuName": "广告管理",
@@ -224,7 +232,7 @@ class Manage extends Component {
           "menuChilds": []
         }, {
         "menuId": 5,
-        "menuName": "订单管理",
+        "menuName": "搜索排名管理",
         "menuUrl": "/manage/SearchManage",
         "pathname": "SearchManage",
         "componentPath": "/manage/SearchManage",
@@ -306,10 +314,49 @@ class Manage extends Component {
             "menuState": "0",
             "menuChilds": []//---------------没有子菜单
           }]
-      }]
-    ]
-    if(this.props.location.state===undefined){
-      console.log(this.props.location.state)
+      }],
+        [{
+          "menuId": 54,
+          "menuName": "商家管理",
+          "menuUrl": "/manage/Kstore",
+          "pathname": "SearchManage",
+          "componentPath": "/manage/Kstore",
+          "menuImgClass": "",
+          "menuState": "0",
+          "menuChilds": [{
+            "menuId": 35,
+            "menuName": "配送方式",
+            "menuUrl": "/manage/payfor",
+            "pathname": "Usersaudit",
+            "componentPath": "/manage/payfor",
+            "menuImgClass": "",
+            "menuState": "0",
+            "menuChilds": []//---------------没有子菜单
+          },
+            {
+              "menuId": 63,
+              "menuName": "商品列表",
+              "menuUrl": "/manage/Kstore",
+              "pathname": "Usersaudited",
+              "componentPath": "/manage/Kstore",
+              "menuImgClass": "",
+              "menuState": "0",
+              "menuChilds": []//---------------没有子菜单
+            },
+            {
+              "menuId": 28,
+              "menuName": " 订单列表",
+              "menuUrl": "/manage/border",
+              "pathname": "Usersaudited",
+              "componentPath": "/manage/border",
+              "menuImgClass": "",
+              "menuState": "0",
+              "menuChilds": []//---------------没有子菜单
+            }]
+        }]
+    ];
+    if(JSON.parse(sessionStorage.user2).power===undefined){
+      // console.log(this.props.location.state)
 
       this.props.history.push("/backstage")
     }else {

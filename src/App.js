@@ -31,6 +31,7 @@ import Craftsman_Settled_company from './component/Person_center/Craftsman_Settl
 import Furniture_Museum_details from './component/Furniture_house/Furniture_Museum_details'
 import Style_pavilion_case from './component/Style/Style_pavilion_case'
 import Decoration_Diary_list from './component/Decoration_pipe/Decoration_Diary_list'
+import Backstage from "./component/Login/backstage"
 function App() {
   return (
     <div className="App">
@@ -85,6 +86,9 @@ function App() {
           <Route
             path="/Sign_Register_successful"
             component={Sign_Register_successful}
+          ></Route> <Route
+            path="/backstage"
+            component={Backstage}
           ></Route>
           <Route
             path="/Decoration_Diary_list"

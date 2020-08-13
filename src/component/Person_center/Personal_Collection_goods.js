@@ -123,7 +123,7 @@ function confirm(e) {
         },
         credentials: 'include',
         body:JSON.stringify({
-            uid:3,
+            uid:JSON.parse(sessionStorage.user).id,
             gid:this.state.selectedRowKeys[0],
             status:1
         })
@@ -171,7 +171,7 @@ export default class Personal_Collection_goods extends Component {
             },
             credentials: 'include',
             body:JSON.stringify({
-                uid:3,
+                uid:JSON.parse(sessionStorage.user).id,
                 status:1,
 
             })
@@ -209,7 +209,7 @@ export default class Personal_Collection_goods extends Component {
             },
             credentials: 'include',
             body:JSON.stringify({
-                uid:3,
+                uid:JSON.parse(sessionStorage.user).id,
                 status: 1,
                 gid:this.state.selectedRowKeys[0]
             })

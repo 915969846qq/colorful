@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Table, Input, Button, Space,Popconfirm,Modal,Upload, message  } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined,LoadingOutlined,PlusOutlined } from '@ant-design/icons';
+import $ from "jquery"
 import "./rootManage.css"
 let a;
 //=================================图片上传==================================
@@ -196,6 +197,12 @@ export default class rootManage extends Component {
 componentDidMount() {
 
     this.xuanran()
+    // $(".ant-upload-picture-card-wrapper").css({
+    //     width:"102px",
+    //     float:"left",
+    //
+    // })
+    console.log( $(".ant-upload-picture-card-wrapper"))
 
 }
 
@@ -348,10 +355,10 @@ componentDidMount() {
                         size="small"
                         style={{ width: 90 }}
                     >
-                        确定
+                        Search
                     </Button>
                     <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
-                        取消
+                        Reset
                     </Button>
                 </Space>
             </div>
@@ -626,6 +633,8 @@ componentDidMount() {
                       <Modal
                           visible={visible1}
                           title="编辑"
+                          width="800px"
+                          bodyStyle={{height:"370px"}}
                           onOk={this.handleOk1}
                           onCancel={this.handleCancel1}
                           footer={[
@@ -679,7 +688,9 @@ componentDidMount() {
           <Modal
               visible={visible}
               title="添加"
+              width="800px"
               onOk={this.handleOk}
+              bodyStyle={{height:"370px"}}
               onCancel={this.handleCancel}
               footer={[
                   <Button key="back" onClick={this.handleCancel}>

@@ -1,4 +1,4 @@
-.xt5 .box{
+.xt5 .ant-table table.xt5 .box{
     width: 996px;
     height: 650px;
     position: relative;
@@ -14,7 +14,7 @@
     background-color: #f7f7f7;
 }
 .xt5 .setion{
-    width: 930px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -73,7 +73,7 @@
     cursor: pointer;
     font-size: 16px;
     position: relative;
-    top: -129px;
+    top: -123px;
     left: 88px;
 }
 .xt5 .All-out label {
@@ -179,7 +179,7 @@
 .xt5 .canPin{
     width: 160px;
     float: left;
-    margin: 15px 30px;
+    margin: 15px 25px;
 }
 .xt5 .oimg {
     width: 160px;
@@ -198,7 +198,9 @@
     line-height: 24px;
     margin-bottom: 0;
 }
-
+.xt5 .ant-table-content{
+    width: 100%;
+}
 .xt5 .canPin span {
     color: #ff0000;
     font-size: 16px;
@@ -209,7 +211,7 @@
     width: 962px;
 }
 .xt5 .ant-table table{
-    width: 950px;
+    width: 100%;
     text-align: left;
    border: 0 !important;
     border-left: 0 !important;
@@ -261,6 +263,6 @@
 .xt5 .qx{
     position: relative;
     font-size: 16px;
-    top: -88px;
+    top: -82px;
     left: 45px;
 }
