@@ -13,37 +13,43 @@ export default class Decoration_My_diary extends Component {
     if (props.location.params !== undefined) {
       sessionStorage.setItem('data', JSON.stringify(props.location.params))
     }
-    let mydata = JSON.parse(sessionStorage.getItem('data'))
-    console.log(mydata.id)
-    // 发送请求
-    let data = {}
-    data.id = mydata.id
-    axios
-      .post('http://172.16.10.56:8080/banJu/Diary/findAllById', data)
-      .then((response) => {
-        console.log(response)
-        let alldata = response.data.data[0]
-        this.setState(
-          {
-            data: mydata,
-            commitdata: alldata,
-          },
-          () => {
-            console.log(this.state)
-          }
-        )
+    if (JSON.parse(sessionStorage.getItem('user') === undefined)) {
+      window.location.href = '/Sign_in'
+    }
+    if (JSON.parse(sessionStorage.getItem('user') !== undefined)) {
+      let mydata = JSON.parse(sessionStorage.getItem('data'))
+      console.log(mydata.id)
+      // 发送请求
+      let data = {}
+      data.id = mydata.id
+      console.log(data)
+      axios
+        .post('http://47.100.90.56:8080/banJu/Diary/findAllById', data)
+        .then((response) => {
+          console.log(response)
+          let alldata = response.data.data[0]
+          this.setState(
+            {
+              data: mydata,
+              commitdata: alldata,
+            },
+            () => {
+              console.log(this.state)
+            }
+          )
+        })
+      // 页面获取数据
+      // console.log('现在是获取数据111')
+      Store.dispatch({
+        type: 'Decoration_data',
+        id: this.state.data,
       })
-    // 页面获取数据
-    // console.log('现在是获取数据111')
-    Store.dispatch({
-      type: 'Decoration_data',
-      id: this.state.data,
-    })
+    }
   }
 
   componentWillUnmount() {
     // console.log('1111')
-    sessionStorage.clear()
+    sessionStorage.removeItem('data')
   }
   render() {
     console.log(this.state.commitdata === undefined)
@@ -90,8 +96,7 @@ export default class Decoration_My_diary extends Component {
               <span>装修公司 : </span>
               <span className="fang_marginL20">
                 {this.state.commitdata.houseInfo.decorationCompany}
-              </span>{' '}
-              <span className="fang_marginL20">修改资料</span>
+              </span>
             </p>
           </Col>
           {/* 他人浏览 */}
@@ -254,7 +259,7 @@ export default class Decoration_My_diary extends Component {
     console.log(usercommit)
     if (sessionStorage.getItem('user') !== null) {
       axios
-        .post('http://172.16.10.56:8080/banJu/Evaluation/saveToDiary', {
+        .post('http://47.100.90.56:8080/banJu/Evaluation/saveToDiary', {
           did: '1',
           ruid: '1',
           desc: this.state.text,

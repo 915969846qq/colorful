@@ -121,7 +121,7 @@ class orderStatistics extends Component {
     // 发送请求
     this.mydata = {}
     axios
-      .post('http://172.16.10.56:8080/banJu/manager/getOrderByAll', {})
+      .post('http://47.100.90.56:8080/banJu/manager/getOrderByAll', {})
       .then((response) => {
         console.log(response.data.data)
         let mydata = response.data.data
@@ -223,7 +223,7 @@ class orderStatistics extends Component {
     console.log(value)
     if (value === '') {
       axios
-        .post('http://172.16.10.56:8080/banJu/manager/getOrderByAll', {})
+        .post('http://47.100.90.56:8080/banJu/manager/getOrderByAll', {})
         .then((response) => {
           console.log(response.data.data)
           let mydata = response.data.data
@@ -326,7 +326,7 @@ class orderStatistics extends Component {
       }
       console.log(data)
       axios
-        .post('http://172.16.10.32:8080/banJu/manager/getOrderByAll', data)
+        .post('http://47.100.90.56:8080/banJu/manager/getOrderByAll', data)
         .then((response) => {
           console.log(response)
           let mydata = response.data.data
@@ -369,7 +369,7 @@ class orderStatistics extends Component {
   hotsale = () => {
     console.log('查询热销')
     axios
-      .post('http://172.16.10.32:8080/banJu/manager/findMerchantByLike', {})
+      .post('http://47.100.90.56:8080/banJu/manager/findMerchantByLike', {})
       .then((response) => {
         console.log(response.data.data)
         let mydata = response.data.data
@@ -431,7 +431,7 @@ class orderStatistics extends Component {
       }
       console.log(data)
       axios
-        .post('http://172.16.10.32:8080/banJu/manager/getOrderByAll', data)
+        .post('http://47.100.90.56:8080/banJu/manager/getOrderByAll', data)
         .then((response) => {
           console.log(response)
           let mydata = response.data.data

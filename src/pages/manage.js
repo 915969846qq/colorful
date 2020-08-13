@@ -30,9 +30,17 @@ class Manage extends Component {
     console.log(collapsed)
     this.setState({ collapsed })
   }
-  orderClick = () => {
+  orderClick = (key) => {
     console.log('刷新页面')
-    location.reload()
+    console.log(window.location)
+    if (
+      window.location.href === 'http://localhost:3000/manage/OrderStatistics'
+    ) {
+      location.reload()
+    } else {
+      console.log(key)
+      this.props.history.push(key.key)
+    }
   }
   render() {
     return (
@@ -60,7 +68,7 @@ class Manage extends Component {
             </Menu.Item>
             <Menu.Item
               key="/manage/OrderStatistics"
-              onClick={this.go}
+              // onClick={this.go}
               icon={<DesktopOutlined />}
               onClick={this.orderClick}
             >
@@ -81,13 +89,13 @@ class Manage extends Component {
               订单管理
             </Menu.Item>
 
-              <Menu.Item
-                key="/manage/UsersStatistics"
-                onClick={this.go}
-                icon={<DesktopOutlined />}
-              >
-                用户统计
-              </Menu.Item>
+            <Menu.Item
+              key="/manage/UsersStatistics"
+              onClick={this.go}
+              icon={<DesktopOutlined />}
+            >
+              用户统计
+            </Menu.Item>
 
             <SubMenu
               key="/manage/Usersaudit"
@@ -141,7 +149,11 @@ class Manage extends Component {
                   ></Route>
                 )
               })}
-              {/* <Redirect from="/manage" to="/manage/AdvertManage"></Redirect> */}
+              {/* <Redirect
+                from="/manage"
+                to="/manage/AdvertManage"
+                exact
+              ></Redirect> */}
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>

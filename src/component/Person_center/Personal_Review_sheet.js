@@ -92,7 +92,7 @@ class Personal_Review_sheet extends Component {
     } else {
       isdata.uid = ruie.id
       axios
-        .post('http://172.16.10.56:8080/banJu/user/lookEvaStatus', isdata)
+        .post('http://47.100.90.56:8080/banJu/user/lookEvaStatus', isdata)
         .then((response) => {
           console.log(response.data)
           let mydata = response.data.data
@@ -305,7 +305,7 @@ class Personal_Review_sheet extends Component {
     }
     console.log(data)
     axios
-      .post('http://172.16.10.56:8080/banJu/Evaluation/saveToGoods', data)
+      .post('http://47.100.90.56:8080/banJu/Evaluation/saveToGoods', data)
       .then((response) => {
         console.log(response)
         this.setState({ ModelDate: {}, textar: '', fileList: [] }, () => {
@@ -496,13 +496,13 @@ class Personal_Review_sheet extends Component {
           <Col span={2} className="fang_FangCenter fang_mycomment fang_myh">
             已评论（{this.state.end}）
           </Col>
-          <Col
+          {/* <Col
             span={2}
             className="fang_FangCenter fang_mycomment fang_myh"
             onClick={this.writecommit}
           >
             待评论（{this.state.wite}）
-          </Col>
+          </Col> */}
         </Row>
         {/* 展示区域 */}
         <div>

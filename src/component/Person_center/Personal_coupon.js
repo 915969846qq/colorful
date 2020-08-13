@@ -59,6 +59,7 @@ function MyCoupon(props) {
             <Col
               span={5}
               className="fang_0BColor fang_FangCenter fang_font22 fang_padding30 fang_varticalTEXT fang_paddingt30"
+              onClick={that.useit.bind(that, item)}
             >
               立即使用
             </Col>
@@ -67,7 +68,7 @@ function MyCoupon(props) {
               span={5}
               className="fang_0BColor fang_Bcolor9 fang_FangCenter fang_font22 fang_padding30 fang_paddingt30"
             >
-              已使用
+              已过期
             </Col>
           )}
         </Row>
@@ -102,7 +103,7 @@ class Personal_coupon extends Component {
     } else {
       isdata.id = ruie.id
       axios
-        .post('http://172.16.10.56:8080/banJu/user/usercoupon', isdata)
+        .post('http://47.100.90.56:8080/banJu/user/usercoupon', isdata)
         .then((response) => {
           // 生成当前时间，判断是否过期
           var d = new Date()
@@ -128,6 +129,19 @@ class Personal_coupon extends Component {
             }
           )
         })
+    }
+  }
+  // 使用代金券
+  useit = (data, is) => {
+    console.log('使用代金券')
+    console.log(data)
+    if (data.desc === '厨卫馆代金券') {
+      console.log('厨卫馆代金券')
+      window.location.href = '/Secondhand_Market'
+    }
+    if (data.desc === '二手代金券') {
+      console.log('二手代金券')
+      window.location.href = '/Secondhand_Market'
     }
   }
   // 数据更新后调用
