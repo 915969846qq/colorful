@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { Table, Input, Button, Space } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
-
+import CAxios from '../../../util/chenmingaxios'
     export default class searchManage extends React.Component {
       constructor(){
         super()
@@ -24,16 +24,10 @@ import { SearchOutlined } from '@ant-design/icons';
 
 getpriority=(e)=>{
    
-          fetch(`http://172.16.10.4:8080/banJu/manager/goodsSortShow`,{                     
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json' 
-            },
-            credentials: 'include',
-            body:JSON.stringify(e)
-            }).then((res)=>{   
+          CAxios.post(`/banJu/manager/goodsSortShow`,e).then(
+    (res)=>{   
                    console.log(res)         
-                return res.json();       
+                return res.data;       
             }).then((data)=>{
                console.log(data.data)
                let prioritydata=[]
@@ -55,14 +49,8 @@ getpriority=(e)=>{
 // ===================================修改数据============================================
 changepriority=(e)=>{
    
-          fetch(`http://172.16.10.4:8080/banJu/manager/updateGoodsPriority`,{                     
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json' 
-            },
-            credentials: 'include',
-            body:JSON.stringify(e)
-            }).then((res)=>{   
+          CAxios.post(`/banJu/manager/updateGoodsPriority`,e).then(
+    (res)=>{   
                   this.getpriority({}) 
                      
             }).then((data)=>{

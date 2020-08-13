@@ -39,7 +39,7 @@ export default class usersaudit extends Component {
 
   UNSAFE_componentWillMount() {
     //查询未审核的数据
-    fetch('http://172.16.10.4:8080/banJu/manager/selectIsLegal', {
+    fetch('http://47.100.90.56:8080/banJu/manager/selectIsLegal', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ export default class usersaudit extends Component {
       },
       () => {
         console.log(this.state.id)
-        fetch('http://172.16.10.4:8080/banJu/manager/auditMerchant', {
+        fetch('http://47.100.90.56:8080/banJu/manager/auditMerchant', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -113,9 +113,14 @@ export default class usersaudit extends Component {
           .then((data) => {
             console.log(data)
             // 存放数组
-            this.setState({
-              data: data.data,
-            })
+            this.setState(
+              {
+                content: data.msg,
+              },
+              () => {
+                this.success()
+              }
+            )
           })
           .catch((e) => {
             console.log('数据有误')
@@ -137,7 +142,7 @@ export default class usersaudit extends Component {
       },
       () => {
         console.log(this.state.id)
-        fetch('http://172.16.10.4:8080/banJu/manager/auditMerchant', {
+        fetch('http://47.100.90.56:8080/banJu/manager/auditMerchant', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

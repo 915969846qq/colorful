@@ -8,6 +8,10 @@ import "whatwg-fetch"
 //引入css
 import "./css/PopularCraftsman.css"
 
+//引入头部
+import HeaderSearch from "../commen/indexHeader1"
+import HeaderBanner from "../commen/indexHeader2"
+
 //引入底部
 import Footer from '../commen/footer'
 
@@ -167,8 +171,8 @@ class Craftsman_Pavilion_list extends Component {
                 experienceMin: this.state.experienceMin,
                 experienceMax: this.state.experienceMax,
                 orderList: this.state.orderList,
-                page: this.state.current,
-                limit: 4,
+                // page: this.state.current,
+                // limit: 4,
             })
         }).then((res) => {
             return res.json();
@@ -177,8 +181,7 @@ class Craftsman_Pavilion_list extends Component {
             // 存放数组            
             this.setState({
                 craftsmanArr: data.data,
-                total:data
-
+                // total:data
             },()=>{
                 this.arr();
             })
@@ -355,7 +358,7 @@ class Craftsman_Pavilion_list extends Component {
             console.log(this.state.craftsmanArr)
             return (
                 <div className="craftsman" key={item.cid}>
-                    {/* <img src={require(`../../${item.avatar}`)} alt="" className="pavilionLImg"/> */}
+                    <img src={require(`../../assets/images/craftsman_07.jpg`)} alt="" className="pavilionLImg"/>
                     <div className="craftsman_list_padding">
                         <div className="flex craftsman_Info">
                             <div className="craftsman_list_name">{item.realName}</div>
@@ -380,6 +383,8 @@ class Craftsman_Pavilion_list extends Component {
         return (
             //外层css取名
             <div className="craftsmancss">
+                <HeaderSearch></HeaderSearch>
+                <HeaderBanner></HeaderBanner>
                 {/* 表格 */}
                 <div className="table">
                     {/* top */}

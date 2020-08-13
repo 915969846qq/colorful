@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 
 //加载界面
-import { Spin } from 'antd';
+// import { Spin } from 'antd';
 
 
 //引入组件
@@ -117,7 +117,7 @@ class FurnitureArr extends Component {
                                 pathname:`/Furniture_Museum_details`,
                                 state:{key:item.id}
                             }
-                        }><img src={item.image} alt="" className="pavilionLImg" onClick={this.change.bind(this,item.id)}/></Link>
+                        }><img src={require(`../../assets/images/craftsman_07.jpg`)} alt="" className="pavilionLImg" onClick={this.change.bind(this,item.id)}/></Link>
                         <div className="craftsman_list_padding">
                         <Link to={
                             {
@@ -153,7 +153,7 @@ class FurnitureArr extends Component {
                                 pathname:`/Furniture_Museum_details`,
                                 state:{key:item.id}
                             }
-                        }><img src={item.image} alt="" className="pavilionLImg" onClick={this.change.bind(this,item.id)}/></Link>
+                        }><img src={require(`../../assets/images/craftsman_07.jpg`)} alt="" className="pavilionLImg" onClick={this.change.bind(this,item.id)}/></Link>
                         <div className="craftsman_list_padding">
                             <div className="craftsman_list_name">{item.desc}</div>
                             <div className="craftsman_Info Flex">

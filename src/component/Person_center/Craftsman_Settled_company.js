@@ -46,14 +46,17 @@ export default class Craftsman_Settled_company extends Component {
                     loading: false,
                 },()=>{
                     console.log(this.state.imageUrl.length)
-                    fetch('http://172.16.10.10:8080/banJu/merchantDetail/saveImg',{
+                    fetch('http://47.100.90.56:8080/banJu/upload',{
                         method:'POST',
                         headers:{
                             'Content-Type':'application/json'
                         },
                         credentials: 'include',
                         body:JSON.stringify({
-                            license:this.state.imageUrl
+                            license:""
+
+
+
                         })
                     }).then((res)=>{
                         return res.json();
@@ -71,9 +74,9 @@ export default class Craftsman_Settled_company extends Component {
         }
     };
 
-    componentDidMount() {
+    componentDidMount(a) {
 
-
+        console.log(a)
 
     }
 
@@ -941,13 +944,16 @@ export default class Craftsman_Settled_company extends Component {
     qd(){
         // console.log(this.state)
         // console.log(this.state.imageUrl)
-        fetch('http://172.16.10.10:8080/banJu/merchantDetail/reg',{
+        fetch('http://172.16.10.56:8080/banJu/merchantDetail/reg',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
             },
             credentials: 'include',
             body:JSON.stringify({
+                mid:1,
+                permit:1,
+                license:1,
                 companyName:this.state.Company,/*公司名*/
                 isLegal:this.state.value,/*是否合一*/
                 number:this.state.registration,/*税务登记证号*/

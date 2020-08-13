@@ -1,60 +1,8 @@
 import React, { Component } from 'react'
 import './css/Personal_Collection_goods.css'
-import { Table } from 'antd'
+import { Table, Popconfirm, message } from 'antd'
 import 'antd/dist/antd.css'
-const columns = [
-  {
-    title: '商品信息',
-    dataIndex: 'img',
-    align: 'center',
-    render: (record, data) => {
-      // let m=data.slice(0,3)
-
-      return (
-        <div className="xinxi">
-          {/* <img
-            src={require(`../../assets/images/${data.img}`)}
-            className="img"
-            alt=""
-          /> */}
-          <label className="textw">
-            精品家私，纯手工制作，价格不贵，超级实惠,走过路过，机会不要错过
-          </label>
-        </div>
-      )
-    },
-  },
-
-  {
-    title: '状态',
-    dataIndex: 'state',
-    align: 'center',
-    render: (record, data) => {
-      return <span>{data.state}</span>
-    },
-  },
-  {
-    title: '活动价',
-    dataIndex: 'price',
-    align: 'center',
-    render: (record, data) => {
-      return <span className="color">{data.price}</span>
-    },
-  },
-  {
-    title: '操作',
-    dataIndex: 'address',
-    align: 'center',
-    render: (record, data) => {
-      return (
-        <p className="state butone">
-          <span>马上抢</span>
-          <span>取消收藏</span>
-        </p>
-      )
-    },
-  },
-]
+import $ from 'jquery'
 
 // const data = [];
 // for (let i = 0; i < 1; i++) {
@@ -142,47 +90,203 @@ const data = [
   },
 ]
 
+/*确认框*/
+function confirm(e) {
+  console.log(e)
+  message.success('确定')
+  /*==================================取消收藏===========================*/
+  fetch('http://47.100.90.56:8080/banJu/user/deleteusergoods', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify({
+      uid: 3,
+      gid: this.state.selectedRowKeys[0],
+      status: 1,
+    }),
+  })
+    .then((res) => {
+      return res.json()
+    })
+    .then((data) => {
+      this.setState(
+        {
+          shangpin: data.data,
+        },
+        () => {
+          this.xuanran()
+        }
+      )
+    })
+    .catch((e) => {
+      console.log('数据有误')
+    })
+}
+
+function cancel(e) {
+  console.log(e)
+  message.error('取消')
+}
+
 //收藏的商品
 export default class Personal_Collection_goods extends Component {
   constructor() {
     super()
     this.state = {
-      data: [
-        {
-          key: 1,
-          img: (
-            <div className="xinxi">
-              {/* <img
-                src={require('../../assets/images/min-banner1_03.jpg')}
-                className="img"
-                alt=""
-              /> */}
-              <label className="textw">
-                精品家私，纯手工制作，价格不贵，超级实惠,走过路过，机会不要错过
-              </label>
-            </div>
-          ),
-          price: <span className="color">￥ 500.00</span>,
-          zhuangtai: <span>销售中</span>,
-          address: (
-            <p className="state butone">
-              <span>马上抢</span>
-              <span>取消收藏</span>
-            </p>
-          ),
-        },
-      ],
+      selectedRowKeys: [],
+      shangpin: '',
+      data: '',
     }
   }
-  state = {
-    selectedRowKeys: [], // Check here to configure the default column
+
+  xuanran = () => {
+    /*我的收藏商品初始化数据渲染*/
+    fetch('http://47.100.90.56:8080/banJu/user/findusergoods', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        uid: 3,
+        status: 1,
+      }),
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        this.setState(
+          {
+            shangpin: data.data,
+          },
+          () => {
+            console.log(data)
+            let data1 = this.state.shangpin
+            let changeData = JSON.parse(
+              JSON.stringify(data1).replace(/gid/g, 'key')
+            ) /*将数组里的id属性名改为key*/
+            this.setState({
+              data: changeData,
+            })
+          }
+        )
+      })
+      .catch((e) => {
+        console.log('数据有误')
+      })
+  }
+
+  componentDidMount() {
+    this.xuanran()
+  }
+
+  gouwuce() {
+    fetch('http://47.100.90.56:8080/banJu/user/findusergoods', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        uid: 3,
+        status: 1,
+        gid: this.state.selectedRowKeys[0],
+      }),
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        this.setState(
+          {
+            shangpin: data.data,
+          },
+          () => {
+            console.log(data)
+            let data1 = this.state.shangpin
+            let changeData = JSON.parse(
+              JSON.stringify(data1).replace(/gid/g, 'key')
+            ) /*将数组里的id属性名改为key*/
+            this.setState({
+              data: changeData,
+            })
+          }
+        )
+      })
+      .catch((e) => {
+        console.log('数据有误')
+      })
+    this.xuanran()
   }
 
   onSelectChange = (selectedRowKeys) => {
-    console.log('selectedRowKeys changed: ', selectedRowKeys)
-    this.setState({ selectedRowKeys })
+    console.log(selectedRowKeys)
+
+    this.setState({ selectedRowKeys: selectedRowKeys })
   }
+
   render() {
+    const columns = [
+      {
+        title: '商品信息',
+        dataIndex: 'img',
+        align: 'center',
+        render: (record, data) => {
+          // let m=data.slice(0,3)
+          return (
+            <div className="xinxi">
+              {/* <img src={require("../../assets/images/jaju200.jpg")}/> */}
+              <label className="textw">
+                {data.name} {data.desc}
+              </label>
+            </div>
+          )
+        },
+      },
+
+      {
+        title: '状态',
+        dataIndex: 'state',
+        align: 'center',
+        render: (record, data) => {
+          return <span>销售中</span>
+        },
+      },
+      {
+        title: '活动价',
+        dataIndex: 'price',
+        align: 'center',
+        render: (record, data) => {
+          return <span className="color">{data.price}</span>
+        },
+      },
+      {
+        title: '操作',
+        dataIndex: 'address',
+        align: 'center',
+        render: (record, data) => {
+          return (
+            <p className="state butone">
+              <span>马上抢</span>
+              <Popconfirm
+                title="确定要取消改商品?"
+                onConfirm={confirm.bind(this)}
+                onCancel={cancel}
+                okText="确定"
+                cancelText="取消"
+              >
+                <span className="quxiao">取消收藏</span>
+              </Popconfirm>
+              ,
+            </p>
+          )
+        },
+      },
+    ]
+
     const { selectedRowKeys } = this.state
     const rowSelection = {
       selectedRowKeys,
@@ -229,22 +333,24 @@ export default class Personal_Collection_goods extends Component {
             <Table
               rowSelection={rowSelection}
               columns={columns}
-              dataSource={data}
+              dataSource={this.state.data}
               pagination={{
                 showQuickJumper: true,
                 hideOnSinglePage: false,
                 pageSize: 3,
               }}
             />
-            <p className="qx">全选</p>
-            <div className="All-out">
-              <form action="" method="get">
-                <label className="join">加入购物车 </label>
-                <label>|</label>
-                <label className="join cancwel">取消关注</label>
-              </form>
-            </div>
           </div>
+        </div>
+        <p className="qx">全选</p>
+        <div className="All-out">
+          <form action="" method="get">
+            <label className="join" onClick={this.gouwuce.bind(this)}>
+              加入购物车{' '}
+            </label>
+            <label>|</label>
+            <label className="join cancwel">取消关注</label>
+          </form>
         </div>
       </div>
     )

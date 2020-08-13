@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 //引入css
 import "../css/personDetail.css"
 
+//引入头部
+import HeaderSearch from "../../commen/indexHeader1"
+
+
+
 class personnalDetails extends Component {
     constructor(props) {
         super(props);
@@ -33,15 +38,6 @@ class personnalDetails extends Component {
                       return res.json();       
                   }).then((data)=>{
                     console.log(data);
-                    // let object=data.data;
-                    // let newData=[];
-                    // for(let i in object){
-
-                    //     let o = {};
-                    //     o[i] = object[i];
-                    //     newData.push(o);
-                    // }
-        //             console.log(newData)
                     // 存放数组 
                         this.setState({
                             person:data.data
@@ -57,11 +53,12 @@ class personnalDetails extends Component {
     render() {
         return ( 
             <div >
+                <HeaderSearch></HeaderSearch>
                   <div className="person" >
                      <div className=" box">
                          {/* 左边 */}
                          <div className="box_left">
-                             {/* <img src={require(`../../../${item.avatar}`)} alt="" className="imgStyle" /> */}
+                             <img src={require(`../../../assets/images/craftsman_07.jpg`)} alt="" className="imgStyle" />
                              <div className="nameStyle">{this.state.person.realName}</div>
                              <div className="freeDesign">
                                  免费设计
@@ -96,7 +93,6 @@ class personnalDetails extends Component {
                          </div>
                      </div>
                  </div>
-             
             </div>
          );
     }

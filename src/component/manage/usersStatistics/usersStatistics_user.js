@@ -20,7 +20,7 @@ import {
 } from 'bizcharts';
 import DataSet from "@antv/data-set";
 import { DataMarker } from 'bizcharts/lib/components/Annotation';
-
+import Axios from '../../../util/chenmingaxios'
 
 
 export default class usersStatisticsuser extends Component {
@@ -36,16 +36,9 @@ export default class usersStatisticsuser extends Component {
 // =================================请求数据=========================================
 getuserstatics=(e)=>{
    
-          fetch(`http://172.16.10.4:8080/banJu/manager/userSortShow  `,{                     
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json' 
-            },
-            credentials: 'include',
-            body:JSON.stringify(e)
-            }).then((res)=>{   
-                  //  console.log(res)         
-                return res.json();       
+          Axios.post(`/banJu/manager/userSortShow`,e).then((res)=>{   
+                   console.log(res)         
+                return res.data;       
             }).then((data)=>{
 
     let m=0;

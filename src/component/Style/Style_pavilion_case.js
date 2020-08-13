@@ -8,8 +8,10 @@ import $ from "jquery"
 //引入css
 import "../Craftsmans_Hall/css/PopularCraftsman.css"
 
-//引入头部
-// import HeaderSearch from "../commen/indexHeader1"
+// 引入头部
+import HeaderSearch from "../commen/indexHeader1"
+import HeaderBanner from "../commen/indexHeader2"
+
 //引入底部
 import Footer from '../commen/footer'
 
@@ -22,7 +24,32 @@ class Style_pavilion_case extends Component {
         super(props);
         this.state = {
 
-            craftsmanArr: [],
+            craftsmanArr: [
+                {
+                    avatar:"assets/images/craftsman_07.jpg",
+                    realName:"wajwkd",
+                    company:"ksd",
+                    hot:65
+                },
+                {
+                    avatar:"assets/images/craftsman_07.jpg",
+                    realName:"wajwkd",
+                    company:"ksd",
+                    hot:65
+                },
+                {
+                    avatar:"assets/images/craftsman_07.jpg",
+                    realName:"wajwkd",
+                    company:"ksd",
+                    hot:65
+                },
+                {
+                    avatar:"assets/images/craftsman_07.jpg",
+                    realName:"wajwkd",
+                    company:"ksd",
+                    hot:65
+                },
+            ],
 
             //类型
             type:"",
@@ -37,43 +64,8 @@ class Style_pavilion_case extends Component {
         }
     }
 
-    //fetch 调用
-    myFetch=()=>{
-        console.log("1111111111111111")
-        fetch('http://172.16.10.56:8080/banJu/style/findPicture', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            // 传参
-            body: JSON.stringify({
-                type:this.state.type,
-                style:this.state.style,
-                page: this.state.current,
-                limit: 4,
-            })
-        }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            console.log(data.data);
-            // 存放数组            
-            this.setState({
-                craftsmanArr: data.data,
-                total:Math.ceil(data.total/4),
-            },()=>{
-                this.arr();
-            })
-        }).catch((e) => {
-            console.log("数据有误");
-        });
-    }
-
-    //初始化
-    UNSAFE_componentWillMount() {
-        this.myFetch();
-    }
-
+    
+ 
 
     //点击style
     style=(style,e)=>{
@@ -138,12 +130,13 @@ class Style_pavilion_case extends Component {
         }
     }
 
-    //函数
-    arr=()=>{
-        let arr = this.state.craftsmanArr.map((item) => {
+   
+
+    render() {
+        let arr = this.state.craftsmanArr.map((item,index) => {
             return (
-                <div className="craftsman" key={item.cid}>
-                    {/* <img src={require(`../../${item.avatar}`)} alt="" className="pavilionLImg"/> */}
+                <div className="craftsman" key={index}>
+                    <img src={require(`../../${item.avatar}`)} alt="" className="pavilionLImg"/>
                     <div className="craftsman_list_padding">
                         <div className="flex craftsman_Info">
                             <div className="craftsman_list_name">{item.realName}</div>
@@ -156,17 +149,12 @@ class Style_pavilion_case extends Component {
                 </div>
             )
         });
-        this.setState({
-            arr,
-        })
-    }
-
-    render() {
         
         return (
             //外层css取名
             <div className="craftsmancss">
-                {/* <HeaderSearch></HeaderSearch> */}
+                <HeaderSearch></HeaderSearch>
+                <HeaderBanner></HeaderBanner>
                 {/* 表格 */}
                 <div className="table">
                     {/* top */}
@@ -199,8 +187,8 @@ class Style_pavilion_case extends Component {
                 {/* 工匠人员 */}
                 <div className="craftsmanStyle flex ">
 
-                    {this.state.arr}
-
+                    {/* {this.state.arr} */}
+                    {arr}
                 </div>
                 <div className="craftsmanStyle center">
                     <div className="flex centerFlex">

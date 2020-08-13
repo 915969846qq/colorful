@@ -75,7 +75,7 @@ export default class indexHeader extends Component {
                                             <div className="hover-pic"></div>
                                         </a>
                                         
-                                        <Link to="/Style_pavilion">                                              
+                                        <Link to="/Style_pavilion_case">                                              
                                                风格馆
                                             
                                             <div className="hover-pic"></div>

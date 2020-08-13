@@ -126,7 +126,7 @@ class Masons extends Component {
             let arr=this.state.craftsmanArr.map((item)=>{
                 return (
                   <div className="craftsman craftsmancss" key={item.id}>
-                      {/* <Link to={
+                      <Link to={
                           {
                               pathname:`/Craftsman_details`,
                               state:{key:item.id}
@@ -134,7 +134,7 @@ class Masons extends Component {
                           
                       }
                       // {"/Craftsman_details/"+item.id}
-                      ><img src={require(`../../../${item.avatar}`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link> */}
+                      ><img src={require(`../../../assets/images/craftsman_07.jpg`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link>
                       <div className="flex craftsman_Info">
                           <div>
                               <span className="craftsman_name cursor">{item.realName}</span>
@@ -151,29 +151,6 @@ class Masons extends Component {
     }
     
     render() { 
-        let arr=this.state.craftsmanArr.map((item)=>{
-            console.log(this.state.craftsmanArr);
-            return (
-              <div className="craftsman craftsmancss" key={item.id}>
-                  {/* <Link to={
-                      {
-                          pathname:`/Craftsman_details`,
-                          state:{key:item.id}
-                      }
-                      
-                  }
-                  // {"/Craftsman_details/"+item.id}
-                  ><img src={require(`../../../${item.avatar}`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link> */}
-                  <div className="flex craftsman_Info">
-                      <div>
-                          <span className="craftsman_name cursor">{item.realName}</span>
-                          <span className="cursor">{item.occupation}首席师{item.experience}年</span>
-                      </div>
-                      <div className="TranslateNow" onClick={this.book.bind(this, item.cid)}>立即预约000001</div>
-                  </div>
-              </div>
-            )      
-      });
         return ( 
             <div className="craftsmanStyle flex">
                 {/* 热门工匠 */}

@@ -4,7 +4,7 @@ import  '../../util/chajian/citychenming'
 import { Table, Drawer,Input, Button, Space,Modal } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
-
+import Axios from '../../util/chenmingaxios'
 // import { PlusOutlined } from '@ant-design/icons';
 export const {Provider,Consumer} = React.createContext("默认名称");
 
@@ -25,7 +25,7 @@ export const {Provider,Consumer} = React.createContext("默认名称");
           alert:"",
       
          data:[],
-          uid:3,
+          uid:null,
           id:null,
 
         tableaddress:"block",
@@ -40,21 +40,14 @@ export const {Provider,Consumer} = React.createContext("默认名称");
 // =====================================================发送数据======================================
 getperinfo=(e)=>{
    
-          fetch(`http://172.16.10.15:8080/banJu/user/findAddress`,{                     
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json' 
-            },
-            credentials: 'include',
-            body:JSON.stringify(e)
-            }).then((res)=>{   
+          Axios.post(`/banJu/user/findAddress`,e).then((res)=>{   
                    console.log(res)         
-                return res.json();       
+                return res.data;       
             }).then((data)=>{
               console.log(data)
                 let newdata=[]
                 data.data.map((item,index)=>{
-              return   newdata.push({key:index,uid:parseInt(item.uid),id:parseInt(item.id),name:item.consigneeName,address:item.address,phone:item.phoneNumber})
+              return   newdata.push({key:index,id:parseInt(item.id),name:item.consigneeName,address:item.address,phone:item.phoneNumber})
                 })
               this.setState({
                 data:newdata
@@ -66,14 +59,9 @@ getperinfo=(e)=>{
 
 
 postperinfo=(e)=>{
-   fetch(`http://172.16.10.15:8080/banJu/user/addAddress`,{                     
-              method:'POST',
-              headers:{
-                  'Content-Type':'application/json' 
-              },
-              credentials: 'include',
-              body:JSON.stringify(e)
-              }).then((res)=>{   
+  let that=this
+  console.log(that.state.uid)
+   Axios.post(`/banJu/user/addAddress`,e).then((res)=>{   
                   console.log(res)
                   if(parseInt(res.status)===200){
                     this.setState({
@@ -83,8 +71,8 @@ postperinfo=(e)=>{
                     this.onClose()
                     })
                   }
-                    this.getperinfo({uid:e.uid})        
-                  return res.json();       
+                    this.getperinfo({uid:that.state.uid})        
+                  return res.data;       
               }).then((data)=>{
                  console.log(data)
               }).catch((e) => {
@@ -98,17 +86,10 @@ postperinfo=(e)=>{
 // ========================================删除====================================
 deleteperinfo=(e,m)=>{
 
-   fetch(`http://172.16.10.15:8080/banJu/user/deleteAddress`,{                     
-              method:'POST',
-              headers:{
-                  'Content-Type':'application/json' 
-              },
-              credentials: 'include',
-              body:JSON.stringify({id:e.id})
-              }).then((res)=>{   
-      this.getperinfo({uid:e.uid}) 
+   Axios.post(`/banJu/user/deleteAddress`,{id:e.id}).then((res)=>{   
+      this.getperinfo({uid:this.state.uid}) 
                      console.log(res)         
-                  return res.json();       
+                  return res.data;       
               }).then((data)=>{
                  console.log(data)
               }).catch((e) => {
@@ -119,8 +100,11 @@ deleteperinfo=(e,m)=>{
 
     //  ========================================页面初始化==========================================
 componentDidMount(){
-  this.getperinfo({uid:3})
+ let uid=JSON.parse(sessionStorage.getItem("user")).id
+ console.log(uid)
+  this.getperinfo({uid:uid})
   this.setState({
+    uid:uid,
     province: '四川',
     cities: getCity('四川'),
     city:getCity('四川')[0],
@@ -245,7 +229,7 @@ menuinfo1=(e,m)=>{
     this.setState({
         name:e.name,
         phone:e.phone,
-        uid:e.uid,
+       
         id:e.id,
         province:e.address.split("-")[0],
         city:e.address.split("-")[1],
@@ -350,6 +334,16 @@ let that=this
                                 address:address,
                                 phoneNumber:that.state.phone
                               })
+console.log({
+  uid:that.state.uid,
+  id:that.state.id,
+  consigneeName:that.state.name,
+  address:address,
+  phoneNumber:that.state.phone
+})
+
+
+
           }
            else if(m===1||that.state.name.length===0||that.state.phone.length===0||that.state.detailaddress.length===0){
              console.log("11111")

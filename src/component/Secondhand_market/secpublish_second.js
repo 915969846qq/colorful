@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {Select,Input,Upload, Button,Modal,Space} from 'antd'
 import { PlusOutlined } from '@ant-design/icons';
+import CAxios from '../../util/chenmingaxios'
 import './css/secpublish_second.css'
 import './css/city_chenming.css'
 import City from '../../util/chajian/city'
 const { Option } = Select;
 const {TextArea}=Input;
+
 class Secpublish_second extends Component {
     constructor(props) {
         super(props);
@@ -70,15 +72,8 @@ let listchoose=this.bindchoose(this.state.smallclass)
 
 addproduct=(e)=>{
  
-           fetch(`http://172.16.10.11:8080/banJu/SecondHandGoods/insertSecondHandGoods`,{                     
-             method:'POST',
-             headers:{
-                 'Content-Type':'application/json' 
-             },
-             credentials: 'include',
-             body:JSON.stringify(e)
-             }).then((res)=>{   
-     if(res.status===200){
+           CAxios.post(`/banJu/SecondHandGoods/insertSecondHandGoods`,e).then((res)=>{   
+     if(parseInt(res.status)===200){
       this.props.history.push('/Secondhand_Market/Secpublish/success')
      }else{
        this.setState({
@@ -88,7 +83,7 @@ addproduct=(e)=>{
        })
      }
                     console.log(res)         
-                 return res.json();       
+                 return res.data;       
              }).then((data)=>{
     
   
