@@ -11,10 +11,17 @@ import { Steps } from 'antd'
 // import { DatePicker } from 'antd'
 // 按钮
 import { Button } from 'antd'
+// 下拉框
+import { Select } from 'antd'
+// 输入框
+import { Input, Tooltip } from 'antd'
 // jquery
 import $ from 'jquery'
 import Axios from 'axios'
+// 引入城市
+import '../../util/chajian/citychenming'
 const { Step } = Steps
+const { Option } = Select
 //个人中心 写日记
 // // 选择日期
 // function onChange(date, dateString) {
@@ -80,6 +87,67 @@ export default class Decoration_Write_diary extends Component {
     this.state = {
       diaryLable: '',
       textarea: '',
+      province: '',
+      city: '',
+      county: '',
+      provinces: [
+        '四川',
+        '安徽',
+        '澳门',
+        '北京',
+        '福建',
+        '甘肃',
+        '广东',
+        '广西',
+        '贵州',
+        '海南',
+        '河北',
+        '河南',
+        '黑龙江',
+        '湖北',
+        '湖南',
+        '吉林',
+        '江苏',
+        '江西',
+        '辽宁',
+        '内蒙古',
+        '宁夏',
+        '青海',
+        '山东',
+        '山西',
+        '陕西',
+        '上海',
+        '台湾',
+        '天津',
+        '西藏',
+        '香港',
+        '新疆',
+        '云南',
+        '浙江',
+        '重庆',
+        '其他',
+      ],
+      cities: [],
+      counties: [
+        '武侯',
+        '成华',
+        '金牛',
+        '青羊',
+        '锦江',
+        '崇州',
+        '大邑',
+        '都江堰',
+        '金堂',
+        '彭州',
+        '郫县',
+        '蒲江',
+        '邛崃',
+        '双流',
+        '新津',
+      ],
+      // 装修风格
+      style: '',
+      styles: ['现代', '古典', '洋房'],
     }
   }
   fangLabel = (e) => {
@@ -99,12 +167,176 @@ export default class Decoration_Write_diary extends Component {
       })
     }
   }
+  // 初始化================
+  componentDidMount() {
+    this.setState({
+      province: '四川',
+      cities: getCity('四川'),
+      city: getCity('四川')[0],
+      counties: getCounty('四川', getCity('四川')[0]),
+      county: getCounty('四川', getCity('四川')[0])[0],
+    })
+  }
+
+  // =======================================================
+  cityChange = (value) => {
+    console.log(value)
+    console.log(getCity(this.state.province, value))
+    this.setState({
+      counties: getCounty(this.state.province, value),
+      county: getCounty(this.state.province, value)[0],
+    })
+  }
+  handleChange = (value) => {
+    console.log(value)
+    // console.log(getCity(value)[0])
+    // console.log(getCounty(value, getCity(value)[0]))
+    this.setState({
+      province: value,
+      cities: getCity(value),
+      city: getCity(value)[0],
+      counties: getCounty(value, getCity(value)[0]),
+      county: getCounty(value, getCity(value)[0])[0],
+    })
+  }
+  // 新的城市
+  countyChange = (value) => {
+    this.setState({
+      county: value,
+    })
+  }
+  // 房屋面积
+  houseArea = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      houseArea: e.target.value,
+    })
+  }
+  // 日志名
+  diaryname = (e) => {
+    this.setState({
+      diaryname: e.target.value,
+    })
+  }
+  // 小区
+  decorationarea = (e) => {
+    this.setState({
+      decorationarea: e.target.value,
+    })
+  }
+  // 公司
+  decorationcompany = (e) => {
+    this.setState({
+      decorationcompany: e.target.value,
+    })
+  }
+  // 风格
+  mystyle = (value) => {
+    this.setState({
+      style: value,
+    })
+  }
   render() {
     return (
       <div className="fang_Width1200">
         <form action="/WriteDiary.do" method="post">
           <h2 className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
-            写日记+++++++++++++++++++++++
+            房屋信息
+          </h2>
+          <Row>
+            {/* 日志名 */}
+            <Col span={6}>
+              <span className="fang_height30">日志名</span>
+              <br />
+              <Input maxLength={300} onBlur={this.diaryname} />
+            </Col>
+            {/* 装修小区 */}
+            <Col span={6} offset={2}>
+              <span className="fang_height30">装修小区</span>
+              <br />
+              <Input
+                suffix="小区"
+                maxLength={300}
+                onBlur={this.decorationarea}
+              />
+            </Col>
+            {/* 装修公司 */}
+            <Col span={6} offset={2}>
+              <span className="fang_height30">装修公司</span>
+              <br />
+              <Input
+                suffix="公司"
+                maxLength={310}
+                onBlur={this.decorationcompany}
+              />
+            </Col>
+            {/* 装修风格 */}
+            <Col span={8} className="fang_paddingt20">
+              <span className="fang_height30">装修风格</span>
+              <br />
+              <Select
+                style={{ width: 300 }}
+                onChange={this.mystyle}
+                value={this.state.style}
+              >
+                {this.state.styles.map((style, index) => (
+                  <Option value={style} key={index}>
+                    {style}
+                  </Option>
+                ))}
+              </Select>
+            </Col>
+            {/* 房屋面积 */}
+            <Col span={6} className="fang_paddingt20">
+              <span className="fang_height30">房屋面积</span>
+              <br />
+              <Input suffix="平米" maxLength={280} onBlur={this.houseArea} />
+            </Col>
+            {/* 所在城市 */}
+            <Col span={8} offset={2} className="fang_paddingt20">
+              <span className="fang_height30">装修地点</span>
+              <br />
+              <div className="city">
+                <Select
+                  style={{ width: 100 }}
+                  onChange={this.handleChange}
+                  value={this.state.province}
+                >
+                  {this.state.provinces.map((province, index) => (
+                    <Option value={province} key={index}>
+                      {province}
+                    </Option>
+                  ))}
+                </Select>
+                <Select
+                  value={this.state.city}
+                  style={{ width: 100 }}
+                  onChange={this.cityChange}
+                  className="fang_marginL20"
+                >
+                  {this.state.cities.map((city, index) => (
+                    <Option value={city} key={index}>
+                      {city}
+                    </Option>
+                  ))}
+                </Select>
+                <Select
+                  value={this.state.county}
+                  style={{ width: 100 }}
+                  onChange={this.countyChange}
+                  className="fang_marginL20"
+                >
+                  {this.state.counties.map((county, index) => (
+                    <option value={county} key={index}>
+                      {county}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+            </Col>
+          </Row>
+          <h2 className="fang_RBcolor fang_fontW fang_marginT20 fang_font18">
+            写日记
           </h2>
           <Divider />
           <Row className="fang_marginT20">
@@ -229,14 +461,18 @@ export default class Decoration_Write_diary extends Component {
   releaseDiary = () => {
     console.log('发布日志')
     console.log(this.state)
+    let ruie = JSON.parse(sessionStorage.getItem('user'))
     let mydata = {
-      uid: 1,
-      name: '明天会更好',
+      uid: ruie.id,
+      name: this.state.diaryname,
       content: this.state.textarea,
-      tag: this.state.diaryLable,
+      community: this.state.decorationarea,
+      decorationCompany: this.state.decorationcompany,
+      style: this.state.style,
+      city: this.state.city,
+      builtArea: this.state.houseArea,
     }
-    // console.log($('.ant-upload-list-item-thumbnail'))
-    Axios.post('http://172.16.10.56:8080/banJu/Diary/saveDiary', mydata).then(
+    Axios.post('http://47.100.90.56:8080/banJu/Diary/saveDiary', mydata).then(
       (response) => {
         console.log(response)
       }

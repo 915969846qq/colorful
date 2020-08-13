@@ -15,7 +15,7 @@ import { Pagination } from 'antd'
 import axios from 'axios'
 import $ from 'jquery'
 import '../../assets/iconfont/Fang_iconfont/iconfont.css'
-// import '../../util/chajian/citychenming'
+import '../../util/chajian/citychenming'
 // 上传图片
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -95,11 +95,14 @@ function SecondHand(props) {
                     价格:<span className="fang_marginL20">{item.price}</span>
                   </div>
                   <div className="fang_height30">
-                    类型:
-                    <span className="fang_marginL20">{item.description}</span>
+                    新旧:
+                    <span className="fang_marginL20">{item.newOld}</span>
                   </div>
                   <div className="fang_height30">
-                    出售状态:<span className="fang_marginL20">{item.name}</span>
+                    地址:
+                    <span className="fang_marginL20">
+                      {item.furtherAddress}
+                    </span>
                   </div>
                 </Col>
                 <Col span={2}>
@@ -136,7 +139,7 @@ function Delete(data, myda) {
   console.log(this)
   console.log(data)
   axios
-    .post('http://172.16.10.11:8080/banJu/SecondHandGoods/deleteById', {
+    .post('http://47.100.90.56:8080/banJu/SecondHandGoods/deleteById', {
       id: data.id,
     })
     .then((response) => {
@@ -241,7 +244,7 @@ class Personal_second_hand_management extends Component {
     } else {
       isdata.id = ruie.id
       axios
-        .post('http://172.16.10.56:8080/banJu/secondHand/findByUid', isdata)
+        .post('http://47.100.90.56:8080/banJu/secondHand/findByUid', isdata)
         .then((response) => {
           let mydata = response.data.data
           console.log(response.data.data)
@@ -454,7 +457,7 @@ class Personal_second_hand_management extends Component {
 
     axios
       .post(
-        'http://172.16.10.56:8080/banJu/SecondHandGoods/updateSecondHandGoods',
+        'http://47.100.90.56:8080/banJu/SecondHandGoods/updateSecondHandGoods',
         data
       )
       .then((response) => {
@@ -463,7 +466,9 @@ class Personal_second_hand_management extends Component {
     // 显示加载并延迟关闭时间
     this.setState({ loading: true })
     setTimeout(() => {
-      this.setState({ loading: false, visible: false, modeldata: {} })
+      this.setState({ loading: false, visible: false, modeldata: {} }, () => {
+        window.location.reload()
+      })
     }, 3000)
   }
 
@@ -506,6 +511,10 @@ class Personal_second_hand_management extends Component {
     this.setState({
       newdescription: e.target.value,
     })
+  }
+  // 发布二手
+  pushsecond = () => {
+    window.location.href = '/Secondhand_Market'
   }
   render() {
     const { visible, loading } = this.state
@@ -638,8 +647,12 @@ class Personal_second_hand_management extends Component {
                 </div>
               </Col>
               <Col span={12} offset={1}>
-                <span>商品状态</span>
-                <Input maxLength={280} disabled />
+                <span>地址</span>
+                <Input
+                  maxLength={280}
+                  value={this.state.modeldata.furtherAddress}
+                  disabled
+                />
               </Col>
             </Row>
             {/* 商品描述 */}
@@ -708,7 +721,10 @@ class Personal_second_hand_management extends Component {
               className="fang_marginL20 fang_width200 fang_height30 fang_border fang_wcolor fang_BbColor fang_myhover fang_noborder"
               type="primary"
             >
-              <span className="iconfont icon-jia fang_marginR20"></span>
+              <span
+                className="iconfont icon-jia fang_marginR20"
+                onClick={this.pushsecond}
+              ></span>
               发布二手商品
             </button>
           </Col>

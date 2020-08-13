@@ -31,7 +31,12 @@ import Craftsman_Settled_company from './component/Person_center/Craftsman_Settl
 import Furniture_Museum_details from './component/Furniture_house/Furniture_Museum_details'
 import Style_pavilion_case from './component/Style/Style_pavilion_case'
 import Decoration_Diary_list from './component/Decoration_pipe/Decoration_Diary_list'
+<<<<<<< HEAD
 import Backstage from "./component/Login/backstage"
+=======
+// 后台登录
+import backstage from './component/Login/backstage'
+>>>>>>> 4276d1e45864936855dce0597c702b5afc42d858
 function App() {
   return (
     <div className="App">
@@ -94,6 +99,7 @@ function App() {
             path="/Decoration_Diary_list"
             component={Decoration_Diary_list}
           ></Route>
+          <Route path="/backstage" component={backstage}></Route>
           <Route path="/Sign_in" component={Sign_in}></Route>
           <Route path="/manage" component={Manage}></Route>
           <Route path="/" exact component={Index}></Route>
