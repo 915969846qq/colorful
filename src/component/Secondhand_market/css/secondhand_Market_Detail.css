@@ -12,9 +12,12 @@
 }
 .secprod_detailbox .secprod_detail{   
     width: 200px;
-   
+  
     border: 1px solid rgba(128, 128, 128, 0.493);
     overflow: hidden;
+}
+.secprod_detailbox .secprod_detail>img{
+height:200px;
 }
 /* 底部文字信息 */
 .secprod_detailbox .sec-textbox{

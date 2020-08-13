@@ -25,7 +25,7 @@ class Orderdetails extends Component {
   }
   // 页面销毁时清除session
   componentWillUnmount() {
-    sessionStorage.clear()
+    sessionStorage.removeItem('data')
   }
   // 跳转页面
   Close = () => {

@@ -21,10 +21,16 @@ class Decoration_show extends React.Component {
     // 发送请求
     this.mydata = {}
     axios
-      .post('http://172.16.10.56:8080/banJu/Diary/findAllByInfo', {})
+      .post('http://47.100.90.56:8080/banJu/Diary/findAllByInfo', {})
       .then((response) => {
         console.log(response)
         let mydata = response.data.data
+        // 图片地址
+        for (let j = 0; j < mydata.length; j++) {
+          if (mydata[j].img1 !== null) {
+            mydata[j].img1 = 'assets/images/Decoration_img/' + mydata[j].img1
+          }
+        }
         // 总共的页数
         let getnumber = Math.ceil(
           response.data.data.length / this.state.Lnumber
@@ -140,7 +146,7 @@ class Decoration_show extends React.Component {
     }
     console.log(mydata)
     axios
-      .post('http://172.16.10.56:8080/banJu/Diary/findAllByInfo', mydata)
+      .post('http://47.100.90.56:8080/banJu/Diary/findAllByInfo', mydata)
       .then((response) => {
         console.log(response)
         let mydata = response.data.data
@@ -201,8 +207,6 @@ function Show(props) {
         isdata.push(props.mydata[i])
       }
     }
-    // 图片地址
-
     // 页面渲染数据
     let data = isdata
     console.log(data)
@@ -210,7 +214,13 @@ function Show(props) {
       <Row className="fang_paddingt30" key={item.id}>
         <Col span={2}>
           <div className="fang_FangCenter">
-            {/* <img src={require(item.img1)} alt="" className="fang_portrait80" /> */}
+            {item.img1 !== null ? (
+              <img
+                src={require('../../' + item.img1)}
+                alt=""
+                className="fang_portrait80"
+              />
+            ) : null}
             <p className="fang_marginT20">
               {item.diaryEvaluationList[0].user.name}
             </p>
@@ -225,8 +235,7 @@ function Show(props) {
                 id={item.id}
               >
                 {/* <div className="fang_font18 fang_myh"> */}
-                {item.houseInfo.community} ————{' '}
-                {item.diaryEvaluationList[0].user.name} 的装修日记
+                {item.houseInfo.community} ———— {item.name}
                 <span className="fang_font12">【{item.evaluationNum}篇】</span>
               </div>
               <div className="fang_marginT20">

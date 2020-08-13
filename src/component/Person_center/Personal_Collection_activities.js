@@ -232,7 +232,7 @@ export default class Personal_Collection_goods extends Component {
 
         return (
             <div className="xt6">
-                <div className="box">
+
                     <div className="title">收藏的活动</div>
                     <div className="setion">
                         <Table rowSelection={rowSelection} columns={columns} dataSource={data}
@@ -253,8 +253,6 @@ export default class Personal_Collection_goods extends Component {
                             </form>
                         </div>
                     </div>
-
-                </div>
 
             </div>
         )

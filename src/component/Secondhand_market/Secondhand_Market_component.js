@@ -8,7 +8,7 @@ import Myfooter from '../commen/footer'
 import Myheader from '../commen/header'
 import Mysecheader from './secheader'
 // 二手市场
-
+import CAxios from '../../util/chenmingaxios'
 export default class Secondhand_Market extends Component {
   constructor() {
     super()
@@ -28,12 +28,12 @@ export default class Secondhand_Market extends Component {
         },
         {
           region: [
-            '武侯区',
-            '金牛区',
-            '锦江区',
-            '青羊区',
-            '高新区',
-            '成华区',
+            '武侯',
+            '金牛',
+            '锦江',
+            '青羊',
+            '高新',
+            '成华',
             '双流',
             '郫县',
             '龙泉驿',
@@ -62,95 +62,85 @@ export default class Secondhand_Market extends Component {
       selectmenu2: [],
       selectmenu3: [],
       selectnewstatus: '不限',
-      selectregion: '全成都',
+      selectregion: '成都',
       selectprice: '不限',
+      order: '默认排序',
       minprice: '',
       maxprice: '',
       currentpage: 1,
-      selectinfo: [
-        {
-          selectid: 1,
-          imgsrc: 'min-banner1_03.jpg',
-          sec_title: '出售实木托盘（全城最低价格,绝对）',
-          sec_price: 0,
-          sec_detailregion: '天府二街',
-          sec_sellerimg: 'craftsman_07.jpg',
-          sec_sellername: '方太总',
-        },
-        {
-          selectid: 2,
-          imgsrc: 'min-banner1_03.jpg',
-          sec_title: '出售实木托盘（全城最低价格,绝对）',
-          sec_price: 0,
-          sec_detailregion: '天府二街',
-          sec_sellerimg: 'craftsman_07.jpg',
-          sec_sellername: '方太总',
-        },
-        {
-          selectid: 3,
-          imgsrc: 'min-banner1_03.jpg',
-          sec_title: '出售实木托盘（全城最低价格,绝对）',
-          sec_price: 0,
-          sec_detailregion: '天府二街',
-          sec_sellerimg: 'craftsman_07.jpg',
-          sec_sellername: '方太总',
-        },
-        {
-          selectid: 4,
-          imgsrc: 'min-banner1_03.jpg',
-          sec_title: '出售实木托盘（全城最低价格,绝对）',
-          sec_price: 0,
-          sec_detailregion: '天府二街',
-          sec_sellerimg: 'craftsman_07.jpg',
-          sec_sellername: '方总',
-        },
-        {
-          selectid: 5,
-          imgsrc: 'min-banner1_03.jpg',
-          sec_title: '出售实木托盘（全城最低价格,绝对）',
-          sec_price: 0,
-          sec_detailregion: '天府二街',
-          sec_sellerimg: 'craftsman_07.jpg',
-          sec_sellername: '方总',
-        },
-        {
-          selectid: 6,
-          imgsrc: 'min-banner1_03.jpg',
-          sec_title: '出售实木托盘（全城最低价格,绝对）',
-          sec_price: 0,
-          sec_detailregion: '天府二街',
-          sec_sellerimg: 'craftsman_07.jpg',
-          sec_sellername: '方总',
-        },
-      ],
+      selectinfo: [],
       // 商品盒子
       selectproductresultbox: [],
       pageper: 5,
+      totalpage: 0,
     }
   }
-  // =======================================商品渲染===============================
-  bindselectproduct = (productselect, page) => {
-    let productselect1 = productselect.slice(
-      (page - 1) * this.state.pageper,
-      page * this.state.pageper
-    )
+
+  //   ================================================发送请求============================================
+
+  searchsecproduct = (e, page, limit) => {
+    let m = { page: page, limit: limit }
+    let mm = Object.assign(m, e)
+
+    CAxios.post(`/banJu/select/secondHandSelectByLike`, mm)
+      .then((res) => {
+        console.log(res.data)
+        return res.data
+      })
+      .then((data) => {
+        this.setState(
+          {
+            totalpage: data.pages,
+            selectinfo: data.data,
+          },
+          () => {
+            //    ======================判断商品结果==============================
+            if (this.state.selectinfo.length === 0) {
+              this.setState({
+                currentpage: 0,
+                selectproductresultbox: [],
+              })
+            } else {
+              let productlist = this.bindselectproduct(this.state.selectinfo)
+              this.setState({
+                selectproductresultbox: productlist,
+              })
+            }
+          }
+        )
+      })
+      .catch((e) => {
+        this.setState({
+          currentpage: 0,
+        })
+      })
+  }
+
+  // =======================================商品搜索结果渲染===============================
+  bindselectproduct = (productselect) => {
+    let productselect1 = productselect
+    //   let productselect1=productselect.slice((page-1)*this.state.pageper,page*this.state.pageper)
     let productsmall = productselect1.map((item) => {
       return (
-        <div className="secprod_detailbox" key={item.selectid}>
-          <Link to={'/Secondhand_Market/Secdetail/' + item.selectid}>
+        <div className="secprod_detailbox" key={item.id}>
+          <Link to={'/Secondhand_Market/Secdetail/' + item.id}>
             <div className="secprod_detail">
-              {/* <img src={require(`../../assets/images/${item.imgsrc}`)} alt="二手货"/> */}
+              {/* <img src={require(`../../assets/images/baobao1_1.jpg`)} alt="二手货"/> */}
               <div className="sec-textbox">
-                <p className="sec_title">{item.sec_title}</p>
+                <p className="sec_title">{item.title}</p>
                 <p>
-                  <span className="sec_price">{item.sec_price}元</span>
+                  <span className="sec_price">{item.price}元</span>
                   <span className="sec_detailregion">
-                    {item.sec_detailregion}
+                    {item.furtherAddress.substring(0, 6) + '...'}
                   </span>
                 </p>
                 <p className="sec_seller_wrap">
-                  {/* <img className="secbox_sellerimg" src={require(`../../assets/images/${item.sec_sellerimg}`)} alt=""/> */}
-                  <span>{item.sec_sellername}</span>
+                  <img
+                    className="secbox_sellerimg"
+                    src={require(`../../assets/images/craftsman_07.jpg`)}
+                    alt=""
+                  />
+                  <span>方法法</span>
                 </p>
               </div>
             </div>
@@ -163,6 +153,7 @@ export default class Secondhand_Market extends Component {
 
   // ========================================页面初始化=========================================
   componentDidMount() {
+    // =========================菜单=========================
     let selectmenu1 = this.bindmenu(
       this.state.menu[0].productclass,
       'productclass'
@@ -179,10 +170,8 @@ export default class Secondhand_Market extends Component {
     })
     let that = this
 
-    let productlist = this.bindselectproduct(this.state.selectinfo, 1)
-    this.setState({
-      selectproductresultbox: productlist,
-    })
+    // =============================================初次发送请求=======================
+    this.searchsecproduct({}, 1, 5)
 
     // ==============================筛选搜索事件==========================
     setTimeout(function () {
@@ -199,6 +188,14 @@ export default class Secondhand_Market extends Component {
           [mydataname]: mydata,
         })
       })
+      $('#order')
+        .children()
+        .click(function () {
+          that.submitinfo(1)
+          that.setState({
+            currentpage: 1,
+          })
+        })
     })
   }
 
@@ -213,9 +210,27 @@ export default class Secondhand_Market extends Component {
   // ===========================================更多=========================================
   more = () => {
     let selectmenu2 = this.bindmenu(this.state.menu[1].region, 'region')
-    this.setState({
-      selectmenu2: selectmenu2,
-    })
+    this.setState(
+      {
+        selectmenu2: selectmenu2,
+      },
+      () => {
+        let that = this
+        $('li').click(function () {
+          let mydataname = $(this).parent().eq(0).attr('id')
+          let mydata = $(this)[0].innerHTML
+          $(this).parent().children().removeClass('red')
+          $(this).addClass('red')
+          if (mydataname === 'selectprice') {
+            that.state.maxprice = ''
+            that.state.minprice = ''
+          }
+          that.setState({
+            [mydataname]: mydata,
+          })
+        })
+      }
+    )
   }
 
   // ======================================价格双向数据绑定==================================
@@ -248,9 +263,9 @@ export default class Secondhand_Market extends Component {
     }
   }
 
-  // =========================================确认搜索============================================
+  // =========================================搜索条件============================================
 
-  submitinfo = () => {
+  submitinfo = (page) => {
     let selectprice = ''
     let searchprice = {}
     let sminprice
@@ -270,7 +285,7 @@ export default class Secondhand_Market extends Component {
     }
     if (selectprice.includes('上')) {
       sminprice = parseInt(selectprice)
-      searchprice = { minprice: sminprice }
+      searchprice = { minprice: sminprice, maxprice: null }
     } else if (selectprice.includes('下')) {
       smaxprice = parseInt(selectprice)
       searchprice = { minprice: 0, maxprice: smaxprice }
@@ -281,16 +296,24 @@ export default class Secondhand_Market extends Component {
         maxprice: parseInt(pricearray[1]),
       }
     } else if (selectprice.includes('限')) {
-      searchprice = { minprice: 0 }
+      searchprice = { minprice: null, maxprice: null }
     }
 
     let selectvalue = {
-      selectnewstatus: this.state.selectnewstatus,
-      selectregion: this.state.selectregion,
-      selctprice: searchprice,
+      assort: this.state.selectnewstatus,
+      address: this.state.selectregion,
+      minPrice: searchprice.minprice,
+      maxPrice: searchprice.maxprice,
+      orderList: this.state.order,
     }
 
-    console.log(selectvalue)
+    this.searchsecproduct(selectvalue, page, 5)
+  }
+
+  // ====================================确认==================================
+
+  confirmsearch = () => {
+    this.submitinfo(1)
   }
 
   // ===================================上一页==============================================
@@ -301,14 +324,7 @@ export default class Secondhand_Market extends Component {
           currentpage: this.state.currentpage - 1,
         },
         () => {
-          console.log(this.state.currentpage)
-          let productlist = this.bindselectproduct(
-            this.state.selectinfo,
-            this.state.currentpage
-          )
-          this.setState({
-            selectproductresultbox: productlist,
-          })
+          this.submitinfo(this.state.currentpage)
         }
       )
     }
@@ -316,23 +332,14 @@ export default class Secondhand_Market extends Component {
 
   // ======================================下一页=================================================
   pagetonext = () => {
-    if (
-      this.state.currentpage + 1 <=
-      Math.ceil(this.state.selectinfo.length / this.state.pageper)
-    ) {
+    console.log(this.state.currentpage)
+    if (this.state.currentpage + 1 <= this.state.totalpage) {
       this.setState(
         {
           currentpage: this.state.currentpage + 1,
         },
         () => {
-          console.log(this.state.currentpage)
-          let productlist = this.bindselectproduct(
-            this.state.selectinfo,
-            this.state.currentpage
-          )
-          this.setState({
-            selectproductresultbox: productlist,
-          })
+          this.submitinfo(this.state.currentpage)
         }
       )
     }
@@ -341,37 +348,21 @@ export default class Secondhand_Market extends Component {
   // =====================================输入页码=================================
   onchange = (e) => {
     this.setState({
-      currentpage: e.target.value,
+      currentpage: parseInt(e.target.value),
     })
   }
+  // ==============================鼠标移开跳页=========================
   pageto = (e) => {
-    if (
-      e.target.value > 0 &&
-      e.target.value <=
-        Math.ceil(this.state.selectinfo.length / this.state.pageper)
-    ) {
-      let productlist = this.bindselectproduct(
-        this.state.selectinfo,
-        this.state.currentpage
-      )
-      this.setState({
-        selectproductresultbox: productlist,
-      })
+    if (e.target.value > 0 && e.target.value <= this.state.totalpage) {
+      console.log('=======================' + this.state.currentpage)
+      this.submitinfo(this.state.currentpage)
     } else {
       this.setState(
         {
-          currentpage: Math.ceil(
-            this.state.selectinfo.length / this.state.pageper
-          ),
+          currentpage: this.state.totalpage,
         },
         () => {
-          let productlist = this.bindselectproduct(
-            this.state.selectinfo,
-            this.state.currentpage
-          )
-          this.setState({
-            selectproductresultbox: productlist,
-          })
+          this.submitinfo(this.state.currentpage)
         }
       )
     }
@@ -381,6 +372,7 @@ export default class Secondhand_Market extends Component {
     return (
       <div>
         <Myheader></Myheader>
+        <Mysecheader></Mysecheader>
         {/* 二手馆 */}
         <div className="chenmingsecproductbox">
           {/* 搜索框盒子 */}
@@ -397,7 +389,7 @@ export default class Secondhand_Market extends Component {
             <div>
               <div>地区 ：</div>
               <ul id="selectregion">
-                <li className="red">全成都</li>
+                <li className="red">成都</li>
                 {this.state.selectmenu2}
                 <li style={{ position: 'relative' }} onClick={this.more}>
                   更多
@@ -445,7 +437,7 @@ export default class Secondhand_Market extends Component {
                   <button
                     type="button"
                     className="submitprice"
-                    onClick={this.submitinfo}
+                    onClick={this.confirmsearch}
                   >
                     确认
                   </button>
@@ -456,11 +448,11 @@ export default class Secondhand_Market extends Component {
           {/* 排序盒子 */}
           <div className="sortproduct">
             <div>
-              <ul>
+              <ul id="order">
                 <li className="red">默认排序</li>
                 <li>最新发布</li>
                 <li>价格</li>
-                <li>只看有图</li>
+                {/* <li>只看有图</li> */}
               </ul>
             </div>
           </div>
@@ -497,7 +489,7 @@ export default class Secondhand_Market extends Component {
                   fontSize: 24,
                 }}
               >
-                /{Math.ceil(this.state.selectinfo.length / this.state.pageper)}
+                /{this.state.totalpage}
               </span>
               <Button onClick={this.pagetonext} type="primary">
                 下一页
@@ -505,6 +497,7 @@ export default class Secondhand_Market extends Component {
             </div>
           </div>
         </div>
+        <Myfooter></Myfooter>
       </div>
     )
   }

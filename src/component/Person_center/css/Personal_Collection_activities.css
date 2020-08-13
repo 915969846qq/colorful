@@ -14,7 +14,7 @@
     background-color: #f7f7f7;
 }
 .xt6 .setion{
-    width: 930px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -82,8 +82,8 @@
 }
 .xt6 .All-out{
     position: relative;
-    top: -105px;
-    left: 83px;
+    top: -110px;
+    left: 95px;
 }
 .xt6 .ant-pagination-item-link {
     display: block;
@@ -115,7 +115,7 @@
     color: #0f0f0f;
     font-size: 12px;
     position: relative;
-    top: -75px;
+    top: -76px;
     left: 50px;
 }
 /*.ant-table-cell{*/
