@@ -66,18 +66,25 @@ this.setState({
   render() {
 
     const columns = [
-      { title: 'Name', dataIndex: 'name', key: 'name' },
-      { title: 'Age', dataIndex: 'age', key: 'age' },
-      { title: 'sex', dataIndex: 'sex', key: 'address' },
-      { title: 'Address', dataIndex: 'address', key: 'address' },
+      // {
+      //   title: '头像',
+      //   dataIndex: 'license',
+      //   key: 'id',
+      //   render: (record,data) => <img src={`../../../${record.license}`} alt="true" />,
+      // },
       {
-        title: '状态',
-        dataIndex: '',
-        key: 'x',
-        render: () => <div className={this.state.rowData === 1 ? 'myChioce' : 'myCancle'} onClick={this.test.bind(this,1)}>审核已通过</div>,
-        render: () => <div className={this.state.rowData === 0 ? 'myChioce' : 'myCancle'} onClick={this.test.bind(this, 0)}>审核未通过</div>,
+        title: '头像',
+        dataIndex: 'license',
+        key: 'id',
+        render: (record,data) => <img src={require(`../../../assets/images/Collection_icon_08.png`)} alt="true"/>
       },
-    ];
+      { title: '名字', dataIndex: 'acountName', key: 'name' },
+      { title: '住址', dataIndex: 'address', key: 'name' },
+      { title: '身份证', dataIndex: 'idCard', key: 'age' },
+      { title: '开户银行', dataIndex: 'bankCard', key: 'address' },
+      { title: '资金', dataIndex: 'registereCapital', key: 'age' },
+      // { title: '状态', dataIndex: 'isisLegalL', key: 'age' },
+    ]
 
     return (
       <div>

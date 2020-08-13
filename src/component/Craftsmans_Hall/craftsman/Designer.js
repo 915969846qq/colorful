@@ -55,7 +55,7 @@ class Designer extends Component {
                       }
                       
                   }
-                  ><img src={require(`../../../assets/images/craftsman_07.jpg`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link>
+                  ><img src={require(`../../../${item.avatar}`)} alt="" onClick={this.toDetails.bind(this,item.id)} className="imgSize"/></Link>
                   <div className="flex craftsman_Info">
                       <div>
                           <span className="craftsman_name cursor">{item.realName}</span>

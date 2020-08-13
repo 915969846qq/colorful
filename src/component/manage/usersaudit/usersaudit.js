@@ -36,10 +36,6 @@ export default class usersaudit extends Component {
       // onPasson:0,//未通过
     }
 
-    
-
-    
-
   }
 
   UNSAFE_componentWillMount() {
@@ -57,7 +53,7 @@ export default class usersaudit extends Component {
                       }).then((res)=>{
                           return res.json();       
                       }).then((data)=>{
-                        console.log(data.data);  
+                      console.log(data);  
                     let newData=[];
                     data.data.map((item,index)=>{
                       item.key=index;
@@ -195,11 +191,19 @@ export default class usersaudit extends Component {
   render() {
     // table
     const columns = [
-      { title: 'Name', dataIndex: 'name', key: 'name' },
-      { title: 'companyName', dataIndex: 'age', key: 'age' },
-      { title: 'Address', dataIndex: 'address', key: 'address' },
       {
-        title: 'Action',
+        title: '头像',
+        dataIndex: 'license',
+        key: 'id',
+        render: (record,data) => <img src={require(`../../../assets/images/Collection_icon_08.png`)} alt="true"/>
+      },
+      { title: '名字', dataIndex: 'acountName', key: 'name' },
+      { title: '住址', dataIndex: 'address', key: 'name' },
+      { title: '身份证', dataIndex: 'idCard', key: 'age' },
+      { title: '开户银行', dataIndex: 'bankCard', key: 'address' },
+      { title: '资金', dataIndex: 'registereCapital', key: 'age' },
+      {
+        title: '操作',
         dataIndex: 'id',
         key: 'x',
         render: (e, record) => (
@@ -208,12 +212,12 @@ export default class usersaudit extends Component {
           </Link>
         ),
       },
-      {
-        title: 'Action',
-        dataIndex: 'license',
-        key: 'id',
-        render: (e, record) => <img src={record.license} alt="true" />,
-      },
+      // {
+      //   title: 'Action',
+      //   dataIndex: 'license',
+      //   key: 'id',
+      //   render: (e, record) => <img src={record.license} alt="true" />,
+      // },
     ]
     // let businessArr = this.state.businessArr.map((item, index) => {
     //   return (
@@ -271,7 +275,7 @@ export default class usersaudit extends Component {
                   </div>
                   <Input
                     className="Input"
-                    value={this.state.rowData.registereCaptial}
+                    value={this.state.rowData.registereCapital}
                   />
                 </div>
                 {/*法人代表/经营者信息*/}
@@ -283,7 +287,7 @@ export default class usersaudit extends Component {
                   <Input
                     className="Input"
                     placeholder="张三"
-                    value={this.state.rowData.accountName}
+                    value={this.state.rowData.name}
                   />
                 </div>
                 <div className="namebox1 ">
@@ -349,7 +353,7 @@ export default class usersaudit extends Component {
                   <div className="name1">
                     <span className="color">*</span>银行名称
                   </div>
-                  <Input className="Input" value={this.state.rowData.bank} />
+                  <Input className="Input" value="建设银行" />
                 </div>
               </form>
               <div className="btnFlex ">

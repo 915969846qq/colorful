@@ -53,3 +53,6 @@
     width: 180px;
     margin: 0 auto;
 }
+.myReservation .cursor{
+    cursor: pointer;
+}

@@ -113,7 +113,7 @@ class Personal_My_shopping_order_two extends Component {
       () => {
         let sumprice = this.props.carttoorder.reduce(
           (totalPrice, item) => totalPrice + item.price * item.quantity,
-          0
+          
         )
         this.setState(
           {

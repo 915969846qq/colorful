@@ -25,30 +25,30 @@ class Style_pavilion_case extends Component {
         this.state = {
 
             craftsmanArr: [
-                {
-                    avatar:"assets/images/craftsman_07.jpg",
-                    realName:"wajwkd",
-                    company:"ksd",
-                    hot:65
-                },
-                {
-                    avatar:"assets/images/craftsman_07.jpg",
-                    realName:"wajwkd",
-                    company:"ksd",
-                    hot:65
-                },
-                {
-                    avatar:"assets/images/craftsman_07.jpg",
-                    realName:"wajwkd",
-                    company:"ksd",
-                    hot:65
-                },
-                {
-                    avatar:"assets/images/craftsman_07.jpg",
-                    realName:"wajwkd",
-                    company:"ksd",
-                    hot:65
-                },
+                // {
+                //     avatar:"assets/images/craftsman_07.jpg",
+                //     realName:"wajwkd",
+                //     company:"ksd",
+                //     hot:65
+                // },
+                // {
+                //     avatar:"assets/images/craftsman_07.jpg",
+                //     realName:"wajwkd",
+                //     company:"ksd",
+                //     hot:65
+                // },
+                // {
+                //     avatar:"assets/images/craftsman_07.jpg",
+                //     realName:"wajwkd",
+                //     company:"ksd",
+                //     hot:65
+                // },
+                // {
+                //     avatar:"assets/images/craftsman_07.jpg",
+                //     realName:"wajwkd",
+                //     company:"ksd",
+                //     hot:65
+                // },
             ],
 
             //类型
@@ -59,13 +59,46 @@ class Style_pavilion_case extends Component {
             current:1,
             //总数
             total:1,
-
-            
         }
     }
 
     
  
+    //初始化
+    UNSAFE_componentWillMount() {
+        fetch('http://47.100.90.56:8080/banJu/style/findPicture', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            // 传参
+            body: JSON.stringify({
+                type:this.state.type,
+                style:this.state.style,
+                // current: 1,
+                // limit: 4,
+
+            })
+        }).then((res) => {
+            return res.json();
+        }).then((data) => {
+            console.log(data);
+            console.log(data.data);
+            // 存放数组            
+            this.setState({
+                craftsmanArr: data.data,
+                total:Math.ceil(data.data.length/4),
+            },()=>{
+                if(this.state.total>=1){
+                    this.arr(1);
+                }
+                
+            })
+        }).catch((e) => {
+            console.log("数据有误");
+        });
+    }
 
     //点击style
     style=(style,e)=>{
@@ -73,6 +106,7 @@ class Style_pavilion_case extends Component {
         this.setState({
             style:style,
             craftsmanArr:"",
+            current:1,
             total:1,
         },()=>{
             console.log(this.state.style)
@@ -85,6 +119,7 @@ class Style_pavilion_case extends Component {
         this.setState({
             type:type,
             craftsmanArr:"",
+            current:1,
             total:1,
         },()=>{
             console.log(this.state.type)
@@ -113,7 +148,7 @@ class Style_pavilion_case extends Component {
                 current:this.state.current-1,
          },()=>{
               // 点击事件中调接口
-             this.myFetch();
+             this.arr(this.state.current);
          });
         }
     }
@@ -125,22 +160,65 @@ class Style_pavilion_case extends Component {
                 current:this.state.current+1,
          },()=>{
               // 点击事件中调接口
-             this.myFetch();
+             this.arr(this.state.current);
          });
         }
     }
 
    
+    //myFetch
+    myFetch=()=>{
+        fetch('http://47.100.90.56:8080/banJu/style/findPicture', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            // 传参
+            body: JSON.stringify({
+                type:this.state.type,
+                style:this.state.style,
+                // current: 1,
+                // limit: 4,
 
-    render() {
-        let arr = this.state.craftsmanArr.map((item,index) => {
+            })
+        }).then((res) => {
+            return res.json();
+        }).then((data) => {
+            console.log(data);
+            console.log(data.data);
+            // 存放数组            
+            this.setState({
+                craftsmanArr: data.data,
+                total:Math.ceil(data.data.length/4),
+            },()=>{
+                if(this.state.total>=1){
+                    this.arr(1);
+                }else{
+                        this.arr(0);
+                        this.setState({
+                            current:0,
+                        })
+                }
+            })
+        }).catch((e) => {
+            console.log("数据有误");
+        });
+    }
+
+
+
+    //函数
+    arr=(page)=>{
+        console.log("44444444444")
+        let arr = this.state.craftsmanArr.slice((page-1)*4,page*4).map((item,index) => {
             return (
                 <div className="craftsman" key={index}>
-                    <img src={require(`../../${item.avatar}`)} alt="" className="pavilionLImg"/>
+                    <img src={require(`../../${item.img}`)} alt="" className="pavilionLImg"/>
                     <div className="craftsman_list_padding">
                         <div className="flex craftsman_Info">
-                            <div className="craftsman_list_name">{item.realName}</div>
-                            <div className="craftsman_company">{item.company}</div>
+                            <div className="craftsman_list_name">{item.style}</div>
+                            <div className="craftsman_company">{item.type}</div>
                         </div>
                         <div className="flex craftsman_Info">
                             <span><span className="iconfont icon-aixin" onClick={this.collection.bind(this)}></span>{item.hot}</span>
@@ -149,7 +227,12 @@ class Style_pavilion_case extends Component {
                 </div>
             )
         });
-        
+        this.setState({
+            arr,
+        })
+    }
+    render() {
+       
         return (
             //外层css取名
             <div className="craftsmancss">
@@ -187,8 +270,8 @@ class Style_pavilion_case extends Component {
                 {/* 工匠人员 */}
                 <div className="craftsmanStyle flex ">
 
-                    {/* {this.state.arr} */}
-                    {arr}
+                    {this.state.arr}
+                    {/* {arr} */}
                 </div>
                 <div className="craftsmanStyle center">
                     <div className="flex centerFlex">

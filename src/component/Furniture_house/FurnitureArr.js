@@ -53,17 +53,22 @@ class FurnitureArr extends Component {
             },
             credentials: 'include',
             body: JSON.stringify({
-                type:17,
+                type:1,
             })
         }).then((res) => {
             return res.json();
         }).then((data) => {
-            
+            console.log(data);
             console.log(data.data);
             
             // 存放数组            
             this.setState({
                 FurnitureArr:data.data,
+                // FurnitureArr:[{
+                //     desc:"sahd",
+                //     price:45,
+                //     vipPrice:45,
+                // }]
             },()=>{
                 this.arr();
                 this.myFetch2();
@@ -74,7 +79,6 @@ class FurnitureArr extends Component {
             console.log("数据有误");
         });
     }
-
 
     //桌椅fetch
     myFetch2=()=>{
@@ -97,6 +101,11 @@ class FurnitureArr extends Component {
                 // 存放数组            
                 this.setState({
                     parlour:data.data,
+                    // parlour:[{
+                    //     desc:"sahd",
+                    //     price:45,
+                    //     vipPrice:45,
+                    // }]
                 }
                 ,()=>{
                     this.arr1()

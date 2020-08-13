@@ -60,7 +60,7 @@ class PopularCraftsman extends Component {
                       }
                       
                   }>
-                      <img src={require(`../../../assets/images/craftsman_07.jpg`)} alt="" className="cursor" onClick={this.toDetails.bind(this,item.id)}/></Link>
+                      <img src={require(`../../../${item.avatar}`)} alt="" className="cursor" onClick={this.toDetails.bind(this,item.id)} className="imgSize"/></Link>
                   <div className="flex craftsman_Info">
                       <div>
                           <Link to={

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import Item from 'antd/lib/list/Item';
+import {connect} from 'react-redux'
 
 //引入css
 import '../Craftsmans_Hall/css/goodsInfo.css'
@@ -13,6 +14,8 @@ class Furniture_Museum_details extends Component {
       material: '',
       //尺寸
       size: '',
+      //数量
+      num:1,
 
       //商品详情
       goodsInfo: [
@@ -61,8 +64,34 @@ class Furniture_Museum_details extends Component {
   }
   // 当前商品的id值
   UNSAFE_componentWillMount() {
+    console.log(this.props)
     console.log(this.props.location.state.key)
     let personId = this.props.location.state.key
+    this.setState({
+      sumprice:10000,
+    })
+  }
+  gobuy(index,t){
+    this.setState({
+      choosearr:[{
+        goods:[],
+        name:this.state.goodsInfo[index].goodstitle,
+        price:parseInt(this.state.goodsInfo[index].price),
+        recommendedImg:this.state.goodsInfo[index].recommendedImg,
+        title:this.state.goodsInfo[index].title,
+        name:this.state.goodsInfo[index].goodstitle,
+        quantity:this.state.num,
+        specifications:'',
+        sumprice:this.state.goodsInfo[index].num*this.state.goodsInfo[index].price,
+      }]
+     
+    },()=>{
+      console.log(this.state.choosearr);
+      console.log(this.state.choosearr.quantity*this.state.choosearr.price)
+      this.props.getcarttoorder(this);
+      this.props.history.push('Personal_Center_index/Personal_My_shopping_order_two');
+    })
+
   }
 
   chose(e) {
@@ -89,7 +118,7 @@ class Furniture_Museum_details extends Component {
                   className="goodsImgStyle cursor"
                   alt=""
                 />
-                <div className="goodsFlex togglestyle">
+                {/* <div className="goodsFlex togglestyle">
                   <div className="buttonleft">&lt;</div>
                   <div>
                     <img src={require(`../../${item.toggleImg}`)} alt="" />
@@ -104,7 +133,7 @@ class Furniture_Museum_details extends Component {
                     <img src={require(`../../${item.toggleImg}`)} alt="" />
                   </div>
                   <div className="buttonleft">&gt;</div>
-                </div>
+                </div> */}
               </div>
               {/* 右边 */}
               <div className="goodsInfo_right">
@@ -182,7 +211,7 @@ class Furniture_Museum_details extends Component {
                     }
                     onClick={this.choseMaterial.bind(this, 'MA')}
                   >
-                    MA
+                    CB
                   </div>
                   <div
                     className={
@@ -211,12 +240,12 @@ class Furniture_Museum_details extends Component {
                 </div>
                 <div>
                   <span className="goodsPrice">数量：</span>
-                  <span>1</span>
+                  <span>{this.state.num}</span>
                   {/* <img src={require(`../../assets/images/Collection_icon_05.png`)} alt="" className="shoucang cursor"/> */}
                   {/* <span className={this.state.material==='亚麻'?'sizeBox':'sizeBoxNone'} onClick={this.state.choseMaterial.bind(this,"亚麻")}className="goodsPrice cursor">收藏</span> */}
                 </div>
                 <div className="goodsFlex align">
-                  <div className="buyNow cursor">立即购买</div>
+                  <div className="buyNow cursor" onClick={this.gobuy.bind(this,index)}>立即购买</div>
                   <div className="buyNow cursor">加入购物车</div>
                 </div>
               </div>
@@ -269,5 +298,25 @@ class Furniture_Museum_details extends Component {
     )
   }
 }
+const MapStateToProps = (state, OwnProps) => {
+  return {
+      carttoorder: state.cartorder.carttoorder,
+      rcommend: state.cartorder.recommend,
+      // cartlist: state.cartorder.cartlist.data,
+      local: state.cartorder.local,
+  }
 
-export default Furniture_Museum_details
+}
+const MapDispatchToProps = (dispatch) => {
+  return {
+      getcarttoorder:(t) => {
+          console.log(t)
+          dispatch({
+              type: 'CARTTOORDER',
+              carttoorder:t.state.choosearr,
+              sumprice:t.state.sumprice,
+          })
+      }
+    }
+  }
+export default connect(MapStateToProps,MapDispatchToProps)(Furniture_Museum_details) 

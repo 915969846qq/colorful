@@ -30,7 +30,7 @@ class Masons extends Component {
                       credentials: 'include',
             // 传参
                       body:JSON.stringify({
-                            limit:"3"
+                            limit:"4"
                       })
                       }).then((res)=>{            
                           return res.json();       
@@ -134,7 +134,7 @@ class Masons extends Component {
                           
                       }
                       // {"/Craftsman_details/"+item.id}
-                      ><img src={require(`../../../assets/images/craftsman_07.jpg`)} alt="" onClick={this.toDetails.bind(this,item.id)}/></Link>
+                      ><img src={require(`../../../${item.avatar}`)} alt="" onClick={this.toDetails.bind(this,item.id)} className="imgSize"/></Link>
                       <div className="flex craftsman_Info">
                           <div>
                               <span className="craftsman_name cursor">{item.realName}</span>

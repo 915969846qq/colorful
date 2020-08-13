@@ -9,7 +9,7 @@ import HeaderSearch from "../component/commen/indexHeader1"
 import HeaderBanner from "../component/commen/indexHeader2"
 
 //引入底部
-import Footer from "../component/commen/footer"
+// import Footer from "../component/commen/footer"
 
 //引入组件
 import FurnitureArr from '../component/Furniture_house/FurnitureArr'
@@ -105,10 +105,13 @@ class Furniture_Museum extends Component {
                 <div className="Furniture">
                     <HeaderSearch></HeaderSearch>
                     <HeaderBanner></HeaderBanner>
-                    {/* //优惠券 */}
-                    {arr}
+                    <div className="cuoponFlex marginLeft">
+                        {/* //优惠券 */}
+                        {arr}
+                    </div>
+                    
                    {/* 卧室 */}
-                    <div className="cuoponBox">
+                    <div className="cuoponBox ">
                         <FurnitureArr></FurnitureArr>
                     </div>
                     {/* <Footer></Footer> */}

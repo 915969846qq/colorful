@@ -12,7 +12,7 @@
 .auditStyle .closeImg{
     width: 24px;
     height: 24px;
-    margin-left: 930px;
+    /* margin-left: 930px; */
     /* margin-top:50px;  */
     cursor: pointer;
     background-color: red;
@@ -21,18 +21,18 @@
     background-color: white;
     width: 600px;
     height: 530px;
-    margin-left: 180px;
-    margin-top:-28px; 
+    margin-left: 350px;
+    /* margin-top:-28px;  */
 }
 .auditStyle .myHide{
     display: none;
 }
 .auditStyle .myShow{
-    width: 955px;
+    width: 1220px;
     height: 530px;
     background-color:rgba(240,242,245,.4);
     position:absolute;
-    top: 55px;
+    /* top: 55px; */
     left: 0;
     z-index:3;
     display: block;
@@ -62,6 +62,7 @@
 } */
 .auditStyle .formBox{
     width: 255px;
+    height: 442px;
     margin: 0 auto;
 }
 .auditStyle .namebox{
@@ -110,7 +111,7 @@
 }
 .auditStyle .btnFlex{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin: 0 -90px;
     
 

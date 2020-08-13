@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { Row, Col, } from 'antd';
-// import { Pagination } from 'antd';
 import { Modal, Button, Space } from 'antd';
 import "whatwg-fetch"
 
@@ -68,7 +67,7 @@ class Craftsman_Pavilion_list extends Component {
         console.log(e);
         this.setState({
             occupation: e,
-            total:1,
+            // total:1,
         },()=>{
             console.log(this.state.occupation)
             fetch('http://47.100.90.56:8080/banJu/craftsman/craftsmanFindByLike', {
@@ -79,12 +78,12 @@ class Craftsman_Pavilion_list extends Component {
                 credentials: 'include',
                 // 传参
                 body: JSON.stringify({
-                    occupation: this.state.craftsmanArr,
+                    occupation: this.state.occupation,
                     experienceMin: this.state.experienceMin,
                     experienceMax: this.state.experienceMax,
                     orderList: this.state.orderList,
-                    // page: this.state.current,
-                    // limit: 10,
+                    page: this.state.current,
+                    limit: 4,
                 })
             }).then((res) => {
                 return res.json();
@@ -92,7 +91,8 @@ class Craftsman_Pavilion_list extends Component {
                 console.log(data);
                 // 存放数组            
                 this.setState({
-                    craftsmanArr: data.data
+                    craftsmanArr: data.data,
+                    total:data.pages,
                 },()=>{
                     this.arr()
                 })
@@ -109,7 +109,7 @@ class Craftsman_Pavilion_list extends Component {
         console.log(typeof e);
         console.log(e.substring(0, 1));
         this.setState({
-            total:1,
+            // total:1,
             exper: e,
             experienceMin: e.substring(0, 1),
             experienceMax: e.substring(1, 1),
@@ -154,7 +154,7 @@ class Craftsman_Pavilion_list extends Component {
         console.log(e);
         this.setState({
             orderList: e,
-            total:1,
+            // total:1,
         },()=>{
  // 点击事件中调接口
         // this.state.position=e.target.innerHTML;
@@ -292,6 +292,7 @@ class Craftsman_Pavilion_list extends Component {
             e.target.style.color="gray";
         }
       }
+
     //初始化页面调用
     myFetch=()=>{
         fetch('http://47.100.90.56:8080/banJu/craftsman/craftsmanFindByLike', {
@@ -328,30 +329,7 @@ class Craftsman_Pavilion_list extends Component {
         
     }
       
-    //上一页
-    toUp=()=>{
-        if(this.state.current-1!==0){
-            this.setState({
-                current:this.state.current-1,
-                total:1,
-         },()=>{
-              // 点击事件中调接口
-             this.myFetch();
-         });
-        }
-    }
-
-    //下一页
-    toDown=()=>{
-        if(this.state.current+1<=this.state.total){
-            this.setState({
-                current:this.state.current+1,
-         },()=>{
-              // 点击事件中调接口
-             this.myFetch();
-         });
-        }
-    }
+   
     //函数
     arr=()=>{
         let arr = this.state.craftsmanArr.map((item) => {
@@ -429,10 +407,13 @@ class Craftsman_Pavilion_list extends Component {
                 <div className="craftsmanStyle center">
                     <div className="flex centerFlex">
                         <div className="Pages cursor" onClick={this.toUp.bind(this)}>上一页</div>
-                            <div className="number"><span className=" currentNumber" >{this.state.current}</span>/{this.state.total}</div>
+                            <div className=" number"><span className=" currentNumber" >{this.state.current}</span>/{this.state.total}</div>
                         <div className="Pages cursor" onClick={this.toDown.bind(this)}>下一页</div>
-                    </div>     
+                    </div>
+
+                   
                 </div>
+                
                 <Footer></Footer>
             </div>
         );

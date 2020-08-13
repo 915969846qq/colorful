@@ -31,12 +31,18 @@ import Craftsman_Settled_company from './component/Person_center/Craftsman_Settl
 import Furniture_Museum_details from './component/Furniture_house/Furniture_Museum_details'
 import Style_pavilion_case from './component/Style/Style_pavilion_case'
 import Decoration_Diary_list from './component/Decoration_pipe/Decoration_Diary_list'
+import BackStage from "./component/Login/backstage"
 function App() {
   return (
     <div className="App">
       {/* <Index></Index> */}
       <Router>
         <Switch>
+        
+        <Route
+            path="/backStage"
+            component={BackStage}
+          ></Route>
           <Route
             path="/Style_pavilion_case"
             component={Style_pavilion_case}

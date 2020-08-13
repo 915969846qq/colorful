@@ -5,7 +5,7 @@ import "./css/mycenter.css"
 
 //引入antd表格
 import { Table } from 'antd';
-import { Popconfirm } from 'antd';
+import { Popconfirm, message } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 
@@ -53,18 +53,20 @@ class Personal_My_reservation extends Component {
                 });
     }
      
-    onConfirm=(e)=>{
-      console.log("aaaaaaaaaaa")
+   
+    myDel=(e)=>{
+      console.log("aaaa");
+      console.log(e.target.parentNode);
+      e.target.parentNode.parentNode.style.display="none";
     }
-    render() { 
-      
 
+    render() { 
     const columns = [
               {
-                title: 'Action',
+                title: '头像',
                 dataIndex: 'avatar',
                 key: 'id',
-                // render: (record,data) => <img src={require(`../../../${data.avatar}`)} alt="true"/>
+                render: (record,data) => <img src={require(`../../assets/images/reply.png`)} alt="true"/>
               },
               { title: '工匠名字', dataIndex: 'name', key: 'name' },
               { title: '工匠类型', dataIndex: 'occupation', key: 'occupation' },
@@ -75,9 +77,23 @@ class Personal_My_reservation extends Component {
                 title: 'Action',
                 dataIndex: '',
                 key: 'x',
-                render: () => <a href='1'><Popconfirm title="Are you sure？" icon={<QuestionCircleOutlined style={{ color: 'red' }} />}>
-                <a href="#">取消预约</a>
-              </Popconfirm></a>,
+                render:()=><div onClick={this.myDel.bind(this)} className="cursor">取消预约</div>
+              //   render: (record) => <Popconfirm
+              //   title="Are you sure delete this task?"
+              //   onConfirm={confirm}
+              //   onCancel={cancel}
+              //   okText="Yes"
+              //   cancelText="No"
+              // >
+              //   <a href="#">Delete</a>
+              // </Popconfirm>,
+
+              // render: (text,record) => (
+              //   <span>
+              //     <Button onClick={()=>this.del(record.id)}> 删除</Button>
+              //   </span>
+              // ),
+
               },
               
     ];
@@ -99,7 +115,7 @@ class Personal_My_reservation extends Component {
                     </div>
                 </div>
             </div>
-             {/* 表格 */}
+         {/* 表格 */}
           <Table data={this.state.dataSource}
           columns={columns}
           
