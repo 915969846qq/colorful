@@ -1,50 +1,65 @@
 import React, { Component } from 'react'
 //安全中心
+import CAxios from '../../util/chenmingaxios'
 import {Input,Button,Space,Modal} from 'antd'
 import './css/Personal_Security_Center.css'
+
 export default class Personal_Security_center extends Component {
     constructor(){
         super()
         this.state={   
             phone:"",
             code:"",
-            repeatecode:"",
+            repeatcode:"",
             vertifycode:"",
             alert:"验证码发送成功，请注意查收"
         }
     }
 // ========================================获取验证码=====================================
-getcodeinfo=(e)=>{
-     fetch(`http://172.16.10.15:8080/banJu/Code/sendVerifyCode`,{                     
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json' 
-                },
-                credentials: 'include',
-                body:JSON.stringify({phoneNumber:"18080359445"})
-                }).then((res)=>{   
-                       console.log(res)         
-                    return res.json();       
+getcodeinfo=()=>{
+    if(this.state.phone.length!==0){
+       
+       CAxios.post(`/banJu/Code/sendVerifyCode`,{phoneNumber:""+this.state.phone}
+                ).then((res)=>{   
+                       if(parseInt(res.status)===200){
+                 let that=this
+                      that.setState({
+                        alert:"验证码发送成功，请注意查收"
+                    },()=>{
+                        that.info()
+                    }) 
+                   
+                    } else{
+                    this.setState({
+                        alert:"服务器发生"+res.status+"错误，请稍后再试"
+                    },()=>{
+                        this.info()
+                    })
+                    }       
+                    return res.data;       
                 }).then((data)=>{
                    console.log(data)
                 }).catch((e) => {
                       
                 }); 
-      this.info()
+      
+    }else{
+        this.setState({
+            alert:"手机号码不能为空"
+        },()=>{
+            this.info()
+        })
+    }
+     
   }
 // ====================================================更改密码==================================  
 
 updateperinfo=(e)=>{
-     fetch(`http://172.16.10.15:8080/banJu/user/updatePassword`,{                     
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json' 
-                },
-                credentials: 'include',
-                body:JSON.stringify(e)
-                }).then((res)=>{   
-                       console.log(res)         
-                    return res.json();       
+    
+     CAxios.post(`/banJu/user/updatePassword`,e
+                ).then((res)=>{   
+                           
+                    return res.data;       
                 }).then((data)=>{
                    console.log(data)
                 }).catch((e) => {
@@ -83,16 +98,20 @@ vertifypassword=(e)=>{
     // ============================提交=========================
 
     submitinfo=()=>{
-       this.updateperinfo({
+        console.log(this.state.repeatcode)
+       if(this.state.repeatcode.length!==0&&this.state.vertifycode.length!==0&&this.state.code.length!==0&&this.state.phone.length!==0) {
+           this.updateperinfo({
            phoneNumber:this.state.phone,
            verify:this.state.vertifycode,
            password:this.state.repeatcode
        })
-       console.log({
-        phoneNumber:this.state.phone,
-        verify:this.state.vertifycode,
-        password:this.state.repeatcode
-       })
+       }else{
+           this.setState({
+               alert:"信息不能为空"
+           },()=>{
+               this.info()
+           })
+       }
     }
 
 // ========================================提示信息=================================
@@ -137,7 +156,7 @@ info=()=> {
                         <span>确认新密码 :</span>
                         <Input placeholder="请再次输入新密码" value={this.state.repeatcode} onChange={this.onchange.bind(this,"repeatcode")} onBlur={this.vertifypassword} style={{width:250}} /> 
                     </div>
-                    <div><Button  type="primary" danger style={{width:250,marginLeft:120}} onClick={this.submitinfo} >确认修改</Button></div>
+                    <div><Button  type="primary" danger style={{width:250,marginLeft:120}} onClick={this.submitinfo.bind(this)} >确认修改</Button></div>
                 </div>
             </div>
         )

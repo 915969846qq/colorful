@@ -35,6 +35,9 @@
 .sec_detail>div{
     width: 200px;
     margin-top: 20px;
+    
+}
+.sec_detail>div>p{
     font-size: 16px;
 }
 /* 留言 */
@@ -44,7 +47,7 @@
 /* 收藏与分享 */
 .save_and_share{
     border-top:1px dashed grey;
-    padding-top: 40px;
+    padding-top: 10px;
     display: flex;
     justify-content: space-between;
    

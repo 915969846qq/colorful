@@ -18,7 +18,7 @@ import {
   Interaction
 } from 'bizcharts';
 import DataSet from "@antv/data-set";
-
+import Axios from '../../../util/chenmingaxios'
 
 
 export default class usersStatisticsboss extends Component {
@@ -34,16 +34,9 @@ export default class usersStatisticsboss extends Component {
 // =================================请求数据=========================================
 getuserstatics=(e)=>{
    
-          fetch(`http://172.16.10.4:8080/banJu/manager/merchantSortShow  `,{                     
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json' 
-            },
-            credentials: 'include',
-            body:JSON.stringify(e)
-            }).then((res)=>{   
-                  //  console.log(res)         
-                return res.json();       
+         Axios.post(`/banJu/manager/merchantSortShow`,e).then((res)=>{   
+                   console.log(res)         
+                return res.data;       
             }).then((data)=>{
 
     let m=0;

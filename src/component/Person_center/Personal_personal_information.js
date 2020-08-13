@@ -4,6 +4,7 @@ import { Input, Radio, Button,Modal,Space } from 'antd'
 import './css/Personal_personal_information.css'
 import './css/city_chenming.css'
 import '../../util/chajian/citychenming'
+import CAxios from '../../util/chenmingaxios'
 import $ from 'jquery'
 export default class Personal_personal_information extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class Personal_personal_information extends Component {
     this.state = {
       province: "",
       city: "",
+      uid:null,
       county: "",
       provinces: ['四川','安徽', '澳门', '北京', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北', '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山东', '山西', '陕西', '上海', '台湾', '天津', '西藏', '香港', '新疆', '云南', '浙江', '重庆', '其他'],
       cities: ['成都'],
@@ -35,16 +37,9 @@ export default class Personal_personal_information extends Component {
 
 getperinfo=(e)=>{
    
-          fetch(`http://172.16.10.15:8080/banJu/user/findUser`,{                     
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json' 
-            },
-            credentials: 'include',
-            body:JSON.stringify(e)
-            }).then((res)=>{   
+          CAxios.post(`/banJu/user/findUser`,e).then((res)=>{   
                    console.log(res)         
-                return res.json();       
+                return res.data;       
             }).then((data)=>{
     console.log(data.data)
     
@@ -79,16 +74,9 @@ getperinfo=(e)=>{
 // ======================================================================发送==============================
 
 postperinfo=(e)=>{
-   fetch(`http://172.16.10.15:8080/banJu/user/updateData`,{                     
-              method:'POST',
-              headers:{
-                  'Content-Type':'application/json' 
-              },
-              credentials: 'include',
-              body:JSON.stringify(e)
-              }).then((res)=>{   
+   CAxios.post(`/banJu/user/updateData`,e).then((res)=>{   
                      console.log(res)         
-                  return res.json();       
+                  return res.data;       
               }).then((data)=>{
                  console.log(data)
               }).catch((e) => {
@@ -103,8 +91,10 @@ postperinfo=(e)=>{
 
 // ===================================页面初始化============================
 componentDidMount(){
+ let uid=JSON.parse(sessionStorage.getItem("user")).id
  
   this.setState({
+    uid:uid,
     province: '四川',
     cities: getCity('四川'),
     city:getCity('四川')[0],
@@ -112,7 +102,7 @@ componentDidMount(){
     county:getCounty('四川',getCity('四川')[0])[0]
   });
       //  ========================================页面初始化==========================================
-this.getperinfo({id:3})
+this.getperinfo({id:uid})
 
 
 }
@@ -166,7 +156,7 @@ this.getperinfo({id:3})
         let city = document.body.getElementsByClassName('mycity')[0].value
         let county = document.body.getElementsByClassName('mycounty')[0].value
         let address = province +"-" +city +"-"+ county+"-"+this.state.detailadress
-      this.postperinfo({id:3,address:address,name:this.state.realname,gender:this.state.sex,email:this.state.email})
+      this.postperinfo({id:this.state.uid,address:address,name:this.state.realname,gender:this.state.sex,email:this.state.email})
     
     
       setTimeout(function(){
@@ -272,10 +262,10 @@ info=()=> {
       <div className="personal_info">
           <div className="personal_img ">
             <span>头像 :</span>
-            {/* <img
+            <img
               src={require(`../../assets/images/${this.state.sec_sellerimg}`)}
               alt="头像"
-            /> */}
+            />
           </div>
           <div>
             <span>真实姓名 :</span>
